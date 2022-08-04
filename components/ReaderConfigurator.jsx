@@ -1,4 +1,15 @@
 export default function ReaderConfigurator({ config, onChange }) {
+  let colorChangeEvent = {
+    onInput: (e) => onChange(e.target.name, e.target.value),
+  }
+  if (process.browser) {
+    const isFirefox = navigator.userAgent.search('Firefox') !== -1
+    if (!isFirefox) {
+      colorChangeEvent.onBlur = colorChangeEvent.onInput
+      delete colorChangeEvent.onInput
+    }
+  }
+
   return (
     <>
       <div className="form-column">
@@ -24,7 +35,7 @@ export default function ReaderConfigurator({ config, onChange }) {
           id="highlightColor"
           name="highlightColor"
           type="color"
-          onBlur={(e) => onChange('highlightColor', e.target.value)}
+          {...colorChangeEvent}
           defaultValue={config.highlightColor}
         />
       </div>
@@ -36,7 +47,7 @@ export default function ReaderConfigurator({ config, onChange }) {
           id="textColor"
           name="textColor"
           type="color"
-          onBlur={(e) => onChange('textColor', e.target.value)}
+          {...colorChangeEvent}
           defaultValue={config.textColor}
         />
       </div>
@@ -48,7 +59,7 @@ export default function ReaderConfigurator({ config, onChange }) {
           id="pageColor"
           name="pageColor"
           type="color"
-          onBlur={(e) => onChange('pageColor', e.target.value)}
+          {...colorChangeEvent}
           defaultValue={config.pageColor}
         />
       </div>

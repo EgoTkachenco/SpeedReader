@@ -30,6 +30,7 @@ export default function SpeedReader() {
     if (!process.browser) return
     const localeConfig = localStorage.getItem('speed-reader-config')
     setConfig(localeConfig ? JSON.parse(localeConfig) : DEFAULT_CONFIG)
+    console.log('Init config:', localeConfig)
   }, [])
   useEffect(() => {
     if (ready)
