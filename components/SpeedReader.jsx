@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import ReaderConfigurator from './ReaderConfigurator'
-// import ReaderViewer from './ReaderViewer'
 import Script from 'next/script'
 
 const DEFAULT_CONFIG = {
@@ -82,7 +81,6 @@ export default function SpeedReader() {
   }
 
   const updateAnimation = (configData, restartAnimation) => {
-    debugger
     if (animation) animation.destroy()
 
     const currentFrame = animation ? animation.currentFrame : null
@@ -120,7 +118,10 @@ export default function SpeedReader() {
 
     const newAnimation = lottie.loadAnimation(options)
     newAnimation.setSpeed(configData.speed / 100)
-    if (!restartAnimation) newAnimation.goToAndPlay(currentFrame, true)
+    if (!restartAnimation) {
+      newAnimation.goToAndPlay(currentFrame, true)
+      newAnimation.isPaused = true
+    }
     setAnimation(newAnimation)
   }
 
@@ -134,7 +135,7 @@ export default function SpeedReader() {
         </div>
         <div className="col-12 col-md-8 align-self-center">
           <Script
-            src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.4/lottie_svg.min.js"
+            src="/lottie.js"
             strategy="lazyOnload"
             onLoad={() => setReady(true)}
           />

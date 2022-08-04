@@ -41,3 +41,22 @@ body {
   font-family: 'Open Sans', sans-serif !important;
   min-height: 100%;
 }
+#reader-view {
+  background: #f0f0f0;
+  width: 100%;
+  max-width: 750px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+* {
+  box-sizing: border-box;
+}
+svg,
+path {
+  transition: all 0.3s;
+}
+svg > path {
+  position: relative;
+}
