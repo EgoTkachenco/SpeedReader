@@ -1,0 +1,96 @@
+body{
+    font-family: 'Open Sans', sans-serif !important;
+    min-height: 100%
+}
+
+html { height: 100% }
+/* svg{
+    transform: rotate(180deg);
+} */
+.actionRow{
+    
+    flex-direction: column;
+    align-items: center;
+}
+.operations{
+    padding-top:40px;
+    width: 83%;
+    background: #f0f0f0;
+    padding-top: 40px;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    display: flex;
+    margin-right: auto;
+}
+.alignArea {
+    display: flex;
+    width: 250px;
+
+    margin-bottom: 20px;
+}
+
+.highlightSection .alignArea {
+   flex-direction: column;
+}
+
+.highlightTypeSection ul.listItemsCustom li{
+    display: flex;
+   
+    margin-bottom: 14px;
+    
+}
+
+.highlightTypeSection ul.listItemsCustom li label{
+    margin-bottom: 1px;
+}
+
+.highlightTypeSection ul.listItemsCustom li select{
+    width: 104px;
+    margin-left: 12px;
+}
+.headLable{
+    font-size:16px;
+    font-weight: 500;
+    display: block;
+
+    width: 150px;
+    margin-top: 0px;
+    white-space: nowrap;
+}
+
+
+.listItemsCustom{
+    list-style: none;
+    list-style: none;
+    display: block;
+    margin: auto;
+    width: fit-content;
+    padding: 0px;
+    margin-top: 0px;
+    margin-left: 16px;
+}
+
+/* .highlightTypeSection{
+    display: flex;
+    justify-content: center;
+} */
+
+ul.listItemsCustom button.buttonCustom {
+    width: 47px;
+    margin-bottom: 15px;
+    border: 1px solid #0000004a;
+    border-radius: 59px;
+    height: 47px;
+}
+.lottieMain{
+    background: #f0f0f0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lottieMain label {
+    font-size: 52px;
+    font-weight: 500;
+}
