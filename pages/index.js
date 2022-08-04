@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import SpeedReader from '../components/SpeedReader'
+
 export default function Home() {
   return (
     <>
