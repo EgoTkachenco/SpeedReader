@@ -50,13 +50,3 @@ body {
   align-items: center;
   margin: auto;
 }
-* {
-  box-sizing: border-box;
-}
-svg,
-path {
-  transition: all 0.3s;
-}
-svg > path {
-  position: relative;
-}

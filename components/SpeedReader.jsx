@@ -95,14 +95,6 @@ export default function SpeedReader() {
     animationData.layers[0].ef[2].ef[0].v.k = hexToRgbA(configData.pageColor)
     animationData.layers[0].ef[3].ef[0].v.k = hexToRgbA(configData.textColor)
 
-    // line types update
-    animationData.layers[0].ef[1].ef[0].v.k = parseInt(
-      configData.highlightTypeS
-    )
-    animationData.layers[0].ef[1].ef[0].v.k = parseInt(
-      configData.highlightTypeV
-    )
-
     // book
     animationData.layers[0].ef[0].ef[0].v.k = parseInt(configData.book)
 
