@@ -110,10 +110,7 @@ export default function SpeedReader() {
 
     const newAnimation = lottie.loadAnimation(options)
     newAnimation.setSpeed(configData.speed / 100)
-    if (!restartAnimation) {
-      newAnimation.goToAndPlay(currentFrame, true)
-      newAnimation.isPaused = true
-    }
+    if (!restartAnimation) newAnimation.goToAndPlay(currentFrame, true)
     setAnimation(newAnimation)
   }
 
