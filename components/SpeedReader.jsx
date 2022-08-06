@@ -113,7 +113,6 @@ export default function SpeedReader() {
     if (!restartAnimation) newAnimation.goToAndPlay(currentFrame, true)
     setAnimation(newAnimation)
   }
-
   return (
     <div className="container-fluid h-100">
       <div className="row">
