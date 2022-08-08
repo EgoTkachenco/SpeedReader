@@ -1,4 +1,4 @@
-export default function ReaderConfigurator({ config, onChange }) {
+export default function SettingsForm({ settings, onChange }) {
   let colorChangeEvent = {
     onInput: (e) => onChange(e.target.name, e.target.value),
   }
@@ -23,7 +23,7 @@ export default function ReaderConfigurator({ config, onChange }) {
           min="25"
           max="300"
           onMouseUp={(e) => onChange('speed', e.target.value)}
-          defaultValue={config.speed}
+          defaultValue={settings.speed}
         />
       </div>
 
@@ -36,7 +36,7 @@ export default function ReaderConfigurator({ config, onChange }) {
           name="highlightColor"
           type="color"
           {...colorChangeEvent}
-          defaultValue={config.highlightColor}
+          defaultValue={settings.highlightColor}
         />
       </div>
       <div className="form-row">
@@ -48,7 +48,7 @@ export default function ReaderConfigurator({ config, onChange }) {
           name="textColor"
           type="color"
           {...colorChangeEvent}
-          defaultValue={config.textColor}
+          defaultValue={settings.textColor}
         />
       </div>
       <div className="form-row">
@@ -60,7 +60,7 @@ export default function ReaderConfigurator({ config, onChange }) {
           name="pageColor"
           type="color"
           {...colorChangeEvent}
-          defaultValue={config.pageColor}
+          defaultValue={settings.pageColor}
         />
       </div>
 
@@ -72,8 +72,8 @@ export default function ReaderConfigurator({ config, onChange }) {
           id="rotate"
           name="rotate"
           onClick={(e) => onChange('rotate', e.target.value)}
-          value={config.rotate}
-          className={`btn btn-icon ${config.rotate ? 'active' : ''}`}
+          value={settings.rotate}
+          className={`btn btn-icon ${settings.rotate ? 'active' : ''}`}
         >
           <img width="35" height="35" src="/degree.png" alt="rotate" />
         </button>
@@ -87,49 +87,28 @@ export default function ReaderConfigurator({ config, onChange }) {
           id="zoom"
           name="zoom"
           onClick={(e) => onChange('zoom', e.target.value)}
-          value={config.zoom}
-          className={`btn btn-icon ${config.zoom ? 'active' : ''}`}
+          value={settings.zoom}
+          className={`btn btn-icon ${settings.zoom ? 'active' : ''}`}
         >
           <img width="32" height="33" src="/zoom.png" alt="zoom" />
         </button>
       </div>
-
-      {/* <label className="form-label">Highlight Type</label>
-
-      <div className="form-row ms-5">
-        <label htmlFor="highlightTypeS" className="form-label fw-bold">
-          S
+      <div className="form-row">
+        <label htmlFor="highlightTypeV" className="form-label">
+          Words per view
         </label>
         <select
-          name="highlightTypeS"
-          id="highlightTypeS"
-          value={config.highlightTypeS}
-          onChange={(e) => onChange('highlightTypeS', e.target.value)}
-        >
-          <option value="4">1</option>
-          <option value="5">2</option>
-          <option value="6">4</option>
-          <option value="8">6</option>
-        </select>
-      </div>
-
-      <div className="form-row ms-5">
-        <label htmlFor="highlightTypeV" className="form-label fw-bold">
-          V
-        </label>
-        <select
-          name="highlightTypeV"
-          id="highlightTypeV"
-          value={config.highlightTypeV}
-          onChange={(e) => onChange('highlightTypeV', e.target.value)}
+          name="wordsCount"
+          id="wordsCount"
+          value={settings.wordsCount}
+          onChange={(e) => onChange('wordsCount', e.target.value)}
         >
           <option value="1">1</option>
           <option value="2">2</option>
-          <option value="3">4</option>
-          <option value="7">6</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
         </select>
-			</div> */}
-
+      </div>
       <div className="form-row">
         <label htmlFor="highlightTypeV" className="form-label">
           Choose Book
@@ -137,13 +116,15 @@ export default function ReaderConfigurator({ config, onChange }) {
         <select
           name="book"
           id="book"
-          value={config.book}
+          value={settings.book ? settings.book.id : ''}
           onChange={(e) => onChange('book', e.target.value)}
         >
-          <option value="1">Crime and Punishment</option>
-          <option value="2">Frankestein </option>
-          <option value="3">Around the world in eighty days</option>
-          <option value="4">Don Quixote</option>
+          <option value="">Choose Book</option>
+          {settings.books.map((book) => (
+            <option key={book.id} value={book.id}>
+              {book.name}
+            </option>
+          ))}
         </select>
       </div>
     </>

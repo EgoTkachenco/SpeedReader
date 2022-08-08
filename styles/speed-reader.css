@@ -44,13 +44,14 @@ body {
 #reader-view {
   background: #f0f0f0;
   width: 100%;
-  max-width: 750px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: auto;
 }
 
-#reader-view svg path {
-  transition: all 0.3s;
+#reader-view.zoom-reader {
+  height: 70px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
