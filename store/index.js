@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { makeAutoObservable } from 'mobx'
 const BLOCK_SIZE = 800
-// const API_URL = 'https://speed-read-admin.herokuapp.com'
-const API_URL = 'http://localhost:1337'
+const API_URL = 'https://speed-read-admin.herokuapp.com'
+// const API_URL = 'http://localhost:1337'
 
 class Store {
   settings = {
@@ -76,7 +76,6 @@ class Store {
     this.last_block_position += BLOCK_SIZE
 
     if (this.current_position === 0) {
-      this.isBookEnd = false
       console.log('Start animation')
       this.last_position = this.settings.book.size
       this.nextPosition()
@@ -111,6 +110,7 @@ class Store {
       case `book`:
         isTextUpdate = true
         this.stopAnimation()
+        this.isBookEnd = false
         this.current_position = 0
         this.last_block_position = 0
         formatedValue = value
