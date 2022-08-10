@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { makeAutoObservable } from 'mobx'
 const BLOCK_SIZE = 800
-// const API_URL = 'https://speed-read-admin.herokuapp.com'
-const API_URL = 'http://localhost:1337'
+const API_URL = 'https://speed-read-admin.herokuapp.com'
+// const API_URL = 'http://localhost:1337'
 
 class Store {
   settings = {
