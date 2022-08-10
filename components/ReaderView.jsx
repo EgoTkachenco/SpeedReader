@@ -13,7 +13,7 @@ const ReaderView = observer(() => {
         id="reader-view"
         className="zoom-reader"
         style={{
-          transform: `${settings.rotate ? 'rotate(180deg)' : ''}`,
+          transform: `${store.settings.rotate ? 'rotate(180deg)' : ''}`,
           backgroundColor: store.settings.pageColor,
           color: store.settings.textColor,
         }}
@@ -55,7 +55,7 @@ const ReaderView = observer(() => {
             <div
               className="book-reader-page"
               style={{
-                transform: `${settings.rotate ? 'rotate(180deg)' : ''}`,
+                transform: `${store.settings.rotate ? 'rotate(180deg)' : ''}`,
                 backgroundColor: store.settings.pageColor,
                 color: store.settings.textColor,
               }}
