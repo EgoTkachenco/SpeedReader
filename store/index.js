@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { makeAutoObservable } from 'mobx'
 const BLOCK_SIZE = 800
-const API_URL = 'https://speed-read-admin.herokuapp.com'
-// const API_URL = 'http://localhost:1337'
+// const API_URL = 'https://speed-read-admin.herokuapp.com'
+const API_URL = 'http://localhost:1337'
 
 class Store {
   settings = {
@@ -113,6 +113,7 @@ class Store {
         this.isBookEnd = false
         this.current_position = 0
         this.last_block_position = 0
+        this.bookText = []
         formatedValue = value
           ? this.books.find((book) => book.id === Number(value))
           : null
