@@ -1,7 +1,8 @@
 import axios from 'axios'
-import { makeAutoObservable, computed } from 'mobx'
-const BLOCK_SIZE = 1000
-const API_URL = 'https://speed-read-admin.herokuapp.com'
+import { makeAutoObservable } from 'mobx'
+const BLOCK_SIZE = 800
+// const API_URL = 'https://speed-read-admin.herokuapp.com'
+const API_URL = 'http://localhost:1337'
 
 class Store {
   settings = {
@@ -16,7 +17,14 @@ class Store {
   }
 
   books = []
-  bookText = ''
+  bookText = []
+
+  current_text = ''
+  current_position = 0
+  last_block_position = 0
+  last_position = 0
+  timeout = null
+  isBookEnd = false
 
   constructor() {
     makeAutoObservable(this)
@@ -37,11 +45,10 @@ class Store {
   }
 
   async loadBooksList() {
+    console.log('load book list')
     try {
       const books = await axios.get(`${API_URL}/books`).then((res) => res.data)
       this.books = books
-      // this.book = books[0]
-      // this.loadBook()
     } catch (err) {
       console.log(err.message)
     }
@@ -51,16 +58,34 @@ class Store {
     if (!this.settings?.book?.id) return
     const text = await axios.get(
       `${API_URL}/books/${this.settings.book.id}/text`,
-      { params: { _start: this.last_block_position, _limit: BLOCK_SIZE } }
+      {
+        params: {
+          _start: this.last_block_position,
+          _limit: BLOCK_SIZE,
+        },
+      }
     )
-    this.bookText = text.data.map((text, i) => ({
-      text,
-      position: this.last_block_position + i,
-    }))
-    this.current_position = 0
-    this.last_position = this.settings.book.size
-    this.last_block_position = this.last_block_position + BLOCK_SIZE
-    this.nextPosition()
+    this.bookText = [
+      ...this.bookText.slice(-BLOCK_SIZE),
+      ...text.data.map((text, i) => ({
+        text,
+        position: this.last_block_position + i,
+      })),
+    ]
+    console.log('Book size is: ', this.bookText.length)
+    this.last_block_position += BLOCK_SIZE
+
+    if (this.current_position === 0) {
+      this.isBookEnd = false
+      console.log('Start animation')
+      this.last_position = this.settings.book.size
+      this.nextPosition()
+    } else {
+      console.log(
+        'Continue animation, Block ',
+        this.last_block_position / BLOCK_SIZE
+      )
+    }
   }
 
   updateSettings(key, value) {
@@ -85,7 +110,10 @@ class Store {
         break
       case `book`:
         isTextUpdate = true
-        this.currentPosition = formatedValue = value
+        this.stopAnimation()
+        this.current_position = 0
+        this.last_block_position = 0
+        formatedValue = value
           ? this.books.find((book) => book.id === Number(value))
           : null
         break
@@ -95,29 +123,37 @@ class Store {
     if (isTextUpdate) this.loadBook()
   }
 
-  current_text = ''
-  current_position = 0
-  last_block_position = 0
-  last_position = 0
-  timeout = null
-
-  nextPosition() {
+  async nextPosition() {
     let text = this.bookText.filter(
       (word) =>
         word.position >= this.current_position &&
         word.position < this.current_position + this.settings.wordsCount
     )
     this.current_text = text.map(({ text }) => text).join(' ')
-
     this.current_position += this.settings.wordsCount
 
+    // if left less than 100 words, increment last_block_position and load new text
+    if (
+      this.last_block_position - this.current_position < 100 &&
+      this.last_block_position < this.last_position
+    ) {
+      await this.loadBook()
+    }
+
+    // Calculate time for next action
     const timeoutTime = 10000 / this.settings.speed
 
     if (this.timeout) clearTimeout(this.timeout)
-
-    this.timeout = setTimeout(() => this.nextPosition(), timeoutTime)
+    if (this.current_position !== this.last_position) {
+      this.timeout = setTimeout(() => this.nextPosition(), timeoutTime)
+    } else {
+      this.isBookEnd = true
+    }
   }
-  stopAnimation() {}
+  stopAnimation() {
+    clearTimeout(this.timeout)
+    this.timeout = null
+  }
 }
 
 const store = new Store()

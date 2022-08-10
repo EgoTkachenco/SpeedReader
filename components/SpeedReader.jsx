@@ -4,21 +4,22 @@ import { observer } from 'mobx-react-lite'
 import store from '../store'
 
 const SpeedReader = observer(() => {
-  const { settings, books, current_text } = store
-
   return (
     <div className="container-fluid h-100">
       <div className="row">
         <div className="col-12 col-md-4 custom-form">
           <SettingsForm
-            settings={{ ...settings, books }}
+            settings={{ ...store.settings, books: store.books }}
             onChange={(key, value) => store.updateSettings(key, value)}
           />
         </div>
         <div className="col-12 col-md-8 align-self-center">
-          {current_text && (
-            <ReaderView settings={settings} text={current_text} />
-          )}
+          <ReaderView
+            settings={store.settings}
+            allText={store.bookText}
+            text={store.current_text}
+            currentPosition={store.current_position}
+          />
         </div>
       </div>
     </div>

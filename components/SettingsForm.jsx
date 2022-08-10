@@ -10,6 +10,8 @@ export default function SettingsForm({ settings, onChange }) {
     }
   }
 
+  if (!settings.books.length) return 'Loading Books'
+
   return (
     <>
       <div className="form-column">
@@ -20,8 +22,8 @@ export default function SettingsForm({ settings, onChange }) {
           id="speed"
           name="speed"
           type="range"
-          min="25"
-          max="300"
+          min="30"
+          max="1000"
           onMouseUp={(e) => onChange('speed', e.target.value)}
           defaultValue={settings.speed}
         />

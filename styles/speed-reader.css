@@ -55,3 +55,37 @@ body {
   align-items: center;
   text-align: center;
 }
+
+.book-reader {
+  border: 1px solid grey;
+  min-height: 650px;
+  max-height: 650px;
+
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1px 2px;
+  position: relative;
+}
+.book-reader-page {
+  position: absolute;
+  border: 1px solid grey;
+  width: 50%;
+  height: calc(100% - 4px);
+  padding: 8px;
+  top: 2px;
+}
+.book-reader-page:nth-child(odd) {
+  left: 2px;
+}
+.book-reader-page:nth-child(even) {
+  right: 2px;
+}
+.book-reader-page:nth-child(3),
+.book-reader-page:nth-child(4) {
+  transform: translateZ(-50%);
+  opacity: 0;
+}
+
+.book-reader-page span {
+  transition: all 0.3s;
+}
