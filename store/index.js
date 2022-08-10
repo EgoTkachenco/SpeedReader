@@ -36,12 +36,12 @@ class Store {
 
   initSettings() {
     if (!process.browser) return
-    let localeConfig = localStorage.getItem('speed-reader-config')
-    let settings
-    if (localeConfig) {
-      settings = JSON.parse(localeConfig)
-      this.settings = settings
-    }
+    // let localeConfig = localStorage.getItem('speed-reader-config')
+    // let settings
+    // if (localeConfig) {
+    //   settings = JSON.parse(localeConfig)
+    //   this.settings = settings
+    // }
   }
 
   async loadBooksList() {
