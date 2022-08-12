@@ -2,15 +2,11 @@ export default function SettingsForm({ settings, onChange }) {
   let colorChangeEvent = {
     onInput: (e) => onChange(e.target.name, e.target.value),
   }
-  if (process.browser) {
-    const isFirefox = navigator.userAgent.search('Firefox') !== -1
-    if (!isFirefox) {
-      colorChangeEvent.onBlur = colorChangeEvent.onInput
-      delete colorChangeEvent.onInput
-    }
+  const isFirefox = navigator.userAgent.search('Firefox') !== -1
+  if (!isFirefox) {
+    colorChangeEvent.onBlur = colorChangeEvent.onInput
+    delete colorChangeEvent.onInput
   }
-
-  if (!settings.books.length) return 'Loading Books'
 
   return (
     <>
@@ -22,8 +18,8 @@ export default function SettingsForm({ settings, onChange }) {
           id="speed"
           name="speed"
           type="range"
-          min="30"
-          max="1000"
+          min="10"
+          max="500"
           onMouseUp={(e) => onChange('speed', e.target.value)}
           defaultValue={settings.speed}
         />
