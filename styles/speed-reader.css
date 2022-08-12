@@ -43,8 +43,6 @@ body {
 }
 #reader-view {
   /* background: #f0f0f0; */
-  width: 100%;
-  margin: auto;
 }
 
 #reader-view.zoom-reader {

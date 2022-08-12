@@ -99,7 +99,7 @@
     }
 
     .page__content {
-      padding: var(--baseline);
+      padding: calc(var(--baseline) * 2) var(--baseline);
       height: 100%;
       position: relative;
       text-align: center;
@@ -108,6 +108,7 @@
         font-family: var(--title);
         font-size: calc(var(--base-size) * 0.9);
         text-align: left;
+        text-indent: calc(var(--base-size));
         & > div {
           min-height: calc(var(--base-size) * 0.9);
 
@@ -124,6 +125,12 @@
       font-family: var(--title);
       font-size: calc(var(--base-size) * 0.67);
       text-align: center;
+    }
+  }
+
+  &.animated {
+    .page__content {
+      filter: blur(1px);
     }
   }
 

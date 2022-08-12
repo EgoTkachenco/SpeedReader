@@ -2,9 +2,8 @@ import axios from 'axios'
 import { makeAutoObservable, action } from 'mobx'
 
 const SETTINGS_LOCALE_STORAGE_KEY = 'sra_conf'
-const ANIMATION_TIME = 900
 const BLOCK_SIZE = 4800
-const PAGE_SIZE = 24
+const PAGE_SIZE = 23
 let ROW_SIZE = 30
 const API_URL = 'https://speed-read-admin.herokuapp.com'
 // const API_URL = 'http://localhost:1337'
@@ -25,7 +24,6 @@ class Store {
   books = [] // books list
   all_text = []
   current_pages = []
-  old_pages = []
   isBookFetching = false
 
   current_text = '' // text that user currently reading
@@ -54,7 +52,6 @@ class Store {
   }
 
   initSettings() {
-    if (!process.browser) return
     let localeConfig = localStorage.getItem(SETTINGS_LOCALE_STORAGE_KEY)
     let settings
     if (localeConfig) {
@@ -157,14 +154,15 @@ class Store {
       (words[words.length - 1]?.position || 0) <= this.current_position
 
     // call next action with new pages
-    if (is_need_page) {
-      this.changePages()
-      this.timeout = setTimeout(
-        () => this.nextPosition(),
-        this.settings.zoom || this.current_position !== 0
-          ? timeoutTime
-          : ANIMATION_TIME
+    if (is_need_page && this.current_position <= this.last_position - 1) {
+      console.log(
+        this.current_position,
+        this.last_position,
+        words[words.length - 1]
       )
+      this.current_pages = this.getCurrentPages()
+      if (this.current_position === 0)
+        this.timeout = setTimeout(() => this.nextPosition(), timeoutTime)
       return
     }
 
@@ -196,10 +194,8 @@ class Store {
       this.loadBook()
     }
 
-    if (this.current_position !== this.last_position) {
+    if (this.current_position !== this.last_position - 1) {
       this.timeout = setTimeout(() => this.nextPosition(), timeoutTime)
-    } else {
-      this.isBookEnd = true
     }
   }
 
@@ -272,11 +268,6 @@ class Store {
 
     this.all_text = ''
     return pages.splice(0, 2)
-  }
-
-  changePages() {
-    this.old_pages = [...this.current_pages]
-    this.current_pages = this.getCurrentPages()
   }
 }
 

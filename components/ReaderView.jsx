@@ -1,6 +1,12 @@
 import BookReader from './BookReader'
 
-const ReaderView = ({ settings, text, pages, currentPosition, oldPages }) => {
+const ReaderView = ({
+  settings,
+  text,
+  pages,
+  currentPosition,
+  onAnimationEnd,
+}) => {
   // Zoom mode
   if (settings.zoom)
     return (
@@ -20,9 +26,9 @@ const ReaderView = ({ settings, text, pages, currentPosition, oldPages }) => {
     <div id="reader-view" className="book-reader">
       <BookReader
         pages={pages}
-        oldPages={oldPages}
         settings={settings}
         currentPosition={currentPosition}
+        onAnimationEnd={onAnimationEnd}
       />
     </div>
   )

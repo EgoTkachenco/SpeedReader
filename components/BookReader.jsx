@@ -6,14 +6,23 @@ export default function BookReader({
   pages,
   settings,
   currentPosition,
-  oldPages,
+  onAnimationEnd,
 }) {
+  const [current_pages, setCurrent_pages] = useState([])
   const [pageAnimation, setPageAnimation] = useState(false)
   useEffect(() => {
-    if (!pages || currentPosition === 0) return
+    if (!pages) return
+    if (currentPosition === 0) {
+      setCurrent_pages(pages)
+      return
+    }
+
+    setCurrent_pages([...current_pages, ...pages])
     setPageAnimation(true)
     setTimeout(() => {
+      setCurrent_pages(pages)
       setPageAnimation(false)
+      onAnimationEnd()
     }, ANIMATION_DURATION)
   }, [pages])
 
@@ -27,8 +36,9 @@ export default function BookReader({
               <span
                 key={word.position}
                 style={{
+                  color: settings.textColor || 'inherite',
                   backgroundColor:
-                    currentPosition > word.position
+                    currentPosition >= word.position
                       ? settings.highlightColor
                       : 'transparent',
                 }}
@@ -39,14 +49,18 @@ export default function BookReader({
           </div>
         ))
       : ''
-
   return (
     <div className="cover">
-      <div className="book">
+      <div
+        className="book"
+        style={{
+          backgroundColor: settings.pageColor,
+        }}
+      >
         <label htmlFor="page-1" className="book__page book__page--1">
           <div className="page__content">
             <div className="page__content-text">
-              {getPage(pageAnimation ? oldPages[0] : pages[0])}
+              {getPage(current_pages[0])}
             </div>
             {/* <div className="page__number">1</div> */}
           </div>
@@ -55,7 +69,7 @@ export default function BookReader({
         <label htmlFor="page-2" className="book__page book__page--4">
           <div className="page__content">
             <div className="page__content-text">
-              {pageAnimation && getPage(pages[1])}
+              {getPage(current_pages[3])}
             </div>
             {/* <div className="page__number">4</div> */}
           </div>
@@ -81,7 +95,7 @@ export default function BookReader({
           <div className="book__page-front">
             <div className="page__content">
               <div className="page__content-text">
-                {getPage(pageAnimation ? oldPages[1] : pages[1])}
+                {getPage(current_pages[1])}
               </div>
             </div>
             {/* <div className="page__number">2</div> */}
@@ -89,7 +103,7 @@ export default function BookReader({
           <div className="book__page-back">
             <div className="page__content">
               <div className="page__content-text">
-                {pageAnimation && getPage(pages[0])}
+                {getPage(current_pages[2])}
               </div>
               {/* <div className="page__number">3</div> */}
             </div>

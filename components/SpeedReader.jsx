@@ -27,7 +27,7 @@ const SpeedReader = observer(() => {
               settings={store.settings}
               text={store.current_text}
               pages={store.current_pages}
-              oldPages={store.old_pages}
+              onAnimationEnd={() => store.nextPosition()}
               currentPosition={store.current_position}
             />
           )}
