@@ -23,7 +23,13 @@ const ReaderView = ({
       </div>
     )
   return (
-    <div id="reader-view" className="book-reader">
+    <div
+      id="reader-view"
+      className="book-reader"
+      style={{
+        transform: `${settings.rotate ? 'rotate(180deg)' : ''}`,
+      }}
+    >
       <BookReader
         pages={pages}
         settings={settings}

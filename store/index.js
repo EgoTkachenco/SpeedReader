@@ -161,7 +161,7 @@ class Store {
         words[words.length - 1]
       )
       this.current_pages = this.getCurrentPages()
-      if (this.current_position === 0)
+      if (this.current_position === 0 || this.settings.zoom)
         this.timeout = setTimeout(() => this.nextPosition(), timeoutTime)
       return
     }
