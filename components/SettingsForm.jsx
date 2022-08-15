@@ -77,7 +77,7 @@ export default function SettingsForm({ settings, onChange }) {
         </button>
       </div>
 
-      <div className="form-row">
+      {/* <div className="form-row">
         <label htmlFor="zoom" className="form-label">
           Zoom
         </label>
@@ -90,26 +90,47 @@ export default function SettingsForm({ settings, onChange }) {
         >
           <img width="32" height="33" src="/zoom.png" alt="zoom" />
         </button>
-      </div>
+      </div> */}
+      <div>Highlight Type</div>
       <div className="form-row">
-        <label htmlFor="highlightTypeV" className="form-label">
-          Words per view
+        <label htmlFor="highlightTypeS" className="form-label">
+          S
         </label>
         <select
-          name="wordsCount"
-          id="wordsCount"
-          value={settings.wordsCount}
-          onChange={(e) => onChange('wordsCount', e.target.value)}
+          name="highlightTypeS"
+          id="highlightTypeS"
+          value={settings.highlightTypeS}
+          onChange={(e) => onChange('highlightTypeS', e.target.value)}
         >
+          <option value="">default</option>
           <option value="1">1</option>
           <option value="2">2</option>
-          <option value="3">3</option>
           <option value="4">4</option>
+          <option value="6">6</option>
         </select>
       </div>
       <div className="form-row">
         <label htmlFor="highlightTypeV" className="form-label">
-          Choose Book
+          V
+        </label>
+        <select
+          name="highlightTypeV"
+          id="highlightTypeV"
+          value={settings.highlightTypeV}
+          onChange={(e) => onChange('highlightTypeV', e.target.value)}
+        >
+          <option value="">default</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="4">4</option>
+          <option value="6">6</option>
+          <option value="smooth">smooth</option>
+        </select>
+      </div>
+
+      <div className="form-column">
+        <label htmlFor="book" className="form-label">
+          Choose Book:
         </label>
         <select
           name="book"
@@ -123,6 +144,37 @@ export default function SettingsForm({ settings, onChange }) {
               {book.name}
             </option>
           ))}
+        </select>
+      </div>
+      <div className="form-column">
+        <label htmlFor="count" className="form-label">
+          No. of books:
+        </label>
+        <select
+          name="count"
+          id="count"
+          value={settings.count}
+          onChange={(e) => onChange('count', e.target.value)}
+        >
+          <option value="1">1</option>
+          <option value="1">2</option>
+          <option value="1">4</option>
+        </select>
+      </div>
+      <div className="form-column">
+        <label htmlFor="type" className="form-label">
+          Choose reader type:
+        </label>
+        <select
+          name="type"
+          id="type"
+          value={settings.type}
+          onChange={(e) => onChange('type', e.target.value)}
+        >
+          <option value="book">Book</option>
+          <option value="scroll">Scroll</option>
+          <option value="rolling">Rolling</option>
+          <option value="zoom">Zoom</option>
         </select>
       </div>
     </>

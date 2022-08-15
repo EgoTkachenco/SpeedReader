@@ -1,17 +1,19 @@
+import { useEffect } from 'react'
+import store from '../store'
+import { observer } from 'mobx-react-lite'
+
 import SettingsForm from './SettingsForm'
 import ReaderView from './ReaderView'
-import { observer } from 'mobx-react-lite'
-import store from '../store'
-import { useEffect } from 'react'
 
 const SpeedReader = observer(() => {
   useEffect(() => {
-    if (process.browser) store.initReader()
+    if (process.browser) store.initSettings()
   }, [])
+
   return (
     <div className="container-fluid h-100">
       <div className="row">
-        <div className="col-12 col-md-4 custom-form">
+        <div className="col-12 col-lg-4 custom-form">
           {store.inited && (
             <SettingsForm
               settings={{ ...store.settings, books: store.books }}
@@ -19,7 +21,7 @@ const SpeedReader = observer(() => {
             />
           )}
         </div>
-        <div className="col-12 col-md-8 align-self-center">
+        <div className="col-12 col-lg-8 align-self-center py-5">
           {store.isBookEnd ? (
             <div id="reader-view">This is the end</div>
           ) : (

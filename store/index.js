@@ -1,12 +1,12 @@
 import axios from 'axios'
-import { makeAutoObservable, action } from 'mobx'
+import { makeAutoObservable, action, toJS } from 'mobx'
 
 const SETTINGS_LOCALE_STORAGE_KEY = 'sra_conf'
 const BLOCK_SIZE = 4800
-const PAGE_SIZE = 23
-let ROW_SIZE = 30
-const API_URL = 'https://speed-read-admin.herokuapp.com'
-// const API_URL = 'http://localhost:1337'
+const PAGE_SIZE = 24
+let ROW_SIZE = 40
+// const API_URL = 'https://speed-read-admin.herokuapp.com'
+const API_URL = 'http://localhost:1337'
 
 class Store {
   inited = false
@@ -16,7 +16,11 @@ class Store {
     textColor: '#000000',
     pageColor: '#ffffff',
     rotate: false,
-    zoom: false,
+    // zoom: false,
+    highlightTypeS: '',
+    highlightTypeV: 'smooth',
+    count: 1,
+    type: 'book',
     book: '',
     wordsCount: 1,
   }
@@ -39,25 +43,15 @@ class Store {
     this.loadBooksList()
   }
 
-  async initReader() {
-    // const reader = document.getElementById('reader-view')
-    // book width divided by 2 minus padding divide by average symbol width
-    let wordsCount = (900 / 2 - 64) / 8.5
-    wordsCount = Math.floor(wordsCount)
-    ROW_SIZE = wordsCount
-    console.log('Row size', ROW_SIZE)
-    // load settings from local storage
-    this.initSettings()
-    this.inited = true
-  }
-
-  initSettings() {
+  async initSettings() {
+    if (this.inited) return
     let localeConfig = localStorage.getItem(SETTINGS_LOCALE_STORAGE_KEY)
     let settings
+    this.inited = true
     if (localeConfig) {
       settings = JSON.parse(localeConfig)
-      this.settings = { ...settings, book: '' }
-      // if (this.settings.book) this.loadBook()
+      this.settings = settings
+      if (this.settings.book) await this.loadBook()
     }
   }
 
@@ -105,30 +99,36 @@ class Store {
 
     let formatedValue = value
     let isTextUpdate = false
-
+    let settings = { ...this.settings }
     switch (key) {
-      case 'wordsCount':
-        formatedValue = Number(value)
-        break
+      // case 'wordsCount':
+      //   formatedValue = Number(value)
+      //   break
       case 'speed':
         break
       case 'rotate':
-      case 'zoom':
+        // case 'zoom':
         formatedValue = !this.settings[key]
         break
-      case 'highlightColor':
-      case 'textColor':
-      case 'pageColor':
-        break
-      case `book`:
+      case 'book':
         isTextUpdate = true
         this.clearAnimation()
         formatedValue = value
           ? this.books.find((book) => book.id === Number(value))
           : null
         break
+      case 'highlightTypeS':
+        settings.highlightTypeV = ''
+        break
+      case 'highlightTypeV':
+        settings.highlightTypeS = ''
+        break
+      // case 'highlightColor':
+      // case 'textColor':
+      // case 'pageColor':
+      //   break
     }
-    this.settings = { ...this.settings, [key]: formatedValue }
+    this.settings = { ...settings, [key]: formatedValue }
 
     if (isTextUpdate) this.loadBook()
 
@@ -155,11 +155,6 @@ class Store {
 
     // call next action with new pages
     if (is_need_page && this.current_position <= this.last_position - 1) {
-      console.log(
-        this.current_position,
-        this.last_position,
-        words[words.length - 1]
-      )
       this.current_pages = this.getCurrentPages()
       if (this.current_position === 0 || this.settings.zoom)
         this.timeout = setTimeout(() => this.nextPosition(), timeoutTime)
@@ -174,15 +169,65 @@ class Store {
         : null
     }, null)
 
-    this.current_text = words
-      .splice(curr_index, this.settings.wordsCount)
-      .map(({ text }) => text)
-      .join(' ')
+    const getNextPosition = () => {
+      let next_text, next_position
 
-    this.current_position =
-      curr_index + this.settings.wordsCount >= words.length
-        ? words[words.length - 1].position
-        : words[curr_index + this.settings.wordsCount].position
+      const rows = this.current_pages.reduce(
+        (acc, page) => [
+          ...acc,
+          ...page.reduce((acc, row) => [...acc, row], []),
+        ],
+        []
+      )
+      let words_index = 0
+      let row_index = 0
+      if (this.current_position !== 0) {
+        for (let i = 0; i < rows.length; i++) {
+          const row = rows[i]
+
+          const curr_index = row.reduce((res, word, i) => {
+            return res !== null
+              ? res
+              : this.current_position === word.position
+              ? i
+              : null
+          }, null)
+
+          if (curr_index !== null) {
+            curr_index = words_index + curr_index
+            row_index = i
+            break
+          } else {
+            words_index += row.length
+          }
+        }
+      } else {
+        curr_index = 0
+        row_index--
+      }
+      debugger
+      const rowsPerLine = this.getRowsPerLine()
+      row_index++
+      const next_rows = rows.splice(row_index, rowsPerLine)
+      const last_row = next_rows[next_rows.length - 1]
+      next_position = last_row[last_row.length - 1].position
+
+      console.log(rowsPerLine, next_rows, next_position)
+
+      return { next_position, next_text: next_rows }
+    }
+    const { next_position, next_text } = getNextPosition()
+
+    this.current_text = next_text
+    // words
+    //   .splice(curr_index, this.settings.wordsCount)
+    //   .map(({ text }) => text)
+    //   .join(' ')
+
+    this.current_position = next_position
+    // curr_index + this.settings.wordsCount >= words.length
+    //   ? words[words.length - 1].position
+    //   : words[curr_index + this.settings.wordsCount].position
 
     // if left less than 2 pages, increment last_block_position and load new text
     if (
@@ -193,9 +238,10 @@ class Store {
     ) {
       this.loadBook()
     }
-
     if (this.current_position !== this.last_position - 1) {
       this.timeout = setTimeout(() => this.nextPosition(), timeoutTime)
+    } else {
+      this.isBookEnd = true
     }
   }
 
@@ -268,6 +314,14 @@ class Store {
 
     this.all_text = ''
     return pages.splice(0, 2)
+  }
+
+  getRowsPerLine() {
+    let count
+    if (this.settings.highlightTypeS) count = this.settings.highlightTypeS
+    if (this.settings.highlightTypeV) count = this.settings.highlightTypeV
+
+    return isNaN(Number(count)) ? 1 : Number(count)
   }
 }
 
