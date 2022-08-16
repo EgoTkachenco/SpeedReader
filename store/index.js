@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { makeAutoObservable, action } from 'mobx'
 
-const SETTINGS_LOCALE_STORAGE_KEY = 'sra_1.1_conf'
+const SETTINGS_LOCALE_STORAGE_KEY = 'sra_1.2_conf'
 const BLOCK_SIZE = 4800
 const PAGE_SIZE = 24
 let ROW_SIZE = 40
