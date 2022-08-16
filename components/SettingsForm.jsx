@@ -18,8 +18,8 @@ export default function SettingsForm({ settings, onChange }) {
           id="speed"
           name="speed"
           type="range"
-          min="10"
-          max="500"
+          min="1"
+          max="200"
           onMouseUp={(e) => onChange('speed', e.target.value)}
           defaultValue={settings.speed}
         />

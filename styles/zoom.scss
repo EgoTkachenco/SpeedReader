@@ -1,0 +1,40 @@
+.zoom-reader {
+  width: 40em;
+  height: 25em;
+  margin: auto;
+  font-size: $f-size;
+  border: 0.0125rem solid #585a5c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  &-content {
+    position: relative;
+    opacity: 0;
+    &.animation {
+      animation: zoom infinite;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  @keyframes zoom {
+    0% {
+      transform: scale(0.7);
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}

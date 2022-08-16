@@ -1,12 +1,12 @@
 import axios from 'axios'
-import { makeAutoObservable, action, toJS } from 'mobx'
+import { makeAutoObservable, action } from 'mobx'
 
 const SETTINGS_LOCALE_STORAGE_KEY = 'sra_1.1_conf'
 const BLOCK_SIZE = 4800
 const PAGE_SIZE = 24
-let ROW_SIZE = 42
-const API_URL = 'https://speed-read-admin.herokuapp.com'
-// const API_URL = 'http://localhost:1337'
+let ROW_SIZE = 40
+// const API_URL = 'https://speed-read-admin.herokuapp.com'
+const API_URL = 'http://localhost:1337'
 
 class Store {
   inited = false
@@ -152,23 +152,21 @@ class Store {
     )
     const is_need_page =
       (words[words.length - 1]?.position || 0) <= this.current_position
-    debugger
     // call next action with new pages
     if (is_need_page && this.current_position <= this.last_position - 1) {
-      debugger
       this.current_pages = this.getCurrentPages()
-      if (this.current_position === 0 || this.settings.zoom)
+      if (this.current_position === 0 || this.settings.type !== 'book')
         this.timeout = setTimeout(() => this.nextPosition(), timeoutTime)
       return
     }
 
-    let curr_index = words.reduce((res, word, i) => {
-      return res !== null
-        ? res
-        : this.current_position === word.position
-        ? i
-        : null
-    }, null)
+    // let curr_index = words.reduce((res, word, i) => {
+    //   return res !== null
+    //     ? res
+    //     : this.current_position === word.position
+    //     ? i
+    //     : null
+    // }, null)
 
     const getNextPosition = () => {
       const rows = this.current_pages.reduce(
@@ -180,11 +178,12 @@ class Store {
       )
       let words_index = 0
       let row_index = 0
+      let curr_index
       if (this.current_position !== 0) {
         for (let i = 0; i < rows.length; i++) {
           const row = rows[i]
 
-          const curr_index = row.reduce((res, word, i) => {
+          curr_index = row.reduce((res, word, i) => {
             return res !== null
               ? res
               : this.current_position === word.position
@@ -210,7 +209,7 @@ class Store {
       const last_row = next_rows[next_rows.length - 1]
       const next_position = last_row[last_row.length - 1].position
 
-      console.log(rowsPerLine, next_rows, next_position)
+      // console.log(rowsPerLine, next_rows, next_position)
 
       return { next_position, next_text: next_rows }
     }

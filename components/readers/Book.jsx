@@ -118,8 +118,6 @@ const Word = ({ text, isRead, background, color, addSpace }) => (
 const BookWrapper = ({ children, rotate }) => {
   return (
     <div
-      id="reader-view"
-      className="book-reader"
       style={{
         transform: `${rotate ? 'rotate(180deg)' : ''}`,
       }}

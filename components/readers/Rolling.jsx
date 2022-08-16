@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
-
-export default function Zoom({ settings, text }) {
+export default function Rolling({ settings, text }) {
   const contentRef = useRef()
   const [state, setState] = useState(null)
   useEffect(() => {
     if (text) {
-      console.log('zoom effect')
+      console.log('rolling effect')
       contentRef.current.classList.remove('animation')
       setState(text)
       contentRef.current.classList.add('animation')
@@ -13,7 +12,7 @@ export default function Zoom({ settings, text }) {
   }, [text, settings.type])
   return (
     <div
-      className="zoom-reader"
+      className="rolling-reader"
       style={{
         transform: `${settings.rotate ? 'rotate(180deg)' : ''}`,
         backgroundColor: settings.pageColor,
@@ -22,7 +21,7 @@ export default function Zoom({ settings, text }) {
     >
       <div
         ref={contentRef}
-        className="zoom-reader-content"
+        className="rolling-reader-content"
         style={{ animationDuration: 10000 / settings.speed + 'ms' }}
       >
         {state &&

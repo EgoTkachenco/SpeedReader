@@ -1,0 +1,39 @@
+.rolling-reader {
+  width: 40em;
+  height: 25em;
+  margin: auto;
+  font-size: $f-size;
+  border: 0.0125rem solid #585a5c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  &-content {
+    position: relative;
+    top: -100%;
+    &.animation {
+      animation: rollDown infinite;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  @keyframes rollDown {
+    0% {
+      top: -100%;
+      // opacity: 0;
+    }
+    25% {
+      top: 0;
+      opacity: 1;
+    }
+    50% {
+      top: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 100%;
+      // opacity: 0;
+    }
+  }
+}
