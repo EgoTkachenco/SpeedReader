@@ -1,8 +1,27 @@
 $f-size: calc(46vw * 16 / 700);
 
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  // width: 30em;
+  // height: 20em;
+}
+
 .cover {
+  position: absolute;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+  // height: 100%;
+
   width: 43.75em;
   height: 31.25em;
+
+  // transform: scale(0.65);
+
   margin: auto;
   border: 0px solid #585a5c;
   border-top-width: 0.1875em;
@@ -110,6 +129,7 @@ $f-size: calc(46vw * 16 / 700);
           margin-bottom: 0.25em;
           min-height: 0.75em;
           line-height: 0.75em;
+          position: relative;
         }
 
         .book-word {
@@ -121,10 +141,10 @@ $f-size: calc(46vw * 16 / 700);
             height: 0;
             left: 0;
             width: 100%;
-            transition: height 0.3s;
-            &.active {
-              height: 0.8em;
-            }
+
+            // &.active {
+            //   height: 0.8em;
+            // }
           }
 
           .word-text {
@@ -156,5 +176,62 @@ $f-size: calc(46vw * 16 / 700);
       transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
       transform: rotateY(-180deg) translateX(-0.5px);
     }
+  }
+}
+
+.wrapper.S {
+  .book-row {
+    background-size: 200% 100%;
+    background: left/200%
+      linear-gradient(to right, transparent 50%, transparent 50%);
+    .word-text {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .row-back {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+  }
+  .odd .row-back {
+    right: unset;
+    left: 0;
+  }
+  .active .row-back {
+    width: 100%;
+  }
+  // .book-row:not(.active) {
+  //   background: transparent !important;
+  // }
+  // .book-row::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   width: 0;
+  //   height: 100%;
+  //   background: inherit;
+  // }
+
+  // .book-row:nth-child(odd)::before {
+  //   left: 0;
+  // }
+  // .book-row:nth-child(even)::before {
+  //   right: 0;
+  // }
+  // .book-row.active::before {
+  //   width: 100%;
+  // }
+}
+
+.wrapper.V {
+  .book-row {
+    background: transparent !important;
+  }
+  .word-back.active {
+    height: 0.8em;
   }
 }

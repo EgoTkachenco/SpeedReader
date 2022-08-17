@@ -9,32 +9,48 @@ const ReaderView = ({
   pages,
   currentPosition,
   onAnimationEnd,
+  rowsPerLine,
 }) => {
-  switch (settings.type) {
-    case 'zoom':
-      return <ZoomReader settings={settings} text={text} />
-    case 'rolling':
-      return <RollingReader settings={settings} text={text} />
-    case 'scroll':
-      return (
-        <ScrollReader
-          pages={pages}
-          settings={settings}
-          currentPosition={currentPosition}
-          onAnimationEnd={onAnimationEnd}
-        />
-      )
-    case 'book':
-    default:
-      return (
-        <BookReader
-          pages={pages}
-          settings={settings}
-          currentPosition={currentPosition}
-          onAnimationEnd={onAnimationEnd}
-        />
-      )
+  const renderReader = () => {
+    switch (settings.type) {
+      case 'zoom':
+        return <ZoomReader settings={settings} text={text} />
+      case 'rolling':
+        return <RollingReader settings={settings} text={text} />
+      case 'scroll':
+        return (
+          <ScrollReader
+            pages={pages}
+            settings={settings}
+            currentPosition={currentPosition}
+            onAnimationEnd={onAnimationEnd}
+          />
+        )
+      case 'book':
+      default:
+        return (
+          <BookReader
+            pages={pages}
+            settings={settings}
+            currentPosition={currentPosition}
+            onAnimationEnd={onAnimationEnd}
+            rowsPerLine={rowsPerLine}
+          />
+        )
+    }
   }
+
+  const renderAllReaders = () => {
+    const size = !isNaN(Number(settings.count)) ? Number(settings.count) : 1
+    const className = size === 1 ? 'col-12' : 'col-12 col-md-6 pb-4'
+    return new Array(size).fill(null).map((_, i) => (
+      <div className={className} key={i}>
+        {renderReader()}
+      </div>
+    ))
+  }
+
+  return <div className="row">{renderAllReaders()}</div>
 }
 
 export default ReaderView

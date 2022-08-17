@@ -5,8 +5,8 @@ const SETTINGS_LOCALE_STORAGE_KEY = 'sra_1.2_conf'
 const BLOCK_SIZE = 4800
 const PAGE_SIZE = 24
 let ROW_SIZE = 40
-const API_URL = 'https://speed-read-admin.herokuapp.com'
-// const API_URL = 'http://localhost:1337'
+// const API_URL = 'https://speed-read-admin.herokuapp.com'
+const API_URL = 'http://localhost:1337'
 
 class Store {
   inited = false
@@ -18,7 +18,7 @@ class Store {
     rotate: false,
     // zoom: false,
     highlightTypeS: '',
-    highlightTypeV: 'smooth',
+    highlightTypeV: '1',
     count: 1,
     type: 'book',
     book: '',
@@ -156,7 +156,7 @@ class Store {
     if (is_need_page && this.current_position <= this.last_position - 1) {
       this.current_pages = this.getCurrentPages()
       if (this.current_position === 0 || this.settings.type !== 'book')
-        this.timeout = setTimeout(() => this.nextPosition(), timeoutTime)
+        this.timeout = setTimeout(() => this.nextPosition(), 100)
       return
     }
 
@@ -179,32 +179,28 @@ class Store {
       let words_index = 0
       let row_index = 0
       let curr_index
-      if (this.current_position !== 0) {
-        for (let i = 0; i < rows.length; i++) {
-          const row = rows[i]
+      for (let i = 0; i < rows.length; i++) {
+        const row = rows[i]
 
-          curr_index = row.reduce((res, word, i) => {
-            return res !== null
-              ? res
-              : this.current_position === word.position
-              ? i
-              : null
-          }, null)
+        curr_index = row.reduce((res, word, i) => {
+          return res !== null
+            ? res
+            : this.current_position === word.position
+            ? i
+            : null
+        }, null)
 
-          if (curr_index !== null) {
-            curr_index = words_index + curr_index
-            row_index = i
-            break
-          } else {
-            words_index += row.length
-          }
+        if (curr_index !== null) {
+          curr_index = words_index + curr_index
+          row_index = i
+          break
+        } else {
+          words_index += row.length
         }
-      } else {
-        curr_index = 0
-        row_index--
       }
+      debugger
       const rowsPerLine = this.getRowsPerLine()
-      row_index++
+      row_index = !row_index ? 0 : row_index + 1
       const next_rows = rows.splice(row_index, rowsPerLine)
       const last_row = next_rows[next_rows.length - 1]
       const next_position = last_row[last_row.length - 1].position
@@ -259,6 +255,11 @@ class Store {
     this.all_text = []
     this.old_pages = []
     this.current_pages = []
+  }
+
+  resetAnimation() {
+    const timeoutTime = 10000 / this.settings.speed
+    this.timeout = setTimeout(() => this.nextPosition(), timeoutTime)
   }
 
   getCurrentPages() {

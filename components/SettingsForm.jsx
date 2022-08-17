@@ -19,7 +19,7 @@ export default function SettingsForm({ settings, onChange }) {
           name="speed"
           type="range"
           min="5"
-          max="200"
+          max="100"
           onMouseUp={(e) => onChange('speed', e.target.value)}
           defaultValue={settings.speed}
         />
@@ -120,11 +120,10 @@ export default function SettingsForm({ settings, onChange }) {
           onChange={(e) => onChange('highlightTypeV', e.target.value)}
         >
           <option value="">default</option>
-          <option value="1">1</option>
+          <option value="1">smooth</option>
           <option value="2">2</option>
           <option value="4">4</option>
           <option value="6">6</option>
-          <option value="smooth">smooth</option>
         </select>
       </div>
 
@@ -157,8 +156,8 @@ export default function SettingsForm({ settings, onChange }) {
           onChange={(e) => onChange('count', e.target.value)}
         >
           <option value="1">1</option>
-          <option value="1">2</option>
-          <option value="1">4</option>
+          <option value="2">2</option>
+          <option value="4">4</option>
         </select>
       </div>
       <div className="form-column">
