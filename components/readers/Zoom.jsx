@@ -5,12 +5,12 @@ export default function Zoom({ settings, text }) {
   const [state, setState] = useState(null)
   useEffect(() => {
     if (text) {
-      console.log('zoom effect')
-      contentRef.current.classList.remove('animation')
-      setState(text)
-      contentRef.current.classList.add('animation')
+      setState('')
+      contentRef.current.style.animationDuration = 10000 / settings.speed + 'ms'
+      setTimeout(() => setState(text), 10)
     }
-  }, [text, settings.type])
+  }, [text])
+
   return (
     <div
       className="zoom-reader"
@@ -21,9 +21,9 @@ export default function Zoom({ settings, text }) {
       }}
     >
       <div
+        key={text}
         ref={contentRef}
-        className="zoom-reader-content"
-        style={{ animationDuration: 10000 / settings.speed + 'ms' }}
+        className="zoom-reader-content animation"
       >
         {state &&
           state.map((row, i) => (

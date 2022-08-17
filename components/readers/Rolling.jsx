@@ -4,12 +4,12 @@ export default function Rolling({ settings, text }) {
   const [state, setState] = useState(null)
   useEffect(() => {
     if (text) {
-      console.log('rolling effect')
-      contentRef.current.classList.remove('animation')
-      setState(text)
-      contentRef.current.classList.add('animation')
+      setState('')
+      contentRef.current.style.animationDuration = 10000 / settings.speed + 'ms'
+      setTimeout(() => setState(text), 10)
     }
-  }, [text, settings.type])
+  }, [text])
+
   return (
     <div
       className="rolling-reader"
@@ -20,9 +20,9 @@ export default function Rolling({ settings, text }) {
       }}
     >
       <div
+        key={text}
         ref={contentRef}
-        className="rolling-reader-content"
-        style={{ animationDuration: 10000 / settings.speed + 'ms' }}
+        className="rolling-reader-content animation"
       >
         {state &&
           state.map((row, i) => (

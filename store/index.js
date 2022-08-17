@@ -152,6 +152,7 @@ class Store {
     )
     const is_need_page =
       (words[words.length - 1]?.position || 0) <= this.current_position
+
     // call next action with new pages
     if (is_need_page && this.current_position <= this.last_position - 1) {
       this.current_pages = this.getCurrentPages()
@@ -160,67 +161,10 @@ class Store {
       return
     }
 
-    // let curr_index = words.reduce((res, word, i) => {
-    //   return res !== null
-    //     ? res
-    //     : this.current_position === word.position
-    //     ? i
-    //     : null
-    // }, null)
-
-    const getNextPosition = () => {
-      const rows = this.current_pages.reduce(
-        (acc, page) => [
-          ...acc,
-          ...page.reduce((acc, row) => [...acc, row], []),
-        ],
-        []
-      )
-      let words_index = 0
-      let row_index = 0
-      let curr_index
-      for (let i = 0; i < rows.length; i++) {
-        const row = rows[i]
-
-        curr_index = row.reduce((res, word, i) => {
-          return res !== null
-            ? res
-            : this.current_position === word.position
-            ? i
-            : null
-        }, null)
-
-        if (curr_index !== null) {
-          curr_index = words_index + curr_index
-          row_index = i
-          break
-        } else {
-          words_index += row.length
-        }
-      }
-      debugger
-      const rowsPerLine = this.getRowsPerLine()
-      row_index = !row_index ? 0 : row_index + 1
-      const next_rows = rows.splice(row_index, rowsPerLine)
-      const last_row = next_rows[next_rows.length - 1]
-      const next_position = last_row[last_row.length - 1].position
-
-      // console.log(rowsPerLine, next_rows, next_position)
-
-      return { next_position, next_text: next_rows }
-    }
-    const { next_position, next_text } = getNextPosition()
+    const { next_position, next_text } = this.getNextPosition()
 
     this.current_text = next_text
-    // words
-    //   .splice(curr_index, this.settings.wordsCount)
-    //   .map(({ text }) => text)
-    //   .join(' ')
-
     this.current_position = next_position
-    // curr_index + this.settings.wordsCount >= words.length
-    //   ? words[words.length - 1].position
-    //   : words[curr_index + this.settings.wordsCount].position
 
     // if left less than 2 pages, increment last_block_position and load new text
     if (
@@ -238,6 +182,42 @@ class Store {
     }
   }
 
+  getNextPosition() {
+    const rows = this.current_pages.reduce(
+      (acc, page) => [...acc, ...page.reduce((acc, row) => [...acc, row], [])],
+      []
+    )
+    let words_index = 0
+    let row_index = 0
+    let curr_index
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i]
+
+      curr_index = row.reduce((res, word, i) => {
+        return res !== null
+          ? res
+          : this.current_position === word.position
+          ? i
+          : null
+      }, null)
+
+      if (curr_index !== null) {
+        curr_index = words_index + curr_index
+        row_index = i + 1
+        break
+      } else {
+        words_index += row.length
+      }
+    }
+
+    const rowsPerLine = this.getRowsPerLine()
+    const next_rows = rows.splice(row_index, rowsPerLine)
+    const last_row = next_rows[next_rows.length - 1]
+    const next_position = last_row[last_row.length - 1].position
+
+    return { next_position, next_text: next_rows }
+  }
+
   startAnimation() {
     // this.clearAnimation()
     this.last_position = this.settings.book?.size || 0
@@ -253,8 +233,6 @@ class Store {
     this.current_position = 0
     this.last_block_position = 0
     this.all_text = []
-    this.old_pages = []
-    this.current_pages = []
   }
 
   resetAnimation() {

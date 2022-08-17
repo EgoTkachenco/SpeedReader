@@ -102,7 +102,9 @@ export default function SettingsForm({ settings, onChange }) {
           value={settings.highlightTypeS}
           onChange={(e) => onChange('highlightTypeS', e.target.value)}
         >
-          <option value="">default</option>
+          <option value="" readOnly>
+            default
+          </option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="4">4</option>
@@ -119,7 +121,9 @@ export default function SettingsForm({ settings, onChange }) {
           value={settings.highlightTypeV}
           onChange={(e) => onChange('highlightTypeV', e.target.value)}
         >
-          <option value="">default</option>
+          <option value="" readOnly>
+            default
+          </option>
           <option value="1">smooth</option>
           <option value="2">2</option>
           <option value="4">4</option>

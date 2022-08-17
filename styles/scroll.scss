@@ -1,7 +1,7 @@
 .scroll-reader {
   width: 40em;
   height: 25em;
-  padding: 1em 2em;
+  padding: 0 2em 1em;
   margin: auto;
   font-size: $f-size;
   border: 0.0125rem solid #585a5c;
@@ -11,12 +11,15 @@
 
   &-content {
     position: relative;
-    transition-timing-function: linear;
-
     & > div {
+      height: 1.5em;
       font-size: 1em;
-      height: 1em;
-      margin-bottom: 0.5em;
+      // margin-bottom: 0.5em;
     }
   }
+}
+
+.small .scroll-reader {
+  width: 100%;
+  height: 16em;
 }

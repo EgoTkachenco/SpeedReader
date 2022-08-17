@@ -4,11 +4,14 @@ import { observer } from 'mobx-react-lite'
 
 import SettingsForm from './SettingsForm'
 import ReaderView from './ReaderView'
+import _ from 'lodash'
 
 const SpeedReader = observer(() => {
   useEffect(() => {
     if (process.browser) store.initSettings()
   }, [])
+
+  const endAnimation = _.debounce(() => store.resetAnimation(), 50)
 
   return (
     <div className="container-fluid h-100">
@@ -29,7 +32,7 @@ const SpeedReader = observer(() => {
               settings={store.settings}
               text={store.current_text}
               pages={store.current_pages}
-              onAnimationEnd={() => store.resetAnimation()}
+              onAnimationEnd={endAnimation}
               currentPosition={store.current_position}
               rowsPerLine={store.getRowsPerLine()}
             />

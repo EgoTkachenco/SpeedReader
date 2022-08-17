@@ -1,37 +1,23 @@
 import { useState, useEffect, useRef } from 'react'
 
-export default function Scroll({ settings, pages, currentPosition }) {
+export default function Scroll({
+  settings,
+  pages,
+  currentPosition,
+  rowsPerLine,
+}) {
   const contentRef = useRef()
   const animationTime = 10000 / settings.speed
   const [state, setState] = useState([])
 
   useEffect(() => {
     if (pages && pages.length) {
-      contentRef.current.style.transition = `all ${0}ms linear`
-      setScroll(false)
-      setState([...state, ...pages])
+      setState([...state.splice(state.length - 2, 2), ...pages])
     }
   }, [pages, settings.type])
 
-  const setScroll = (isTransition) => {
-    if (!state.length) return
-
-    const rows = getRows(state)
-    for (let i = 0; i < rows.length; i++) {
-      const { position } = rows[i]
-      if (position === currentPosition) {
-        const newScrollValue = -1.5 * (i + 1) + 'em'
-        contentRef.current.style.transition = `all ${
-          isTransition ? animationTime : 0
-        }ms`
-        contentRef.current.style.top = newScrollValue
-        return
-      }
-    }
-  }
-
   useEffect(() => {
-    setScroll(true)
+    contentRef.current.style.transition = `all ${animationTime}ms linear`
   }, [currentPosition])
 
   return (
@@ -44,15 +30,15 @@ export default function Scroll({ settings, pages, currentPosition }) {
       }}
     >
       <div ref={contentRef} className="scroll-reader-content">
-        {getRows(state).map(({ row, position }, i) => (
+        {getRows(state, currentPosition).map(({ row, position }, i) => (
           <div
             key={position}
-            style={{
-              backgroundColor:
-                position <= currentPosition
-                  ? settings.highlightColor
-                  : 'transparent',
-            }}
+            // style={{
+            //   backgroundColor:
+            //     position <= currentPosition
+            //       ? settings.highlightColor
+            //       : 'transparent',
+            // }}
           >
             {row.map((w) => w.text).join(' ')}
           </div>
@@ -61,14 +47,30 @@ export default function Scroll({ settings, pages, currentPosition }) {
     </div>
   )
 }
-const getRows = (pages) =>
-  pages.reduce(
-    (rows, page) => [
-      ...rows,
-      ...page.map((row) => ({
-        row,
-        position: row[row.length - 1].position,
-      })),
-    ],
-    []
-  )
+
+const maxOffset = 12
+
+const getRows = (pages, currentPosition) =>
+  pages
+    .reduce(
+      (rows, page) => [
+        ...rows,
+        ...page.map((row) => ({
+          row,
+          position: row[row.length - 1].position,
+        })),
+      ],
+      []
+    )
+    .reverse()
+    .reduce(
+      ({ rows, offset }, row) => {
+        if (row.position <= currentPosition) {
+          if (offset > maxOffset) return { rows, offset }
+          offset++
+        }
+        return { rows: [...rows, row], offset }
+      },
+      { rows: [], offset: 0 }
+    )
+    .rows.reverse()

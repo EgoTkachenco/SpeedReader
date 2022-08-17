@@ -23,7 +23,7 @@ const ReaderView = ({
             pages={pages}
             settings={settings}
             currentPosition={currentPosition}
-            onAnimationEnd={onAnimationEnd}
+            rowsPerLine={rowsPerLine}
           />
         )
       case 'book':
@@ -42,7 +42,8 @@ const ReaderView = ({
 
   const renderAllReaders = () => {
     const size = !isNaN(Number(settings.count)) ? Number(settings.count) : 1
-    const className = size === 1 ? 'col-12' : 'col-12 col-md-6 pb-4'
+    const className = size === 1 ? 'col-12' : 'col-6 pb-4 small'
+
     return new Array(size).fill(null).map((_, i) => (
       <div className={className} key={i}>
         {renderReader()}

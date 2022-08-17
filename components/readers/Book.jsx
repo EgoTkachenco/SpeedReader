@@ -19,7 +19,7 @@ export default function Book({
 
   useEffect(() => {
     if (!pages.length) return
-    debugger
+
     if (currentPosition === 0) {
       setCurrent_pages(pages)
       return
