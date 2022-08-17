@@ -1,12 +1,12 @@
 import axios from 'axios'
 import { makeAutoObservable, action } from 'mobx'
 
-const SETTINGS_LOCALE_STORAGE_KEY = 'sra_1.2_conf'
+const SETTINGS_LOCALE_STORAGE_KEY = 'sra_1.3_conf'
 const BLOCK_SIZE = 4800
 const PAGE_SIZE = 24
 let ROW_SIZE = 40
-// const API_URL = 'https://speed-read-admin.herokuapp.com'
-const API_URL = 'http://localhost:1337'
+const API_URL = 'https://speed-read-admin.herokuapp.com'
+// const API_URL = 'http://localhost:1337'
 
 class Store {
   inited = false
