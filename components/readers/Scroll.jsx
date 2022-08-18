@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 
+let counter = 32
+
 export default function Scroll({
   settings,
   pages,
@@ -12,12 +14,21 @@ export default function Scroll({
 
   useEffect(() => {
     if (pages && pages.length) {
-      setState([...state.splice(state.length - 2, 2), ...pages])
+      contentRef.current.style.transition = `all ${animationTime}ms linear`
+      const old = [...state]
+      // const last2Pages = old.splice(state.length - 2, 2)
+      setState([...old, ...pages])
     }
   }, [pages, settings.type])
 
   useEffect(() => {
     contentRef.current.style.transition = `all ${animationTime}ms linear`
+    const margin = contentRef.current.style.marginTop
+    if (counter <= 0) {
+      contentRef.current.style.marginTop = `calc(${margin} - (1.5em * ${rowsPerLine}))`
+    } else {
+      counter += -rowsPerLine
+    }
   }, [currentPosition])
 
   return (
@@ -29,7 +40,11 @@ export default function Scroll({
         color: settings.textColor,
       }}
     >
-      <div ref={contentRef} className="scroll-reader-content">
+      <div
+        ref={contentRef}
+        className="scroll-reader-content"
+        style={{ marginTop: '0' }}
+      >
         {getRows(state, currentPosition).map(({ row, position }, i) => (
           <div
             key={position}
@@ -48,29 +63,29 @@ export default function Scroll({
   )
 }
 
-const maxOffset = 12
+// const maxOffset = 24
 
 const getRows = (pages, currentPosition) =>
-  pages
-    .reduce(
-      (rows, page) => [
-        ...rows,
-        ...page.map((row) => ({
-          row,
-          position: row[row.length - 1].position,
-        })),
-      ],
-      []
-    )
-    .reverse()
-    .reduce(
-      ({ rows, offset }, row) => {
-        if (row.position <= currentPosition) {
-          if (offset > maxOffset) return { rows, offset }
-          offset++
-        }
-        return { rows: [...rows, row], offset }
-      },
-      { rows: [], offset: 0 }
-    )
-    .rows.reverse()
+  pages.reduce(
+    (rows, page) => [
+      ...rows,
+      ...page.map((row) => ({
+        row,
+        position: row[row.length - 1].position,
+      })),
+    ],
+    []
+  )
+// .reverse()
+// .reduce(
+//   ({ rows, offset }, row) => {
+//     if (row.position <= currentPosition) {
+//       // if (offset > maxOffset)
+//       return { rows, offset }
+//       // offset++
+//     }
+//     return { rows: [...rows, row], offset }
+//   },
+//   { rows: [], offset: 0 }
+// )
+// .rows.reverse()
