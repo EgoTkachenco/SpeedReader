@@ -1,10 +1,6 @@
 import { useState, useEffect } from 'react'
 
 const ANIMATION_DURATION = 600
-const oposit = {
-  left: 'right',
-  right: 'left',
-}
 
 export default function Book({
   pages,
@@ -12,6 +8,7 @@ export default function Book({
   rowsPerLine,
   currentPosition,
   onAnimationEnd,
+  animationKey,
 }) {
   const [current_pages, setCurrent_pages] = useState([])
   const [pageAnimation, setPageAnimation] = useState(false)
@@ -60,10 +57,13 @@ export default function Book({
     ))
   }
 
+  const page1Name = 'page-1_' + animationKey
+  const page2Name = 'page-2_' + animationKey
+
   return (
     <BookWrapper rotate={settings.rotate} type={highlightType}>
       <label
-        htmlFor="page-1"
+        htmlFor={page1Name}
         className="book__page book__page--1"
         style={{ background: settings.pageColor }}
       >
@@ -74,7 +74,7 @@ export default function Book({
       </label>
 
       <label
-        htmlFor="page-2"
+        htmlFor={page2Name}
         className="book__page book__page--4"
         style={{ background: settings.pageColor }}
       >
@@ -86,16 +86,16 @@ export default function Book({
 
       <input
         type="radio"
-        name="page"
-        id="page-1"
+        name={page1Name}
+        id={page1Name}
         checked={!pageAnimation}
         readOnly
       />
 
       <input
         type="radio"
-        name="page"
-        id="page-2"
+        name={page2Name}
+        id={page2Name}
         checked={pageAnimation}
         readOnly
       />

@@ -11,7 +11,7 @@ const ReaderView = ({
   onAnimationEnd,
   rowsPerLine,
 }) => {
-  const renderReader = () => {
+  const renderReader = (key) => {
     switch (settings.type) {
       case 'zoom':
         return <ZoomReader settings={settings} text={text} />
@@ -35,6 +35,7 @@ const ReaderView = ({
             currentPosition={currentPosition}
             onAnimationEnd={onAnimationEnd}
             rowsPerLine={rowsPerLine}
+            animationKey={key}
           />
         )
     }
@@ -46,7 +47,7 @@ const ReaderView = ({
 
     return new Array(size).fill(null).map((_, i) => (
       <div className={className} key={i}>
-        {renderReader()}
+        {renderReader(i)}
       </div>
     ))
   }

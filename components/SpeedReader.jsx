@@ -25,8 +25,10 @@ const SpeedReader = observer(() => {
           )}
         </div>
         <div className="col-12 col-lg-8 align-self-center py-5">
-          {store.isBookEnd ? (
-            'This is the end'
+          {!store.settings.book ? (
+            <NoBook />
+          ) : store.isBookEnd ? (
+            <BookEnd />
           ) : (
             <ReaderView
               settings={store.settings}
@@ -44,3 +46,6 @@ const SpeedReader = observer(() => {
 })
 
 export default SpeedReader
+
+const NoBook = () => <div className="no-book">Choose book to start</div>
+const BookEnd = () => <div className="book-end">Book End</div>

@@ -48,6 +48,14 @@ input[type='color'] {
   background: var(--bs-info);
 }
 
+.no-book,
+.book-end {
+  text-transform: uppercase;
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+}
+
 @import './book.scss';
 @import './zoom.scss';
 @import './rolling.scss';
