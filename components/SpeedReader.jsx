@@ -19,6 +19,7 @@ const SpeedReader = observer(() => {
         <div className="col-12 col-lg-4 custom-form">
           {store.inited && (
             <SettingsForm
+              onReset={() => store.resetConfig()}
               settings={{ ...store.settings, books: store.books }}
               onChange={(key, value) => store.updateSettings(key, value)}
             />

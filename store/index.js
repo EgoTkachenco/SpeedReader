@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { makeAutoObservable, action } from 'mobx'
 
-const SETTINGS_LOCALE_STORAGE_KEY = 'sra_1.3_conf'
+const SETTINGS_LOCALE_STORAGE_KEY = 'sra_1.4_conf'
 const BLOCK_SIZE = 4800
 const PAGE_SIZE = 24
 let ROW_SIZE = 40
@@ -298,6 +298,25 @@ class Store {
     if (this.settings.highlightTypeV) count = this.settings.highlightTypeV
 
     return isNaN(Number(count)) ? 1 : Number(count)
+  }
+
+  resetConfig() {
+    localStorage.setItem(
+      SETTINGS_LOCALE_STORAGE_KEY,
+      JSON.stringify({
+        speed: 10,
+        highlightColor: '#afff83',
+        textColor: '#000000',
+        pageColor: '#ffffff',
+        rotate: false,
+        highlightTypeS: '',
+        highlightTypeV: '1',
+        count: 1,
+        type: 'book',
+        book: '',
+      })
+    )
+    location.reload()
   }
 }
 

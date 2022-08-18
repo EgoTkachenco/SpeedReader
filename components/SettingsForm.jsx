@@ -1,4 +1,4 @@
-export default function SettingsForm({ settings, onChange }) {
+export default function SettingsForm({ settings, onChange, onReset }) {
   let colorChangeEvent = {
     onInput: (e) => onChange(e.target.name, e.target.value),
   }
@@ -165,20 +165,9 @@ export default function SettingsForm({ settings, onChange }) {
         </select>
       </div>
       <div className="form-column">
-        <label htmlFor="type" className="form-label">
-          Choose reader type:
-        </label>
-        <select
-          name="type"
-          id="type"
-          value={settings.type}
-          onChange={(e) => onChange('type', e.target.value)}
-        >
-          <option value="book">Book</option>
-          <option value="scroll">Scroll</option>
-          <option value="rolling">Rolling</option>
-          <option value="zoom">Zoom</option>
-        </select>
+        <button className="btn btn-primary" onClick={onReset}>
+          Reset
+        </button>
       </div>
     </>
   )
