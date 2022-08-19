@@ -1,28 +1,26 @@
 import axios from 'axios'
 import { makeAutoObservable, action } from 'mobx'
 
-const SETTINGS_LOCALE_STORAGE_KEY = 'sra_1.4_conf'
+const SETTINGS_LOCALE_STORAGE_KEY = 'sra_1.5_conf'
 const BLOCK_SIZE = 4800
 const PAGE_SIZE = 24
 let ROW_SIZE = 40
-const API_URL = 'https://speed-read-admin.herokuapp.com'
-// const API_URL = 'http://localhost:1337'
+// const API_URL = 'https://speed-read-admin.herokuapp.com'
+const API_URL = 'http://localhost:1337'
 
 class Store {
   inited = false
   settings = {
-    speed: 10,
+    speed: 1,
     highlightColor: '#afff83',
     textColor: '#000000',
     pageColor: '#ffffff',
     rotate: false,
-    // zoom: false,
     highlightTypeS: '',
     highlightTypeV: '1',
     count: 1,
     type: 'book',
     book: '',
-    wordsCount: 1,
   }
 
   books = [] // books list
@@ -141,7 +139,7 @@ class Store {
   async nextPosition() {
     // Calculate time for next action
     clearTimeout(this.timeout)
-    const timeoutTime = 10000 / this.settings.speed
+    const timeoutTime = 1000 / this.settings.speed
 
     const words = this.current_pages.reduce(
       (acc, page) => [
@@ -236,7 +234,7 @@ class Store {
   }
 
   resetAnimation() {
-    const timeoutTime = 10000 / this.settings.speed
+    const timeoutTime = 1000 / this.settings.speed
     this.timeout = setTimeout(() => this.nextPosition(), timeoutTime)
   }
 
@@ -301,22 +299,20 @@ class Store {
   }
 
   resetConfig() {
-    localStorage.setItem(
-      SETTINGS_LOCALE_STORAGE_KEY,
-      JSON.stringify({
-        speed: 10,
-        highlightColor: '#afff83',
-        textColor: '#000000',
-        pageColor: '#ffffff',
-        rotate: false,
-        highlightTypeS: '',
-        highlightTypeV: '1',
-        count: 1,
-        type: 'book',
-        book: '',
-      })
-    )
-    location.reload()
+    const settings = {
+      speed: 1,
+      highlightColor: '#afff83',
+      textColor: '#000000',
+      pageColor: '#ffffff',
+      rotate: false,
+      highlightTypeS: '',
+      highlightTypeV: '1',
+      count: 1,
+      type: 'book',
+      book: '',
+    }
+    localStorage.setItem(SETTINGS_LOCALE_STORAGE_KEY, JSON.stringify(settings))
+    this.settings = settings
   }
 }
 

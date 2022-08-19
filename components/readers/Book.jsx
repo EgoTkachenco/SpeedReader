@@ -39,7 +39,7 @@ export default function Book({
         key={i + row[row.length - 1].position}
         isRead={row[row.length - 1].position <= currentPosition}
         background={settings.highlightColor}
-        transition={10000 / settings.speed}
+        transition={1000 / settings.speed}
         isOdd={Math.floor(i / rowsPerLine) % 2 === 0}
       >
         {row.map((word, j) => (

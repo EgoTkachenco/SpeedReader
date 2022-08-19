@@ -1,3 +1,5 @@
+import ColorPicker from './common/ColorPicker'
+
 export default function SettingsForm({ settings, onChange, onReset }) {
   let colorChangeEvent = {
     onInput: (e) => onChange(e.target.name, e.target.value),
@@ -18,10 +20,10 @@ export default function SettingsForm({ settings, onChange, onReset }) {
           id="speed"
           name="speed"
           type="range"
-          min="5"
-          max="100"
-          onMouseUp={(e) => onChange('speed', e.target.value)}
-          defaultValue={settings.speed}
+          min="1"
+          max="10"
+          onChange={(e) => onChange('speed', e.target.value)}
+          value={settings.speed}
         />
       </div>
 
@@ -29,36 +31,27 @@ export default function SettingsForm({ settings, onChange, onReset }) {
         <label htmlFor="highlightColor" className="form-label">
           Highlight Color
         </label>
-        <input
-          id="highlightColor"
-          name="highlightColor"
-          type="color"
-          {...colorChangeEvent}
-          defaultValue={settings.highlightColor}
+        <ColorPicker
+          onChange={(color) => onChange('highlightColor', color)}
+          value={settings.highlightColor}
         />
       </div>
       <div className="form-row">
         <label htmlFor="textColor" className="form-label">
           Text Color
         </label>
-        <input
-          id="textColor"
-          name="textColor"
-          type="color"
-          {...colorChangeEvent}
-          defaultValue={settings.textColor}
+        <ColorPicker
+          onChange={(color) => onChange('textColor', color)}
+          value={settings.textColor}
         />
       </div>
       <div className="form-row">
         <label htmlFor="pageColor" className="form-label">
           Page Color
         </label>
-        <input
-          id="pageColor"
-          name="pageColor"
-          type="color"
-          {...colorChangeEvent}
-          defaultValue={settings.pageColor}
+        <ColorPicker
+          onChange={(color) => onChange('pageColor', color)}
+          value={settings.pageColor}
         />
       </div>
 
@@ -77,20 +70,6 @@ export default function SettingsForm({ settings, onChange, onReset }) {
         </button>
       </div>
 
-      {/* <div className="form-row">
-        <label htmlFor="zoom" className="form-label">
-          Zoom
-        </label>
-        <button
-          id="zoom"
-          name="zoom"
-          onClick={(e) => onChange('zoom', e.target.value)}
-          value={settings.zoom}
-          className={`btn btn-icon ${settings.zoom ? 'active' : ''}`}
-        >
-          <img width="32" height="33" src="/zoom.png" alt="zoom" />
-        </button>
-      </div> */}
       <div>Highlight Type</div>
       <div className="form-row">
         <label htmlFor="highlightTypeS" className="form-label">

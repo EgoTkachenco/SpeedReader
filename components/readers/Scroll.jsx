@@ -9,7 +9,7 @@ export default function Scroll({
   rowsPerLine,
 }) {
   const contentRef = useRef()
-  const animationTime = 10000 / settings.speed
+  const animationTime = 1000 / settings.speed
   const [state, setState] = useState([])
 
   useEffect(() => {

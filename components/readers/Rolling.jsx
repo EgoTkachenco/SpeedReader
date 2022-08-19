@@ -5,7 +5,7 @@ export default function Rolling({ settings, text }) {
   useEffect(() => {
     if (text) {
       setState('')
-      contentRef.current.style.animationDuration = 10000 / settings.speed + 'ms'
+      contentRef.current.style.animationDuration = 1000 / settings.speed + 'ms'
       setTimeout(() => setState(text), 10)
     }
   }, [text])
