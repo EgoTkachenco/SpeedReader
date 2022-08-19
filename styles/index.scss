@@ -70,6 +70,34 @@ input[type='color'] {
   }
 }
 
+.slider {
+  input {
+    width: 100%;
+  }
+  &-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3px;
+    &__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20px;
+      height: 20px;
+
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 50%;
+      transition: all 0.3s;
+      color: #000;
+      &.active {
+        color: #fff;
+        background: #0d6efd;
+      }
+    }
+  }
+}
+
 @import './book.scss';
 @import './zoom.scss';
 @import './rolling.scss';

@@ -1,4 +1,5 @@
 import ColorPicker from './common/ColorPicker'
+import Slider from './common/Slider'
 
 export default function SettingsForm({ settings, onChange, onReset }) {
   let colorChangeEvent = {
@@ -16,13 +17,8 @@ export default function SettingsForm({ settings, onChange, onReset }) {
         <label htmlFor="speed" className="form-label">
           Speed
         </label>
-        <input
-          id="speed"
-          name="speed"
-          type="range"
-          min="1"
-          max="10"
-          onChange={(e) => onChange('speed', e.target.value)}
+        <Slider
+          onChange={(value) => onChange('speed', value)}
           value={settings.speed}
         />
       </div>
@@ -141,6 +137,22 @@ export default function SettingsForm({ settings, onChange, onReset }) {
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="4">4</option>
+        </select>
+      </div>
+      <div className="form-column">
+        <label htmlFor="type" className="form-label">
+          Choose reader type:
+        </label>
+        <select
+          name="type"
+          id="type"
+          value={settings.type}
+          onChange={(e) => onChange('type', e.target.value)}
+        >
+          <option value="book">Book</option>
+          <option value="scroll">Scroll</option>
+          <option value="rolling">Rolling</option>
+          <option value="zoom">Zoom</option>
         </select>
       </div>
       <div className="form-column">

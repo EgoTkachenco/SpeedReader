@@ -230,6 +230,7 @@ class Store {
     this.isBookEnd = false
     this.current_position = 0
     this.last_block_position = 0
+    this.current_pages = []
     this.all_text = []
   }
 
