@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
-import store from '../store'
+import store from '../../store/reader'
 import { observer } from 'mobx-react-lite'
 
 import SettingsForm from './SettingsForm'
 import ReaderView from './ReaderView'
+import Navigation from '../Navigation'
 import _ from 'lodash'
 
 const SpeedReader = observer(() => {
@@ -17,6 +18,7 @@ const SpeedReader = observer(() => {
     <div className="container-fluid h-100">
       <div className="row">
         <div className="col-12 col-lg-4 custom-form">
+          <Navigation />
           {store.inited && (
             <SettingsForm
               onReset={() => store.resetConfig()}

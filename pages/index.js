@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import SpeedReader from '../components/SpeedReader'
+import SpeedReader from '../components/reader/SpeedReader'
 
 export default function Home() {
   return (

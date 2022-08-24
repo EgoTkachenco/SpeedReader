@@ -1,5 +1,5 @@
-import ColorPicker from './common/ColorPicker'
-import Slider from './common/Slider'
+import ColorPicker from '../common/ColorPicker'
+import Slider from '../common/Slider'
 
 export default function SettingsForm({ settings, onChange, onReset }) {
   let colorChangeEvent = {
