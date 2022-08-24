@@ -22,10 +22,9 @@ export const AUTH_API = {
 }
 
 export const BOOKS_API = {
-  getBooks: () => axios.get('/books', securedFetchOptions()),
+  getBooks: () => axios.get('/books'),
   getBookText: (id, params) =>
     axios.get(`/books/${id}/text`, {
       params: params,
-      ...securedFetchOptions(),
     }),
 }
