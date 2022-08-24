@@ -17,7 +17,13 @@ function MyApp({ Component, pageProps }) {
 
         if (isAuth) router.push('/')
       })
-      .catch((err) => {})
+      .catch((err) => {
+        const isAuth =
+          router.pathname.search('registration') !== -1 ||
+          router.pathname.search('login') !== -1
+
+        if (!isAuth) router.push('/login')
+      })
   }
   return <Component {...pageProps} />
 }
