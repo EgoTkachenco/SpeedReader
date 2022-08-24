@@ -10,7 +10,7 @@ const Navigation = observer(() => {
     store.logout()
     router.push('/login')
   }
-  useEffect(() => setUsername(store.user.name), store.name)
+  useEffect(() => setUsername(store?.user?.name), [store.user])
 
   return (
     <nav className="d-flex align-items-center">
