@@ -1,11 +1,7 @@
-import axios from 'axios'
 import { makeAutoObservable, action } from 'mobx'
-
 import { BOOKS_API } from './api'
+import { BLOCK_SIZE, PAGE_SIZE, SETTINGS_LOCALE_STORAGE_KEY } from './constants'
 
-const SETTINGS_LOCALE_STORAGE_KEY = 'sra_1.5_conf'
-const BLOCK_SIZE = 4800
-const PAGE_SIZE = 24
 let ROW_SIZE = 40
 
 class Store {

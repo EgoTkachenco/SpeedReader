@@ -1,4 +1,5 @@
 import Axios from 'axios'
+import { TOKEN_NAME, USER_STORE_NAME } from './constants'
 
 const API_URL = process.env.NEXT_PUBLIC_SERVER_URL
 
@@ -8,8 +9,6 @@ const axios = Axios.create({
     'Content-Type': 'application/json',
   },
 })
-const TOKEN_NAME = 'sra_access_token'
-const USER_STORE_NAME = 'sra__user'
 
 // Request interseptor to check server response time
 axios.interceptors.request.use(

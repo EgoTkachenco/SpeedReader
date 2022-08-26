@@ -1,0 +1,25 @@
+.scrambled-reader {
+  width: 40em;
+  height: 25em;
+  margin: auto;
+  font-size: $f-size;
+  border: 0.0125rem solid #585a5c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+
+  &-content {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    transition: all 0.3s;
+  }
+}
+
+.small .scrambled-reader {
+  width: 100%;
+  height: 24em;
+  font-size: 12px;
+}

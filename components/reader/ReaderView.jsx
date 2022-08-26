@@ -2,6 +2,7 @@ import BookReader from './readers/Book'
 import ZoomReader from './readers/Zoom'
 import RollingReader from './readers/Rolling'
 import ScrollReader from './readers/Scroll'
+import ScrambledReader from './readers/Scrambled'
 
 const ReaderView = ({
   settings,
@@ -15,6 +16,8 @@ const ReaderView = ({
     switch (settings.type) {
       case 'zoom':
         return <ZoomReader settings={settings} text={text} />
+      case 'scrambled':
+        return <ScrambledReader settings={settings} />
       case 'rolling':
         return <RollingReader settings={settings} text={text} />
       case 'scroll':

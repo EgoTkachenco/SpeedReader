@@ -153,6 +153,7 @@ export default function SettingsForm({ settings, onChange, onReset }) {
           <option value="scroll">Scroll</option>
           <option value="rolling">Rolling</option>
           <option value="zoom">Zoom</option>
+          <option value="scrambled">Scrambled</option>
         </select>
       </div>
       <div className="form-column">

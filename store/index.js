@@ -1,6 +1,8 @@
 import { makeAutoObservable } from 'mobx'
 import { AUTH_API } from './api'
-import { setToken, TOKEN_NAME, USER_STORE_NAME } from './axios'
+import { setToken } from './axios'
+import { TOKEN_NAME, USER_STORE_NAME } from './constants'
+
 class Store {
   user = undefined
   constructor() {
