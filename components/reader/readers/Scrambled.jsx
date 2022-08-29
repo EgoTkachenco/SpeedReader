@@ -10,6 +10,10 @@ export default function Scrambled({ settings }) {
     isScrumbled: false,
   })
 
+  useEffect(() => {
+    if (settings.book) updateText()
+  }, [settings.book])
+
   const updateText = async () => {
     const size = 48 * 16
     const start = Math.floor(Math.random() * settings.book.size) - size
