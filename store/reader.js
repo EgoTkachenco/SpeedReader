@@ -2,7 +2,7 @@ import { makeAutoObservable, action } from 'mobx'
 import { BOOKS_API } from './api'
 import { BLOCK_SIZE, PAGE_SIZE, SETTINGS_LOCALE_STORAGE_KEY } from './constants'
 
-let ROW_SIZE = 40
+let ROW_SIZE = 60 // 40
 
 class Store {
   inited = false

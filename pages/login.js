@@ -3,6 +3,7 @@ import store from '../store'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import AuthWrapper from '../components/AuthWrapper'
+import { Input, Button } from '../components/common'
 
 export default function Login() {
   const ref = useRef()
@@ -29,16 +30,21 @@ export default function Login() {
 
   return (
     <AuthWrapper title="Login">
-      <form className="card-body" onSubmit={onSubmit} ref={ref}>
-        <input
+      <div className="auth-title">Welcome back!</div>
+      <div className="auth-subtitle">
+        Sign in with your data that you entered during your registration
+      </div>
+      <form className="auth-form" onSubmit={onSubmit} ref={ref}>
+        <Input
           id="email"
           name="email"
           type="email"
           className="form-control mb-3"
           placeholder="Your email"
           required
+          error={error}
         />
-        <input
+        <Input
           id="password"
           type="password"
           name="password"
@@ -48,16 +54,18 @@ export default function Login() {
           minLength={6}
         />
         <Link href="/forgot-password">
-          <a className="text-primary text-decoration-none">Forgot password ?</a>
+          <a className="auth-forgot">Forgot password ?</a>
         </Link>
-        {error && <p className="text-danger text-center">{error}</p>}
 
-        <button className="btn btn-success d-block ms-auto mt-5" type="submit">
-          Submit
-        </button>
-        <Link href="/registration">
-          <a className="text-primary text-decoration-none">Create account</a>
-        </Link>
+        <Button variant="primary" type="submit">
+          Sign in
+        </Button>
+        <div className="auth-caption">
+          Don’t have an account?{' '}
+          <Link href="/registration">
+            <a className="auth-registration">Sign up</a>
+          </Link>
+        </div>
       </form>
     </AuthWrapper>
   )

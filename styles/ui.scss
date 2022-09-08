@@ -1,0 +1,256 @@
+// Button
+.btn {
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+  min-width: 100px;
+  cursor: pointer;
+  width: 100%;
+
+  &.btn-primary {
+    height: 3rem;
+    background: #1893d5;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #fefbf7;
+
+    &:hover {
+      background: #1479af;
+    }
+    &:active {
+      background: #1479af;
+      opacity: 0.5;
+    }
+  }
+
+  &.btn-success {
+    background: #ffffff;
+    border-color: #009e65;
+    border-radius: 1000px;
+    color: #009e65;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 600;
+
+    &:hover {
+      color: #fff;
+      background: #009e65;
+    }
+    &:active {
+      color: #fff;
+      background: #009e65;
+      opacity: 0.5;
+    }
+  }
+
+  &.btn-text {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color: #2ba7df;
+    svg {
+      fill: #2ba7df;
+    }
+
+    &:hover {
+      color: #1479af;
+      svg {
+        fill: #1479af;
+      }
+    }
+    &:active {
+      color: rgba(20, 121, 175, 0.5);
+      svg {
+        fill: rgba(20, 121, 175, 0.5);
+      }
+    }
+  }
+}
+
+// Input
+.input-wrapper {
+  position: relative;
+  padding-bottom: 1.375rem;
+
+  input {
+    height: 3rem;
+    background: #ffffff;
+    border: 1px solid rgba(184, 197, 241, 0.3);
+    border-radius: 10px;
+    padding: 0 1.5rem;
+    outline: none;
+    transition: all 0.3s;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 24px;
+    font-family: 'Gilroy';
+    width: 100%;
+
+    &::placeholder {
+      color: #383838;
+      opacity: 0.5;
+    }
+
+    &:hover {
+      outline: none;
+      border-color: #2ba7df;
+    }
+    &:focus {
+      border-color: #1893d5;
+    }
+  }
+
+  .input-error,
+  .input-hint {
+    position: absolute;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 500;
+  }
+
+  .input-error {
+    color: #f07373;
+  }
+  .input-hint {
+    color: #009e65;
+  }
+}
+
+// Select
+.select-wrapper {
+  position: relative;
+  background: url('/metal-select.png') center center;
+  object-fit: fill;
+  width: 21rem;
+  height: 3.125rem;
+  padding: 0.25rem 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border-radius: 0.5rem;
+
+  .select {
+    height: 100%;
+    background: #0f0f0f;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+
+  .select-arrow {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    transition: all 0.3s;
+  }
+
+  &.show .select-arrow {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .select-content {
+    position: absolute;
+    background: #0f0f0f;
+    border: 1px solid #ffffff;
+    border-radius: 7px;
+    left: 0;
+    opacity: 0;
+    top: 100%;
+    width: 100%;
+    max-height: 0px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: all 0.3s;
+    z-index: 10;
+    overflow: auto;
+
+    &-item {
+      cursor: pointer;
+      color: #ffffff;
+
+      &:hover {
+        color: #2ba7df;
+      }
+    }
+  }
+  &.top .select-content {
+    top: unset;
+    bottom: 100%;
+  }
+  &.show .select-content {
+    max-height: 100px;
+    opacity: 1;
+    top: calc(100% + 0.25rem);
+  }
+  &.show.top .select-content {
+    max-height: 200px;
+    opacity: 1;
+    top: unset;
+    bottom: calc(100% + 0.25rem);
+  }
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+
+  .checkbox {
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: #030303;
+    border: calc(1rem / 8) solid #b8c5f1;
+    transition: all 0.3s;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 0.75rem;
+
+    &::after {
+      position: absolute;
+      content: '';
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 0.75rem;
+      height: 0.75rem;
+      background: transparent;
+      transition: all 0.3s;
+      border-radius: 50%;
+    }
+
+    &.active {
+      border-color: #009e65;
+      &::after {
+        background: #009e65;
+      }
+    }
+  }
+  .checkbox-label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+  }
+}

@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import store from '../store'
 import AuthWrapper from '../components/AuthWrapper'
+import { Input, Button } from '../components/common'
 
 export default function ForgorPassword() {
   const ref = useRef()
@@ -28,30 +29,33 @@ export default function ForgorPassword() {
 
   return (
     <AuthWrapper title="Forget Password">
+      <div className="auth-title">Forgot password</div>
       {isSend ? (
-        <div className="card-body text-center">
+        <div className="auth-subtitle">
           Reset password link send to your email
         </div>
       ) : (
-        <form className="card-body" onSubmit={onSubmit} ref={ref}>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            className="form-control mb-3"
-            placeholder="Your email"
-            required
-          />
+        <>
+          <div className="auth-subtitle">
+            Enter email you provide during registration
+          </div>
+          <form className="auth-form" onSubmit={onSubmit} ref={ref}>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              className="form-control mb-3"
+              placeholder="Your email"
+              required
+            />
 
-          {error && <p className="text-danger text-center">{error}</p>}
+            {error && <p className="text-danger text-center">{error}</p>}
 
-          <button
-            className="btn btn-success d-block ms-auto mt-5"
-            type="submit"
-          >
-            Reset
-          </button>
-        </form>
+            <Button variant="primary" type="submit">
+              Reset
+            </Button>
+          </form>
+        </>
       )}
     </AuthWrapper>
   )

@@ -3,6 +3,7 @@ import store from '../store'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import AuthWrapper from '../components/AuthWrapper'
+import { Input, Button } from '../components/common'
 
 export default function Registration() {
   const ref = useRef()
@@ -33,8 +34,10 @@ export default function Registration() {
 
   return (
     <AuthWrapper title="Registration">
-      <form className="card-body p-4" onSubmit={onSubmit} ref={ref}>
-        <input
+      <div className="auth-title">Welcome!</div>
+      <div className="auth-subtitle">Create new account</div>
+      <form className="auth-form" onSubmit={onSubmit} ref={ref}>
+        <Input
           id="name"
           name="name"
           type="text"
@@ -43,7 +46,7 @@ export default function Registration() {
           required
         />
 
-        <input
+        <Input
           type="email"
           className="form-control mb-3"
           id="email"
@@ -52,7 +55,7 @@ export default function Registration() {
           required
         />
 
-        <input
+        <Input
           id="password"
           type="password"
           name="password"
@@ -62,7 +65,7 @@ export default function Registration() {
           minLength={6}
         />
 
-        <input
+        <Input
           id="confirmPassword"
           name="confirmPassword"
           type="password"
@@ -74,13 +77,16 @@ export default function Registration() {
 
         {error && <p className="text-danger text-center">{error}</p>}
 
-        <button className="btn btn-success d-block ms-auto mt-5" type="submit">
+        <Button variant="primary" type="submit">
           Create account
-        </button>
+        </Button>
 
-        <p className="text-center text-muted mt-5">
-          Have already an account? <Link href="/login">Login here</Link>
-        </p>
+        <div className="auth-caption">
+          Have already an account?{' '}
+          <Link href="/login">
+            <a className="auth-registration">Login here</a>
+          </Link>
+        </div>
       </form>
     </AuthWrapper>
   )

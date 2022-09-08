@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import store from '../store'
 import AuthWrapper from '../components/AuthWrapper'
 import { useRouter } from 'next/router'
+import { Input, Button } from '../components/common'
 
 export default function ForgorPassword() {
   const ref = useRef()
@@ -30,17 +31,20 @@ export default function ForgorPassword() {
 
   return (
     <AuthWrapper title="Reset Password">
-      <form className="card-body" onSubmit={onSubmit} ref={ref}>
-        <input
+      <div className="auth-title">Reset Password</div>
+      <div className="auth-subtitle">Enter your new password</div>
+      <form className="auth-form" onSubmit={onSubmit} ref={ref}>
+        <Input
           id="password"
           name="password"
           type="password"
           className="form-control mb-3"
           placeholder="Your new password"
           required
+          error={error}
         />
 
-        <input
+        <Input
           id="confirmPassword"
           name="confirmPassword"
           type="password"
@@ -49,11 +53,9 @@ export default function ForgorPassword() {
           required
         />
 
-        {error && <p className="text-danger text-center">{error}</p>}
-
-        <button className="btn btn-success d-block ms-auto mt-5" type="submit">
+        <Button variant="primary" type="submit">
           Reset
-        </button>
+        </Button>
       </form>
     </AuthWrapper>
   )

@@ -1,8 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap');
+@font-face {
+  font-family: 'Gilroy';
+  src: url('./Gilroy-Light.otf');
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('./Gilroy-ExtraBold.otf');
+  font-weight: bold;
+}
+
+html {
+  font-family: 'Gilroy';
+  font-size: 1vw;
+}
 
 body {
-  font-family: 'Open Sans', sans-serif !important;
   min-height: 100%;
+  margin: 0;
 }
 * {
   box-sizing: border-box;
@@ -11,5 +24,121 @@ a {
   text-decoration: none;
 }
 
+@import './ui.scss';
+
+.page-wrapper {
+  display: flex;
+  min-height: 100vh;
+
+  .page-content {
+    width: calc(100% - 4.5rem);
+    background: url('/theme-1.png') center no-repeat;
+    background-size: cover;
+    padding: 2rem 4rem;
+  }
+}
+
+.navigation {
+  background: url('/navigation.png') center no-repeat;
+  background-size: cover;
+  width: 4.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 3.625rem 0.5rem;
+  gap: 1rem;
+
+  &__link {
+    width: 3.5rem;
+    height: 3.5rem;
+    background: url('/button.png') center no-repeat;
+    background-size: cover;
+    transition: all 0.3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(180deg, #c9c9c9 0%, #f8f8f8 100%);
+      border: 1px solid #ffffff;
+      width: 2.625rem;
+      height: 2.625rem;
+      border-radius: 50%;
+    }
+    svg {
+      position: relative;
+    }
+    path,
+    rect {
+      transition: all 0.3s;
+    }
+    &:hover {
+      path,
+      rect {
+        fill: #1893d5;
+      }
+    }
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+
+  &-left {
+    &-top {
+      display: flex;
+      align-items: flex-end;
+      gap: 2.5rem;
+
+      .select-wrapper {
+        width: 14.25rem;
+      }
+    }
+
+    &-checkboxes {
+      display: flex;
+      margin-bottom: 0.75rem;
+
+      .checkbox-wrapper {
+        color: #fff;
+        padding-right: 1rem;
+        margin-right: 1rem;
+        border-right: 1px solid #ffffff;
+
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+
+    &__label {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 22px;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+    }
+
+    &__title {
+      color: #ffffff;
+      margin-top: 3.5rem;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+}
+
 @import './reader/index.scss';
 @import './auth.scss';
+@import './training.scss';

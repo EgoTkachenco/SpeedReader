@@ -1,8 +1,58 @@
 .auth-wrapper {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: rgba(#198754, 0.5);
+  background: url('/auth-back.png') center no-repeat;
+  background-size: cover;
+
+  .auth-logo {
+    margin-bottom: 4rem;
+  }
+
+  .auth-title {
+    font-weight: 700;
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+  }
+  .auth-subtitle {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 2rem;
+  }
+
+  .auth-form {
+    width: 28.5rem;
+  }
+
+  .auth-caption {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 1rem;
+  }
+  .auth-forgot {
+    text-align: right;
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    color: #ffffff;
+    display: block;
+  }
+
+  .auth-registration {
+    font-weight: 700;
+    color: #2ba8e0;
+  }
 }

@@ -10,6 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mantine/core": "^5.2.5",
+    "@mantine/hooks": "^5.2.5",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
     "lodash": "^4.17.21",
@@ -21,8 +23,10 @@
     "react-dom": "18.2.0",
     "react-flip-move": "^3.0.4",
     "react-lottie": "^1.2.3",
+    "react-responsive-carousel": "^3.2.23",
     "rooks": "^6.4.3",
-    "sass": "^1.54.4"
+    "sass": "^1.54.4",
+    "swiper": "^8.3.2"
   },
   "devDependencies": {
     "eslint": "8.21.0",
