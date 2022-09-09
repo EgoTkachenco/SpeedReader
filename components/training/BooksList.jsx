@@ -4,7 +4,6 @@ import Carousel from 'react-multi-carousel'
 
 const BookList = observer(() => {
   const books = store.books
-  console.log(books)
   return (
     <Carousel
       className="book-list"

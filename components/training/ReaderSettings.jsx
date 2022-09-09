@@ -8,6 +8,9 @@ const ReaderSettings = observer(() => {
     if (process.browser) store.initSettings()
   }, [])
   const settings = store.settings
+  const presets = store.presets
+  const preset = store.preset
+  const exercise = store.exercise
   const onChange = (key, val) => store.updateSettings(key, val)
   const onReset = () => store.resetConfig()
   // settings, onChange, onReset
@@ -16,16 +19,26 @@ const ReaderSettings = observer(() => {
     <div className="training-settings">
       <div className="training-settings__title">Power learning sets</div>
       <div className="training-settings-list__vertical">
-        <Checkbox label="Standard" value={true} onChange={() => {}} />
-        <Checkbox label="Challenging" value={false} onChange={() => {}} />
-        <Checkbox label="Extra challenging" value={false} onChange={() => {}} />
+        {presets.map((el, i) => (
+          <Checkbox
+            key={i}
+            label={el.name}
+            value={el.name === preset?.name}
+            onChange={() => store.setPreset(el)}
+          />
+        ))}
       </div>
       <div className="training-settings-list">
-        <Button variant="success">Excercise 1</Button>
-        <Button variant="success">Excercise 2</Button>
-        <Button variant="success">Excercise 3</Button>
-        <Button variant="success">Excercise 4</Button>
-        <Button variant="success">Excercise 5</Button>
+        {preset &&
+          preset.exercises.map((el, i) => (
+            <Button
+              variant={exercise?.name === el.name ? 'primary' : 'success'}
+              key={i}
+              onClick={() => store.setExercise(el)}
+            >
+              {el.name}
+            </Button>
+          ))}
       </div>
       <div className="training-settings__delimiter" />
       <div className="training-settings__title">Fonts</div>

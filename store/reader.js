@@ -1,7 +1,7 @@
 import { makeAutoObservable, action } from 'mobx'
 import { BOOKS_API } from './api'
 import { BLOCK_SIZE, PAGE_SIZE, SETTINGS_LOCALE_STORAGE_KEY } from './constants'
-
+import PRESETS from './presets.json'
 let ROW_SIZE = 60 // 40
 
 class Store {
@@ -314,6 +314,49 @@ class Store {
     }
     localStorage.setItem(SETTINGS_LOCALE_STORAGE_KEY, JSON.stringify(settings))
     this.settings = settings
+  }
+
+  presets = PRESETS // list of presets
+  preset = null // active preset
+  exercise = null // active exercise
+  exerciseTimeout = null // next action in exercise timeout
+  exerciseProgress = null // exercise current ation
+
+  setPreset(preset) {
+    this.preset = { ...preset }
+  }
+  setExercise(exercise) {
+    this.exercise = { ...exercise }
+    this.nextExerciseAction()
+  }
+  nextExerciseAction() {
+    this.clearExercise()
+    const result = this.exercise.data.reduce((acc, el, i) => {
+      return acc ? acc : !el.passed ? { el, i } : null
+    }, null)
+    if (!result) return this.endExercise()
+
+    const { el: nextAction, i: nextActionIndex } = result
+    this.exerciseProgress = nextActionIndex
+    this.exercise.data[nextActionIndex].passed = true
+
+    console.log(nextAction, nextActionIndex)
+    for (const key in nextAction.action) {
+      this.updateSettings(key, nextAction.action[key])
+    }
+
+    this.exerciseTimeout = setTimeout(
+      () => this.nextExerciseAction(),
+      nextAction.duration
+    )
+  }
+  endExercise() {
+    this.exercise = null
+    this.exerciseProgress = null
+  }
+  clearExercise() {
+    clearTimeout(this.exerciseTimeout)
+    this.exerciseTimeout = null
   }
 }
 
