@@ -80,8 +80,10 @@ const ReaderSettings = observer(() => {
             <div>
               <div className="training-settings__title">Rotate (180deg)</div>
               <Select
-                options={[true, false]}
-                onClick={(e) => onChange('rotate', e.target.value)}
+                renderValue={(value) => (value ? '180deg' : '0deg')}
+                renderOption={(value) => (value ? '180deg' : '0deg')}
+                options={[false, true]}
+                onChange={(value) => onChange('rotate', value)}
                 value={settings.rotate}
               />
             </div>

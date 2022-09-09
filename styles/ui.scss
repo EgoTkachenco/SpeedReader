@@ -203,6 +203,7 @@
     max-height: 100px;
     opacity: 1;
     top: calc(100% + 0.25rem);
+    z-index: 100;
   }
   &.show.top .select-content {
     max-height: 200px;

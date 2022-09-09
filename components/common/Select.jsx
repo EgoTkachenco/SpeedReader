@@ -11,14 +11,13 @@ const Select = ({
 }) => {
   const [show, setShow] = useState(false)
   const ref = useClickOutside(() => setShow(false))
-
   return (
     <div
       className={`select-wrapper ${show ? 'show' : ''} ${top ? 'top' : ''}`}
       ref={ref}
     >
       <div className="select" onClick={() => setShow(!show)}>
-        {renderValue ? renderValue(value) : value}
+        {renderValue ? renderValue(value) : value ? value : '- Select option -'}
 
         <img className="select-arrow" src="/arrow.svg" alt="arrow" />
       </div>
