@@ -1,6 +1,5 @@
 // @import 'swiper/c'
-@import '../node_modules/swiper/swiper.scss';
-// @import 'swiper/css/pagination';
+@import '../node_modules/react-multi-carousel/lib/styles.css';
 
 .training {
   display: flex;
@@ -78,15 +77,15 @@
     align-items: center;
     gap: 1rem;
     cursor: pointer;
+
     &__pic {
       border-radius: 12px;
       width: 4.375rem;
       height: 4.375rem;
+      min-width: 4.375rem;
+      object-fit: cover;
     }
     div.book-slide__pic {
-      border-radius: 12px;
-      width: 4.375rem;
-      height: 4.375rem;
       background: #0f0f0f;
       color: #fff;
       font-size: 1.75rem;
@@ -100,15 +99,40 @@
     }
     &__title {
       font-weight: 600;
-      font-size: 16px;
-      line-height: 24px;
+      font-size: 1rem;
+      line-height: 1.5rem;
       color: #ffffff;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
     }
     &__author {
       font-weight: 500;
-      font-size: 14px;
-      line-height: 22px;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
       color: #ffffff;
     }
   }
+}
+
+.react-multi-carousel-dot-list {
+}
+.react-multi-carousel-list {
+  overflow-x: hidden;
+  padding-bottom: 1.5rem;
+}
+.react-multi-carousel-dot button {
+  // border: none;
+  border-color: #2ba7df;
+  background-color: transparent;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-left: 0.25rem;
+
+  &:first-child {
+    margin-left: 0.25rem;
+  }
+}
+.react-multi-carousel-dot--active button {
+  background-color: #2ba7df;
 }

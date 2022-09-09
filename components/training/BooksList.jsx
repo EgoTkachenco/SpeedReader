@@ -1,21 +1,37 @@
 import store from '../../store/reader'
 import { observer } from 'mobx-react-lite'
+import Carousel from 'react-multi-carousel'
 
 const BookList = observer(() => {
   const books = store.books
+  console.log(books)
   return (
-    <div className="book-list">
+    <Carousel
+      className="book-list"
+      showDots={true}
+      removeArrowOnDeviceType={['desktop']}
+      responsive={{
+        desktop: {
+          breakpoint: { max: 3000, min: 0 },
+          items: 3,
+          slidesToSlide: 3,
+        },
+      }}
+    >
       {books.map((book) => (
         <div
           key={book.id}
           className="book-slide"
           onClick={() => {
-            debugger
             store.updateSettings('book', book.id)
           }}
         >
-          {book.image ? (
-            <img className="book-slide__pic" src="/book.png" alt="" />
+          {book.picture ? (
+            <img
+              className="book-slide__pic"
+              src={process.env.NEXT_PUBLIC_SERVER_URL + book.picture.url}
+              alt=""
+            />
           ) : (
             <div className="book-slide__pic">{book.name.slice(0, 2)}</div>
           )}
@@ -25,7 +41,7 @@ const BookList = observer(() => {
           </div>
         </div>
       ))}
-    </div>
+    </Carousel>
   )
 })
 
