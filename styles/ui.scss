@@ -254,3 +254,16 @@
     color: #ffffff;
   }
 }
+.color-picker {
+  position: relative;
+  &__value {
+    height: 1.875rem;
+    width: 4.875rem;
+    border-radius: 0.5rem;
+  }
+  &__form {
+    z-index: 100;
+    position: absolute;
+    top: calc(100% + 8px);
+  }
+}

@@ -5,11 +5,11 @@
   display: flex;
 
   &-right {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    // flex-grow: 1;
+    // display: flex;
+    // justify-content: center;
+    // align-items: flex-start;
+    // flex-wrap: wrap;
   }
 
   .training-settings {
@@ -21,7 +21,7 @@
       font-size: 0.875rem;
       line-height: 1.375rem;
       color: #ffffff;
-      margin-bottom: 1rem;
+      margin: 1rem 0;
     }
 
     &-list__vertical {

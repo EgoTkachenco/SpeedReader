@@ -8,17 +8,17 @@ export default function ColorPicker({ value, onChange }) {
   useOutsideClick(ref, () => setShow(false))
 
   return (
-    <div className="color-picker" ref={ref}>
-      <div
-        className="color-picker__value"
-        onClick={() => setShow(!show)}
-        style={{ background: value }}
-      />
+    <div className="color-picker select-wrapper" ref={ref}>
+      <div className="select" onClick={() => setShow(!show)}>
+        <div className="color-picker__value" style={{ background: value }} />
+        <img className="select-arrow" src="/arrow.svg" alt="arrow" />
+      </div>
       {show && (
         <div className="color-picker__form">
           <TwitterPicker
             colors={[
               '#000000',
+              '#2A2B43',
               '#FCB900',
               '#AFFF83',
               '#00D084',
@@ -27,7 +27,7 @@ export default function ColorPicker({ value, onChange }) {
               '#ABB8C3',
               '#FFFFFF',
               '#F78DA7',
-              '#9900EF',
+              '#AE1CE1',
             ]}
             onChangeComplete={(color) => {
               onChange(color.hex)

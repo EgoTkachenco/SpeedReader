@@ -46,20 +46,6 @@ input[type='color'] {
   font-weight: bold;
 }
 
-.color-picker {
-  position: relative;
-  &__value {
-    width: 50px;
-    height: 25px;
-    border: 1px solid #000;
-  }
-  &__form {
-    z-index: 100;
-    position: absolute;
-    top: calc(100% + 8px);
-  }
-}
-
 .slider {
   input {
     width: 100%;
