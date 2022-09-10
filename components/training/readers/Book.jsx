@@ -76,61 +76,67 @@ export default function Book({
           </Button>
         )}
       </div>
-      <label
-        htmlFor={page1Name}
-        className="book__page book__page--1"
-        style={{ background: settings.pageColor }}
-      >
-        <div className="page__content">
-          <div className="page__content-text">{getPage(current_pages[0])}</div>
-        </div>
-      </label>
-
-      <label
-        htmlFor={page2Name}
-        className="book__page book__page--4"
-        style={{ background: settings.pageColor }}
-      >
-        <div className="page__content">
-          <div className="page__content-text">{getPage(current_pages[3])}</div>
-        </div>
-      </label>
-
-      <input
-        type="radio"
-        name={page1Name}
-        id={page1Name}
-        checked={!pageAnimation}
-        readOnly
-      />
-
-      <input
-        type="radio"
-        name={page2Name}
-        id={page2Name}
-        checked={pageAnimation}
-        readOnly
-      />
-
-      <label
-        className="book__page book__page--2"
-        style={{ background: settings.pageColor }}
-      >
-        <div className="book__page-front">
+      <div className="book-inner">
+        <label
+          htmlFor={page1Name}
+          className="book__page book__page--1"
+          style={{ background: settings.pageColor }}
+        >
           <div className="page__content">
             <div className="page__content-text">
-              {getPage(current_pages[1])}
+              {getPage(current_pages[0])}
             </div>
           </div>
-        </div>
-        <div className="book__page-back">
+        </label>
+
+        <label
+          htmlFor={page2Name}
+          className="book__page book__page--4"
+          style={{ background: settings.pageColor }}
+        >
           <div className="page__content">
             <div className="page__content-text">
-              {getPage(current_pages[2])}
+              {getPage(current_pages[3])}
             </div>
           </div>
-        </div>
-      </label>
+        </label>
+
+        <input
+          type="radio"
+          name={page1Name}
+          id={page1Name}
+          checked={!pageAnimation}
+          readOnly
+        />
+
+        <input
+          type="radio"
+          name={page2Name}
+          id={page2Name}
+          checked={pageAnimation}
+          readOnly
+        />
+
+        <label
+          className="book__page book__page--2"
+          style={{ background: settings.pageColor }}
+        >
+          <div className="book__page-front">
+            <div className="page__content">
+              <div className="page__content-text">
+                {getPage(current_pages[1])}
+              </div>
+            </div>
+          </div>
+          <div className="book__page-back">
+            <div className="page__content">
+              <div className="page__content-text">
+                {getPage(current_pages[2])}
+              </div>
+            </div>
+          </div>
+        </label>
+      </div>
 
       <div className="book-bottom">
         <img className="book-bottom__arrow left" src="/arrow-left.svg" />
@@ -173,10 +179,9 @@ const Word = ({ text, isRead, background, color, addSpace, isTransition }) => (
 const BookWrapper = ({ children, rotate, type, full }) => {
   return (
     <div
-      className={`wrapper ${type} ${full ? 'full' : ''}`}
-      style={{
-        transform: `${rotate ? 'rotate(180deg)' : ''}`,
-      }}
+      className={`wrapper ${type} ${full ? 'full' : ''}  ${
+        rotate ? 'rotate' : ''
+      }`}
     >
       <div className="book">{children}</div>
     </div>
