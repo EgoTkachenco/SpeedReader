@@ -7,6 +7,16 @@ $f-size: calc(46vw * 16 / 700);
   position: relative;
   width: 66rem;
   height: 47.75rem;
+
+  &.full {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    background: #2a2b43;
+  }
 }
 
 .small .wrapper {
@@ -14,6 +24,11 @@ $f-size: calc(46vw * 16 / 700);
   // .cover {
   //   transform: scale(0.7);
   // }
+}
+
+.full .book {
+  width: 66rem;
+  height: 47.75rem;
 }
 
 .book {
@@ -191,4 +206,33 @@ $f-size: calc(46vw * 16 / 700);
   .word-back.active {
     height: 0.8em;
   }
+}
+
+.book-bottom {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  width: calc(100% - 4rem);
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: #ffffff;
+}
+.book-top {
+  position: absolute;
+  z-index: 100;
+  top: 1rem;
+  left: 2rem;
+  width: calc(100% - 4rem);
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    width: auto;
+  }
+}
+.full .book-top {
+  justify-content: flex-start;
 }

@@ -33,11 +33,31 @@
     }
   }
 
-  &.btn-success {
-    background: #ffffff;
+  &.btn-success-outline {
+    background: transparent;
     border-color: #009e65;
     border-radius: 1000px;
     color: #009e65;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 600;
+
+    &:hover {
+      color: #fff;
+      background: #009e65;
+    }
+    &:active {
+      color: #fff;
+      background: #009e65;
+      opacity: 0.5;
+    }
+  }
+
+  &.btn-success {
+    color: #ffffff;
+    background: #009e65;
+    border-color: #009e65;
+    border-radius: 1000px;
     font-size: 12px;
     line-height: 20px;
     font-weight: 600;

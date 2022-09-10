@@ -80,6 +80,13 @@ a {
     rect {
       transition: all 0.3s;
     }
+
+    &.active {
+      path,
+      rect {
+        fill: #1893d5;
+      }
+    }
     &:hover {
       path,
       rect {

@@ -1,6 +1,7 @@
 const TYPES = {
   primary: 'btn-primary',
   success: 'btn-success',
+  'success-outline': 'btn-success-outline',
   text: 'btn-text',
 }
 

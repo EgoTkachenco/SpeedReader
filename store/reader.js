@@ -1,7 +1,12 @@
 import { makeAutoObservable, action } from 'mobx'
 import { BOOKS_API } from './api'
-import { BLOCK_SIZE, PAGE_SIZE, SETTINGS_LOCALE_STORAGE_KEY } from './constants'
-import PRESETS from './presets.json'
+import {
+  BLOCK_SIZE,
+  COLORS,
+  PAGE_SIZE,
+  SETTINGS_LOCALE_STORAGE_KEY,
+} from './constants'
+import { PRESETS } from './presets'
 let ROW_SIZE = 60 // 40
 
 class Store {
@@ -46,6 +51,8 @@ class Store {
       settings = JSON.parse(localeConfig)
       this.settings = settings
       if (this.settings.book) await this.loadBook()
+    } else {
+      this.resetConfig()
     }
   }
 
@@ -92,7 +99,7 @@ class Store {
     this.isBookFetching = false
   }
 
-  updateSettings(key, value) {
+  updateSettings(key, value, isUpdateLocalStorage = true) {
     if (!this.settings.hasOwnProperty(key)) return
 
     let formatedValue = value
@@ -106,7 +113,7 @@ class Store {
         break
       case 'rotate':
         // case 'zoom':
-        formatedValue = !this.settings[key]
+        formatedValue = !!value
         break
       case 'book':
         isTextUpdate = true
@@ -130,10 +137,11 @@ class Store {
 
     if (isTextUpdate) this.loadBook()
 
-    localStorage.setItem(
-      SETTINGS_LOCALE_STORAGE_KEY,
-      JSON.stringify(this.settings)
-    )
+    if (isUpdateLocalStorage)
+      localStorage.setItem(
+        SETTINGS_LOCALE_STORAGE_KEY,
+        JSON.stringify(this.settings)
+      )
   }
 
   async nextPosition() {
@@ -302,9 +310,9 @@ class Store {
   resetConfig() {
     const settings = {
       speed: 1,
-      highlightColor: '#afff83',
-      textColor: '#000000',
-      pageColor: '#ffffff',
+      highlightColor: COLORS.violet,
+      textColor: COLORS.white,
+      pageColor: COLORS.gray,
       rotate: false,
       highlightTypeS: '',
       highlightTypeV: '1',
@@ -317,7 +325,7 @@ class Store {
   }
 
   presets = PRESETS // list of presets
-  preset = null // active preset
+  preset = PRESETS[0] // active preset
   exercise = null // active exercise
   exerciseTimeout = null // next action in exercise timeout
   exerciseProgress = null // exercise current ation
@@ -340,9 +348,8 @@ class Store {
     this.exerciseProgress = nextActionIndex
     this.exercise.data[nextActionIndex].passed = true
 
-    console.log(nextAction, nextActionIndex)
     for (const key in nextAction.action) {
-      this.updateSettings(key, nextAction.action[key])
+      this.updateSettings(key, nextAction.action[key], false)
     }
 
     this.exerciseTimeout = setTimeout(
@@ -353,6 +360,13 @@ class Store {
   endExercise() {
     this.exercise = null
     this.exerciseProgress = null
+
+    let localeConfig = localStorage.getItem(SETTINGS_LOCALE_STORAGE_KEY)
+    let settings
+    if (localeConfig) {
+      settings = JSON.parse(localeConfig)
+      this.settings = settings
+    }
   }
   clearExercise() {
     clearTimeout(this.exerciseTimeout)

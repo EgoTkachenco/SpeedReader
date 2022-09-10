@@ -1,6 +1,7 @@
 import { TwitterPicker } from 'react-color'
 import { useState, useRef } from 'react'
 import { useOutsideClick } from 'rooks'
+import { COLORS } from '../../store/constants'
 
 export default function ColorPicker({ value, onChange }) {
   const [show, setShow] = useState(false)
@@ -16,19 +17,7 @@ export default function ColorPicker({ value, onChange }) {
       {show && (
         <div className="color-picker__form">
           <TwitterPicker
-            colors={[
-              '#000000',
-              '#2A2B43',
-              '#FCB900',
-              '#AFFF83',
-              '#00D084',
-              '#8ED1FC',
-              '#0693E3',
-              '#ABB8C3',
-              '#FFFFFF',
-              '#F78DA7',
-              '#AE1CE1',
-            ]}
+            colors={Object.values(COLORS)}
             onChangeComplete={(color) => {
               onChange(color.hex)
               setShow(false)

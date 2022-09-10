@@ -32,7 +32,7 @@
     }
     &-list {
       display: flex;
-      gap: 1rem;
+      gap: 0.7rem;
       margin-bottom: 1rem;
       flex-wrap: wrap;
 
@@ -77,6 +77,11 @@
     align-items: center;
     gap: 1rem;
     cursor: pointer;
+    border: 1px solid #2a2b43;
+    transition: all 0.3s;
+    &.active {
+      border: 1px solid #2ba7de;
+    }
 
     &__pic {
       border-radius: 12px;
@@ -113,20 +118,36 @@
       color: #ffffff;
     }
   }
+
+  &-arrow {
+    width: 4rem;
+    height: 0.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: calc(100% - 1.5rem);
+    z-index: 100;
+
+    &.left {
+      left: 0;
+    }
+    &.right {
+      right: 1rem;
+    }
+  }
 }
 
 .react-multi-carousel-dot-list {
 }
 .react-multi-carousel-list {
   overflow-x: hidden;
-  padding-bottom: 1.5rem;
+  padding-bottom: 2rem;
 }
 .react-multi-carousel-dot button {
   // border: none;
   border-color: #2ba7df;
   background-color: transparent;
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 0.5rem;
+  height: 0.5rem;
   margin-left: 0.25rem;
 
   &:first-child {

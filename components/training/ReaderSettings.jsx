@@ -32,7 +32,9 @@ const ReaderSettings = observer(() => {
         {preset &&
           preset.exercises.map((el, i) => (
             <Button
-              variant={exercise?.name === el.name ? 'primary' : 'success'}
+              variant={
+                exercise?.name === el.name ? 'success' : 'success-outline'
+              }
               key={i}
               onClick={() => store.setExercise(el)}
             >
@@ -58,7 +60,7 @@ const ReaderSettings = observer(() => {
           <Select
             value={settings.count}
             onChange={(value) => onChange('count', value)}
-            options={[1, 2, 3, 4]}
+            options={[1]}
           />
           <div className="training-settings__title">Speed</div>
           <Select
@@ -120,6 +122,8 @@ const ReaderSettings = observer(() => {
         options={['smooth', 2, 4, 6]}
         top="true"
       />
+      <div className="training-settings__delimiter" />
+      <Button onClick={onReset}>Reset Setting</Button>
     </div>
   )
 })
