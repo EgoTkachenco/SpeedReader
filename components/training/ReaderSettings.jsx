@@ -2,6 +2,7 @@ import { Checkbox, Button, Select, ColorPicker } from '../common'
 import { useState, useEffect } from 'react'
 import store from '../../store/reader'
 import { observer } from 'mobx-react-lite'
+import { SIZES } from '../../store/constants'
 
 const ReaderSettings = observer(() => {
   useEffect(() => {
@@ -45,10 +46,14 @@ const ReaderSettings = observer(() => {
       <div className="training-settings__delimiter" />
       <div className="training-settings__title">Fonts</div>
       <div className="training-settings-list__vertical">
-        <Checkbox label="Small" value={true} onChange={() => {}} />
-        <Checkbox label="Medium" value={false} onChange={() => {}} />
-        <Checkbox label="Large" value={false} onChange={() => {}} />
-        <Checkbox label="Extra large" value={false} onChange={() => {}} />
+        {Object.values(SIZES).map((type) => (
+          <Checkbox
+            label={type.title}
+            key={type.key}
+            value={type.key === settings.fontType?.key}
+            onChange={() => onChange('fontType', type)}
+          />
+        ))}
       </div>
       <div className="training-settings__delimiter" />
       <Button onClick={() => setShowCustom(!showCustom)}>

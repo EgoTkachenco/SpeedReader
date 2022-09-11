@@ -16,6 +16,8 @@ const SpeedReader = observer(() => {
       onAnimationEnd={endAnimation}
       currentPosition={store.current_position}
       rowsPerLine={store.getRowsPerLine()}
+      page={store.page}
+      maxPage={store.maxPage}
     />
   )
 })

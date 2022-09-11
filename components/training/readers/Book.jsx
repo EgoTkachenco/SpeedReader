@@ -10,6 +10,8 @@ export default function Book({
   currentPosition,
   onAnimationEnd,
   animationKey,
+  page,
+  maxPage,
 }) {
   const [current_pages, setCurrent_pages] = useState([])
   const [pageAnimation, setPageAnimation] = useState(false)
@@ -43,6 +45,7 @@ export default function Book({
         background={settings.highlightColor}
         transition={1000 / settings.speed}
         isOdd={Math.floor(i / rowsPerLine) % 2 === 0}
+        fontType={settings.fontType}
       >
         {row.map((word, j) => (
           <Word
@@ -63,7 +66,12 @@ export default function Book({
   const page2Name = 'page-2_' + animationKey
 
   return (
-    <BookWrapper rotate={settings.rotate} type={highlightType} full={isFull}>
+    <BookWrapper
+      rotate={settings.rotate}
+      type={highlightType}
+      full={isFull}
+      fontType={settings.fontType}
+    >
       <div className="book-top">
         {!isFull ? (
           <Button variant="text" onClick={() => setIsFull(!isFull)}>
@@ -140,16 +148,22 @@ export default function Book({
 
       <div className="book-bottom">
         <img className="book-bottom__arrow left" src="/arrow-left.svg" />
-        <div className="book-bottom__pages">1/240</div>
+        <div className="book-bottom__pages">
+          {page}/{maxPage}
+        </div>
         <img className="book-bottom__arrow right" src="/arrow-right.svg" />
       </div>
     </BookWrapper>
   )
 }
 
-const Row = ({ children, isRead, background, transition, isOdd }) => {
+const Row = ({ children, isRead, background, transition, isOdd, fontType }) => {
+  console.log(`calc (${fontType.fontSize} * 0.8)`)
   return (
-    <div className={`book-row ${isRead ? 'active' : ''} ${isOdd ? 'odd' : ''}`}>
+    <div
+      className={`book-row ${isRead ? 'active' : ''} ${isOdd ? 'odd' : ''}`}
+      style={{ minHeight: `calc(${fontType.fontSize} * 0.8)` }}
+    >
       {children}
       {/* {isOdd ? 'odd' : 'even'} */}
       <div
@@ -176,12 +190,17 @@ const Word = ({ text, isRead, background, color, addSpace, isTransition }) => (
   </div>
 )
 
-const BookWrapper = ({ children, rotate, type, full }) => {
+const BookWrapper = ({ children, rotate, type, full, fontType }) => {
+  console.log(fontType)
   return (
     <div
       className={`wrapper ${type} ${full ? 'full' : ''}  ${
         rotate ? 'rotate' : ''
       }`}
+      style={{
+        fontSize: fontType.fontSize,
+        minHeight: `calc(${fontType.row} * ${fontType.fontSize})`,
+      }}
     >
       <div className="book">{children}</div>
     </div>

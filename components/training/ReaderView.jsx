@@ -11,6 +11,8 @@ const ReaderView = ({
   currentPosition,
   onAnimationEnd,
   rowsPerLine,
+  page,
+  maxPage,
 }) => {
   const renderReader = (key) => {
     switch (settings.type) {
@@ -39,6 +41,8 @@ const ReaderView = ({
             onAnimationEnd={onAnimationEnd}
             rowsPerLine={rowsPerLine}
             animationKey={key}
+            page={page}
+            maxPage={maxPage}
           />
         )
     }

@@ -1,28 +1,30 @@
-import { makeAutoObservable, action } from 'mobx'
+import { makeAutoObservable, action, computed } from 'mobx'
 import { BOOKS_API } from './api'
 import {
   BLOCK_SIZE,
   COLORS,
-  PAGE_SIZE,
   SETTINGS_LOCALE_STORAGE_KEY,
+  SIZES,
 } from './constants'
 import { PRESETS } from './presets'
-let ROW_SIZE = 60 // 40
+
+const DEFAULT_SETTINGS = {
+  speed: 1,
+  highlightColor: COLORS.violet,
+  textColor: COLORS.white,
+  pageColor: COLORS.gray,
+  rotate: false,
+  highlightTypeS: '',
+  highlightTypeV: '1',
+  count: 1,
+  type: 'book',
+  fontType: SIZES['small'],
+  book: '',
+}
 
 class Store {
   inited = false
-  settings = {
-    speed: 1,
-    highlightColor: '#afff83',
-    textColor: '#000000',
-    pageColor: '#ffffff',
-    rotate: false,
-    highlightTypeS: '',
-    highlightTypeV: '1',
-    count: 1,
-    type: 'book',
-    book: '',
-  }
+  settings = { ...DEFAULT_SETTINGS }
 
   books = [] // books list
   all_text = []
@@ -37,7 +39,11 @@ class Store {
   isBookEnd = false // is user end reading book
 
   constructor() {
-    makeAutoObservable(this, { changePages: action })
+    makeAutoObservable(this, {
+      changePages: action,
+      page: computed,
+      maxPage: computed,
+    })
     // load books list
     this.loadBooksList()
   }
@@ -135,6 +141,8 @@ class Store {
     }
     this.settings = { ...settings, [key]: formatedValue }
 
+    if (key === 'fontType') this.current_pages = this.getCurrentPages()
+
     if (isTextUpdate) this.loadBook()
 
     if (isUpdateLocalStorage)
@@ -172,8 +180,9 @@ class Store {
     this.current_text = next_text
     this.current_position = next_position
 
-    // if left less than 2 pages, increment last_block_position and load new text
+    const { page: PAGE_SIZE, row: ROW_SIZE } = this.settings.fontType
     if (
+      // if left less than 2 pages, increment last_block_position and load new text
       !this.isBookFetching &&
       this.last_block_position - this.current_position <
         2 * PAGE_SIZE * ROW_SIZE &&
@@ -249,11 +258,20 @@ class Store {
 
   getCurrentPages() {
     const text = this.all_text
-
+    const { page: PAGE_SIZE, row: ROW_SIZE } = this.settings.fontType
     let pages = []
     let page = []
     let row = []
     let word = ''
+
+    const isLowerCaseLetter = (char) => char === char.toLowerCase()
+    const getRowSize = (str) =>
+      Math.round(
+        str
+          .split('')
+          .reduce((acc, char) => acc + (isLowerCaseLetter(char) ? 1 : 1.25), 0)
+      )
+
     const addRow = () => {
       if (page.length === PAGE_SIZE) {
         pages.push(page)
@@ -264,8 +282,12 @@ class Store {
     }
     const addWord = (position) => {
       if (
-        row.map((word) => word.text).join(' ').length + word.length >
-        ROW_SIZE
+        getRowSize(
+          row
+            .map((word) => word.text)
+            .join(' ')
+            .concat(` ${word}`)
+        ) > ROW_SIZE
       ) {
         addRow()
       }
@@ -308,20 +330,20 @@ class Store {
   }
 
   resetConfig() {
-    const settings = {
-      speed: 1,
-      highlightColor: COLORS.violet,
-      textColor: COLORS.white,
-      pageColor: COLORS.gray,
-      rotate: false,
-      highlightTypeS: '',
-      highlightTypeV: '1',
-      count: 1,
-      type: 'book',
-      book: '',
-    }
+    const settings = { ...DEFAULT_SETTINGS }
     localStorage.setItem(SETTINGS_LOCALE_STORAGE_KEY, JSON.stringify(settings))
     this.settings = settings
+  }
+
+  get page() {
+    const { page: PAGE_SIZE, row: ROW_SIZE } = this.settings.fontType
+    return Math.ceil(this.current_position / (PAGE_SIZE * ROW_SIZE))
+  }
+  get maxPage() {
+    const { page: PAGE_SIZE, row: ROW_SIZE } = this.settings.fontType
+    return this.last_position
+      ? Math.ceil(this.last_position / (PAGE_SIZE * ROW_SIZE))
+      : 0
   }
 
   presets = PRESETS // list of presets
