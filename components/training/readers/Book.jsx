@@ -46,6 +46,7 @@ export default function Book({
         transition={1000 / settings.speed}
         isOdd={Math.floor(i / rowsPerLine) % 2 === 0}
         fontType={settings.fontType}
+        isTransition={rowsPerLine === 1 || highlightType !== 'V'}
       >
         {row.map((word, j) => (
           <Word
@@ -56,6 +57,7 @@ export default function Book({
             text={word.text}
             addSpace={j !== row.length - 1}
             isTransition={rowsPerLine === 1 && highlightType !== 'S'}
+            // isTransition={rowsPerLine === 1}
           />
         ))}
       </Row>
@@ -84,6 +86,7 @@ export default function Book({
           </Button>
         )}
       </div>
+
       <div className="book-inner">
         <label
           htmlFor={page1Name}
@@ -157,7 +160,15 @@ export default function Book({
   )
 }
 
-const Row = ({ children, isRead, background, transition, isOdd, fontType }) => {
+const Row = ({
+  children,
+  isRead,
+  background,
+  transition,
+  isOdd,
+  fontType,
+  isTransition,
+}) => {
   console.log(`calc (${fontType.fontSize} * 0.8)`)
   return (
     <div
@@ -170,7 +181,7 @@ const Row = ({ children, isRead, background, transition, isOdd, fontType }) => {
         className="row-back"
         style={{
           background: isRead ? background : 'transparent',
-          transition: `width ${transition}ms`,
+          transition: `all ${isTransition ? transition : 0}ms`,
         }}
       />
     </div>

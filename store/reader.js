@@ -81,17 +81,8 @@ class Store {
       _start: this.last_block_position,
       _limit: BLOCK_SIZE,
     })
-    // axios.get(
-    //   `${API_URL}/books/${this.settings.book.id}/text`,
-    //   {
-    //     params: {
-    //       _start: this.last_block_position,
-    //       _limit: BLOCK_SIZE,
-    //     },
-    //   }
-    // )
     this.all_text = [
-      ...this.all_text,
+      ...this.all_text.slice(-1 * BLOCK_SIZE),
       ...text.split('').map((text, i) => ({
         text,
         position: this.last_block_position + i,
@@ -181,8 +172,9 @@ class Store {
     this.current_position = next_position
 
     const { page: PAGE_SIZE, row: ROW_SIZE } = this.settings.fontType
+
+    // if left less than 2 pages, increment last_block_position and load new text
     if (
-      // if left less than 2 pages, increment last_block_position and load new text
       !this.isBookFetching &&
       this.last_block_position - this.current_position <
         2 * PAGE_SIZE * ROW_SIZE &&
@@ -190,6 +182,7 @@ class Store {
     ) {
       this.loadBook()
     }
+    // if book not end, continue
     if (this.current_position !== this.last_position - 1) {
       this.timeout = setTimeout(() => this.nextPosition(), timeoutTime)
     } else {
@@ -271,7 +264,6 @@ class Store {
           .split('')
           .reduce((acc, char) => acc + (isLowerCaseLetter(char) ? 1 : 1.25), 0)
       )
-
     const addRow = () => {
       if (page.length === PAGE_SIZE) {
         pages.push(page)

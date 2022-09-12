@@ -210,12 +210,36 @@ $f-size: calc(46vw * 16 / 700);
 
 .wrapper.V {
   .book-row {
-    background: transparent !important;
+    background-size: 100% 200%;
+    background: left/200%
+      linear-gradient(to right, transparent 50%, transparent 50%);
+    .word-text {
+      position: relative;
+      z-index: 1;
+    }
   }
-  .word-back.active {
-    height: 0.8em;
+
+  .row-back {
+    position: absolute;
+    top: -0.0675rem;
+    left: -0.25rem;
+    width: 100%;
+    height: 0;
+  }
+  .active .row-back {
+    height: calc(100% + 0.125rem);
+    border-radius: 100px;
   }
 }
+
+// .wrapper.V {
+//   .book-row {
+//     background: transparent !important;
+//   }
+//   .word-back.active {
+//     height: 0.8em;
+//   }
+// }
 
 .book-bottom {
   position: absolute;
