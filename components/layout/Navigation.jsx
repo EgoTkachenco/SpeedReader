@@ -63,7 +63,7 @@ const HomeIcon = () => (
   </svg>
 )
 
-const TrainingIcon = () => (
+const CoursesIcon = () => (
   <svg
     width="17"
     height="17"
@@ -155,7 +155,7 @@ const TrainingIcon = () => (
   </svg>
 )
 
-const CoursesIcon = () => (
+const TrainingIcon = () => (
   <svg
     width="25"
     height="25"
@@ -267,14 +267,14 @@ const LINKS = [
     icon: () => <HomeIcon />,
   },
   {
-    pathname: '/training-center',
-    name: 'Training Center',
-    icon: () => <TrainingIcon />,
-  },
-  {
     pathname: '/courses',
     name: 'Courses',
     icon: () => <CoursesIcon />,
+  },
+  {
+    pathname: '/training-center',
+    name: 'Training Center',
+    icon: () => <TrainingIcon />,
   },
   {
     pathname: '/profile',

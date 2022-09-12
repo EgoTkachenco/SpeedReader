@@ -22,9 +22,11 @@ a {
 
   .page-content {
     width: calc(100% - 4.5rem);
-    background: url('/theme-1.png') center no-repeat;
+    background: url('/theme-1-min.png') center no-repeat;
     background-size: cover;
     padding: 2rem 4rem;
+    max-height: 100vh;
+    overflow: auto;
   }
 }
 

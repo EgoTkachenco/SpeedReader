@@ -97,6 +97,7 @@ export const PRESETS = [
               highlightColor: COLORS.violet,
               textColor: COLORS.white,
               pageColor: COLORS.gray,
+              rotate: false,
             },
             duration: 20000,
           },
