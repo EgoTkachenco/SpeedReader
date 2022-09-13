@@ -10,28 +10,28 @@ export const SIZES = {
     key: 'small',
     fontSize: '0.875rem',
     row: 60,
-    page: 36,
+    page: 35,
   },
   medium: {
     title: 'Medium',
     key: 'medium',
     fontSize: '0.975rem',
     row: 55,
-    page: 34,
+    page: 32,
   },
   large: {
     title: 'Large',
     key: 'large',
     fontSize: '1.075rem',
     row: 50,
-    page: 32,
+    page: 29,
   },
   extraLarge: {
     title: 'Extra Large',
     key: 'extraLarge',
     fontSize: '1.175rem',
     row: 45,
-    page: 30,
+    page: 27,
   },
 }
 

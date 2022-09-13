@@ -8,21 +8,22 @@ import { useRouter } from 'next/router'
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   if (process.browser && store.user === undefined) {
-    store.relog()
-    // .then(() => {
-    //   const isAuth =
-    //     router.pathname.search('registration') !== -1 ||
-    //     router.pathname.search('login') !== -1
+    store
+      .relog()
+      .then(() => {
+        const isAuth =
+          router.pathname.search('registration') !== -1 ||
+          router.pathname.search('login') !== -1
 
-    //   if (isAuth) router.push('/')
-    // })
-    // .catch((err) => {
-    //   const isAuth =
-    //     router.pathname.search('registration') !== -1 ||
-    //     router.pathname.search('login') !== -1
+        if (isAuth) router.push('/')
+      })
+      .catch((err) => {
+        const isAuth =
+          router.pathname.search('registration') !== -1 ||
+          router.pathname.search('login') !== -1
 
-    //   if (!isAuth) router.push('/login')
-    // })
+        if (!isAuth) router.push('/login')
+      })
   }
   return <Component {...pageProps} />
 }

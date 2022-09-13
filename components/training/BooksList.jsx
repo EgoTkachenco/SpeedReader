@@ -38,7 +38,9 @@ const BookList = observer(() => {
             <div className="book-slide__pic">{book.name.slice(0, 2)}</div>
           )}
           <div className="book-slide-content">
-            <div className="book-slide__title">{book.name}</div>
+            <div className="book-slide__title" title={book.name}>
+              {book.name}
+            </div>
             <div className="book-slide__author">{book.author}</div>
           </div>
         </div>

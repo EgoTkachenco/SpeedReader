@@ -101,6 +101,7 @@
     }
 
     &-content {
+      max-width: calc(100% - 5.375rem);
     }
     &__title {
       font-weight: 600;
@@ -110,6 +111,7 @@
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
+      max-height: 1.5rem;
     }
     &__author {
       font-weight: 500;
