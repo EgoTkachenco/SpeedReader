@@ -12,6 +12,7 @@ export default function Book({
   animationKey,
   page,
   maxPage,
+  showAnimation,
 }) {
   const [current_pages, setCurrent_pages] = useState([])
   const [pageAnimation, setPageAnimation] = useState(false)
@@ -26,7 +27,7 @@ export default function Book({
       return
     }
     setCurrent_pages([...current_pages, ...pages])
-    setPageAnimation(true)
+    if (showAnimation) setPageAnimation(true)
     setTimeout(() => {
       setPageAnimation(false)
       setCurrent_pages(pages)

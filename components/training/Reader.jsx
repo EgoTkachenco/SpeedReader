@@ -13,6 +13,7 @@ const SpeedReader = observer(() => {
       settings={store.settings}
       text={store.current_text}
       pages={store.current_pages}
+      showAnimation={store.show_animation}
       onAnimationEnd={endAnimation}
       currentPosition={store.current_position}
       rowsPerLine={store.getRowsPerLine()}

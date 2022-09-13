@@ -35,6 +35,7 @@ class Store {
   current_position = 0 // position of text that user is currently reading
   last_block_position = 0 // position of last element in block
   last_position = 0 // position of last element in book
+  page_last_position = null // page last position
   timeout = null // timeout of next animation action
   isBookEnd = false // is user end reading book
 
@@ -132,7 +133,7 @@ class Store {
     }
     this.settings = { ...settings, [key]: formatedValue }
 
-    if (key === 'fontType') this.current_pages = this.getCurrentPages()
+    if (key === 'fontType') this.current_pages = this.getCurrentPages(false)
 
     if (isTextUpdate) this.loadBook()
 
@@ -245,12 +246,20 @@ class Store {
   }
 
   resetAnimation() {
+    this.show_animation = false
     const timeoutTime = 1000 / this.settings.speed
     this.timeout = setTimeout(() => this.nextPosition(), timeoutTime)
   }
 
-  getCurrentPages() {
-    const text = this.all_text
+  getCurrentPages(showAnimation = true) {
+    debugger
+    this.show_animation = showAnimation
+    if (showAnimation) {
+      this.all_text = this.all_text.filter(
+        (word) => word.position >= this.current_position
+      )
+    }
+    let text = this.all_text
     const { page: PAGE_SIZE, row: ROW_SIZE } = this.settings.fontType
     let pages = []
     let page = []
@@ -301,8 +310,9 @@ class Store {
       }
 
       if (pages.length === 2) {
-        this.all_text = this.all_text.slice(i)
-        return pages.splice(0, 2)
+        // this.all_text = this.all_text.slice(i)
+        // return pages.splice(0, 2)
+        return pages
       }
     }
     addWord(text[text.length - 1].position)
