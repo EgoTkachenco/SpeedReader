@@ -253,7 +253,20 @@ class Store {
 
   getTimeoutTime = () => {
     // const result = 1000 / this.settings.speed
-    const result = 1000 - (this.settings.speed - 1) * 100
+    let result
+    if (this.settings.speed < 7) {
+      result = 1000 - (this.settings.speed - 1) * 100
+    } else {
+      const times = {
+        7: 125,
+        8: 100,
+        9: 70,
+        10: 50,
+      }
+      result = times.hasOwnProperty(this.settings.speed)
+        ? times[this.settings.speed]
+        : time[10]
+    }
     console.log('Timeout time: ', result)
     return result
   }
