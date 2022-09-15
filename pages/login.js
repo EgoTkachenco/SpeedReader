@@ -17,7 +17,7 @@ export default function Login() {
     store
       .signIn(data.get('email'), data.get('password'))
       .then(() => {
-        router.push('/')
+        router.push('/training-center')
       })
       .catch((err) => {
         setError(

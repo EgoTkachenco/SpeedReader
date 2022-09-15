@@ -147,7 +147,7 @@ class Store {
   async nextPosition() {
     // Calculate time for next action
     clearTimeout(this.timeout)
-    const timeoutTime = 1000 / this.settings.speed
+    const timeoutTime = this.getTimeoutTime()
 
     const words = this.current_pages.reduce(
       (acc, page) => [
@@ -247,12 +247,18 @@ class Store {
 
   resetAnimation() {
     this.show_animation = false
-    const timeoutTime = 1000 / this.settings.speed
+    const timeoutTime = this.getTimeoutTime()
     this.timeout = setTimeout(() => this.nextPosition(), timeoutTime)
   }
 
+  getTimeoutTime = () => {
+    // const result = 1000 / this.settings.speed
+    const result = 1000 - (this.settings.speed - 1) * 100
+    console.log('Timeout time: ', result)
+    return result
+  }
+
   getCurrentPages(showAnimation = true) {
-    debugger
     this.show_animation = showAnimation
     if (showAnimation) {
       this.all_text = this.all_text.filter(

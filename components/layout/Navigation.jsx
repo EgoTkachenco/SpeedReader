@@ -27,8 +27,8 @@ export default Navigation
 
 const HomeIcon = () => (
   <svg
-    width="17"
-    height="17"
+    width="1rem"
+    height="1rem"
     viewBox="0 0 17 17"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -65,8 +65,8 @@ const HomeIcon = () => (
 
 const CoursesIcon = () => (
   <svg
-    width="17"
-    height="17"
+    width="1rem"
+    height="1rem"
     viewBox="0 0 17 17"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -157,8 +157,8 @@ const CoursesIcon = () => (
 
 const TrainingIcon = () => (
   <svg
-    width="25"
-    height="25"
+    width="1.5rem"
+    height="1.5rem"
     viewBox="0 0 25 25"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -210,8 +210,8 @@ const TrainingIcon = () => (
 
 const ProfileIcon = () => (
   <svg
-    width="17"
-    height="17"
+    width="1rem"
+    height="1rem"
     viewBox="0 0 17 17"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

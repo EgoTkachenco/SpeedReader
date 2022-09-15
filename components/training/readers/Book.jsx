@@ -170,7 +170,6 @@ const Row = ({
   fontType,
   isTransition,
 }) => {
-  console.log(`calc (${fontType.fontSize} * 0.8)`)
   return (
     <div
       className={`book-row ${isRead ? 'active' : ''} ${isOdd ? 'odd' : ''}`}
@@ -203,7 +202,6 @@ const Word = ({ text, isRead, background, color, addSpace, isTransition }) => (
 )
 
 const BookWrapper = ({ children, rotate, type, full, fontType }) => {
-  console.log(fontType)
   return (
     <div
       className={`wrapper ${type} ${full ? 'full' : ''}  ${

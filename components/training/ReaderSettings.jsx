@@ -1,8 +1,10 @@
 import { Checkbox, Button, Select, ColorPicker } from '../common'
 import { useState, useEffect } from 'react'
 import store from '../../store/reader'
+import user_store from '../../store/'
 import { observer } from 'mobx-react-lite'
 import { SIZES } from '../../store/constants'
+import { useRouter } from 'next/router'
 
 const ReaderSettings = observer(() => {
   useEffect(() => {
@@ -16,6 +18,7 @@ const ReaderSettings = observer(() => {
   const onReset = () => store.resetConfig()
   // settings, onChange, onReset
   const [showCustom, setShowCustom] = useState(false)
+  const router = useRouter()
   return (
     <div className="training-settings">
       <div className="training-settings__title">Power learning sets</div>
@@ -129,6 +132,16 @@ const ReaderSettings = observer(() => {
       />
       <div className="training-settings__delimiter" />
       <Button onClick={onReset}>Reset Setting</Button>
+      <div className="training-settings__delimiter" />
+      <Button
+        variant="text"
+        onClick={() => {
+          user_store.logout()
+          router.push('/login')
+        }}
+      >
+        Log out
+      </Button>
     </div>
   )
 })

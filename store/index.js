@@ -40,15 +40,15 @@ class Store {
   }
 
   relog() {
-    console.log('relog')
     const user = localStorage.getItem(USER_STORE_NAME)
     if (user) {
       this.user = JSON.parse(user)
-      return Promise.resolve()
     } else {
       this.user = null
-      return Promise.reject()
     }
+
+    console.log('relog', user)
+    return !!this.user
   }
 }
 

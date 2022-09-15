@@ -155,9 +155,17 @@ $f-size: calc(46vw * 16 / 700);
   }
 }
 
-.rotate .book-inner {
+// .rotate .book-inner {
+//   transform: rotate(180deg);
+// }
+.rotate .book-row {
   transform: rotate(180deg);
 }
+// .rotate .book-word {
+//   transform: rotate(180deg);
+//   z-index: 10;
+//   // display: inline-block !important;
+// }
 
 .wrapper.S {
   .book-row {
