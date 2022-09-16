@@ -1,5 +1,11 @@
 import { COLORS } from './constants'
 
+const DEFAULT_COLORS = {
+  highlightColor: COLORS.green,
+  textColor: COLORS.dark,
+  pageColor: COLORS.white,
+}
+
 export const PRESETS = [
   {
     name: 'Standart',
@@ -10,13 +16,11 @@ export const PRESETS = [
           {
             action: {
               speed: 2,
-              highlightColor: COLORS.violet,
-              textColor: COLORS.white,
-              pageColor: COLORS.gray,
               rotate: false,
               count: 1,
               type: 'book',
               highlightTypeS: '1',
+              ...DEFAULT_COLORS,
             },
             duration: 8000,
           },
@@ -61,10 +65,8 @@ export const PRESETS = [
           {
             action: {
               speed: 7,
-              highlightColor: COLORS.violet,
-              textColor: COLORS.white,
-              pageColor: COLORS.gray,
               rotate: false,
+              ...DEFAULT_COLORS,
             },
             duration: 8000,
           },
@@ -94,10 +96,8 @@ export const PRESETS = [
           {
             action: {
               speed: 7,
-              highlightColor: COLORS.violet,
-              textColor: COLORS.white,
-              pageColor: COLORS.gray,
               rotate: false,
+              ...DEFAULT_COLORS,
             },
             duration: 20000,
           },
@@ -105,7 +105,71 @@ export const PRESETS = [
       },
       {
         name: 'Exercise 2',
-        data: [],
+        data: [
+          {
+            action: {
+              speed: 2,
+              rotate: false,
+              count: 1,
+              type: 'book',
+              highlightTypeS: '1',
+              ...DEFAULT_COLORS,
+            },
+            duration: 2000,
+          },
+          {
+            action: {
+              speed: 8,
+              highlightColor: COLORS.pink,
+              textColor: COLORS.blue,
+              pageColor: COLORS.yellow,
+              rotate: true,
+            },
+            duration: 2000,
+          },
+          {
+            action: {
+              speed: 2,
+              rotate: false,
+              count: 1,
+              type: 'book',
+              highlightTypeS: '1',
+              ...DEFAULT_COLORS,
+            },
+            duration: 2000,
+          },
+          {
+            action: {
+              speed: 8,
+              highlightColor: COLORS.pink,
+              textColor: COLORS.blue,
+              pageColor: COLORS.yellow,
+              rotate: true,
+            },
+            duration: 2000,
+          },
+          {
+            action: {
+              speed: 2,
+              rotate: false,
+              count: 1,
+              type: 'book',
+              highlightTypeS: '1',
+              ...DEFAULT_COLORS,
+            },
+            duration: 2000,
+          },
+          {
+            action: {
+              speed: 8,
+              highlightColor: COLORS.pink,
+              textColor: COLORS.blue,
+              pageColor: COLORS.yellow,
+              rotate: true,
+            },
+            duration: 2000,
+          },
+        ],
       },
       {
         name: 'Exercise 3',

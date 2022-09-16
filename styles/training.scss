@@ -159,3 +159,65 @@
 .react-multi-carousel-dot--active button {
   background-color: #2ba7df;
 }
+
+.exercise-progress {
+  &-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__step {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  &__btn {
+    transition: border 0.3s;
+    cursor: pointer;
+
+    &.play {
+      width: 0;
+      height: 0;
+      border-top: 0.375rem solid transparent;
+      border-bottom: 0.375rem solid transparent;
+      border-left: 0.7rem solid #ffffff;
+      border-radius: 0.125rem;
+
+      &:active {
+        border-left-color: #009e65;
+      }
+    }
+    &.pause {
+      border-top: none;
+      border-bottom: none;
+      border-left: 0.25rem solid #ffffff;
+      border-right: 0.25rem solid #ffffff;
+      width: 0.75rem;
+      height: 0.75rem;
+
+      &:active {
+        border-left-color: #009e65;
+        border-right-color: #009e65;
+      }
+    }
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  &-line {
+    margin: 1rem 0;
+    background: #0f0f0f;
+    height: 0.5rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    &__value {
+      background: #009e65;
+      width: 10%;
+      height: 100%;
+      border-radius: 0 0.5rem 0.5rem 0;
+      transition: width 0.3s ease-in;
+    }
+  }
+}

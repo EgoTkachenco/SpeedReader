@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import { makeAutoObservable, action, computed } from 'mobx'
 import { BOOKS_API } from './api'
 import {
@@ -372,13 +373,12 @@ class Store {
   preset = PRESETS[0] // active preset
   exercise = null // active exercise
   exerciseTimeout = null // next action in exercise timeout
-  exerciseProgress = null // exercise current ation
 
   setPreset(preset) {
-    this.preset = { ...preset }
+    this.preset = _.cloneDeep(preset)
   }
   setExercise(exercise) {
-    this.exercise = { ...exercise }
+    this.exercise = _.cloneDeep(exercise)
     this.nextExerciseAction()
   }
   nextExerciseAction() {
@@ -389,7 +389,6 @@ class Store {
     if (!result) return this.endExercise()
 
     const { el: nextAction, i: nextActionIndex } = result
-    this.exerciseProgress = nextActionIndex
     this.exercise.data[nextActionIndex].passed = true
 
     for (const key in nextAction.action) {
@@ -402,8 +401,7 @@ class Store {
     )
   }
   endExercise() {
-    this.exercise = null
-    this.exerciseProgress = null
+    // this.exercise = null
 
     let localeConfig = localStorage.getItem(SETTINGS_LOCALE_STORAGE_KEY)
     let settings
@@ -415,6 +413,19 @@ class Store {
   clearExercise() {
     clearTimeout(this.exerciseTimeout)
     this.exerciseTimeout = null
+  }
+  playPreset() {
+    // repass last action
+    const result = this.exercise.data.reduce((acc, el, i) => {
+      return !el.passed ? acc : { el, i }
+    }, null)
+    const lastIndex = result ? result.i : 0
+    this.exercise.data[lastIndex].passed = false
+
+    this.nextExerciseAction()
+  }
+  pausePreset() {
+    this.clearExercise()
   }
 }
 

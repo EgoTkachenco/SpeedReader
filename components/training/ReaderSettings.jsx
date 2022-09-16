@@ -5,6 +5,7 @@ import user_store from '../../store/'
 import { observer } from 'mobx-react-lite'
 import { SIZES } from '../../store/constants'
 import { useRouter } from 'next/router'
+import ExerciseProgress from './ExerciseProgress'
 
 const ReaderSettings = observer(() => {
   useEffect(() => {
@@ -46,6 +47,14 @@ const ReaderSettings = observer(() => {
             </Button>
           ))}
       </div>
+      {exercise && (
+        <ExerciseProgress
+          exercise={exercise}
+          isPlay={!!store.exerciseTimeout}
+          onPlay={() => store.playPreset()}
+          onPause={() => store.pausePreset()}
+        />
+      )}
       <div className="training-settings__delimiter" />
       <div className="training-settings__title">Fonts</div>
       <div className="training-settings-list__vertical">
