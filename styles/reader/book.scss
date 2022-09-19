@@ -1,29 +1,61 @@
 $f-size: calc(46vw * 16 / 700);
 
+.books-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  .col-12,
+  .col-6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .col-12 {
+    width: 100%;
+  }
+  .col-6 {
+    width: 50%;
+    height: 24rem;
+  }
+
+  .small .wrapper {
+    transform: scale(0.5);
+  }
+
+  &.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    min-width: unset;
+    width: 100%;
+    height: 100vh;
+    background: #2a2b43;
+
+    .book {
+      width: 66rem;
+      height: 47.75rem;
+    }
+
+    .col-6 {
+      height: 50vh;
+
+      &.small .wrapper {
+        transform: scale(0.6);
+      }
+    }
+  }
+}
+
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 66rem;
+  min-width: 66rem;
   height: 47.75rem;
-
-  &.full {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    width: 100%;
-    height: 100vh;
-    background: #2a2b43;
-  }
-}
-
-.small .wrapper {
-  // height: 25em;
-  // .cover {
-  //   transform: scale(0.7);
-  // }
 }
 
 .full .book {

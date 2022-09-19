@@ -19,6 +19,8 @@ const SpeedReader = observer(() => {
       rowsPerLine={store.getRowsPerLine()}
       page={store.page}
       maxPage={store.maxPage}
+      isFullScreen={store.isFullScreen}
+      onFullScreenChange={(val) => store.changeFullScreen(val)}
     />
   )
 })

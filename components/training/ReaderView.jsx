@@ -14,6 +14,8 @@ const ReaderView = ({
   page,
   maxPage,
   showAnimation,
+  isFullScreen,
+  onFullScreenChange,
 }) => {
   const renderReader = (key) => {
     switch (settings.type) {
@@ -45,6 +47,8 @@ const ReaderView = ({
             page={page}
             maxPage={maxPage}
             showAnimation={showAnimation}
+            isFullScreen={isFullScreen}
+            onFullScreenChange={onFullScreenChange}
           />
         )
     }
@@ -52,7 +56,7 @@ const ReaderView = ({
 
   const renderAllReaders = () => {
     const size = !isNaN(Number(settings.count)) ? Number(settings.count) : 1
-    const className = size === 1 ? 'col-12' : 'col-6 pb-4 small'
+    const className = size === 1 ? 'col-12' : 'col-6 small'
 
     return new Array(size).fill(null).map((_, i) => (
       <div className={className} key={i}>
@@ -61,7 +65,11 @@ const ReaderView = ({
     ))
   }
 
-  return renderAllReaders()
+  return (
+    <div className={`books-wrapper ${isFullScreen ? 'fullscreen' : ''}`}>
+      {renderAllReaders()}
+    </div>
+  )
 }
 
 export default ReaderView

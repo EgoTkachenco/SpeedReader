@@ -77,7 +77,7 @@ const ReaderSettings = observer(() => {
           <Select
             value={settings.count}
             onChange={(value) => onChange('count', value)}
-            options={[1]}
+            options={[1, 2, 4]}
           />
           <div className="training-settings__title">Speed</div>
           <Select

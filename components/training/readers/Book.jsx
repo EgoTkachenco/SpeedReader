@@ -13,11 +13,12 @@ export default function Book({
   page,
   maxPage,
   showAnimation,
+  onFullScreenChange,
+  isFullScreen,
 }) {
   const [current_pages, setCurrent_pages] = useState([])
   const [pageAnimation, setPageAnimation] = useState(false)
   const highlightType = settings.highlightTypeS ? 'S' : 'V'
-  const [isFull, setIsFull] = useState(false)
 
   useEffect(() => {
     if (!pages.length) return
@@ -72,16 +73,15 @@ export default function Book({
     <BookWrapper
       rotate={settings.rotate}
       type={highlightType}
-      full={isFull}
       fontType={settings.fontType}
     >
       <div className="book-top">
-        {!isFull ? (
-          <Button variant="text" onClick={() => setIsFull(!isFull)}>
+        {!isFullScreen ? (
+          <Button variant="text" onClick={() => onFullScreenChange(true)}>
             <FullIcon /> Open full screen version
           </Button>
         ) : (
-          <Button variant="text" onClick={() => setIsFull(!isFull)}>
+          <Button variant="text" onClick={() => onFullScreenChange(false)}>
             <img className="book-bottom__arrow left" src="/arrow-left.svg" />
             Back
           </Button>
@@ -201,12 +201,10 @@ const Word = ({ text, isRead, background, color, addSpace, isTransition }) => (
   </div>
 )
 
-const BookWrapper = ({ children, rotate, type, full, fontType }) => {
+const BookWrapper = ({ children, rotate, type, fontType }) => {
   return (
     <div
-      className={`wrapper ${type} ${full ? 'full' : ''}  ${
-        rotate ? 'rotate' : ''
-      }`}
+      className={`wrapper ${type} ${rotate ? 'rotate' : ''}`}
       style={{
         fontSize: fontType.fontSize,
         minHeight: `calc(${fontType.row} * ${fontType.fontSize})`,

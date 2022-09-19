@@ -39,6 +39,7 @@ class Store {
   page_last_position = null // page last position
   timeout = null // timeout of next animation action
   isBookEnd = false // is user end reading book
+  isFullScreen = false //
 
   constructor() {
     makeAutoObservable(this, {
@@ -350,6 +351,10 @@ class Store {
     if (this.settings.highlightTypeV) count = this.settings.highlightTypeV
 
     return isNaN(Number(count)) ? 1 : Number(count)
+  }
+
+  changeFullScreen(val) {
+    this.isFullScreen = !!val
   }
 
   resetConfig() {
