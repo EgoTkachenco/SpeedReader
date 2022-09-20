@@ -3,6 +3,7 @@ import ZoomReader from './readers/Zoom'
 import RollingReader from './readers/Rolling'
 import ScrollReader from './readers/Scroll'
 import ScrambledReader from './readers/Scrambled'
+import Button from '../common/Button'
 
 const ReaderView = ({
   settings,
@@ -67,6 +68,18 @@ const ReaderView = ({
 
   return (
     <div className={`books-wrapper ${isFullScreen ? 'fullscreen' : ''}`}>
+      {settings.count != 1 && isFullScreen && (
+        <div className="fullscreen-close">
+          <Button
+            className=""
+            variant="text"
+            onClick={() => onFullScreenChange(false)}
+          >
+            <img className="book-bottom__arrow left" src="/arrow-left.svg" />
+            Back
+          </Button>
+        </div>
+      )}
       {renderAllReaders()}
     </div>
   )

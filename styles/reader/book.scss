@@ -34,17 +34,52 @@ $f-size: calc(46vw * 16 / 700);
     height: 100vh;
     background: #2a2b43;
 
-    .book {
-      width: 66rem;
-      height: 47.75rem;
+    .fullscreen-close {
+      position: absolute;
+      top: 0.25rem;
+      right: 6.5rem;
+      z-index: 100;
     }
+
+    // .book {
+    //   width: 66rem;
+    //   height: 47.75rem;
+    // }
 
     .col-6 {
       height: 50vh;
+      .book-top,
+      .book-bottom {
+        display: none;
+      }
 
       &.small .wrapper {
         transform: scale(0.6);
       }
+
+      &.small {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .page__content {
+        margin: 1.5rem 0;
+      }
+    }
+    .col-6:first-child {
+      // .book-top,
+      // .book-bottom {
+      //   display: flex;
+      //   position: fixed;
+      //   left: 50%;
+      // }
+      // .book-top {
+      //   top: 0;
+      // }
+      // .book-bottom {
+      //   bottom: 0;
+      // }
     }
   }
 }
