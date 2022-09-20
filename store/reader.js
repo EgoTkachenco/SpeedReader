@@ -378,12 +378,14 @@ class Store {
   preset = PRESETS[0] // active preset
   exercise = null // active exercise
   exerciseTimeout = null // next action in exercise timeout
+  isExerciseFinished = false
 
   setPreset(preset) {
     this.preset = _.cloneDeep(preset)
   }
   setExercise(exercise) {
     this.exercise = _.cloneDeep(exercise)
+    this.isExerciseFinished = false
     this.nextExerciseAction()
   }
   nextExerciseAction() {
@@ -407,6 +409,7 @@ class Store {
   }
   endExercise() {
     // this.exercise = null
+    this.isExerciseFinished = true
 
     let localeConfig = localStorage.getItem(SETTINGS_LOCALE_STORAGE_KEY)
     let settings
@@ -420,12 +423,21 @@ class Store {
     this.exerciseTimeout = null
   }
   playPreset() {
-    // repass last action
-    const result = this.exercise.data.reduce((acc, el, i) => {
-      return !el.passed ? acc : { el, i }
-    }, null)
-    const lastIndex = result ? result.i : 0
-    this.exercise.data[lastIndex].passed = false
+    if (this.isExerciseFinished) {
+      // repass all actions
+      this.isExerciseFinished = false
+      this.exercise.data = this.exercise.data.map((level) => ({
+        ...level,
+        passed: false,
+      }))
+    } else {
+      // repass last action
+      const result = this.exercise.data.reduce((acc, el, i) => {
+        return !el.passed ? acc : { el, i }
+      }, null)
+      const lastIndex = result ? result.i : 0
+      this.exercise.data[lastIndex].passed = false
+    }
 
     this.nextExerciseAction()
   }
