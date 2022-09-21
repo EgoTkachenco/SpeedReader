@@ -264,7 +264,7 @@ class Store {
         7: 125,
         8: 100,
         9: 70,
-        10: 10,
+        10: 20,
       }
       result = times.hasOwnProperty(this.settings.speed)
         ? times[this.settings.speed]
@@ -438,11 +438,14 @@ class Store {
       const lastIndex = result ? result.i : 0
       this.exercise.data[lastIndex].passed = false
     }
-
+    //start animation
+    this.nextPosition()
+    //start preset
     this.nextExerciseAction()
   }
   pausePreset() {
     this.clearExercise()
+    this.stopAnimation()
   }
 }
 
