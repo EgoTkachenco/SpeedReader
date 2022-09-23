@@ -6,6 +6,7 @@ import { observer } from 'mobx-react-lite'
 import { SIZES } from '../../store/constants'
 import { useRouter } from 'next/router'
 import ExerciseProgress from './ExerciseProgress'
+import SpeedLottieAnimation from './SpeedLottieAnimation'
 
 const ReaderSettings = observer(() => {
   useEffect(() => {
@@ -20,8 +21,13 @@ const ReaderSettings = observer(() => {
   // settings, onChange, onReset
   const [showCustom, setShowCustom] = useState(false)
   const router = useRouter()
+  if (settings.type === 'scroll')
+    return <ScrollSettings settings={settings} onChange={onChange} />
+
   return (
     <div className="training-settings">
+      <Button onClick={() => onChange('type', 'scroll')}>Scroll Test</Button>
+      <div className="training-settings__delimiter" />
       <div className="training-settings__title">Power learning sets</div>
       <div className="training-settings-list__vertical">
         {presets.map((el, i) => (
@@ -83,7 +89,7 @@ const ReaderSettings = observer(() => {
           <Select
             onChange={(value) => onChange('speed', value)}
             value={settings.speed}
-            options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+            options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
           />
           <div className="training-settings-list">
             <div>
@@ -156,3 +162,35 @@ const ReaderSettings = observer(() => {
 })
 
 export default ReaderSettings
+
+const ScrollSettings = ({ settings, onChange }) => {
+  return (
+    <div className="training-settings">
+      <Button onClick={() => onChange('type', 'book')}>Back to book</Button>
+
+      <div className="training-settings__title">Speed</div>
+      <Select
+        onChange={(value) => onChange('speed', value)}
+        value={settings.speed}
+        options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
+      />
+      <SpeedLottieAnimation speed={settings.speed} />
+      <div className="training-settings-list">
+        <div>
+          <div className="training-settings__title">Highlight color</div>
+          <ColorPicker
+            onChange={(color) => onChange('highlightColor', color)}
+            value={settings.highlightColor}
+          />
+        </div>
+        <div>
+          <div className="training-settings__title">Page color</div>
+          <ColorPicker
+            onChange={(color) => onChange('pageColor', color)}
+            value={settings.pageColor}
+          />
+        </div>
+      </div>
+    </div>
+  )
+}

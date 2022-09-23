@@ -265,6 +265,8 @@ class Store {
         8: 100,
         9: 70,
         10: 20,
+        11: 25,
+        12: 10,
       }
       result = times.hasOwnProperty(this.settings.speed)
         ? times[this.settings.speed]

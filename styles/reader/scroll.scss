@@ -1,25 +1,29 @@
 .scroll-reader {
-  width: 30em;
-  height: 40em;
-  padding: 0 2em 1em;
+  width: 50em;
+  height: 45em;
+  padding: 4rem;
   margin: auto;
-  font-size: $f-size;
-  border: 0.0125rem solid #585a5c;
   display: flex;
   justify-content: center;
   overflow: hidden;
 
+  background: #2a2b43;
+  border-radius: 16px;
+
   &-content {
     position: relative;
-    & > div {
-      height: 1.5em;
-      font-size: 1em;
-      // margin-bottom: 0.5em;
-    }
   }
 }
 
 .small .scroll-reader {
   width: 100%;
   height: 16em;
+}
+#speed-animation-view {
+  border-radius: 0.75rem;
+  margin-top: 1rem;
+  background: url(/metal-square.png) center center;
+  object-fit: fill;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
 }

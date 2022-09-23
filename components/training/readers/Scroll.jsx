@@ -13,10 +13,13 @@ export default function Scroll({
   const [state, setState] = useState([])
 
   useEffect(() => {
+    setState([])
+    counter = 32
+  }, [settings.book])
+  useEffect(() => {
     if (pages && pages.length) {
       contentRef.current.style.transition = `all ${animationTime}ms linear`
       const old = [...state]
-      // const last2Pages = old.splice(state.length - 2, 2)
       setState([...old, ...pages])
     }
   }, [pages, settings.type])
@@ -25,7 +28,13 @@ export default function Scroll({
     contentRef.current.style.transition = `all ${animationTime}ms linear`
     const margin = contentRef.current.style.marginTop
     if (counter <= 0) {
-      contentRef.current.style.marginTop = `calc(${margin} - (1.5em * ${rowsPerLine}))`
+      console.log(
+        `calc(-1 * ${Math.floor(currentPosition / settings.fontType.row)} *
+			${settings.fontType.fontSize})`
+      )
+      contentRef.current.style.marginTop = `calc(-1 * ${Math.floor(
+        currentPosition / settings.fontType.row
+      )} * ${settings.fontType.fontSize})`
     } else {
       counter += -rowsPerLine
     }
@@ -38,6 +47,7 @@ export default function Scroll({
         transform: `${settings.rotate ? 'rotate(180deg)' : ''}`,
         backgroundColor: settings.pageColor,
         color: settings.textColor,
+        fontSize: settings.fontType.fontSize,
       }}
     >
       <div
@@ -46,17 +56,7 @@ export default function Scroll({
         style={{ marginTop: '0' }}
       >
         {getRows(state, currentPosition).map(({ row, position }, i) => (
-          <div
-            key={position}
-            // style={{
-            //   backgroundColor:
-            //     position <= currentPosition
-            //       ? settings.highlightColor
-            //       : 'transparent',
-            // }}
-          >
-            {row.map((w) => w.text).join(' ')}
-          </div>
+          <div key={position}>{row.map((w) => w.text).join(' ')}</div>
         ))}
       </div>
     </div>
@@ -76,16 +76,3 @@ const getRows = (pages, currentPosition) =>
     ],
     []
   )
-// .reverse()
-// .reduce(
-//   ({ rows, offset }, row) => {
-//     if (row.position <= currentPosition) {
-//       // if (offset > maxOffset)
-//       return { rows, offset }
-//       // offset++
-//     }
-//     return { rows: [...rows, row], offset }
-//   },
-//   { rows: [], offset: 0 }
-// )
-// .rows.reverse()
