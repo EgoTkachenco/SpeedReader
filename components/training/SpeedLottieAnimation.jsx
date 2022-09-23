@@ -22,7 +22,7 @@ const SpeedLottieAnimation = ({ speed }) => {
   const updateAnimation = (animationData) => {
     if (animation) animation.destroy()
 
-    const currentFrame = animation.currentFrame
+    const currentFrame = animation ? animation.currentFrame : null
 
     if (!animationData) return
 
