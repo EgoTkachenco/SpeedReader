@@ -177,10 +177,10 @@ const ScrollSettings = ({ settings, onChange }) => {
       <SpeedLottieAnimation speed={settings.speed} />
       <div className="training-settings-list">
         <div>
-          <div className="training-settings__title">Highlight color</div>
+          <div className="training-settings__title">Text color</div>
           <ColorPicker
-            onChange={(color) => onChange('highlightColor', color)}
-            value={settings.highlightColor}
+            onChange={(color) => onChange('textColor', color)}
+            value={settings.textColor}
           />
         </div>
         <div>

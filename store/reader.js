@@ -272,7 +272,6 @@ class Store {
         ? times[this.settings.speed]
         : time[10]
     }
-    console.log('Timeout time: ', result)
     return result
   }
 

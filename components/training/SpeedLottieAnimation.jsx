@@ -2,34 +2,33 @@ import Script from 'next/script'
 import { useState, useEffect } from 'react'
 
 const SpeedLottieAnimation = ({ speed }) => {
-  // Lottie lib ready for use
-  const [ready, setReady] = useState(false)
-  // Animation
-  const [animation, setAnimation] = useState(null)
-  const [animationData, setAnimationData] = useState(null)
-  // Loade config from locale storage and animation data
+  const [state, setState] = useState({
+    ready: false,
+    animationData: null,
+    animation: null,
+  })
   useEffect(() => {
-    if (ready)
+    if (state.ready)
       fetch('/speed-animation.json')
         .then((res) => res.json())
         .then((res) => {
           updateAnimation(res)
         })
-  }, [ready])
+  }, [state.ready])
   useEffect(() => {
-    if (ready) updateAnimation(animationData)
+    if (state.ready) updateAnimation({ ...state.animationData })
   }, [speed])
   const updateAnimation = (animationData) => {
-    if (animation) animation.destroy()
-
-    const currentFrame = animation ? animation.currentFrame : null
-
     if (!animationData) return
 
+    let currentFrame = null
+    if (state.animation) {
+      currentFrame = state.animation.currentFrame
+      state.animation.destroy()
+    }
     animationData.layers[0].ef[0].ef[0].v.k = parseInt((speed * 270) / 12)
 
     const container = document.getElementById('speed-animation-view')
-    setAnimationData(animationData)
     const options = {
       loop: true,
       autoplay: true,
@@ -37,19 +36,19 @@ const SpeedLottieAnimation = ({ speed }) => {
       renderer: 'svg',
       container,
     }
+    const animation = lottie.loadAnimation(options)
+    if (currentFrame) animation.goToAndPlay(currentFrame, true)
 
-    const newAnimation = lottie.loadAnimation(options)
-    newAnimation.goToAndPlay(currentFrame, true)
-    setAnimation(newAnimation)
+    setState({ ...state, animationData, animation })
   }
   return (
     <>
       <Script
         src="/lottie.js"
         strategy="lazyOnload"
-        onLoad={() => setReady(true)}
+        onLoad={() => setState({ ...state, ready: true })}
       />
-      {ready ? <div id="speed-animation-view" /> : <div>Loading</div>}
+      {state.ready ? <div id="speed-animation-view" /> : <div>Loading</div>}
     </>
   )
 }

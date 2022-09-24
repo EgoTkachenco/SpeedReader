@@ -17,6 +17,7 @@ const ReaderView = ({
   showAnimation,
   isFullScreen,
   onFullScreenChange,
+  allText,
 }) => {
   const renderReader = (key) => {
     switch (settings.type) {
@@ -29,7 +30,7 @@ const ReaderView = ({
       case 'scroll':
         return (
           <ScrollReader
-            pages={pages}
+            text={allText}
             settings={settings}
             currentPosition={currentPosition}
             rowsPerLine={rowsPerLine}
