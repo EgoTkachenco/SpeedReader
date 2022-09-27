@@ -50,7 +50,6 @@ export const COLORS = {
 }
 
 export const SPEED_LEVELS = {
-  0: 2000,
   1: 700,
   2: 900,
   3: 800,

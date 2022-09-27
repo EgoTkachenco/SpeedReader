@@ -1,7 +1,7 @@
 import BookReader from './readers/Book'
 import ZoomReader from './readers/Zoom'
 import RollingReader from './readers/Rolling'
-import ScrollReader from './readers/Scroll_copy'
+import ScrollReader from './readers/Scroll_New'
 import ScrambledReader from './readers/Scrambled'
 import Button from '../common/Button'
 

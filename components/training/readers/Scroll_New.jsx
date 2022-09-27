@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react'
 import { SPEED_LEVELS } from '../../../store/constants'
-import { observer } from 'mobx-react-lite'
-import store from '../../../store/reader'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
-const Scroll = observer(({ settings, text, currentPosition, rowsPerLine }) => {
-  // const contentRef = useRef()
+const Scroll = ({ settings, text, currentPosition, rowsPerLine }) => {
   const [state, setState] = useState([])
 
   useEffect(() => {
@@ -13,26 +10,12 @@ const Scroll = observer(({ settings, text, currentPosition, rowsPerLine }) => {
   }, [settings.book])
 
   useEffect(() => {
-    console.log('TEXT EFFECT')
+    // console.log('TEXT EFFECT')
     if (!text || !text.length) return
     const rows = getRows(text, settings).filter(
       (el) => el.position >= currentPosition
     )
     setState(rows)
-
-    // const isNewText = !!state.length
-    // if (isNewText) {
-    //   // concat text
-    //   let rows_hash = state.reduce(
-    //     (acc, row) => ({ ...acc, [row.position]: true }),
-    //     {}
-    //   )
-    //   const acceptedRows = rows.filter(
-    //     (row) => !rows_hash.hasOwnProperty(row.position)
-    //   )
-    //   setState([...state, ...acceptedRows])
-    // } else {
-    // }
   }, [text, settings.type])
 
   useEffect(() => {
@@ -41,7 +24,6 @@ const Scroll = observer(({ settings, text, currentPosition, rowsPerLine }) => {
   }, [currentPosition])
 
   if (!state) return
-
   return (
     <div
       className="scroll-reader"
@@ -70,6 +52,8 @@ const Scroll = observer(({ settings, text, currentPosition, rowsPerLine }) => {
             <div
               style={{
                 height: `calc(${settings.fontType.fontSize} * 1.1)`,
+                minWidth: `calc(${settings.fontType.fontSize} * ${settings.fontType.row} * 0.55)`,
+                maxWidth: `calc(${settings.fontType.fontSize} * ${settings.fontType.row} * 0.55)`,
               }}
             >
               {row.map((w) => w.text).join(' ')}
@@ -79,7 +63,7 @@ const Scroll = observer(({ settings, text, currentPosition, rowsPerLine }) => {
       </TransitionGroup>
     </div>
   )
-})
+}
 
 export default Scroll
 

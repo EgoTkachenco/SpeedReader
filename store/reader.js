@@ -184,7 +184,7 @@ class Store {
         2 * PAGE_SIZE * ROW_SIZE &&
       this.last_block_position < this.last_position
     ) {
-      console.log('LOAD MORE BOOK TEXT')
+      // console.log('LOAD MORE BOOK TEXT')
       this.loadBook()
     }
     // if book not end, continue
@@ -257,7 +257,7 @@ class Store {
 
   getCurrentPages(showAnimation = true) {
     this.show_animation = showAnimation
-    console.log('CURRENT PAGES CHANGED')
+    // console.log('CURRENT PAGES CHANGED')
     if (showAnimation) {
       // debugger
       this.all_text = this.all_text.filter(

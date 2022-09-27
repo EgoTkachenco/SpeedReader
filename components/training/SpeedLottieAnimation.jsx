@@ -2,6 +2,9 @@ import Script from 'next/script'
 import { useState, useEffect } from 'react'
 
 const SpeedLottieAnimation = ({ speed }) => {
+  useEffect(() => {
+    if (window && window.lottie) setState({ ...state, ready: true })
+  }, [])
   const [state, setState] = useState({
     ready: false,
     animationData: null,
