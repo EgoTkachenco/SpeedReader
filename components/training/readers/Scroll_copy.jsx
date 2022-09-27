@@ -1,19 +1,12 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { SPEED_LEVELS } from '../../../store/constants'
+import { observer } from 'mobx-react-lite'
+import store from '../../../store/reader'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
-export default function Scroll({
-  settings,
-  text,
-  currentPosition,
-  rowsPerLine,
-}) {
-  const contentRef = useRef()
+const Scroll = observer(({ settings, text, currentPosition, rowsPerLine }) => {
+  // const contentRef = useRef()
   const [state, setState] = useState([])
-
-  useEffect(() => {
-    const animationTime = SPEED_LEVELS[parseInt(settings.speed)]
-    contentRef.current.style.transition = `all ${animationTime}ms linear`
-  }, [settings.speed])
 
   useEffect(() => {
     setState([])
@@ -21,42 +14,34 @@ export default function Scroll({
 
   useEffect(() => {
     console.log('TEXT EFFECT')
-    if (text && text.length) {
-      const rows = getRows(text, settings)
-      const isNewText = !!state.text
-      if (isNewText) {
-        // concat text
-        let rows_hash = state.text.reduce(
-          (acc, row) => ({ ...acc, [row.position]: true }),
-          {}
-        )
-        const acceptedRows = rows.filter(
-          (row) => !rows_hash.hasOwnProperty(row.position)
-        )
-        setState({
-          ...state,
-          text: [...state.text, ...acceptedRows],
-        })
-      } else {
-        setState({
-          ...state,
-          text: rows,
-        })
-      }
-    }
+    if (!text || !text.length) return
+    const rows = getRows(text, settings).filter(
+      (el) => el.position >= currentPosition
+    )
+    setState(rows)
+
+    // const isNewText = !!state.length
+    // if (isNewText) {
+    //   // concat text
+    //   let rows_hash = state.reduce(
+    //     (acc, row) => ({ ...acc, [row.position]: true }),
+    //     {}
+    //   )
+    //   const acceptedRows = rows.filter(
+    //     (row) => !rows_hash.hasOwnProperty(row.position)
+    //   )
+    //   setState([...state, ...acceptedRows])
+    // } else {
+    // }
   }, [text, settings.type])
 
   useEffect(() => {
-    console.log(
-      'POSITION EFFECT',
-      currentPosition,
-      Math.floor(currentPosition / settings.fontType.row)
-    )
-    // console.log(state.text)
-    contentRef.current.style.marginTop = `calc(-1 * ${Math.floor(
-      currentPosition / settings.fontType.row
-    )} * ${settings.fontType.fontSize})`
+    if (state && state.length)
+      setState((state) => state.filter((el) => el.position >= currentPosition))
   }, [currentPosition])
+
+  if (!state) return
+
   return (
     <div
       className="scroll-reader"
@@ -67,29 +52,36 @@ export default function Scroll({
         fontSize: settings.fontType.fontSize,
       }}
     >
-      <div
-        ref={contentRef}
-        className="scroll-reader-content"
-        style={{ marginTop: '0' }}
-      >
-        {state.text?.map(({ row, position }, i) => (
-          <div
+      <style>
+        {`
+					.content-row-exit-active {
+						margin-top: calc(-${settings.fontType.fontSize} * 1.1);
+						transition: margin-top ${SPEED_LEVELS[parseInt(settings.speed)]}ms linear;
+					}
+				`}
+      </style>
+      <TransitionGroup className="scroll-reader-content">
+        {state.map(({ row, position }, i) => (
+          <CSSTransition
+            timeout={SPEED_LEVELS[parseInt(settings.speed)]}
             key={position}
-            style={{
-              minHeight: `calc(${settings.fontType.fontSize} * 0.8)`,
-              background:
-                position < currentPosition
-                  ? settings.highlightColor
-                  : 'transparent',
-            }}
+            classNames="content-row"
           >
-            {row.map((w) => w.text).join(' ')}
-          </div>
+            <div
+              style={{
+                height: `calc(${settings.fontType.fontSize} * 1.1)`,
+              }}
+            >
+              {row.map((w) => w.text).join(' ')}
+            </div>
+          </CSSTransition>
         ))}
-      </div>
+      </TransitionGroup>
     </div>
   )
-}
+})
+
+export default Scroll
 
 const getRows = (all_text, settings) => {
   let text = all_text

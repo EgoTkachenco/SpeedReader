@@ -1,7 +1,7 @@
 import BookReader from './readers/Book'
 import ZoomReader from './readers/Zoom'
 import RollingReader from './readers/Rolling'
-import ScrollReader from './readers/Scroll'
+import ScrollReader from './readers/Scroll_copy'
 import ScrambledReader from './readers/Scrambled'
 import Button from '../common/Button'
 
@@ -34,6 +34,8 @@ const ReaderView = ({
             settings={settings}
             currentPosition={currentPosition}
             rowsPerLine={rowsPerLine}
+            isFullScreen={isFullScreen}
+            onFullScreenChange={onFullScreenChange}
           />
         )
       case 'book':

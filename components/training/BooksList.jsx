@@ -32,7 +32,7 @@ const BookList = observer(() => {
             <img
               className="book-slide__pic"
               src={process.env.NEXT_PUBLIC_SERVER_URL + book.picture.url}
-              alt=""
+              alt={book.name}
             />
           ) : (
             <div className="book-slide__pic">{book.name.slice(0, 2)}</div>

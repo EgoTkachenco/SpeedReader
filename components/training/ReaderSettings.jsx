@@ -7,6 +7,7 @@ import { SIZES } from '../../store/constants'
 import { useRouter } from 'next/router'
 import ExerciseProgress from './ExerciseProgress'
 import SpeedLottieAnimation from './SpeedLottieAnimation'
+import { SPEED_LEVELS } from '../../store/constants'
 
 const ReaderSettings = observer(() => {
   useEffect(() => {
@@ -89,7 +90,7 @@ const ReaderSettings = observer(() => {
           <Select
             onChange={(value) => onChange('speed', value)}
             value={settings.speed}
-            options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
+            options={Object.keys(SPEED_LEVELS)}
           />
           <div className="training-settings-list">
             <div>

@@ -6,6 +6,7 @@ import {
   COLORS,
   SETTINGS_LOCALE_STORAGE_KEY,
   SIZES,
+  SPEED_LEVELS,
 } from './constants'
 import { PRESETS } from './presets'
 
@@ -149,7 +150,7 @@ class Store {
   async nextPosition() {
     // Calculate time for next action
     clearTimeout(this.timeout)
-    const timeoutTime = this.getTimeoutTime()
+    const timeoutTime = SPEED_LEVELS[parseInt(this.settings.speed)]
 
     const words = this.current_pages.reduce(
       (acc, page) => [
@@ -163,7 +164,7 @@ class Store {
 
     // call next action with new pages
     if (is_need_page && this.current_position <= this.last_position - 1) {
-      this.current_pages = this.getCurrentPages()
+      this.current_pages = this.getCurrentPages() //this.settings.type === 'book'
       if (this.current_position === 0 || this.settings.type !== 'book')
         this.timeout = setTimeout(() => this.nextPosition(), 100)
       return
@@ -183,6 +184,7 @@ class Store {
         2 * PAGE_SIZE * ROW_SIZE &&
       this.last_block_position < this.last_position
     ) {
+      console.log('LOAD MORE BOOK TEXT')
       this.loadBook()
     }
     // if book not end, continue
@@ -249,35 +251,15 @@ class Store {
 
   resetAnimation() {
     this.show_animation = false
-    const timeoutTime = this.getTimeoutTime()
+    const timeoutTime = SPEED_LEVELS[parseInt(this.settings.speed)]
     this.timeout = setTimeout(() => this.nextPosition(), timeoutTime)
-  }
-
-  getTimeoutTime = () => {
-    // const result = 1000 / this.settings.speed
-    let result
-    if (this.settings.speed > 1 && this.settings.speed < 7) {
-      result = 1000 - (this.settings.speed - 1) * 100
-    } else {
-      const times = {
-        1: 700,
-        7: 125,
-        8: 100,
-        9: 70,
-        10: 20,
-        11: 25,
-        12: 10,
-      }
-      result = times.hasOwnProperty(this.settings.speed)
-        ? times[this.settings.speed]
-        : time[10]
-    }
-    return result
   }
 
   getCurrentPages(showAnimation = true) {
     this.show_animation = showAnimation
+    console.log('CURRENT PAGES CHANGED')
     if (showAnimation) {
+      // debugger
       this.all_text = this.all_text.filter(
         (word) => word.position >= this.current_position
       )
