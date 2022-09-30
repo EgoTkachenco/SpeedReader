@@ -1,12 +1,15 @@
 import { useState, useEffect, useRef } from 'react'
+import { SPEED_LEVELS } from '../../../store/constants'
+
 export default function Rolling({ settings, text }) {
   const contentRef = useRef()
   const [state, setState] = useState(null)
   useEffect(() => {
     if (text) {
       setState('')
-      contentRef.current.style.animationDuration = 1000 / settings.speed + 'ms'
-      setTimeout(() => setState(text), 10)
+      contentRef.current.style.animationDuration =
+        SPEED_LEVELS[parseInt(settings.speed)] + 'ms'
+      setTimeout(() => setState(text), 1)
     }
   }, [text])
 
@@ -17,6 +20,7 @@ export default function Rolling({ settings, text }) {
         transform: `${settings.rotate ? 'rotate(180deg)' : ''}`,
         backgroundColor: settings.pageColor,
         color: settings.textColor,
+        fontSize: settings.fontType.fontSize,
       }}
     >
       <div

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { SPEED_LEVELS } from '../../../store/constants'
 
 export default function Zoom({ settings, text }) {
   const contentRef = useRef()
@@ -6,8 +7,9 @@ export default function Zoom({ settings, text }) {
   useEffect(() => {
     if (text) {
       setState('')
-      contentRef.current.style.animationDuration = 1000 / settings.speed + 'ms'
-      setTimeout(() => setState(text), 10)
+      contentRef.current.style.animationDuration =
+        SPEED_LEVELS[parseInt(settings.speed)] + 'ms'
+      setTimeout(() => setState(text), 1)
     }
   }, [text])
 
@@ -18,6 +20,7 @@ export default function Zoom({ settings, text }) {
         transform: `${settings.rotate ? 'rotate(180deg)' : ''}`,
         backgroundColor: settings.pageColor,
         color: settings.textColor,
+        fontSize: settings.fontType.fontSize,
       }}
     >
       <div

@@ -8,6 +8,7 @@ import { useRouter } from 'next/router'
 import ExerciseProgress from './ExerciseProgress'
 import SpeedLottieAnimation from './SpeedLottieAnimation'
 import { SPEED_LEVELS } from '../../store/constants'
+import _ from 'lodash'
 
 const ReaderSettings = observer(() => {
   useEffect(() => {
@@ -165,15 +166,19 @@ const ReaderSettings = observer(() => {
 export default ReaderSettings
 
 const ScrollSettings = ({ settings, onChange }) => {
+  const onSpeedChange = _.debounce((value) => onChange('speed', value), 10)
   return (
     <div className="training-settings">
       <Button onClick={() => onChange('type', 'book')}>Back to book</Button>
 
       <div className="training-settings__title">Speed</div>
-      <Select
-        onChange={(value) => onChange('speed', value)}
+      <input
+        className="range-input"
+        type="range"
+        min={1}
+        max={12}
+        onChange={(e) => onSpeedChange(e.target.value)}
         value={settings.speed}
-        options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
       />
       <SpeedLottieAnimation speed={settings.speed} />
       <div className="training-settings-list">

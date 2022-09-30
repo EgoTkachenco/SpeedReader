@@ -2,12 +2,13 @@
   width: 40em;
   height: 25em;
   margin: auto;
-  font-size: $f-size;
-  border: 0.0125rem solid #585a5c;
+  background: #2a2b43;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  padding: 0 4rem;
+  border-radius: 16px;
 
   &-content {
     position: relative;
