@@ -24,7 +24,7 @@ const DEFAULT_SETTINGS = {
   book: '',
 }
 
-class Store {
+export class Store {
   inited = false
   settings = { ...DEFAULT_SETTINGS }
 

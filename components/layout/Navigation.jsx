@@ -281,6 +281,18 @@ const LINKS = [
     name: 'Profile',
     icon: () => <ProfileIcon />,
   },
+  {
+    pathname: '/testing-center',
+    name: 'Testing Center',
+    icon: () => (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src="/testing-center.png"
+        alt="123"
+        style={{ width: '1rem', height: '1rem', position: 'relative' }}
+      />
+    ),
+  },
 ]
 // const Navigation = observer(() => {
 //   const router = useRouter()

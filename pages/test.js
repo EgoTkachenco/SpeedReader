@@ -4,7 +4,7 @@ import { useState } from 'react'
 // import Select from '../components/common/Select'
 // import Checkbox from '../components/common/Checkbox'
 
-import SpeedLottieAnimation from '../components/training/SpeedLottieAnimation'
+// import SpeedLottieAnimation from '../components/training/SpeedLottieAnimation'
 
 export default function Test() {
   const [state, setState] = useState(1)
@@ -18,7 +18,7 @@ export default function Test() {
         value={state}
         onChange={(e) => setState(e.target.value)}
       />
-      <SpeedLottieAnimation speed={state} />
+      {/* <SpeedLottieAnimation speed={state} /> */}
     </>
   )
 
