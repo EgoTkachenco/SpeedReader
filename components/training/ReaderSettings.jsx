@@ -25,8 +25,6 @@ const ReaderSettings = observer(() => {
 
   return (
     <div className="training-settings">
-      <Button onClick={() => onChange('type', 'scroll')}>Scroll Test</Button>
-      <div className="training-settings__delimiter" />
       <div className="training-settings__title">Power learning sets</div>
       <div className="training-settings-list__vertical">
         {presets.map((el, i) => (

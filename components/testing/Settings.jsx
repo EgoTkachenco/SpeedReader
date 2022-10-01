@@ -5,8 +5,6 @@ const TestingSettings = ({ settings, onChange }) => {
   const onSpeedChange = _.debounce((value) => onChange('speed', value), 10)
   return (
     <div className="training-settings">
-      <Button onClick={() => onChange('type', 'book')}>Back to book</Button>
-
       <div className="training-settings__title">Speed</div>
       <input
         className="range-input"
