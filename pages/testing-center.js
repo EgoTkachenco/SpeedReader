@@ -4,7 +4,7 @@ import ScrollTest from '../components/testing/ScrollTest'
 import { Store as ReaderStore } from '../store/reader'
 import { observer } from 'mobx-react-lite'
 
-const store = new ReaderStore()
+const store = new ReaderStore(false)
 
 const TestingPage = observer(() => {
   const isActiveTest = store.settings.book?.id

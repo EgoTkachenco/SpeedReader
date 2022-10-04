@@ -1,8 +1,16 @@
 import { useState, useEffect } from 'react'
 import { SPEED_LEVELS } from '../../../store/constants'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import FullScreenButton from '../FullScreenButton'
 
-const Scroll = ({ settings, text, currentPosition, rowsPerLine }) => {
+const Scroll = ({
+  settings,
+  text,
+  currentPosition,
+  rowsPerLine,
+  isFullScreen,
+  onFullScreenChange,
+}) => {
   const [state, setState] = useState([])
 
   useEffect(() => {
@@ -28,12 +36,16 @@ const Scroll = ({ settings, text, currentPosition, rowsPerLine }) => {
     <div
       className="scroll-reader"
       style={{
-        transform: `${settings.rotate ? 'rotate(180deg)' : ''}`,
+        // transform: `${settings.rotate ? 'rotate(180deg)' : ''}`,
         backgroundColor: settings.pageColor,
         color: settings.textColor,
         fontSize: settings.fontType.fontSize,
       }}
     >
+      <FullScreenButton
+        isFullScreen={isFullScreen}
+        onChange={(value) => onFullScreenChange(value)}
+      />
       <style>
         {`
 					.content-row-exit-active {
@@ -42,25 +54,31 @@ const Scroll = ({ settings, text, currentPosition, rowsPerLine }) => {
 					}
 				`}
       </style>
-      <TransitionGroup className="scroll-reader-content">
-        {state.map(({ row, position }, i) => (
-          <CSSTransition
-            timeout={SPEED_LEVELS[parseInt(settings.speed)]}
-            key={position}
-            classNames="content-row"
-          >
-            <div
-              style={{
-                height: `calc(${settings.fontType.fontSize} * 1.1)`,
-                minWidth: `calc(${settings.fontType.fontSize} * ${settings.fontType.row} * 0.55)`,
-                maxWidth: `calc(${settings.fontType.fontSize} * ${settings.fontType.row} * 0.55)`,
-              }}
+      <div
+        style={{
+          transform: `${settings.rotate ? 'rotate(180deg)' : ''}`,
+        }}
+      >
+        <TransitionGroup className="scroll-reader-content">
+          {state.map(({ row, position }, i) => (
+            <CSSTransition
+              timeout={SPEED_LEVELS[parseInt(settings.speed)]}
+              key={position}
+              classNames="content-row"
             >
-              {row.map((w) => w.text).join(' ')}
-            </div>
-          </CSSTransition>
-        ))}
-      </TransitionGroup>
+              <div
+                style={{
+                  height: `calc(${settings.fontType.fontSize} * 1.1)`,
+                  // minWidth: `calc(${settings.fontType.fontSize} * ${settings.fontType.row} * 0.55)`,
+                  // maxWidth: `calc(${settings.fontType.fontSize} * ${settings.fontType.row} * 0.55)`,
+                }}
+              >
+                {row.map((w) => w.text).join(' ')}
+              </div>
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
+      </div>
     </div>
   )
 }

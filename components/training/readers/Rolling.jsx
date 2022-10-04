@@ -1,7 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 import { SPEED_LEVELS } from '../../../store/constants'
+import FullScreenButton from '../FullScreenButton'
 
-export default function Rolling({ settings, text }) {
+export default function Rolling({
+  settings,
+  text,
+  isFullScreen,
+  onFullScreenChange,
+}) {
   const contentRef = useRef()
   const [state, setState] = useState(null)
   useEffect(() => {
@@ -17,21 +23,30 @@ export default function Rolling({ settings, text }) {
     <div
       className="rolling-reader"
       style={{
-        transform: `${settings.rotate ? 'rotate(180deg)' : ''}`,
         backgroundColor: settings.pageColor,
         color: settings.textColor,
         fontSize: settings.fontType.fontSize,
       }}
     >
+      <FullScreenButton
+        isFullScreen={isFullScreen}
+        onChange={(value) => onFullScreenChange(value)}
+      />
       <div
-        key={text}
-        ref={contentRef}
-        className="rolling-reader-content animation"
+        style={{
+          transform: `${settings.rotate ? 'rotate(180deg)' : ''}`,
+        }}
       >
-        {state &&
-          state.map((row, i) => (
-            <div key={i}>{row.map((w) => w.text).join(' ')}</div>
-          ))}
+        <div
+          key={text}
+          ref={contentRef}
+          className="rolling-reader-content animation"
+        >
+          {state &&
+            state.map((row, i) => (
+              <div key={i}>{row.map((w) => w.text).join(' ')}</div>
+            ))}
+        </div>
       </div>
     </div>
   )

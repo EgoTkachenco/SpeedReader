@@ -22,11 +22,31 @@ const ReaderView = ({
   const renderReader = (key) => {
     switch (settings.type) {
       case 'zoom':
-        return <ZoomReader settings={settings} text={text} />
+        return (
+          <ZoomReader
+            settings={settings}
+            text={text}
+            isFullScreen={isFullScreen}
+            onFullScreenChange={onFullScreenChange}
+          />
+        )
       case 'scrambled':
-        return <ScrambledReader settings={settings} />
+        return (
+          <ScrambledReader
+            settings={settings}
+            isFullScreen={isFullScreen}
+            onFullScreenChange={onFullScreenChange}
+          />
+        )
       case 'rolling':
-        return <RollingReader settings={settings} text={text} />
+        return (
+          <RollingReader
+            settings={settings}
+            text={text}
+            isFullScreen={isFullScreen}
+            onFullScreenChange={onFullScreenChange}
+          />
+        )
       case 'scroll':
         return (
           <ScrollReader

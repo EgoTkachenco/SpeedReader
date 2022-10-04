@@ -1,11 +1,12 @@
 .scroll-reader {
-  width: 50em;
-  height: 45em;
+  width: 90%;
+  height: 40rem;
   padding: 0 4rem;
   margin: auto;
   display: flex;
   justify-content: center;
   overflow: hidden;
+  position: relative;
 
   background: #2a2b43;
   border-radius: 16px;

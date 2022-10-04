@@ -41,8 +41,9 @@ export class Store {
   timeout = null // timeout of next animation action
   isBookEnd = false // is user end reading book
   isFullScreen = false //
+  saveToLocalStorage = false
 
-  constructor() {
+  constructor(saveToLocalStorage = true) {
     makeAutoObservable(this, {
       changePages: action,
       page: computed,
@@ -50,10 +51,15 @@ export class Store {
     })
     // load books list
     this.loadBooksList()
+    console.log('saveToLocalStorage: ', saveToLocalStorage)
+    this.saveToLocalStorage = saveToLocalStorage
   }
 
   async initSettings() {
     if (this.inited) return
+
+    if (!this.saveToLocalStorage) return this.resetConfig()
+
     let localeConfig = localStorage.getItem(SETTINGS_LOCALE_STORAGE_KEY)
     let settings
     this.inited = true
@@ -140,7 +146,11 @@ export class Store {
 
     if (isTextUpdate) this.loadBook()
 
-    if (isUpdateLocalStorage)
+    if (
+      this.saveToLocalStorage &&
+      isUpdateLocalStorage &&
+      !this.exerciseTimeout
+    )
       localStorage.setItem(
         SETTINGS_LOCALE_STORAGE_KEY,
         JSON.stringify(this.settings)
