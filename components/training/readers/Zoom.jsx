@@ -26,7 +26,7 @@ export default function Zoom({
         // transform: `${settings.rotate ? 'rotate(180deg)' : ''}`,
         backgroundColor: settings.pageColor,
         color: settings.textColor,
-        fontSize: settings.fontType.fontSize,
+        fontSize: `calc(${settings.fontType.fontSize}  * 1.2)`,
       }}
     >
       <FullScreenButton
