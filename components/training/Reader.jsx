@@ -22,6 +22,8 @@ const SpeedReader = observer(() => {
       maxPage={store.maxPage}
       isFullScreen={store.isFullScreen}
       onFullScreenChange={(val) => store.changeFullScreen(val)}
+      message={store.message}
+      onClearMessage={() => store.clearMessage()}
     />
   )
 })

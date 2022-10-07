@@ -42,6 +42,12 @@ export class Store {
   isBookEnd = false // is user end reading book
   isFullScreen = false //
   saveToLocalStorage = false
+  message = '' // message in reader
+  messageTimeout = null // next message timeout
+
+  clearMessage() {
+    this.message = ''
+  }
 
   constructor(saveToLocalStorage = true) {
     makeAutoObservable(this, {
@@ -51,7 +57,6 @@ export class Store {
     })
     // load books list
     this.loadBooksList()
-    console.log('saveToLocalStorage: ', saveToLocalStorage)
     this.saveToLocalStorage = saveToLocalStorage
   }
 
@@ -379,7 +384,21 @@ export class Store {
   setExercise(exercise) {
     this.exercise = _.cloneDeep(exercise)
     this.isExerciseFinished = false
-    this.nextExerciseAction()
+
+    if (this.messageTimeout) clearTimeout(this.messageTimeout)
+    this.stopAnimation()
+    this.message = '1'
+    this.messageTimeout = setTimeout(() => {
+      this.message = '2'
+      this.messageTimeout = this.messageTimeout = setTimeout(() => {
+        this.message = '3'
+        this.messageTimeout = this.messageTimeout = setTimeout(() => {
+          this.message = null
+          this.startAnimation()
+          this.nextExerciseAction()
+        }, 1000)
+      }, 1000)
+    }, 1000)
   }
   nextExerciseAction() {
     this.clearExercise()
@@ -403,6 +422,7 @@ export class Store {
   endExercise() {
     // this.exercise = null
     this.isExerciseFinished = true
+    this.message = 'Completed. Congratulations!'
 
     let localeConfig = localStorage.getItem(SETTINGS_LOCALE_STORAGE_KEY)
     let settings

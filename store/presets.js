@@ -15,7 +15,8 @@ export const PRESETS = [
         data: [
           {
             action: {
-              speed: 2,
+              book: '4',
+              speed: 3,
               rotate: false,
               count: 1,
               type: 'book',
@@ -26,80 +27,77 @@ export const PRESETS = [
           },
           {
             action: {
-              speed: 4,
-              rotate: true,
-            },
-            duration: 5000,
-          },
-          {
-            action: {
-              speed: 3,
-              rotate: false,
-            },
-            duration: 8000,
-          },
-          {
-            action: {
-              rotate: true,
-              speed: 6,
-            },
-            duration: 8000,
-          },
-          {
-            action: {
-              rotate: false,
-              speed: 4,
-            },
-            duration: 8000,
-          },
-          {
-            action: {
-              speed: 8,
-              highlightColor: COLORS.pink,
-              textColor: COLORS.blue,
-              pageColor: COLORS.yellow,
-              rotate: true,
-            },
-            duration: 8000,
-          },
-          {
-            action: {
-              speed: 7,
-              rotate: false,
-              ...DEFAULT_COLORS,
+              speed: 5,
             },
             duration: 8000,
           },
           {
             action: {
               speed: 6,
-            },
-            duration: 8000,
-          },
-          {
-            action: {
+              rotate: true,
               highlightTypeS: '2',
+            },
+            duration: 8000,
+          },
+          {
+            action: {
+              speed: 5,
+              rotate: false,
+            },
+            duration: 8000,
+          },
+          {
+            action: {
               highlightColor: COLORS.pink,
               textColor: COLORS.blue,
               pageColor: COLORS.yellow,
               rotate: true,
+              speed: 8,
+              highlightTypeS: '1',
+            },
+            duration: 8000,
+          },
+          {
+            action: {
+              ...DEFAULT_COLORS,
+              rotate: false,
+              speed: 7,
+              highlightTypeV: '1',
+            },
+            duration: 8000,
+          },
+          {
+            action: {
               speed: 9,
+              highlightTypeV: '2',
+              highlightColor: COLORS.pink,
+              textColor: COLORS.blue,
+              pageColor: COLORS.yellow,
+              rotate: true,
             },
             duration: 12000,
           },
           {
             action: {
               speed: 8,
+              rotate: false,
             },
             duration: 8000,
           },
+
           {
             action: {
               speed: 7,
-              rotate: false,
               ...DEFAULT_COLORS,
             },
             duration: 20000,
+          },
+          {
+            action: {
+              highlightTypeV: '1',
+              speed: 6,
+            },
+            duration: 12000,
           },
         ],
       },
@@ -108,6 +106,7 @@ export const PRESETS = [
         data: [
           {
             action: {
+              book: '5',
               speed: 2,
               rotate: false,
               count: 1,
@@ -115,14 +114,14 @@ export const PRESETS = [
               highlightTypeS: '1',
               ...DEFAULT_COLORS,
             },
-            duration: 6000,
+            duration: 8000,
           },
           {
             action: {
-              speed: 4,
+              speed: 5,
               rotate: true,
             },
-            duration: 4000,
+            duration: 8000,
           },
           {
             action: {
@@ -146,6 +145,8 @@ export const PRESETS = [
             action: {
               rotate: false,
               highlightTypeS: '1',
+              textColor: COLORS.white,
+              pageColor: COLORS.red,
             },
             duration: 8000,
           },
@@ -180,11 +181,10 @@ export const PRESETS = [
           {
             action: {
               speed: 9,
-              rotate: true,
+              rotate: false,
               highlightTypeS: '2',
-              textColor: COLORS.yellow,
-              pageColor: COLORS.blue,
-              highlightColor: COLORS.pink,
+              textColor: COLORS.red,
+              pageColor: COLORS.white,
             },
             duration: 12000,
           },
@@ -193,18 +193,18 @@ export const PRESETS = [
               speed: 8,
               rotate: true,
               highlightTypeS: '2',
-              textColor: COLORS.blue,
-              pageColor: COLORS.yellow,
-              highlightColor: COLORS.pink,
+              ...DEFAULT_COLORS,
             },
-            duration: 12000,
+            duration: 10000,
           },
           {
             action: {
               speed: 7,
               rotate: false,
               highlightTypeS: '2',
-              ...DEFAULT_COLORS,
+              textColor: COLORS.blue,
+              pageColor: COLORS.yellow,
+              highlightColor: COLORS.pink,
             },
             duration: 10000,
           },
@@ -213,16 +213,17 @@ export const PRESETS = [
               speed: 10,
               rotate: true,
               highlightTypeS: '4',
+              ...DEFAULT_COLORS,
             },
-            duration: 6000,
+            duration: 10000,
           },
           {
             action: {
-              speed: 6,
+              speed: 5,
+              highlightTypeS: '2',
               rotate: false,
-              highlightTypeS: '1',
             },
-            duration: 6000,
+            duration: 20000,
           },
         ],
       },
@@ -231,6 +232,7 @@ export const PRESETS = [
         data: [
           {
             action: {
+              book: '6',
               speed: 2,
               rotate: false,
               count: 1,
@@ -242,10 +244,10 @@ export const PRESETS = [
           },
           {
             action: {
-              speed: 4,
+              speed: 5,
               rotate: true,
             },
-            duration: 4000,
+            duration: 8000,
           },
           {
             action: {
@@ -269,6 +271,8 @@ export const PRESETS = [
             action: {
               rotate: false,
               highlightTypeS: '1',
+              textColor: COLORS.white,
+              pageColor: COLORS.red,
             },
             duration: 8000,
           },
@@ -303,11 +307,10 @@ export const PRESETS = [
           {
             action: {
               speed: 9,
-              rotate: true,
+              rotate: false,
               highlightTypeS: '2',
-              textColor: COLORS.yellow,
-              pageColor: COLORS.blue,
-              highlightColor: COLORS.pink,
+              textColor: COLORS.red,
+              pageColor: COLORS.white,
             },
             duration: 12000,
           },
@@ -316,18 +319,18 @@ export const PRESETS = [
               speed: 8,
               rotate: true,
               highlightTypeS: '2',
-              textColor: COLORS.blue,
-              pageColor: COLORS.yellow,
-              highlightColor: COLORS.pink,
+              ...DEFAULT_COLORS,
             },
-            duration: 12000,
+            duration: 10000,
           },
           {
             action: {
               speed: 7,
               rotate: false,
               highlightTypeS: '2',
-              ...DEFAULT_COLORS,
+              textColor: COLORS.blue,
+              pageColor: COLORS.yellow,
+              highlightColor: COLORS.pink,
             },
             duration: 10000,
           },
@@ -336,16 +339,17 @@ export const PRESETS = [
               speed: 10,
               rotate: true,
               highlightTypeS: '4',
+              ...DEFAULT_COLORS,
             },
-            duration: 6000,
+            duration: 10000,
           },
           {
             action: {
-              speed: 6,
+              speed: 5,
+              highlightTypeS: '2',
               rotate: false,
-              highlightTypeS: '1',
             },
-            duration: 6000,
+            duration: 20000,
           },
         ],
       },
@@ -354,6 +358,7 @@ export const PRESETS = [
         data: [
           {
             action: {
+              book: '7',
               speed: 2,
               rotate: false,
               count: 1,
@@ -365,10 +370,10 @@ export const PRESETS = [
           },
           {
             action: {
-              speed: 4,
+              speed: 5,
               rotate: true,
             },
-            duration: 4000,
+            duration: 8000,
           },
           {
             action: {
@@ -392,6 +397,8 @@ export const PRESETS = [
             action: {
               rotate: false,
               highlightTypeS: '1',
+              textColor: COLORS.white,
+              pageColor: COLORS.red,
             },
             duration: 8000,
           },
@@ -426,11 +433,10 @@ export const PRESETS = [
           {
             action: {
               speed: 9,
-              rotate: true,
+              rotate: false,
               highlightTypeS: '2',
-              textColor: COLORS.yellow,
-              pageColor: COLORS.blue,
-              highlightColor: COLORS.pink,
+              textColor: COLORS.red,
+              pageColor: COLORS.white,
             },
             duration: 12000,
           },
@@ -439,18 +445,18 @@ export const PRESETS = [
               speed: 8,
               rotate: true,
               highlightTypeS: '2',
-              textColor: COLORS.blue,
-              pageColor: COLORS.yellow,
-              highlightColor: COLORS.pink,
+              ...DEFAULT_COLORS,
             },
-            duration: 12000,
+            duration: 10000,
           },
           {
             action: {
               speed: 7,
               rotate: false,
               highlightTypeS: '2',
-              ...DEFAULT_COLORS,
+              textColor: COLORS.blue,
+              pageColor: COLORS.yellow,
+              highlightColor: COLORS.pink,
             },
             duration: 10000,
           },
@@ -459,16 +465,17 @@ export const PRESETS = [
               speed: 10,
               rotate: true,
               highlightTypeS: '4',
+              ...DEFAULT_COLORS,
             },
-            duration: 6000,
+            duration: 10000,
           },
           {
             action: {
-              speed: 6,
+              speed: 5,
+              highlightTypeS: '2',
               rotate: false,
-              highlightTypeS: '1',
             },
-            duration: 6000,
+            duration: 20000,
           },
         ],
       },
@@ -477,6 +484,7 @@ export const PRESETS = [
         data: [
           {
             action: {
+              book: '8',
               speed: 4,
               rotate: false,
               count: 1,

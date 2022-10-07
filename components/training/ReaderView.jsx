@@ -3,7 +3,8 @@ import ZoomReader from './readers/Zoom'
 import RollingReader from './readers/Rolling'
 import ScrollReader from './readers/Scroll_New'
 import ScrambledReader from './readers/Scrambled'
-import Button from '../common/Button'
+import FullScreenButton from './FullScreenButton'
+import MessageBox from './MessageBox'
 
 const ReaderView = ({
   settings,
@@ -18,6 +19,8 @@ const ReaderView = ({
   isFullScreen,
   onFullScreenChange,
   allText,
+  message,
+  onClearMessage,
 }) => {
   const renderReader = (key) => {
     switch (settings.type) {
@@ -78,32 +81,29 @@ const ReaderView = ({
     }
   }
 
-  const renderAllReaders = () => {
-    const size = !isNaN(Number(settings.count)) ? Number(settings.count) : 1
-    const className = size === 1 ? 'col-12' : 'col-6 small'
-
-    return new Array(size).fill(null).map((_, i) => (
-      <div className={className} key={i}>
-        {renderReader(i)}
-      </div>
-    ))
-  }
+  const size = !isNaN(Number(settings.count)) ? Number(settings.count) : 1
+  const isSmall = size > 1
+  const wrapperClasses = `books-wrapper ${isFullScreen ? 'fullscreen' : ''}`
 
   return (
-    <div className={`books-wrapper ${isFullScreen ? 'fullscreen' : ''}`}>
-      {settings.count != 1 && isFullScreen && (
-        <div className="fullscreen-close">
-          <Button
-            className=""
-            variant="text"
-            onClick={() => onFullScreenChange(false)}
-          >
-            <img className="book-bottom__arrow left" src="/arrow-left.svg" />
-            Back
-          </Button>
-        </div>
+    <div className={wrapperClasses}>
+      {isSmall && isFullScreen && (
+        <FullScreenButton
+          onChange={() => onFullScreenChange(false)}
+          isFullScreen={isFullScreen}
+        />
       )}
-      {renderAllReaders()}
+      {new Array(size).fill(null).map((_, i) => (
+        <div key={i} className={isSmall ? 'col-6 small' : 'col-12'}>
+          {renderReader(i)}
+        </div>
+      ))}
+
+      <MessageBox
+        message={message}
+        messageClearTimeout={2000}
+        onMessageClear={onClearMessage}
+      />
     </div>
   )
 }
