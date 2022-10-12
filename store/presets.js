@@ -15,12 +15,13 @@ export const PRESETS = [
         data: [
           {
             action: {
-              book: '4',
+              book: '5',
               speed: 3,
               rotate: false,
               count: 1,
               type: 'book',
               highlightTypeS: '1',
+              fullscreen: false,
               ...DEFAULT_COLORS,
             },
             duration: 8000,
@@ -106,12 +107,13 @@ export const PRESETS = [
         data: [
           {
             action: {
-              book: '5',
+              book: '6',
               speed: 2,
               rotate: false,
               count: 1,
               type: 'zoom',
               highlightTypeS: '1',
+              fullscreen: false,
               ...DEFAULT_COLORS,
             },
             duration: 8000,
@@ -232,12 +234,13 @@ export const PRESETS = [
         data: [
           {
             action: {
-              book: '6',
+              book: '7',
               speed: 2,
               rotate: false,
               count: 1,
               type: 'rolling',
               highlightTypeS: '1',
+              fullscreen: false,
               ...DEFAULT_COLORS,
             },
             duration: 6000,
@@ -358,12 +361,13 @@ export const PRESETS = [
         data: [
           {
             action: {
-              book: '7',
+              book: '8',
               speed: 2,
               rotate: false,
               count: 1,
               type: 'scroll',
               highlightTypeS: '1',
+              fullscreen: false,
               ...DEFAULT_COLORS,
             },
             duration: 6000,
@@ -484,12 +488,13 @@ export const PRESETS = [
         data: [
           {
             action: {
-              book: '8',
+              book: '9',
               speed: 4,
               rotate: false,
               count: 1,
               type: 'book',
               highlightTypeS: '1',
+              fullscreen: false,
               ...DEFAULT_COLORS,
             },
             duration: 6000,

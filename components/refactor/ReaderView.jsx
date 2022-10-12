@@ -20,8 +20,8 @@ const ReaderView = ({
   message,
 }) => {
   const renderReader = (key) => {
-    // switch (settings.settings.type) {
-    switch ('scroll') {
+    switch (settings.settings.type) {
+      // switch ('scroll') {
       case 'zoom':
         return (
           <ZoomReader
