@@ -1,5 +1,5 @@
 .rolling-reader {
-  width: 90%;
+  width: 100%;
   height: 35rem;
   margin: auto;
   display: flex;
@@ -13,34 +13,40 @@
 
   &-content {
     position: relative;
-    top: -100%;
-    &.animation {
-      animation: rollDown infinite;
-      animation-fill-mode: forwards;
-    }
   }
-
-  @keyframes rollDown {
-    0% {
-      top: -100%;
-      // opacity: 0;
-    }
-    25% {
-      top: 0;
-      opacity: 1;
-    }
-    50% {
-      top: 0;
-      opacity: 1;
-    }
-    100% {
-      top: 100%;
-      // opacity: 0;
-    }
+}
+.fullscreen {
+  .rolling-reader {
+    width: 80%;
+  }
+}
+@keyframes rollDown {
+  0% {
+    top: -100%;
+    // opacity: 0;
+  }
+  25% {
+    top: 0;
+  }
+  50% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
   }
 }
 
+.rolling-exit {
+  opacity: 0;
+}
+.rolling-enter {
+  transform: translateY(50%);
+}
+.rolling-enter-active {
+  transform: translateY(0);
+}
+
 .small .rolling-reader {
-  width: 100%;
+  width: 90%;
   height: 16em;
 }

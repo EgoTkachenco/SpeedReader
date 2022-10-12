@@ -21,9 +21,7 @@ export default function Login() {
       })
       .catch((err) => {
         setError(
-          typeof err === 'string'
-            ? err
-            : err.response.data?.message[0].messages[0].message || 'error'
+          typeof err === 'string' ? err : err.response.message || 'error'
         )
       })
   }
@@ -38,7 +36,7 @@ export default function Login() {
         <Input
           id="email"
           name="email"
-          type="email"
+          type="text"
           className="form-control mb-3"
           placeholder="Your email"
           required

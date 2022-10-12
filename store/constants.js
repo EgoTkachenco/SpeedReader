@@ -9,29 +9,25 @@ export const SIZES = {
     title: 'Small',
     key: 'small',
     fontSize: '0.875rem',
-    row: 60,
     page: 35,
   },
   medium: {
     title: 'Medium',
     key: 'medium',
     fontSize: '0.975rem',
-    row: 55,
     page: 32,
   },
   large: {
     title: 'Large',
     key: 'large',
     fontSize: '1.075rem',
-    row: 50,
-    page: 29,
+    page: 30,
   },
   extraLarge: {
     title: 'Extra Large',
     key: 'extraLarge',
     fontSize: '1.175rem',
-    row: 45,
-    page: 27,
+    page: 28,
   },
 }
 
@@ -63,4 +59,19 @@ export const SPEED_LEVELS = {
   10: 20,
   11: 25,
   12: 10,
+}
+
+export const DEFAULT_SETTINGS = {
+  speed: 1,
+  highlightColor: COLORS.violet,
+  textColor: COLORS.white,
+  pageColor: COLORS.gray,
+  rotate: false,
+  highlightTypeS: '',
+  highlightTypeV: '1',
+  count: 1,
+  type: 'book',
+  fontType: SIZES['small'],
+  book: '',
+  fullscreen: false,
 }

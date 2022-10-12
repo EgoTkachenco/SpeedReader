@@ -1,8 +1,19 @@
 const { axios, securedFetchOptions } = require('./axios')
 
 export const AUTH_API = {
+  // login: (identifier, password) =>
+  // 	axios.post('/auth/local', { identifier, password }),
   login: (identifier, password) =>
-    axios.post('/auth/local', { identifier, password }),
+    axios.post('https://readinggenius.com/wp-json/api-bearer-auth/v1/login', {
+      username: identifier,
+      password,
+    }),
+
+  getUser: () =>
+    axios.get(
+      'https://readinggenius.com/wp-json/wp/v2/users/me',
+      securedFetchOptions()
+    ),
 
   register: (name, email, password) =>
     axios.post('/auth/local/register', {

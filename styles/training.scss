@@ -230,7 +230,8 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  // align-items: center;
+  gap: 16px;
   justify-content: center;
 
   .col-12,
@@ -243,7 +244,7 @@
     width: 100%;
   }
   .col-6 {
-    width: 50%;
+    width: calc(50% - 16px);
     height: 24rem;
   }
 
@@ -260,6 +261,7 @@
     width: 100%;
     height: 100vh;
     background: #2a2b43;
+    align-items: center;
 
     .fullscreen-close {
       position: absolute;
@@ -274,14 +276,15 @@
     // }
 
     .col-6 {
-      height: 50vh;
+      height: 40vh;
+
       .book-top,
       .book-bottom {
         display: none;
       }
 
       &.small .wrapper {
-        transform: scale(0.6);
+        transform: scale(0.78);
       }
 
       &.small {
@@ -296,7 +299,9 @@
     }
   }
 }
-
+.books-wrapper.fullscreen.items-4 .col-6.small .wrapper {
+  transform: scale(0.7);
+}
 .message-box {
   position: absolute;
   top: 0;

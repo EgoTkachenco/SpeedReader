@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 html {
   font-family: 'Gilroy', sans-serif;
   font-size: 1vw;
@@ -12,6 +14,16 @@ body {
 }
 a {
   text-decoration: none;
+}
+
+pre {
+  font-family: 'Droid Sans Mono';
+  font-family: 'IBM Plex Mono';
+  font-family: 'Roboto Mono';
+  // font-family: 'Source Code Pro';
+  font-family: 'Inconsolata';
+  margin: 0;
+  white-space: pre-wrap;
 }
 
 @import './ui.scss';
@@ -142,6 +154,46 @@ a {
       font-weight: 700;
       font-size: 1.5rem;
       line-height: 2rem;
+    }
+  }
+}
+
+.page-loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(42, 43, 67);
+  .dots-bars-1 {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    --c: linear-gradient(currentColor 0 0);
+    --r1: radial-gradient(farthest-side at bottom, currentColor 93%, #fff);
+    --r2: radial-gradient(farthest-side at top, currentColor 93%, #fff);
+    background: var(--c), var(--r1), var(--r2), var(--c), var(--r1), var(--r2),
+      var(--c), var(--r1), var(--r2);
+    background-repeat: no-repeat;
+    animation: db1 1s infinite alternate;
+  }
+
+  @keyframes db1 {
+    0%,
+    10% {
+      background-size: 8px 0, 8px 4px, 8px 4px;
+      background-position: 0 50%, 0 calc(50% - 2px), 0 calc(50% + 2px), 50% 50%,
+        50% calc(50% - 2px), 50% calc(50% + 2px), 100% 50%, 100% calc(50% - 2px),
+        100% calc(50% + 2px);
+    }
+    90%,
+    100% {
+      background-size: 8px 100%, 8px 4px, 8px 4px;
+      background-position: 0 50%, 0 -2px, 0 calc(100% + 2px), 50% 50%, 50% -2px,
+        50% calc(100% + 2px), 100% 50%, 100% -2px, 100% calc(100% + 2px);
     }
   }
 }
