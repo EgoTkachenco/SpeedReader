@@ -15,8 +15,9 @@ function MyApp({ Component, pageProps }) {
   const user = store.user
   useEffect(() => {
     if (!process.browser) return
+    const token = new URLSearchParams(window.location.search).get('token')
     let isUser = store.user !== undefined && store.user !== null
-    if (store.user === undefined) isUser = store.relog()
+    if (store.user === undefined) isUser = store.relog(token)
     if (isUser && isAuth) {
       router.push('/training-center')
     } else if (!isUser && !isAuth) {

@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx'
 import { AUTH_API } from './api'
-import { getToken, setToken } from './axios'
+import { eraseToken, getToken, setToken } from './axios'
 import { TOKEN_NAME } from './constants'
 
 class Store {
@@ -16,8 +16,13 @@ class Store {
   }
 
   async loadUser() {
-    const user = await AUTH_API.getUser()
-    this.user = { id: user.id, name: user.name }
+    try {
+      const user = await AUTH_API.getUser()
+      this.user = { id: user.id, name: user.name }
+    } catch (error) {
+      this.logout()
+      window.location = '/login'
+    }
   }
 
   async signUp(name, email, password, confirmPassword) {
@@ -39,11 +44,16 @@ class Store {
 
   logout() {
     this.user = null
-    localStorage.removeItem(TOKEN_NAME)
+    eraseToken(TOKEN_NAME)
   }
 
-  relog() {
-    const token = getToken()
+  relog(token) {
+    // auto login
+    if (token) {
+      setToken(token)
+    } else {
+      token = getToken()
+    }
     if (token) {
       this.loadUser()
       return true

@@ -11,15 +11,17 @@ const TrainingPage = observer(() => {
   useEffect(() => {
     if (process.browser) store.settings.loadFromStorage()
   }, [])
-  if (store.books.length === 0) return null
-
-  const settings = store.settings.settings
-  const reader = store.reader
   useEffect(() => {
     return () => {
       store.reader.clear()
     }
   }, [])
+
+  if (store.books.length === 0) return null
+
+  const settings = store.settings.settings
+  const reader = store.reader
+
   return (
     <Layout title="Training center">
       <div className="training">
