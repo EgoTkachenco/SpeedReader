@@ -46,6 +46,8 @@ export default function Book({
     if (settings.book) {
       const new_pages = getNewPages(0)
       setState([...new_pages, [], []])
+    } else {
+      setState([[], [], [], []])
     }
   }, [settings.book])
 

@@ -9,6 +9,7 @@ const ExerciseProgress = ({
 }) => {
   const [progress, setProgress] = useState(0)
   useEffect(() => {
+    if (!exercise) setProgress(0)
     if (!exercise || !isPlay) return
     progressIteration(false)
     const interval = setInterval(progressIteration, 1000)
@@ -16,6 +17,7 @@ const ExerciseProgress = ({
       clearInterval(interval)
     }
   }, [levelStartTime, isPlay])
+
   const ref = useRef()
   if (!exercise) return ''
 

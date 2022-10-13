@@ -48,9 +48,7 @@ const TrainingPage = observer(() => {
             onChange={(value) => store.settings.update('book', value)}
             list={store.books}
           />
-          {!store.settings.settings.book ? (
-            <NoBook />
-          ) : reader.isEnd ? (
+          {reader.isEnd ? (
             <BookEnd />
           ) : (
             <ReaderView

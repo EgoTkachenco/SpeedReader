@@ -30,7 +30,13 @@ export class PresetsStore {
   }
 
   start() {
+    this.reader.clear()
     this.clear()
+    this.settings.reset(false)
+
+    this.levelStartTime = null
+    this.levelPauseTime = null
+
     if (this.startTimeout) {
       clearTimeout(this.startTimeout)
     }
@@ -44,7 +50,6 @@ export class PresetsStore {
         clearTimeout(this.startTimeout)
         this.setTimeout = setTimeout(() => {
           this.global.addMessage(null)
-          this.reader.play()
           this.next()
         }, 1000)
       }, 1000)
@@ -74,7 +79,14 @@ export class PresetsStore {
     this.exercise.data[nextActionIndex].passed = true
 
     for (const key in nextAction.action) {
-      this.settings.update(key, nextAction.action[key], false)
+      if (key === 'book') {
+        const book = this.global.books.find(
+          (book) => book.id == nextAction.action[key]
+        )
+        this.settings.update(key, book || this.global.books[0], false)
+      } else {
+        this.settings.update(key, nextAction.action[key], false)
+      }
     }
 
     let duration = nextAction.duration

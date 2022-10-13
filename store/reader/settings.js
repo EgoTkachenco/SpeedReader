@@ -22,9 +22,9 @@ export class SettingsStore {
     if (localeConfig) this.settings = JSON.parse(localeConfig)
   }
 
-  reset() {
+  reset(isUpdateLocalStorage = true) {
     const settings = { ...DEFAULT_SETTINGS }
-    if (this.useLocaleStorage)
+    if (isUpdateLocalStorage && this.useLocaleStorage)
       localStorage.setItem(
         SETTINGS_LOCALE_STORAGE_KEY,
         JSON.stringify(settings)

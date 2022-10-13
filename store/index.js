@@ -8,7 +8,6 @@ import {
   getRefreshToken,
   setRefreshToken,
 } from './axios'
-import { TOKEN_NAME } from './constants'
 class Store {
   user = undefined
   constructor() {
