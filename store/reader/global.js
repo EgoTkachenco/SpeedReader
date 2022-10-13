@@ -30,9 +30,10 @@ export class Store {
   addMessage(message) {
     if (this.messageTimeout) clearTimeout(this.messageTimeout)
     this.message = message
-    if (!message)
+    if (message)
       this.messageTimeout = setTimeout(() => {
         this.message = null
+        clearTimeout(this.messageTimeout)
       }, 3000)
   }
 }
