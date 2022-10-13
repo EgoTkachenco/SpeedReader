@@ -44,7 +44,12 @@ reaction(
   () => store.settings.settings.book?.id || '',
   (book) => {
     console.log('reaction', store.settings.settings.book)
-    if (book) store.reader.start()
+    if (book) {
+      store.reader.start()
+    } else {
+      store.reader.stop()
+      store.reader.clear()
+    }
   }
 )
 

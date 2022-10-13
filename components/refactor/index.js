@@ -45,7 +45,13 @@ const TrainingPage = observer(() => {
         <div className="training-right">
           <BooksList
             value={settings.book}
-            onChange={(value) => store.settings.update('book', value)}
+            onChange={(value) =>
+              store.settings.update(
+                'book',
+                value,
+                !store.presets.exerciseTimeout
+              )
+            }
             list={store.books}
           />
           {reader.isEnd ? (
