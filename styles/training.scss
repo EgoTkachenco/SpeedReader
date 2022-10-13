@@ -211,13 +211,40 @@
     height: 0.5rem;
     border-radius: 0.5rem;
     overflow: hidden;
+    position: relative;
+
+    &:hover &-controll {
+      opacity: 1;
+    }
 
     &__value {
       background: #009e65;
       width: 10%;
       height: 100%;
       border-radius: 0 0.5rem 0.5rem 0;
-      transition: width 0.3s ease-in;
+      transition: width 1s linear;
+    }
+
+    &-controll {
+      opacity: 0;
+      display: flex;
+      background: #0f0f0f;
+      height: 0.5rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transition: opacity 0.3s;
+    }
+    &__cell {
+      flex-grow: 1;
+      background: #0f0f0f;
+      transition: background 0.3s;
+      cursor: pointer;
+
+      &.active {
+        background: #1893d5;
+      }
     }
   }
 }

@@ -10,6 +10,8 @@ export class PresetsStore {
   exerciseTimeout = null // next action in exercise timeout
   isExerciseFinished = false
   startTimeout = null
+  levelStartTime = null
+  levelPauseTime = null
 
   constructor(global) {
     makeAutoObservable(this)
@@ -61,8 +63,7 @@ export class PresetsStore {
     this.exerciseTimeout = null
   }
 
-  next() {
-    debugger
+  next(isContinue = false, customDuration = null) {
     this.clear()
     const result = this.exercise.data.reduce((acc, el, i) => {
       return acc ? acc : !el.passed ? { el, i } : null
@@ -76,10 +77,27 @@ export class PresetsStore {
       this.settings.update(key, nextAction.action[key], false)
     }
 
-    this.exerciseTimeout = setTimeout(() => this.next(), nextAction.duration)
+    let duration = nextAction.duration
+    const now = new Date().getTime()
+    if (!isContinue) {
+      this.levelStartTime = new Date().getTime()
+    } else if (customDuration) {
+      const level_passed_time = customDuration
+      duration = duration - level_passed_time
+      this.levelPauseTime = null
+      this.levelStartTime = now - level_passed_time
+    } else {
+      const level_passed_time = this.levelPauseTime - this.levelStartTime
+      duration = duration - level_passed_time
+      this.levelPauseTime = null
+      this.levelStartTime = now - level_passed_time
+    }
+    console.log('DURATION: ', duration)
+    this.exerciseTimeout = setTimeout(() => this.next(), duration)
   }
 
-  play() {
+  play(customDuration = null) {
+    console.log('PLay with:', customDuration)
     if (this.isExerciseFinished) {
       // repass all actions
       this.clear()
@@ -96,9 +114,11 @@ export class PresetsStore {
       this.exercise.data[lastIndex].passed = false
     }
     this.reader.next()
-    this.next()
+    this.next(true, customDuration)
   }
-  pausePreset() {
+  pause() {
     this.clear()
+    this.reader.stop()
+    this.levelPauseTime = new Date().getTime()
   }
 }

@@ -9,6 +9,12 @@ export const AUTH_API = {
       password,
     }),
 
+  refresh: (token) =>
+    axios.post(
+      'https://readinggenius.com/wp-json/api-bearer-auth/v1/tokens/refresh',
+      { token }
+    ),
+
   getUser: () =>
     axios.get(
       'https://readinggenius.com/wp-json/wp/v2/users/me',

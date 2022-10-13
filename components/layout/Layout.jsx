@@ -1,15 +1,21 @@
 import Navigation from './Navigation'
 import Header from './Header'
+import Head from 'next/head'
 
 const Layout = ({ children, title }) => {
   return (
-    <div className="page-wrapper">
-      <Navigation />
-      <div className="page-content">
-        <Header title={title} />
-        {children}
+    <>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <div className="page-wrapper">
+        <Navigation />
+        <div className="page-content">
+          <Header title={title} />
+          {children}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -33,7 +33,6 @@ export class SettingsStore {
   }
 
   update(key, value, isUpdateLocalStorage = true) {
-    debugger
     if (!this.settings.hasOwnProperty(key)) return
 
     let formatedValue = value

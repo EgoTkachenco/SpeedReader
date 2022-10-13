@@ -5,7 +5,6 @@ export default function Rolling({ settings, text, speed }) {
   const [state, setState] = useState(null)
   useEffect(() => {
     setState(false)
-    console.log(text)
     setTimeout(() => setState(true), 1)
   }, [text])
 

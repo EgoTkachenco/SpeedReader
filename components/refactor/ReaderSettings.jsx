@@ -19,6 +19,9 @@ const ReaderSettings = observer(
     onPresetOpen,
     onExerciseOpen,
     isExerciseActive,
+    levelStartTime,
+    onExercisePlay,
+    onExercisePause,
   }) => {
     const [showCustom, setShowCustom] = useState(false)
     const router = useRouter()
@@ -54,10 +57,9 @@ const ReaderSettings = observer(
           <ExerciseProgress
             exercise={exercise}
             isPlay={!!isExerciseActive}
-            onPlay={() => {}}
-            onPause={() => {}}
-            // onPlay={() => store.playPreset()}
-            // onPause={() => store.pausePreset()}
+            onPlay={(duration) => onExercisePlay(duration)}
+            onPause={() => onExercisePause()}
+            levelStartTime={levelStartTime}
           />
         )}
         <div className="training-settings__delimiter" />

@@ -1,5 +1,6 @@
 export const SETTINGS_LOCALE_STORAGE_KEY = 'sra_2.3_conf'
 export const TOKEN_NAME = 'sra_access_token'
+export const REFRESH_TOKEN_NAME = 'sra_refresh_token'
 export const USER_STORE_NAME = 'sra__user'
 
 export const BLOCK_SIZE = 4800

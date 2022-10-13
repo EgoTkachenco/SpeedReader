@@ -25,6 +25,7 @@ const TrainingPage = observer(() => {
   return (
     <Layout title="Training center">
       <div className="training">
+        {store.presets.level_process}
         <ReaderSettings
           settings={settings}
           onReset={() => store.settings.reset()}
@@ -36,6 +37,10 @@ const TrainingPage = observer(() => {
           exercise={store.presets.exercise}
           onPresetOpen={(preset) => store.presets.setPreset(preset)}
           onExerciseOpen={(exercise) => store.presets.setExercise(exercise)}
+          levelStartTime={store.presets.levelStartTime}
+          isExerciseActive={store.presets.exerciseTimeout}
+          onExercisePlay={(duration) => store.presets.play(duration)}
+          onExercisePause={() => store.presets.pause()}
         />
         <div className="training-right">
           <BooksList

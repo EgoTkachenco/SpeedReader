@@ -1,8 +1,14 @@
 import { makeAutoObservable } from 'mobx'
 import { AUTH_API } from './api'
-import { eraseToken, getToken, setToken } from './axios'
+import {
+  eraseToken,
+  getToken,
+  setToken,
+  eraseRefreshToken,
+  getRefreshToken,
+  setRefreshToken,
+} from './axios'
 import { TOKEN_NAME } from './constants'
-
 class Store {
   user = undefined
   constructor() {
@@ -12,6 +18,7 @@ class Store {
   async signIn(email, password) {
     const res = await AUTH_API.login(email, password)
     setToken(res.access_token)
+    setToken(res.refresh_token)
     await this.loadUser()
   }
 
@@ -20,8 +27,48 @@ class Store {
       const user = await AUTH_API.getUser()
       this.user = { id: user.id, name: user.name }
     } catch (error) {
+      if (error.response.status === 401) return await this.refresh()
+
       this.logout()
-      window.location = '/login'
+    }
+  }
+
+  logout() {
+    this.user = null
+    eraseToken()
+    eraseRefreshToken()
+    window.location = '/login'
+  }
+
+  relog(token, refresh_token) {
+    // auto login with token and refresh_token
+    if (token) {
+      setToken(token)
+      setRefreshToken(refresh_token)
+      window.location = '/'
+    } else {
+      token = getToken()
+    }
+
+    if (token) {
+      this.loadUser()
+      return true
+    } else {
+      this.user = null
+      return false
+    }
+  }
+
+  async refresh() {
+    eraseToken()
+    try {
+      const refresh_token = getRefreshToken()
+      if (!refresh_token) throw new Error('No refresh token')
+      const res = await AUTH_API.refresh(refresh_token)
+      setToken(res.access_token)
+      return await this.loadUser()
+    } catch (error) {
+      this.logout()
     }
   }
 
@@ -40,27 +87,6 @@ class Store {
     if (password !== confirmPassword)
       return Promise.reject("Password's do not match")
     await AUTH_API.resetPassword(password, code)
-  }
-
-  logout() {
-    this.user = null
-    eraseToken(TOKEN_NAME)
-  }
-
-  relog(token) {
-    // auto login
-    if (token) {
-      setToken(token)
-    } else {
-      token = getToken()
-    }
-    if (token) {
-      this.loadUser()
-      return true
-    } else {
-      this.user = null
-      return false
-    }
   }
 }
 
