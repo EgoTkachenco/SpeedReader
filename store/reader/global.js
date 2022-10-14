@@ -36,6 +36,13 @@ export class Store {
         clearTimeout(this.messageTimeout)
       }, 3000)
   }
+
+  reset() {
+    this.reader.clear()
+    this.presets.clear()
+    this.presets.exercise = null
+    this.settings.reset()
+  }
 }
 
 const store = new Store()

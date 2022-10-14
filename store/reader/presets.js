@@ -35,9 +35,7 @@ export class PresetsStore {
     this.reader.clear()
     this.clear()
     this.settings.reset(false)
-
-    this.levelStartTime = null
-    this.levelPauseTime = null
+    this.startTime = null
 
     if (this.startTimeout) {
       clearTimeout(this.startTimeout)

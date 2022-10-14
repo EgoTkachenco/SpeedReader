@@ -28,7 +28,7 @@ const TrainingPage = observer(() => {
         {store.presets.level_process}
         <ReaderSettings
           settings={settings}
-          onReset={() => store.settings.reset()}
+          onReset={() => store.reset()}
           onChange={(key, val) =>
             store.settings.update(key, val, !store.presets.exerciseTimeout)
           }

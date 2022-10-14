@@ -19,7 +19,7 @@ const ExerciseProgress = ({
       clearInterval(interval)
       progressIteration()
     }
-  }, [startTime, isPlay])
+  }, [exercise, startTime, isPlay])
 
   const ref = useRef()
   if (!exercise) return ''
@@ -33,7 +33,8 @@ const ExerciseProgress = ({
     const time = now - startTime || now
     let new_progress =
       time < duration ? ((time * 100) / duration).toFixed(0) : 100
-    ref.current.style.transition = isTransition ? 'all 50ms linear' : 'none'
+    if (ref.current)
+      ref.current.style.transition = isTransition ? 'all 50ms linear' : 'none'
     // console.log(time, duration, new_progress)
     if (new_progress) setProgress(new_progress)
   }
