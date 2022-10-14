@@ -37,10 +37,11 @@ const TrainingPage = observer(() => {
           exercise={store.presets.exercise}
           onPresetOpen={(preset) => store.presets.setPreset(preset)}
           onExerciseOpen={(exercise) => store.presets.setExercise(exercise)}
-          levelStartTime={store.presets.levelStartTime}
+          startTime={store.presets.startTime}
           isExerciseActive={store.presets.exerciseTimeout}
           onExercisePlay={(duration) => store.presets.play(duration)}
           onExercisePause={() => store.presets.pause()}
+          exercise_duration={store.presets.exercise_duration}
         />
         <div className="training-right">
           <BooksList

@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx'
+import { makeAutoObservable, computed } from 'mobx'
 import { PRESETS } from '../presets'
 
 export class PresetsStore {
@@ -10,11 +10,13 @@ export class PresetsStore {
   exerciseTimeout = null // next action in exercise timeout
   isExerciseFinished = false
   startTimeout = null
-  levelStartTime = null
-  levelPauseTime = null
+  startTime = null
+  pauseTime = null
 
   constructor(global) {
-    makeAutoObservable(this)
+    makeAutoObservable(this, {
+      exercise_duration: computed,
+    })
     this.global = global
     this.reader = global.reader
     this.settings = global.settings
@@ -41,15 +43,16 @@ export class PresetsStore {
       clearTimeout(this.startTimeout)
     }
     this.reader.stop()
-    this.global.addMessage('1')
+    this.global.addMessage('3')
     this.startTimeout = setTimeout(() => {
       this.global.addMessage('2')
       clearTimeout(this.startTimeout)
       this.setTimeout = setTimeout(() => {
-        this.global.addMessage('3')
+        this.global.addMessage('1')
         clearTimeout(this.startTimeout)
         this.setTimeout = setTimeout(() => {
           this.global.addMessage(null)
+          this.startTime = new Date().getTime()
           this.next()
         }, 1000)
       }, 1000)
@@ -58,6 +61,7 @@ export class PresetsStore {
 
   finish() {
     this.isExerciseFinished = true
+    this.startTime = null
     this.global.addMessage('Completed. Congratulations!')
     this.settings.loadFromStorage()
   }
@@ -68,7 +72,7 @@ export class PresetsStore {
     this.exerciseTimeout = null
   }
 
-  next(isContinue = false, customDuration = null) {
+  next(customDuration = null) {
     this.clear()
     const result = this.exercise.data.reduce((acc, el, i) => {
       return acc ? acc : !el.passed ? { el, i } : null
@@ -89,48 +93,53 @@ export class PresetsStore {
       }
     }
 
-    let duration = nextAction.duration
-    const now = new Date().getTime()
-    if (!isContinue) {
-      this.levelStartTime = new Date().getTime()
-    } else if (customDuration) {
-      const level_passed_time = customDuration
-      duration = duration - level_passed_time
-      this.levelPauseTime = null
-      this.levelStartTime = now - level_passed_time
-    } else {
-      const level_passed_time = this.levelPauseTime - this.levelStartTime
-      duration = duration - level_passed_time
-      this.levelPauseTime = null
-      this.levelStartTime = now - level_passed_time
-    }
-    console.log('DURATION: ', duration)
+    let duration = customDuration || nextAction.duration
+
     this.exerciseTimeout = setTimeout(() => this.next(), duration)
   }
 
-  play(customDuration = null) {
-    console.log('PLay with:', customDuration)
-    if (this.isExerciseFinished) {
-      // repass all actions
-      this.clear()
-      this.exercise.data = this.exercise.data.map((level) => ({
-        ...level,
-        passed: false,
-      }))
-    } else {
-      // repass last action
-      const result = this.exercise.data.reduce((acc, el, i) => {
-        return !el.passed ? acc : { el, i }
-      }, null)
-      const lastIndex = result ? result.i : 0
-      this.exercise.data[lastIndex].passed = false
+  play(exercise_time) {
+    // 1. repass levels
+    // 2. calculate current level duration
+    // 3. call next with custom level duration
+    const levels = this.exercise.data
+    let duration_sum = 0
+    let exercise_passed_time = this.isExerciseFinished
+      ? 0
+      : this.pauseTime - this.startTime
+    if (!exercise_time) exercise_time = exercise_passed_time || 0
+    let customDuration = 0
+    for (let i = 0; i < levels.length; i++) {
+      const level = levels[i]
+      duration_sum = duration_sum + (level.duration || 0)
+      if (!customDuration && exercise_time < duration_sum) {
+        customDuration = duration_sum - exercise_time
+      }
+      if (this.isExerciseFinished || exercise_time < duration_sum) {
+        this.exercise.data[i].passed = false
+      }
     }
+
+    const now = new Date().getTime()
+    this.startTime = now - exercise_time
+    this.pauseTime = null
+
     this.reader.next()
-    this.next(true, customDuration)
+    this.next(customDuration)
   }
+
   pause() {
     this.clear()
     this.reader.stop()
-    this.levelPauseTime = new Date().getTime()
+    this.pauseTime = new Date().getTime()
+  }
+
+  // All exercise time
+  get exercise_duration() {
+    if (!this.exercise) return 0
+    return this.exercise.data.reduce(
+      (acc, { duration }) => (acc += duration || 0),
+      0
+    )
   }
 }
