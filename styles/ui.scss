@@ -32,6 +32,11 @@
       background: #1479af;
       opacity: 0.5;
     }
+
+    &:disabled {
+      background: #383838;
+      opacity: 0.5;
+    }
   }
 
   &.btn-success-outline {

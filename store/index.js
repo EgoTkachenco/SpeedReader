@@ -10,15 +10,23 @@ import {
 } from './axios'
 class Store {
   user = undefined
+  isFetch = false
   constructor() {
     makeAutoObservable(this)
   }
 
   async signIn(email, password) {
-    const res = await AUTH_API.login(email, password)
-    setToken(res.access_token)
-    setToken(res.refresh_token)
-    await this.loadUser()
+    this.isFetch = true
+    try {
+      const res = await AUTH_API.login(email, password)
+      setToken(res.access_token)
+      setRefreshToken(res.refresh_token)
+      await this.loadUser()
+      this.isFetch = false
+    } catch (error) {
+      this.isFetch = false
+      return Promise.reject(error.message)
+    }
   }
 
   async loadUser() {

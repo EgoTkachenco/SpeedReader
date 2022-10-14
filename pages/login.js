@@ -4,8 +4,9 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import AuthWrapper from '../components/AuthWrapper'
 import { Input, Button } from '../components/common'
+import { observer } from 'mobx-react-lite'
 
-export default function Login() {
+const Login = observer(() => {
   const ref = useRef()
   const router = useRouter()
   const [error, setError] = useState('')
@@ -55,7 +56,7 @@ export default function Login() {
           <a className="auth-forgot">Forgot password ?</a>
         </Link>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" disabled={store.isFetch}>
           Sign in
         </Button>
         <div className="auth-caption">
@@ -67,4 +68,6 @@ export default function Login() {
       </form>
     </AuthWrapper>
   )
-}
+})
+
+export default Login
