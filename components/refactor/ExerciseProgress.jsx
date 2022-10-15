@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import _ from 'lodash'
 
 const ExerciseProgress = ({
   exercise,
@@ -66,13 +67,7 @@ const ExerciseProgress = ({
           }}
         />
 
-        {/* <LineControll
-          duration={duration}
-          onChange={(duration) => {
-            // onPause()
-            // onPlay(duration)
-          }}
-        /> */}
+        <LineControll duration={duration} onPause={onPause} onPlay={onPlay} />
       </div>
     </div>
   )
@@ -80,28 +75,47 @@ const ExerciseProgress = ({
 
 export default ExerciseProgress
 
-const LineControll = ({ duration, onChange }) => {
-  // const ref = useRef()
+const LineControll = ({ duration, onPause, onPlay }) => {
+  const ref = useRef()
   const [value, setValue] = useState(0)
-  // const onEnter = (i) => setActive(i)
-  // const onLeave = () => setActive(null)
+  const [isActive, setIsActive] = useState(false)
 
-  const handleMove = (e) => {
+  const handleMove = _.debounce((e) => {
     e.stopPropagation()
-    const { x, width } = e.target.getBoundingClientRect()
+    // if (!isActive) return
+    const { x, width } = ref.current.getBoundingClientRect()
     const new_value = ((e.clientX - x) * 100) / width
-    // console.log(
-    //   `Client X: ${
-    //     e.clientX
-    //   }; Element X: ${x}, Element width: ${width}, Value Width: ${
-    //     e.clientX - x
-    //   }, Value: ${new_value.toFixed(0)}`
-    // )
     setValue(new_value)
+  }, 10)
+
+  const submit = () => {
+    const new_duration = (duration * (value / 100)).toFixed(0)
+    console.log(new_duration)
+    onPlay(Number(new_duration))
   }
 
+  const activate = () => {
+    onPause()
+    setIsActive(true)
+  }
+  const deactivate = () => setIsActive(false)
+
   return (
-    <div className="exercise-progress-line-controll" onMouseMove={handleMove}>
+    <div
+      ref={ref}
+      className="exercise-progress-line-controll"
+      onMouseMove={handleMove}
+      onMouseDown={activate}
+      onMouseLeave={() => {
+        deactivate()
+        // onPlay()
+      }}
+      onMouseUp={() => {
+        deactivate()
+        submit()
+      }}
+      style={{ opacity: isActive ? 1 : 0 }}
+    >
       <div
         className="exercise-progress-line__value"
         style={{

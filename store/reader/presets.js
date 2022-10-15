@@ -123,6 +123,7 @@ export class PresetsStore {
     this.pauseTime = null
 
     this.reader.next()
+    if (this.isExerciseFinished) return this.start()
     this.next(customDuration)
   }
 

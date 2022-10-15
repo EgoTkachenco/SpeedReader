@@ -235,16 +235,8 @@
       left: 0;
       width: 100%;
       transition: opacity 0.3s;
-    }
-    &__cell {
-      flex-grow: 1;
-      background: #0f0f0f;
-      transition: background 0.3s;
       cursor: pointer;
-
-      &.active {
-        background: #1893d5;
-      }
+      user-select: none;
     }
   }
 }

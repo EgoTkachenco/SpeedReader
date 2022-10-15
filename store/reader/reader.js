@@ -71,30 +71,34 @@ export class ReaderStore {
   }
 
   async next() {
-    // Calculate time for next action
-    clearTimeout(this.timeout)
-    const timeoutTime = this.settings.speed
+    try {
+      // Calculate time for next action
+      clearTimeout(this.timeout)
+      const timeoutTime = this.settings.speed
 
-    const { position, text } = this.next_position()
-    this.current_text = text
-    this.current_position = position
+      const { position, text } = this.next_position()
+      this.current_text = text
+      this.current_position = position
 
-    const is_need_block =
-      this.text.filter((line) => line.position >= this.current_position)
-        .length <=
-      this.block_size / 4
+      const is_need_block =
+        this.text.filter((line) => line.position >= this.current_position)
+          .length <=
+        this.block_size / 4
 
-    const is_last_block =
-      this.text[this.text.length - 1].position === this.last_position
+      const is_last_block =
+        this.text[this.text.length - 1].position === this.last_position
 
-    if (is_need_block && !is_last_block && !this.isFetch) this.loadText()
+      if (is_need_block && !is_last_block && !this.isFetch) this.loadText()
 
-    // if book not end, continue
-    if (this.current_position <= this.last_position - 1) {
-      this.timeout = setTimeout(() => this.next(), timeoutTime)
-    } else {
-      this.stop()
-      this.isEnd = true
+      // if book not end, continue
+      if (this.current_position <= this.last_position - 1) {
+        this.timeout = setTimeout(() => this.next(), timeoutTime)
+      } else {
+        this.stop()
+        this.isEnd = true
+      }
+    } catch (error) {
+      debugger
     }
   }
 
@@ -123,7 +127,7 @@ export class ReaderStore {
   }
   get block_size() {
     const PAGE_SIZE = this.settings.settings.fontType.page
-    return PAGE_SIZE * 8
+    return PAGE_SIZE * 16
   }
   get last_page() {
     const PAGE_SIZE = this.settings.settings.fontType.page
