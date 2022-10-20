@@ -10,7 +10,7 @@ const ExerciseProgress = ({
   duration,
 }) => {
   const [progress, setProgress] = useState(0)
-  const [time, setTime] = useState(0)
+  const [time, setTime] = useState('00:00')
 
   useEffect(() => {
     if (!exercise) setProgress(0)
