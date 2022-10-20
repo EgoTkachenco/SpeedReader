@@ -303,7 +303,7 @@ const LINKS = [
     icon: () => <HomeIcon />,
   },
   {
-    pathname: '/courses',
+    pathname: 'https://readinggenius.com/user-dashboard/',
     name: 'Courses',
     icon: () => <CoursesIcon />,
   },
