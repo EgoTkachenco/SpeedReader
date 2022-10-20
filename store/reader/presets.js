@@ -62,6 +62,8 @@ export class PresetsStore {
     this.startTime = null
     this.global.addMessage('Completed. Congratulations!')
     this.settings.loadFromStorage()
+    clearTimeout(this.exerciseTimeout)
+    this.exerciseTimeout = null
   }
 
   clear() {
@@ -115,6 +117,9 @@ export class PresetsStore {
       }
       if (this.isExerciseFinished || exercise_time < duration_sum) {
         this.exercise.data[i].passed = false
+      }
+      if (exercise_time > duration_sum) {
+        this.exercise.data[i].passed = true
       }
     }
 

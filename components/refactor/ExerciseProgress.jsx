@@ -10,6 +10,7 @@ const ExerciseProgress = ({
   duration,
 }) => {
   const [progress, setProgress] = useState(0)
+  const [time, setTime] = useState(0)
 
   useEffect(() => {
     if (!exercise) setProgress(0)
@@ -36,8 +37,11 @@ const ExerciseProgress = ({
       time < duration ? ((time * 100) / duration).toFixed(0) : 100
     if (ref.current)
       ref.current.style.transition = isTransition ? 'all 50ms linear' : 'none'
-    // console.log(time, duration, new_progress)
-    if (new_progress) setProgress(new_progress)
+
+    if (new_progress) {
+      setProgress(new_progress)
+      setTime(formatTime(now - startTime))
+    }
   }
 
   const isEnd = max_step === current_step && !isPlay
@@ -45,9 +49,10 @@ const ExerciseProgress = ({
   return (
     <div className="exercise-progress">
       <div className="exercise-progress-top">
-        <div className="exercise-progress__step">
+        {/* <div className="exercise-progress__step">
           {current_step} / {max_step}
-        </div>
+        </div> */}
+        <div className="exercise-progress__step">{time}</div>
         {!isPlay ? (
           <div
             className="exercise-progress__btn play"
@@ -126,4 +131,13 @@ const LineControll = ({ duration, onPause, onPlay }) => {
       />
     </div>
   )
+}
+
+const formatTime = (miliseconds) => {
+  let seconds = Math.floor(miliseconds / 1000)
+  const minutes = Math.floor(seconds / 60)
+  seconds = seconds - minutes * 60
+
+  const f_t = (v) => (v.toString().length === 1 ? '0' + v : v)
+  return `${f_t(minutes)}:${f_t(seconds)}`
 }
