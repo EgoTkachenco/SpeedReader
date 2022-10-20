@@ -74,6 +74,91 @@ input[type='color'] {
   }
 }
 
+.books-modal {
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    color: #ffffff;
+  }
+  &__pagination {
+    display: flex;
+    align-items: center;
+    gap: 8.75rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    line-height: 1.25rem;
+
+    &__arrow {
+      cursor: pointer;
+    }
+  }
+  &-content {
+    min-height: 32rem;
+  }
+}
+table.books-modal__table {
+  width: 61.5rem;
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  border-collapse: collapse;
+
+  th {
+    font-weight: 500;
+    font-size: 0.85rem;
+    line-height: 1.25rem;
+    color: #ffffff;
+    opacity: 0.3;
+  }
+  tr {
+    position: relative;
+    border-top: 1px solid #b8c5f1;
+    height: 3.5rem;
+    max-height: 3.5rem;
+    padding: 0.125rem 0;
+
+    th {
+      text-align: left;
+      position: relative;
+    }
+    td {
+      position: relative;
+    }
+
+    &.head {
+      height: auto;
+      // &::before {
+      //   content: none;
+      // }
+    }
+
+    td:first-child {
+      text-align: center;
+      width: 4rem;
+    }
+
+    &:first-child {
+      border: none;
+    }
+    &::before {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0.125rem;
+      width: 100%;
+      height: calc(100% - 0.25rem);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 0.625rem;
+      opacity: 0;
+    }
+    &:hover::before {
+      opacity: 1;
+    }
+  }
+}
+
 @import './book.scss';
 @import './zoom.scss';
 @import './rolling.scss';

@@ -3,6 +3,7 @@ const TYPES = {
   success: 'btn-success',
   'success-outline': 'btn-success-outline',
   text: 'btn-text',
+  'light-primary': 'btn-light-primary',
 }
 
 const Button = ({ children, type, variant, onClick, disabled }) => {

@@ -2,11 +2,11 @@ import { Checkbox, Button, Select, ColorPicker } from '../common'
 import { useState } from 'react'
 import user_store from '../../store/'
 import { observer } from 'mobx-react-lite'
-import { SIZES } from '../../store/constants'
 import { useRouter } from 'next/router'
 import ExerciseProgress from './ExerciseProgress'
-import { SPEED_LEVELS } from '../../store/constants'
+import { SPEED_LEVELS, SIZES } from '../../store/constants'
 import _ from 'lodash'
+import BookListModal from './BookListModal'
 
 const ReaderSettings = observer(
   ({
@@ -23,12 +23,20 @@ const ReaderSettings = observer(
     onExercisePlay,
     onExercisePause,
     exercise_duration,
+    book,
+    books,
   }) => {
     const [showCustom, setShowCustom] = useState(false)
     const router = useRouter()
 
     return (
       <div className="training-settings">
+        <BookListModal
+          value={book}
+          onChange={(book) => onChange('book', book, !isExerciseActive)}
+          books={books}
+        />
+        <div className="training-settings__delimiter" />
         <div className="training-settings__title">Power learning sets</div>
         <div className="training-settings-list__vertical">
           {presets.map((el, i) => (

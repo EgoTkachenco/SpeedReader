@@ -3,6 +3,7 @@ import Input from './Input'
 import Select from './Select'
 import Checkbox from './Checkbox'
 import ColorPicker from './ColorPicker'
+import Modal from './Modal'
 
 module.exports = {
   Button,
@@ -10,4 +11,5 @@ module.exports = {
   Checkbox,
   Input,
   ColorPicker,
+  Modal,
 }
