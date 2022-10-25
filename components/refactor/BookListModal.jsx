@@ -3,7 +3,7 @@ import { Button, Modal } from '../common'
 
 const TABLE_SIZE = 8
 
-const BookListModal = ({ value, onChange, books }) => {
+const BookListModal = ({ value, onChange, books, settings }) => {
   const [open, setOpen] = useState(false)
   const [page, setPage] = useState(0)
 
@@ -47,8 +47,11 @@ const BookListModal = ({ value, onChange, books }) => {
                 <td>{book.position}.</td>
                 <td>{book.name}</td>
                 <td>{book.author || '---'}</td>
-                <td>{book.size || '---'} pages</td>
-                <td>{book.size || '---'} words</td>
+                <td>
+                  {Math.floor(book.size / settings.fontType.page) || '---'}{' '}
+                  pages
+                </td>
+                <td>{book.words || '---'} words</td>
                 <td>
                   <Button
                     variant="light-primary"

@@ -35,6 +35,7 @@ const ReaderSettings = observer(
           value={book}
           onChange={(book) => onChange('book', book, !isExerciseActive)}
           books={books}
+          settings={settings}
         />
         <div className="training-settings__delimiter" />
         <div className="training-settings__title">Power learning sets</div>
