@@ -32,7 +32,7 @@ class Store {
   async loadUser() {
     try {
       const user = await AUTH_API.getUser()
-      this.user = { id: user.id, name: user.name }
+      this.user = { id: user.id, name: user.name, slug: user.slug }
     } catch (error) {
       if (error.response.status === 401) return await this.refresh()
 

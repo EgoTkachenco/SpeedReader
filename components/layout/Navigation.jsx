@@ -1,14 +1,13 @@
 import store from '../../store'
 import { observer } from 'mobx-react-lite'
 import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 const Navigation = () => {
   const router = useRouter()
   return (
     <nav className="navigation">
-      {LINKS.map((link) => (
+      {LINKS().map((link) => (
         <Link href={link.pathname} key={link.name}>
           <button
             className={`navigation__link ${
@@ -296,9 +295,9 @@ const TestingIcon = () => (
   </svg>
 )
 
-const LINKS = [
+const LINKS = () => [
   {
-    pathname: '/',
+    pathname: 'https://readinggenius.com/user-dashboard/',
     name: 'Home',
     icon: () => <HomeIcon />,
   },
@@ -313,7 +312,7 @@ const LINKS = [
     icon: () => <TrainingIcon />,
   },
   {
-    pathname: '/profile',
+    pathname: `https://readinggenius.com/members/${store.user.slug}`,
     name: 'Profile',
     icon: () => <ProfileIcon />,
   },

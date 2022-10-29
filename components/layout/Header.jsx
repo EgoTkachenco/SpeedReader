@@ -17,7 +17,7 @@ const Header = ({ title }) => {
               label="ENG"
               onChange={() => setState({ lang: 'ENG' })}
             />
-            <Checkbox
+            {/* <Checkbox
               value={state.lang === 'ESP'}
               label="ESP"
               onChange={() => setState({ lang: 'ESP' })}
@@ -31,7 +31,7 @@ const Header = ({ title }) => {
               value={state.lang === 'THA'}
               label="THA"
               onChange={() => setState({ lang: 'THA' })}
-            />
+            /> */}
           </div>
         </div>
         <div className="header-left__title">{title || 'TITLE'}</div>

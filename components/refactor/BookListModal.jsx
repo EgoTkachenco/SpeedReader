@@ -57,7 +57,7 @@ const BookListModal = ({ value, onChange, books, settings }) => {
                     variant="light-primary"
                     onClick={() => onSubmit(book)}
                   >
-                    Reading
+                    Read
                   </Button>
                 </td>
               </tr>
