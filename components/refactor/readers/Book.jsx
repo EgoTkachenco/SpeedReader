@@ -49,7 +49,7 @@ export default function Book({
     } else {
       setState([[], [], [], []])
     }
-  }, [settings.book])
+  }, [settings.book, settings.fontType])
 
   const getNewPages = (lastPosition) => {
     const result = [[], []]
@@ -193,10 +193,18 @@ const BookWrapper = ({ children, rotate, type, fontType }) => {
   return (
     <div
       className={`wrapper ${type} ${rotate ? 'rotate' : ''} ${fontType.key}`}
-      // style={{
-      //   fontSize: fontType.fontSize,
-      // }}
+      style={{
+        fontSize: fontType.fontSize,
+      }}
     >
+      <style>
+        {`.book-row {
+					min-height: ${fontType.fontSize};
+				}
+				.page-content {
+					min-height: calc((${fontType.fontSize} + 0.25rem) * ${fontType.page});
+				}`}
+      </style>
       <div className="book">{children}</div>
     </div>
   )

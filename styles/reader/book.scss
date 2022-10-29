@@ -4,47 +4,45 @@
   align-items: center;
   position: relative;
   min-width: 66rem;
-  &.extraLarge {
-    font-size: 0.89rem;
-    .book-row {
-      height: 1rem;
-    }
-    .page__content {
-      // padding: 0 2rem;
-      padding: 0 0.5rem;
-      min-height: calc((1rem + 0.25rem) * 28);
-    }
-  }
-  &.large {
-    font-size: 0.85rem;
-    .book-row {
-      height: 1rem;
-    }
-    .page__content {
-      padding: 0 0.75rem;
-      min-height: calc((1rem + 0.25rem) * 30);
-    }
-  }
-  &.medium {
-    font-size: 0.8rem;
-    .book-row {
-      height: 0.9rem;
-    }
-    .page__content {
-      padding: 0 2rem;
-      min-height: calc((0.9rem + 0.25rem) * 32);
-    }
-  }
-  &.small {
-    font-size: 0.75rem;
-    .book-row {
-      height: 0.85rem;
-    }
-    .page__content {
-      padding: 0 2rem;
-      min-height: calc((0.85rem + 0.25rem) * 35);
-    }
-  }
+  // &.extraLarge {
+  //   // font-size: 0.89rem;
+
+  //   .page__content {
+  //     // padding: 0 2rem;
+  //     // padding: 0 0.5rem;
+  //     // min-height: calc((1rem + 0.25rem) * 28);
+  //   }
+  // }
+  // &.large {
+  //   font-size: 0.85rem;
+  //   .book-row {
+  //     height: 1rem;
+  //   }
+  //   .page__content {
+  //     padding: 0 0.75rem;
+  //     min-height: calc((1rem + 0.25rem) * 30);
+  //   }
+  // }
+  // &.medium {
+  //   // font-size: 0.8rem;
+  //   .book-row {
+  //     // height: 0.9rem;
+  //   }
+  //   .page__content {
+  //     // padding: 0 2rem;
+  //     min-height: calc((0.9rem + 0.25rem) * 32);
+  //   }
+  // }
+  // &.small {
+  //   // font-size: 0.75rem;
+  //   .book-row {
+  //     // height: 0.85rem;
+  //   }
+  //   .page__content {
+  //     // padding: 0 2rem;
+  //     min-height: calc((0.85rem + 0.25rem) * 35);
+  //   }
+  // }
 }
 
 .full .book {

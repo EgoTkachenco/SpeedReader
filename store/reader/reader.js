@@ -31,9 +31,11 @@ export class ReaderStore {
 
     let _start = this.text[this.text.length - 1]?.position || 0
     this.isFetch = true
+    console.log(this.settings.settings.fontType)
     const new_text = await BOOKS_API.getBookText(book.id, {
       _start: _start,
       _limit: this.block_size,
+      size: this.settings.settings.fontType.row,
     })
     const o_b = this.text
     const n_b = new_text.map((text, i) => ({

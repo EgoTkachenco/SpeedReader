@@ -60,4 +60,14 @@ reaction(
   }
 )
 
+reaction(
+  () => store.settings.settings.fontType || '',
+  (fontType) => {
+    console.log('reaction font', store.settings.settings.fontType)
+    store.reader.stop()
+    store.reader.clear()
+    store.reader.start()
+  }
+)
+
 export default store
