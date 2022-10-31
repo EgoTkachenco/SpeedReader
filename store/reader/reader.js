@@ -25,13 +25,12 @@ export class ReaderStore {
     this.settings = settings
   }
 
-  async loadText() {
+  async loadText(isPlay = true) {
     const book = this.settings.settings.book
     if (!book.id) return
 
     let _start = this.text[this.text.length - 1]?.position || 0
     this.isFetch = true
-    console.log(this.settings.settings.fontType)
     const new_text = await BOOKS_API.getBookText(book.id, {
       _start: _start,
       _limit: this.block_size,
@@ -49,7 +48,7 @@ export class ReaderStore {
     if (_start === 0) {
       this.isEnd = false
       this.last_position = book.size
-      this.next()
+      this.next(isPlay)
     }
   }
 
@@ -72,7 +71,7 @@ export class ReaderStore {
     this.current_text = []
   }
 
-  async next() {
+  async next(isPlay = true) {
     try {
       // Calculate time for next action
       clearTimeout(this.timeout)
@@ -94,7 +93,7 @@ export class ReaderStore {
 
       // if book not end, continue
       if (this.current_position <= this.last_position - 1) {
-        this.timeout = setTimeout(() => this.next(), timeoutTime)
+        if (isPlay) this.timeout = setTimeout(() => this.next(), timeoutTime)
       } else {
         this.stop()
         this.isEnd = true

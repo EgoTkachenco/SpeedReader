@@ -15,6 +15,7 @@ export default function Book({
 }) {
   const [state, setState] = useState([[], [], [], []])
   const [pageAnimation, setPageAnimation] = useState(false)
+  const [isOddAnimation, setIsOddAnimation] = useState(false)
   const highlightType = settings.highlightTypeS ? 'S' : 'V'
 
   const turnPage = () => {
@@ -24,9 +25,9 @@ export default function Book({
     setState((state) => [...state.slice(0, 2), ...new_pages])
 
     setTimeout(() => {
-      setState((state) => [...state.slice(2), [], []])
+      setState((state) => [...state.slice(2, 4), [], []])
       setPageAnimation(false)
-      onAnimationEnd()
+      setTimeout(() => onAnimationEnd(), 100)
     }, ANIMATION_DURATION)
   }
   useEffect(() => {
@@ -38,10 +39,11 @@ export default function Book({
     }
     const last_position = state[1][state[1].length - 1].position
     if (last_position < currentPosition && !pageAnimation) turnPage()
-
     return
   }, [currentPosition])
-
+  useEffect(() => {
+    setIsOddAnimation(!isOddAnimation)
+  }, [currentPosition])
   useEffect(() => {
     if (settings.book) {
       const new_pages = getNewPages(0)
@@ -50,6 +52,9 @@ export default function Book({
       setState([[], [], [], []])
     }
   }, [settings.book, settings.fontType])
+  useEffect(() => {
+    setState([[], [], [], []])
+  }, [settings.fontType])
 
   const getNewPages = (lastPosition) => {
     const result = [[], []]
@@ -79,7 +84,8 @@ export default function Book({
         background={settings.highlightColor}
         color={settings.textColor}
         transition={speed}
-        isOdd={Math.floor(i / rowsPerLine) % 2 === 0}
+        isOdd={isOddAnimation}
+        // isOdd={Math.floor(i / rowsPerLine) % 2 === 0}
         fontType={settings.fontType}
         isTransition={rowsPerLine === 1 || highlightType !== 'V'}
       >
@@ -201,7 +207,7 @@ const BookWrapper = ({ children, rotate, type, fontType }) => {
         {`.book-row {
 					min-height: ${fontType.fontSize};
 				}
-				.page-content {
+				.page__content {
 					min-height: calc((${fontType.fontSize} + 0.25rem) * ${fontType.page});
 				}`}
       </style>

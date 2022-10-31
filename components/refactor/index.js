@@ -30,7 +30,7 @@ const TrainingPage = observer(() => {
           settings={settings}
           onReset={() => store.reset()}
           onChange={(key, val) =>
-            store.settings.update(key, val, !store.presets.exerciseTimeout)
+            store.settings.update(key, val, !store.presets.startTime)
           }
           presets={store.presets.presets}
           preset={store.presets.preset}

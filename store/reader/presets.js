@@ -58,12 +58,14 @@ export class PresetsStore {
   }
 
   finish() {
+    console.log('finish')
     this.isExerciseFinished = true
     this.startTime = null
     this.global.addMessage('Completed. Congratulations!')
     this.settings.loadFromStorage()
     clearTimeout(this.exerciseTimeout)
     this.exerciseTimeout = null
+    this.reader.clear()
   }
 
   clear() {
