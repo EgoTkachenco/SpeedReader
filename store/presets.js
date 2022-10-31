@@ -10,30 +10,30 @@ export const PRESETS = [
   {
     name: 'Standart',
     exercises: [
-      {
-        name: 'TEST',
-        data: [
-          {
-            action: {
-              book: '5',
-              speed: 3,
-              rotate: false,
-              count: 1,
-              type: 'book',
-              highlightTypeS: '1',
-              fullscreen: false,
-              ...DEFAULT_COLORS,
-            },
-            duration: 4000,
-          },
-          {
-            action: {
-              speed: 5,
-            },
-            duration: 4000,
-          },
-        ],
-      },
+      // {
+      //   name: 'TEST',
+      //   data: [
+      //     {
+      //       action: {
+      //         book: '5',
+      //         speed: 3,
+      //         rotate: false,
+      //         count: 1,
+      //         type: 'book',
+      //         highlightTypeS: '1',
+      //         fullscreen: false,
+      //         ...DEFAULT_COLORS,
+      //       },
+      //       duration: 4000,
+      //     },
+      //     {
+      //       action: {
+      //         speed: 5,
+      //       },
+      //       duration: 4000,
+      //     },
+      //   ],
+      // },
       {
         name: 'Exercise 1',
         data: [
