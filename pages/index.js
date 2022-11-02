@@ -1,7 +1,10 @@
-import Layout from '../components/layout/Layout'
+// import Layout from '../components/layout/Layout'
 
-const HomePage = () => {
-  return <Layout title="Home"></Layout>
-}
+// const HomePage = () => {
+//   return <Layout title="Home"></Layout>
+// }
 
-export default HomePage
+// export default HomePage
+
+import Reader from '../components/refactor/'
+export default Reader

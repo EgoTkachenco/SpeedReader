@@ -297,7 +297,8 @@ const TestingIcon = () => (
 
 const LINKS = () => [
   {
-    pathname: 'https://readinggenius.com/user-dashboard/',
+    // pathname: 'https://readinggenius.com/user-dashboard/',
+    pathname: '/',
     name: 'Home',
     icon: () => <HomeIcon />,
   },
@@ -307,7 +308,8 @@ const LINKS = () => [
     icon: () => <CoursesIcon />,
   },
   {
-    pathname: '/training-center',
+    pathname: 'https://readinggenius.com/user-dashboard/',
+    // pathname: '/training-center',
     name: 'Training Center',
     icon: () => <TrainingIcon />,
   },

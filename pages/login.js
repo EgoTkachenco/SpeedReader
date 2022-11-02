@@ -18,7 +18,7 @@ const Login = observer(() => {
     store
       .signIn(data.get('email'), data.get('password'))
       .then(() => {
-        router.push('/training-center')
+        router.push('/')
       })
       .catch((err) => {
         setError(

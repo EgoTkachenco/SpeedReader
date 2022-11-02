@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
     let isUser = store.user !== undefined && store.user !== null
     if (store.user === undefined) isUser = store.relog(token, refresh_token)
     if (isUser && isAuth) {
-      router.push('/training-center')
+      router.push('/')
     } else if (!isUser && !isAuth) {
       router.push('/login')
     }
