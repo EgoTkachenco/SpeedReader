@@ -13,6 +13,7 @@ const Navigation = () => {
             className={`navigation__link ${
               router.pathname === link.pathname ? 'active' : ''
             }`}
+            title={link.name}
           >
             {link.icon()}
           </button>
@@ -303,7 +304,7 @@ const LINKS = () => [
     icon: () => <HomeIcon />,
   },
   {
-    pathname: 'https://readinggenius.com/user-dashboard/',
+    pathname: 'https://readinggenius.com/courses/reading-genius-3-0/',
     name: 'Courses',
     icon: () => <CoursesIcon />,
   },
