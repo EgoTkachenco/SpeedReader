@@ -8,7 +8,7 @@ const DEFAULT_COLORS = {
 
 export const PRESETS = [
   {
-    name: 'Standart',
+    name: 'Standard',
     exercises: [
       // {
       //   name: 'TEST',
