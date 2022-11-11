@@ -33,7 +33,7 @@ export default function Book({
   useEffect(() => {
     // first load
     if (state[0].length === 0) {
-      const new_pages = getNewPages(0)
+      const new_pages = getNewPages(currentPosition - 1 || 0)
       setState([...new_pages, [], []])
       return
     }
@@ -41,9 +41,11 @@ export default function Book({
     if (last_position < currentPosition && !pageAnimation) turnPage()
     return
   }, [currentPosition])
+
   useEffect(() => {
     setIsOddAnimation(!isOddAnimation)
   }, [currentPosition])
+
   useEffect(() => {
     if (settings.book) {
       const new_pages = getNewPages(0)
@@ -51,7 +53,8 @@ export default function Book({
     } else {
       setState([[], [], [], []])
     }
-  }, [settings.book, settings.fontType])
+  }, [settings.book])
+
   useEffect(() => {
     setState([[], [], [], []])
   }, [settings.fontType])
