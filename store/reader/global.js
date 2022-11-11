@@ -50,7 +50,7 @@ const store = new Store()
 reaction(
   () => store.settings.settings.book?.id || '',
   (book) => {
-    console.log('reaction', store.settings.settings.book)
+    console.log('reaction book')
     if (book) {
       store.reader.start()
     } else {
@@ -63,10 +63,11 @@ reaction(
 reaction(
   () => store.settings.settings.fontType || '',
   (fontType) => {
-    console.log('reaction font', store.settings.settings.fontType)
-    const isAnimation = !!store.reader.timeout
-    store.reader.clear()
-    store.reader.loadText(isAnimation)
+    if (fontType) {
+      console.log('reaction font')
+      store.reader.clear()
+      store.reader.loadText(true)
+    }
   }
 )
 

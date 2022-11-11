@@ -1,4 +1,4 @@
-import { COLORS } from './constants'
+import { COLORS, SIZES } from './constants'
 
 const DEFAULT_COLORS = {
   highlightColor: COLORS.green,
@@ -46,6 +46,7 @@ export const PRESETS = [
               type: 'book',
               highlightTypeS: '1',
               fullscreen: false,
+              fontType: SIZES.medium,
               ...DEFAULT_COLORS,
             },
             duration: 8000,
@@ -138,6 +139,7 @@ export const PRESETS = [
               type: 'zoom',
               highlightTypeS: '1',
               fullscreen: false,
+              fontType: SIZES.medium,
               ...DEFAULT_COLORS,
             },
             duration: 8000,
@@ -265,6 +267,7 @@ export const PRESETS = [
               type: 'rolling',
               highlightTypeS: '1',
               fullscreen: false,
+              fontType: SIZES.medium,
               ...DEFAULT_COLORS,
             },
             duration: 6000,
@@ -392,6 +395,7 @@ export const PRESETS = [
               type: 'scroll',
               highlightTypeS: '1',
               fullscreen: false,
+              fontType: SIZES.medium,
               ...DEFAULT_COLORS,
             },
             duration: 6000,
@@ -519,6 +523,7 @@ export const PRESETS = [
               type: 'book',
               highlightTypeS: '1',
               fullscreen: false,
+              fontType: SIZES.medium,
               ...DEFAULT_COLORS,
             },
             duration: 6000,
@@ -596,7 +601,377 @@ export const PRESETS = [
   },
   {
     name: 'Challenging',
-    exercises: [],
+    exercises: [
+      {
+        name: 'Exercise 1',
+        data: [
+          {
+            action: {
+              book: '10',
+              speed: 1,
+              rotate: false,
+              count: 1,
+              type: 'zoom',
+              fullscreen: false,
+              fontType: SIZES.medium,
+              highlightTypeS: '1',
+              ...DEFAULT_COLORS,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              speed: 3,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              speed: 5,
+              rotate: true,
+            },
+            duration: 8000,
+          },
+          {
+            action: {
+              speed: 7,
+              rotate: false,
+            },
+            duration: 4000,
+          },
+
+          {
+            action: {
+              highlightTypeS: '2',
+              speed: 2,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              speed: 4,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              speed: 6,
+              rotate: true,
+            },
+            duration: 8000,
+          },
+          {
+            action: {
+              speed: 7,
+              rotate: false,
+            },
+            duration: 4000,
+          },
+
+          {
+            action: {
+              highlightTypeS: '4',
+              speed: 3,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              speed: 5,
+              textColor: COLORS.red,
+              pageColor: COLORS.dark,
+            },
+            duration: 6000,
+          },
+          {
+            action: {
+              speed: 6,
+              textColor: COLORS.yellow,
+            },
+            duration: 6000,
+          },
+          {
+            action: {
+              speed: 7,
+              textColor: COLORS.blue,
+              pageColor: COLORS.yellow,
+            },
+            duration: 8000,
+          },
+
+          {
+            action: {
+              highlightTypeS: '8',
+              speed: 3,
+              textColor: COLORS.dark,
+              pageColor: COLORS.red,
+            },
+            duration: 10000,
+          },
+          {
+            action: {
+              speed: 5,
+              textColor: COLORS.blue,
+              pageColor: COLORS.yellow,
+            },
+            duration: 10000,
+          },
+
+          {
+            action: {
+              highlightTypeS: '16',
+              speed: 4,
+              textColor: COLORS.dark,
+              pageColor: COLORS.white,
+              rotate: true,
+            },
+            duration: 10000,
+          },
+          {
+            action: {
+              highlightTypeS: '4',
+              speed: 3,
+              rotate: false,
+            },
+            duration: 10000,
+          },
+          {
+            action: {
+              highlightTypeS: '8',
+              speed: 8,
+              textColor: COLORS.dark,
+              pageColor: COLORS.yellow,
+            },
+            duration: 10000,
+          },
+          {
+            action: {
+              highlightTypeS: '4',
+              speed: 8,
+              textColor: COLORS.pink,
+              pageColor: COLORS.dark,
+            },
+            duration: 6000,
+          },
+          {
+            action: {
+              highlightTypeS: '8',
+              speed: 6,
+              textColor: COLORS.dark,
+              pageColor: COLORS.pink,
+            },
+            duration: 12000,
+          },
+          {
+            action: {
+              highlightTypeS: '2',
+              speed: 8,
+              textColor: COLORS.dark,
+              pageColor: COLORS.white,
+            },
+            duration: 10000,
+          },
+          {
+            action: {
+              highlightTypeS: '1',
+              speed: 10,
+              rotate: true,
+            },
+            duration: 10000,
+          },
+          {
+            action: {
+              highlightTypeS: '2',
+              speed: 6,
+              rotate: false,
+            },
+            duration: 10000,
+          },
+          {
+            action: {
+              highlightTypeS: '4',
+              speed: 4,
+            },
+            duration: 10000,
+          },
+        ],
+      },
+      {
+        name: 'Exercise 2',
+        data: [
+          {
+            action: {
+              book: '11',
+              speed: 3,
+              rotate: false,
+              count: 1,
+              type: 'book',
+              fullscreen: false,
+              fontType: SIZES.medium,
+              highlightTypeS: '1',
+              ...DEFAULT_COLORS,
+            },
+            duration: 5000,
+          },
+          {
+            action: {
+              highlightTypeS: '16',
+              type: 'zoom',
+              speed: 6,
+              rotate: true,
+            },
+            duration: 7000,
+          },
+          {
+            action: {
+              highlightTypeS: '1',
+              type: 'book',
+              speed: 4,
+              rotate: false,
+            },
+            duration: 5000,
+          },
+          {
+            action: {
+              highlightTypeS: '16',
+              type: 'zoom',
+              speed: 8,
+              textColor: COLORS.red,
+              pageColor: COLORS.dark,
+            },
+            duration: 8000,
+          },
+          {
+            action: {
+              highlightTypeS: '1',
+              type: 'book',
+              speed: 5,
+            },
+            duration: 5000,
+          },
+          {
+            action: {
+              highlightTypeS: '16',
+              type: 'zoom',
+              speed: 7,
+              rotate: true,
+              textColor: COLORS.blue,
+              pageColor: COLORS.yellow,
+            },
+            duration: 10000,
+          },
+          {
+            action: {
+              highlightTypeS: '1',
+              type: 'book',
+              speed: 6,
+              rotate: false,
+              textColor: COLORS.dark,
+              pageColor: COLORS.white,
+            },
+            duration: 8000,
+          },
+          {
+            action: {
+              speed: 10,
+              rotate: true,
+            },
+            duration: 8000,
+          },
+          {
+            action: {
+              highlightTypeS: '16',
+              type: 'zoom',
+              rotate: false,
+              speed: 9,
+              textColor: COLORS.dark,
+              pageColor: COLORS.red,
+            },
+            duration: 6000,
+          },
+          {
+            action: {
+              highlightTypeS: '1',
+              type: 'book',
+              speed: 7,
+              textColor: COLORS.dark,
+              pageColor: COLORS.white,
+            },
+            duration: 5000,
+          },
+          {
+            action: {
+              highlightTypeS: '16',
+              type: 'zoom',
+              speed: 4,
+            },
+            duration: 10000,
+          },
+          {
+            action: {
+              highlightTypeS: '1',
+              type: 'book',
+              speed: 5,
+            },
+            duration: 5000,
+          },
+          {
+            action: {
+              highlightTypeS: '16',
+              type: 'zoom',
+              rotate: true,
+              speed: 10,
+            },
+            duration: 10000,
+          },
+          {
+            action: {
+              rotate: false,
+              speed: 10,
+              textColor: COLORS.dark,
+              pageColor: COLORS.orange,
+            },
+            duration: 8000,
+          },
+          {
+            action: {
+              speed: 8,
+              textColor: COLORS.dark,
+              pageColor: COLORS.white,
+            },
+            duration: 5000,
+          },
+          {
+            action: {
+              speed: 8,
+              rotate: true,
+            },
+            duration: 8000,
+          },
+          {
+            action: {
+              rotate: false,
+              speed: 6,
+            },
+            duration: 8000,
+          },
+          {
+            action: {
+              speed: 5,
+            },
+            duration: 5000,
+          },
+          {
+            action: {
+              highlightTypeS: '1',
+              type: 'book',
+              speed: 5,
+            },
+            duration: 15000,
+          },
+        ],
+      },
+    ],
   },
   { name: 'Extra challenging', exercises: [] },
 ]

@@ -49,6 +49,7 @@ export const COLORS = {
   pink: '#F78DA7',
   violet: '#AE1CE1',
   red: '#EB1D36',
+  orange: '#FFA500',
 }
 
 export const SPEED_LEVELS = {

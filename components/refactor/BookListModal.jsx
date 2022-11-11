@@ -11,7 +11,7 @@ const BookListModal = ({ value, onChange, books, settings }) => {
   const maxPage = Math.ceil(books.length / TABLE_SIZE)
   const filteredBooks = books
     .slice(start, start + TABLE_SIZE)
-    .map((b, i) => ({ ...b, position: i + 1 }))
+    .map((b, i) => ({ ...b, position: start + i + 1 }))
 
   const changePage = (direction = true) => {
     if (direction) {
