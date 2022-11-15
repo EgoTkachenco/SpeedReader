@@ -971,6 +971,348 @@ export const PRESETS = [
           },
         ],
       },
+      {
+        name: 'Exercise 3',
+        data: [
+          {
+            action: {
+              book: '1',
+              speed: 2,
+              rotate: false,
+              count: 1,
+              type: 'rolling',
+              fullscreen: false,
+              fontType: SIZES.medium,
+              highlightTypeS: '1',
+              words: 2,
+              ...DEFAULT_COLORS,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              speed: 4,
+              words: 2,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              speed: 6,
+              words: 2,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              rotate: true,
+              speed: 8,
+              words: 2,
+            },
+            duration: 6000,
+          },
+
+          {
+            action: {
+              rotate: false,
+              speed: 3,
+              words: 3,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              speed: 5,
+              words: 3,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              speed: 7,
+              words: 3,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              rotate: true,
+              speed: 9,
+              words: 3,
+            },
+            duration: 6000,
+          },
+
+          {
+            action: {
+              rotate: false,
+              speed: 4,
+              words: 4,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              speed: 6,
+              words: 4,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              speed: 8,
+              words: 4,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              rotate: true,
+              speed: 10,
+              words: 4,
+            },
+            duration: 6000,
+          },
+
+          {
+            action: {
+              rotate: false,
+              speed: 5,
+              words: 5,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              speed: 6,
+              words: 5,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              speed: 7,
+              words: 5,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              rotate: true,
+              speed: 8,
+              words: 5,
+            },
+            duration: 6000,
+          },
+
+          {
+            action: {
+              rotate: false,
+              words: null,
+              speed: 2,
+              highlightTypeS: '1',
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              words: null,
+              speed: 3,
+              highlightTypeS: '1',
+              textColor: COLORS.blue,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              words: null,
+              speed: 4,
+              highlightTypeS: '1',
+              textColor: COLORS.black,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              words: null,
+              speed: 5,
+              highlightTypeS: '1',
+              textColor: COLORS.red,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              words: null,
+              speed: 6,
+              highlightTypeS: '1',
+              textColor: COLORS.green,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              words: null,
+              speed: 7,
+              highlightTypeS: '1',
+              textColor: COLORS.black,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              words: null,
+              rotate: true,
+              speed: 9,
+              highlightTypeS: '1',
+              textColor: COLORS.black,
+            },
+            duration: 6000,
+          },
+          {
+            action: {
+              words: null,
+              rotate: false,
+              speed: 8,
+              highlightTypeS: '1',
+              textColor: COLORS.black,
+            },
+            duration: 10000,
+          },
+
+          {
+            action: {
+              words: null,
+              rotate: false,
+              speed: 4,
+              highlightTypeS: '2',
+              textColor: COLORS.black,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              words: null,
+              rotate: true,
+              speed: 7,
+              highlightTypeS: '2',
+              textColor: COLORS.black,
+            },
+            duration: 6000,
+          },
+          {
+            action: {
+              words: null,
+              rotate: false,
+              speed: 5,
+              highlightTypeS: '2',
+              textColor: COLORS.black,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              words: null,
+              rotate: false,
+              speed: 6,
+              highlightTypeS: '2',
+              textColor: COLORS.blue,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              words: null,
+              rotate: false,
+              speed: 6,
+              highlightTypeS: '2',
+              textColor: COLORS.red,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              words: null,
+              rotate: false,
+              speed: 6,
+              highlightTypeS: '2',
+              textColor: COLORS.green,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              words: null,
+              rotate: false,
+              speed: 6,
+              highlightTypeS: '2',
+              textColor: COLORS.yellow,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              words: null,
+              rotate: false,
+              speed: 6,
+              highlightTypeS: '2',
+              textColor: COLORS.orange,
+            },
+            duration: 4000,
+          },
+          {
+            action: {
+              words: null,
+              rotate: false,
+              speed: 6,
+              highlightTypeS: '2',
+              textColor: COLORS.violet,
+            },
+            duration: 4000,
+          },
+
+          {
+            action: {
+              words: null,
+              rotate: true,
+              speed: 10,
+              highlightTypeS: '2',
+              textColor: COLORS.black,
+            },
+            duration: 6000,
+          },
+          {
+            action: {
+              words: null,
+              rotate: false,
+              speed: 7,
+              highlightTypeS: '2',
+              textColor: COLORS.black,
+            },
+            duration: 10000,
+          },
+          {
+            action: {
+              words: null,
+              rotate: false,
+              speed: 6,
+              highlightTypeS: '2',
+              textColor: COLORS.black,
+            },
+            duration: 10000,
+          },
+          {
+            action: {
+              words: null,
+              rotate: false,
+              speed: 5,
+              highlightTypeS: '2',
+              textColor: COLORS.black,
+            },
+            duration: 20000,
+          },
+        ],
+      },
     ],
   },
   { name: 'Extra challenging', exercises: [] },

@@ -104,6 +104,9 @@ export class ReaderStore {
   }
 
   next_position() {
+    // const wordsCount = 1
+    const wordsCount = this.settings.settings.words
+    debugger
     // Skip empty lines in zoom and rolling modes
     let skip_empty_lines = ['zoom', 'rolling'].includes(
       this.settings.settings.type
@@ -112,13 +115,45 @@ export class ReaderStore {
     let result = []
     let position = null
     for (let line of this.text) {
-      if (line.position <= this.current_position) continue
+      let skip_line = false
+
+      // check is current line is read to end
+      if (wordsCount) skip_line = line.position < this.current_position
+      else skip_line = line.position <= this.current_position
+
+      if (skip_line) continue
 
       position = line.position
+
+      if (wordsCount) {
+        const words = line.text.split(' ').filter((w) => !!w)
+        const sentence = words.join(' ')
+        let current_words =
+          this.current_text.length > 0 && this.current_text[0].text.trim()
+        let start = sentence.indexOf(current_words)
+        if (start >= 0) {
+          start += current_words.length
+          current_words = sentence.slice(start)
+        } else {
+          current_words = sentence
+        }
+
+        if (!current_words) continue
+
+        current_words = current_words
+          .trim()
+          .split(' ')
+          .slice(0, wordsCount)
+          .join(' ')
+        return { position, text: [{ position, text: current_words }] }
+      }
+
       if (!skip_empty_lines || line.text.length > 0) result.push(line)
 
       if (result.length === this.active_lines_count) break
     }
+
+    // need to return new position and text
     return { position, text: result }
   }
 
