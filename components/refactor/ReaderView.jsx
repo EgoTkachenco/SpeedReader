@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import BookReader from './readers/Book'
 import ZoomReader from './readers/Zoom'
 import RollingReader from './readers/Rolling'
@@ -18,6 +18,8 @@ const ReaderView = ({
   play,
   pause,
   message,
+  exercise,
+  isExerciseActive,
 }) => {
   const renderReader = (key) => {
     switch (settings.settings.type) {
@@ -82,7 +84,19 @@ const ReaderView = ({
   const wrapperClasses = `books-wrapper ${
     settings.settings.fullscreen ? 'fullscreen' : ''
   } ${size === 4 ? 'items-4' : ''}`
+  const audioRef = useRef()
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.2
+      if (isExerciseActive && audioRef.current.paused) audioRef.current.play()
+      else if (!isExerciseActive && !audioRef.current.paused)
+        audioRef.current.pause()
+    }
 
+    return () => {
+      if (audioRef.curren && !audioRef.current.pausedt) audioRef.current.pause()
+    }
+  }, [isExerciseActive])
   return (
     <div className={wrapperClasses}>
       <FullScreenButton
@@ -96,6 +110,15 @@ const ReaderView = ({
           {renderReader(i)}
         </div>
       ))}
+
+      {exercise && exercise.audio ? (
+        <audio
+          ref={audioRef}
+          src={exercise.audio}
+          style={{ opacity: 0, height: 0, width: 0 }}
+          loop
+        />
+      ) : null}
 
       <MessageBox message={message} />
     </div>

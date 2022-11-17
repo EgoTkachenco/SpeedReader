@@ -604,6 +604,7 @@ export const PRESETS = [
     exercises: [
       {
         name: 'Exercise 1',
+        audio: '/music/1.Ken Davis - Rollercoaster.mp3',
         data: [
           {
             action: {
@@ -798,6 +799,7 @@ export const PRESETS = [
       },
       {
         name: 'Exercise 2',
+        audio: '/music/2.Ken Davis - modern world.wav',
         data: [
           {
             action: {
