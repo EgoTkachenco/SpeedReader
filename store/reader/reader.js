@@ -4,6 +4,7 @@ import { BOOKS_API } from '../api'
 export class ReaderStore {
   // connected stores
   settings = null
+  parent = null
   // texts
   text = []
   current_text = []
@@ -15,14 +16,15 @@ export class ReaderStore {
   isFetch = false
   isEnd = false
 
-  constructor(settings) {
+  constructor(parent) {
     makeAutoObservable(this, {
       page: computed,
       last_page: computed,
       block_size: computed,
       active_lines_count: computed,
     })
-    this.settings = settings
+    this.settings = parent.settings
+    this.parent = parent
   }
 
   async loadText(isPlay = true) {
@@ -95,8 +97,13 @@ export class ReaderStore {
       if (this.current_position <= this.last_position - 1) {
         if (isPlay) this.timeout = setTimeout(() => this.next(), timeoutTime)
       } else {
-        this.stop()
-        this.isEnd = true
+        if (this.parent.presets.exerciseTimeout) {
+          this.clear()
+          this.start()
+        } else {
+          this.stop()
+          this.isEnd = true
+        }
       }
     } catch (error) {
       debugger
@@ -106,7 +113,6 @@ export class ReaderStore {
   next_position() {
     // const wordsCount = 1
     const wordsCount = this.settings.settings.words
-    debugger
     // Skip empty lines in zoom and rolling modes
     let skip_empty_lines = ['zoom', 'rolling'].includes(
       this.settings.settings.type

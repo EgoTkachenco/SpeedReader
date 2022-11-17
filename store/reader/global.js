@@ -12,7 +12,7 @@ export class Store {
     makeAutoObservable(this)
     this.loadBooksList()
     this.settings = new SettingsStore(useLocaleStorage)
-    this.reader = new ReaderStore(this.settings)
+    this.reader = new ReaderStore(this)
     this.presets = new PresetsStore(this)
   }
 
