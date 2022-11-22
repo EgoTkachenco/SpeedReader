@@ -101,7 +101,7 @@ const ReaderView = ({
     <div className={wrapperClasses}>
       <FullScreenButton
         onChange={() =>
-          settings.update('fullscreen', !settings.settings.fullscreen)
+          settings.update('fullscreen', !settings.settings.fullscreen, false)
         }
         isFullScreen={settings.settings.fullscreen}
       />
