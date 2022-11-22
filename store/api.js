@@ -45,3 +45,8 @@ export const BOOKS_API = {
       params: params,
     }),
 }
+
+export const STATISTIC_API = {
+  send: (user_id, count, date) =>
+    axios.post('/statistics', { user_id, count, date }),
+}

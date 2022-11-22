@@ -2,11 +2,16 @@ import _ from 'lodash'
 import { SettingsStore } from './settings'
 import { ReaderStore } from './reader'
 import { PresetsStore } from './presets'
+import { StatisticStore } from './statistic'
 import { makeAutoObservable, autorun, reaction } from 'mobx'
 import { BOOKS_API } from '../api'
 
 export class Store {
   books = []
+  settings = null
+  reader = null
+  presets = null
+  statistic = null
 
   constructor(useLocaleStorage = true) {
     makeAutoObservable(this)
@@ -14,6 +19,7 @@ export class Store {
     this.settings = new SettingsStore(useLocaleStorage)
     this.reader = new ReaderStore(this)
     this.presets = new PresetsStore(this)
+    this.statistic = new StatisticStore(this)
   }
 
   async loadBooksList() {
@@ -67,6 +73,20 @@ reaction(
       console.log('reaction font')
       store.reader.clear()
       store.reader.loadText(true)
+    }
+  }
+)
+
+// Reaction for statistic collection
+reaction(
+  () => !!store.presets.exerciseTimeout,
+  (isActive) => {
+    if (isActive) {
+      console.log('Activate Statistic')
+      store.statistic.create()
+    } else {
+      console.log('Deactivate Statistic')
+      store.statistic.destroy()
     }
   }
 )
