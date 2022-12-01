@@ -324,6 +324,11 @@ const LINKS = () => [
     name: 'Testing Center',
     icon: () => <TestingIcon />,
   },
+  {
+    pathname: '/dashboard',
+    name: 'Statistics',
+    icon: () => <TrainingIcon />,
+  },
 ]
 // const Navigation = observer(() => {
 //   const router = useRouter()

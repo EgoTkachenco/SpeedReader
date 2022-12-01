@@ -6,6 +6,7 @@ import ScrollReader from './readers/Scroll'
 // import ScrambledReader from './readers/Scrambled'
 import FullScreenButton from './FullScreenButton'
 import MessageBox from './MessageBox'
+import ExerciseHelper from './ExerciseHelper'
 
 const ReaderView = ({
   settings,
@@ -20,6 +21,8 @@ const ReaderView = ({
   message,
   exercise,
   isExerciseActive,
+  onExercisePlay,
+  onExercisePause,
 }) => {
   const renderReader = (key) => {
     switch (settings.settings.type) {
@@ -76,7 +79,6 @@ const ReaderView = ({
         return '---'
     }
   }
-
   const size = !isNaN(Number(settings.settings.count))
     ? Number(settings.settings.count)
     : 1
@@ -84,19 +86,7 @@ const ReaderView = ({
   const wrapperClasses = `books-wrapper ${
     settings.settings.fullscreen ? 'fullscreen' : ''
   } ${size === 4 ? 'items-4' : ''}`
-  const audioRef = useRef()
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.2
-      if (isExerciseActive && audioRef.current.paused) audioRef.current.play()
-      else if (!isExerciseActive && !audioRef.current.paused)
-        audioRef.current.pause()
-    }
 
-    return () => {
-      if (audioRef.curren && !audioRef.current.pausedt) audioRef.current.pause()
-    }
-  }, [isExerciseActive])
   return (
     <div className={wrapperClasses}>
       <FullScreenButton
@@ -111,14 +101,14 @@ const ReaderView = ({
         </div>
       ))}
 
-      {exercise && exercise.audio ? (
-        <audio
-          ref={audioRef}
-          src={exercise.audio}
-          style={{ opacity: 0, height: 0, width: 0 }}
-          loop
+      {exercise && (
+        <ExerciseHelper
+          exercise={exercise}
+          isExerciseActive={isExerciseActive}
+          pause={onExercisePause}
+          play={onExercisePlay}
         />
-      ) : null}
+      )}
 
       <MessageBox message={message} />
     </div>

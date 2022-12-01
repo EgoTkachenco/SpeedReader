@@ -1,6 +1,7 @@
 import { makeAutoObservable } from 'mobx'
 import { STATISTIC_API } from '../api'
 import GLOBAL_STORE from '../index'
+import { format } from 'date-fns'
 
 export class StatisticStore {
   parent = null
@@ -48,9 +49,12 @@ export class StatisticStore {
 
     const user_id = GLOBAL_STORE.user?.id?.toString()
     const count = text.length
-    const date = new Date().toISOString().slice(0, 10)
+    let date = format(new Date(), 'yyyy-MM-dd HH:mm')
+    date += ':00'
+    const book = this.parent.settings.settings.book.id
+    const speed = this.parent.settings.settings.speed
     try {
-      await STATISTIC_API.send(user_id, count, date)
+      await STATISTIC_API.send(user_id, count, date, book, speed)
       console.log('Send Statistic. Readed ', count)
     } catch (error) {
       console.log(error.message)

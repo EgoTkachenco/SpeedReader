@@ -73,6 +73,8 @@ const TrainingPage = observer(() => {
               message={store.message}
               exercise={store.presets.exercise}
               isExerciseActive={store.presets.exerciseTimeout}
+              onExercisePlay={() => store.presets.play()}
+              onExercisePause={() => store.presets.pause()}
             />
           )}
         </div>

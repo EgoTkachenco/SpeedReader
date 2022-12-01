@@ -24,6 +24,9 @@ export class PresetsStore {
 
   setPreset(preset) {
     this.preset = _.cloneDeep(preset)
+    this.clear()
+    if (this.exerciseTimeout) this.pause()
+    this.exercise = null
   }
 
   setExercise(exercise) {

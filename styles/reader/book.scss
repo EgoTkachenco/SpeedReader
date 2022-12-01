@@ -300,3 +300,26 @@
 .full .book-top {
   justify-content: flex-start;
 }
+
+.exercise-helper {
+  .btn {
+    width: 21rem;
+  }
+}
+
+.exercise-tutorial {
+  &__title {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+  }
+  &__video {
+    background: #2a2b43;
+    border: 1px solid #b8c5f1;
+    border-radius: 1rem;
+    max-width: 56.125rem;
+  }
+}

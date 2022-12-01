@@ -604,6 +604,8 @@ export const PRESETS = [
     exercises: [
       {
         name: 'Exercise 1',
+        video_tutorial:
+          'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
         audio: '/music/1.Ken Davis - Rollercoaster.mp3',
         data: [
           {

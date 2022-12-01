@@ -47,6 +47,12 @@ export const BOOKS_API = {
 }
 
 export const STATISTIC_API = {
-  send: (user_id, count, date) =>
-    axios.post('/statistics', { user_id, count, date }),
+  send: (user_id, count, date, book, speed) =>
+    axios.post('/statistics', { user_id, count, date, book, speed }),
+
+  getStatistic: (params) => axios.get('/statistics', { params }),
+  getUserStatistic: (user_id, params) =>
+    axios.get(`/statistics/${user_id}`, { params }),
+
+  getStatisticCount: (params) => axios.get('/statistics/count', { params }),
 }
