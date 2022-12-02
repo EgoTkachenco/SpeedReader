@@ -14,7 +14,9 @@ const TestingSettings = ({ settings, onChange }) => {
         onChange={(e) => onSpeedChange(e.target.value)}
         value={settings.speed}
       />
-      <SpeedLottieAnimation speed={settings.speed} />
+      <div className="speed-animation-card">
+        <SpeedLottieAnimation speed={settings.speed} />
+      </div>
       <div className="training-settings-list">
         <div>
           <div className="training-settings__title">Text color</div>

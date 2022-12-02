@@ -1,10 +1,10 @@
 import Script from 'next/script'
 import { useState, useEffect } from 'react'
 
-const SpeedLottieAnimation = ({ speed }) => {
+const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
   useEffect(() => {
     if (window && window.lottie) setState({ ...state, ready: true })
-  }, [])
+  }, [window.lottie])
   const [state, setState] = useState({
     ready: false,
     animationData: null,
@@ -31,7 +31,7 @@ const SpeedLottieAnimation = ({ speed }) => {
     }
     animationData.layers[0].ef[0].ef[0].v.k = parseInt((speed * 270) / 12)
 
-    const container = document.getElementById('speed-animation-view')
+    const container = document.getElementById(id)
     const options = {
       loop: true,
       autoplay: true,
@@ -51,7 +51,7 @@ const SpeedLottieAnimation = ({ speed }) => {
         strategy="lazyOnload"
         onLoad={() => setState({ ...state, ready: true })}
       />
-      {state.ready ? <div id="speed-animation-view" /> : <div>Loading</div>}
+      {state.ready ? <div id={id} /> : <div>Loading</div>}
     </>
   )
 }

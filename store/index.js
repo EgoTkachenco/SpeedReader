@@ -9,7 +9,7 @@ import {
   setRefreshToken,
 } from './axios'
 class Store {
-  user = undefined
+  user = { id: 13 }
   isFetch = false
   constructor() {
     makeAutoObservable(this)
@@ -44,7 +44,7 @@ class Store {
     this.user = null
     eraseToken()
     eraseRefreshToken()
-    window.location = '/login'
+    // window.location = '/login's
   }
 
   relog(token, refresh_token) {

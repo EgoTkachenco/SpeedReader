@@ -4,6 +4,7 @@ import Statistic_Store from '../../store/StatisticStore'
 import { useState, useEffect } from 'react'
 import { observer } from 'mobx-react-lite'
 import { format } from 'date-fns'
+import SpeedAnimation from '../testing/SpeedLottieAnimation'
 
 const Dashboard = observer(() => {
   const [store, setStore] = useState(null)
@@ -170,6 +171,9 @@ const PerMinuteReadingStatistic = ({ value }) => {
   return (
     <div className="statistic-card per-minute">
       <div className="statistic-card-content">
+        <div className="statistic-card__animation">
+          <SpeedAnimation speed={(value / 1000).toFixed(2)} id="per-minute" />
+        </div>
         <div className="statistic-card__value">{value}</div>
         <div className="statistic-card__label">
           Word per minute reading speed
@@ -183,6 +187,9 @@ const CurrentSpeedReadingStatistic = ({ value }) => {
   return (
     <div className="statistic-card current-speed">
       <div className="statistic-card-content">
+        <div className="statistic-card__animation">
+          <SpeedAnimation speed={value} id="current-speed" />
+        </div>
         <div className="statistic-card__value">{value}</div>
         <div className="statistic-card__label">Current Speed Reading</div>
       </div>
