@@ -4,20 +4,17 @@ import store from '../../store/reader/global'
 import { observer } from 'mobx-react-lite'
 import ReaderSettings from './ReaderSettings'
 import Layout from '../layout/Layout'
-import BooksList from './BooksList'
 import ReaderView from './ReaderView'
 
 const TrainingPage = observer(() => {
   useEffect(() => {
     if (process.browser) store.settings.loadFromStorage()
-  }, [])
-  useEffect(() => {
     return () => {
       store.reader.clear()
     }
   }, [])
 
-  if (store.books.length === 0) return null
+  if (store.books.length === 0) return ''
 
   const settings = store.settings.settings
   const reader = store.reader
@@ -25,7 +22,6 @@ const TrainingPage = observer(() => {
   return (
     <Layout title="Training center">
       <div className="training">
-        {store.presets.level_process}
         <ReaderSettings
           settings={settings}
           onReset={() => store.reset()}
