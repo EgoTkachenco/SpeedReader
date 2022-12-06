@@ -14,11 +14,10 @@ const TrainingPage = observer(() => {
     }
   }, [])
 
-  if (store.books.length === 0) return ''
+  if (!process.browser || store.books.length === 0) return ''
 
   const settings = store.settings.settings
   const reader = store.reader
-
   return (
     <Layout title="Training center">
       <div className="training">
