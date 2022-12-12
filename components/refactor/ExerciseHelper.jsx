@@ -1,6 +1,9 @@
 import { useRef, useEffect, useState } from 'react'
 import { Button, Modal } from '../common'
 
+const tutorial_video_url =
+  'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
+
 const ExerciseHelper = ({ exercise, isExerciseActive, play, pause }) => {
   const audioRef = useRef()
   const [showTutorial, setShowTutorial] = useState(false)
@@ -33,14 +36,14 @@ const ExerciseHelper = ({ exercise, isExerciseActive, play, pause }) => {
         />
       ) : null}
 
-      {exercise.video_tutorial && (
+      {tutorial_video_url && (
         <Button onClick={() => setShowTutorial(true)}>How it works</Button>
       )}
       <Modal show={showTutorial} onClose={() => setShowTutorial(false)}>
         <div className="exercise-tutorial">
           <div className="exercise-tutorial__title">{exercise.name}</div>
           <video
-            src={exercise?.video_tutorial}
+            src={tutorial_video_url}
             controls
             className="exercise-tutorial__video"
           />
