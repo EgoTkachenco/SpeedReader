@@ -189,7 +189,8 @@ const Row = ({
       <div
         className="row-back"
         style={{
-          background: isRead ? background : 'transparent',
+          background:
+            isRead && children.trim().length ? background : 'transparent',
           transition: `all ${isTransition ? transition : 0}ms`,
         }}
       />

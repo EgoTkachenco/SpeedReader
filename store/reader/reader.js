@@ -113,10 +113,14 @@ export class ReaderStore {
   next_position() {
     // const wordsCount = 1
     const wordsCount = this.settings.settings.words
+
+    // Skip empty lines for all cases
+    let skip_empty_lines = true
+
     // Skip empty lines in zoom and rolling modes
-    let skip_empty_lines = ['zoom', 'rolling'].includes(
-      this.settings.settings.type
-    )
+    // let skip_empty_lines = ['zoom', 'rolling', book].includes(
+    //   this.settings.settings.type
+    // )
 
     let result = []
     let position = null
