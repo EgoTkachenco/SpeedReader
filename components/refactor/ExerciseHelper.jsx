@@ -49,6 +49,19 @@ const ExerciseHelper = ({ exercise, isExerciseActive, play, pause }) => {
           />
         </div>
       </Modal>
+
+      <div className="exercise-coaching-card">
+        <div className="exercise-coaching-card-top">
+          Coaching comments
+          <Button>Listen</Button>
+        </div>
+        <div className="exercise-coaching-card__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+          dolores, corrupti unde nulla amet quas at incidunt illum magni dolor
+          explicabo maxime quae voluptas, sapiente natus officiis? Minus, quo
+          distinctio.
+        </div>
+      </div>
     </div>
   )
 }

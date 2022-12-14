@@ -1,5 +1,6 @@
 import { makeAutoObservable, computed } from 'mobx'
-import { PRESETS } from '../presets'
+// import { PRESETS } from '../presets'
+import PRESETS from '../updated-presets.json'
 
 export class PresetsStore {
   reader = null

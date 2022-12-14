@@ -1,0 +1,1094 @@
+[
+  {
+    "name": "Standard",
+    "exercises": [
+      {
+        "name": "Exercise 1",
+        "data": [
+          {
+            "action": {
+              "book": "5",
+              "speed": 3,
+              "rotate": false,
+              "count": 1,
+              "type": "book",
+              "highlightTypeS": "1",
+              "fullscreen": false,
+              "fontType": {
+                "title": "Medium",
+                "key": "medium",
+                "fontSize": "1rem",
+                "page": 30,
+                "row": 55
+              },
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 8000
+          },
+          { "action": { "speed": 5 }, "duration": 8000 },
+          {
+            "action": { "speed": 6, "rotate": true, "highlightTypeS": "2" },
+            "duration": 8000
+          },
+          { "action": { "speed": 5, "rotate": false }, "duration": 8000 },
+          {
+            "action": {
+              "highlightColor": "#F78DA7",
+              "textColor": "#0693E3",
+              "pageColor": "#FCB900",
+              "rotate": true,
+              "speed": 8,
+              "highlightTypeS": "1"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF",
+              "rotate": false,
+              "speed": 7,
+              "highlightTypeV": "1"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 9,
+              "highlightTypeV": "2",
+              "highlightColor": "#F78DA7",
+              "textColor": "#0693E3",
+              "pageColor": "#FCB900",
+              "rotate": true
+            },
+            "duration": 12000
+          },
+          { "action": { "speed": 8, "rotate": false }, "duration": 8000 },
+          {
+            "action": {
+              "speed": 7,
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 20000
+          },
+          { "action": { "highlightTypeV": "1", "speed": 6 }, "duration": 12000 }
+        ]
+      },
+      {
+        "name": "Exercise 2",
+        "data": [
+          {
+            "action": {
+              "book": "6",
+              "speed": 2,
+              "rotate": false,
+              "count": 1,
+              "type": "zoom",
+              "highlightTypeS": "1",
+              "fullscreen": false,
+              "fontType": {
+                "title": "Medium",
+                "key": "medium",
+                "fontSize": "1rem",
+                "page": 30,
+                "row": 55
+              },
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 8000
+          },
+          { "action": { "speed": 5, "rotate": true }, "duration": 8000 },
+          {
+            "action": {
+              "speed": 5,
+              "rotate": false,
+              "highlightTypeS": "2",
+              "textColor": "#FCB900",
+              "pageColor": "#000000"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 6,
+              "rotate": true,
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "rotate": false,
+              "highlightTypeS": "1",
+              "textColor": "#FFFFFF",
+              "pageColor": "#EB1D36"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 8,
+              "rotate": true,
+              "highlightTypeS": "2",
+              "textColor": "#0693E3",
+              "pageColor": "#FCB900"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 9,
+              "rotate": false,
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 6,
+              "rotate": true,
+              "highlightTypeS": "4",
+              "textColor": "#EB1D36",
+              "pageColor": "#000000"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 9,
+              "rotate": false,
+              "highlightTypeS": "2",
+              "textColor": "#EB1D36",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 12000
+          },
+          {
+            "action": {
+              "speed": 8,
+              "rotate": true,
+              "highlightTypeS": "2",
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "speed": 7,
+              "rotate": false,
+              "highlightTypeS": "2",
+              "textColor": "#0693E3",
+              "pageColor": "#FCB900",
+              "highlightColor": "#F78DA7"
+            },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "speed": 10,
+              "rotate": true,
+              "highlightTypeS": "4",
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 10000
+          },
+          {
+            "action": { "speed": 5, "highlightTypeS": "2", "rotate": false },
+            "duration": 20000
+          }
+        ]
+      },
+      {
+        "name": "Exercise 3",
+        "data": [
+          {
+            "action": {
+              "book": "7",
+              "speed": 2,
+              "rotate": false,
+              "count": 1,
+              "type": "rolling",
+              "highlightTypeS": "1",
+              "fullscreen": false,
+              "fontType": {
+                "title": "Medium",
+                "key": "medium",
+                "fontSize": "1rem",
+                "page": 30,
+                "row": 55
+              },
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 6000
+          },
+          { "action": { "speed": 5, "rotate": true }, "duration": 8000 },
+          {
+            "action": {
+              "speed": 5,
+              "rotate": false,
+              "highlightTypeS": "2",
+              "textColor": "#FCB900",
+              "pageColor": "#000000"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 6,
+              "rotate": true,
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "rotate": false,
+              "highlightTypeS": "1",
+              "textColor": "#FFFFFF",
+              "pageColor": "#EB1D36"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 8,
+              "rotate": true,
+              "highlightTypeS": "2",
+              "textColor": "#0693E3",
+              "pageColor": "#FCB900"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 9,
+              "rotate": false,
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 6,
+              "rotate": true,
+              "highlightTypeS": "4",
+              "textColor": "#EB1D36",
+              "pageColor": "#000000"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 9,
+              "rotate": false,
+              "highlightTypeS": "2",
+              "textColor": "#EB1D36",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 12000
+          },
+          {
+            "action": {
+              "speed": 8,
+              "rotate": true,
+              "highlightTypeS": "2",
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "speed": 7,
+              "rotate": false,
+              "highlightTypeS": "2",
+              "textColor": "#0693E3",
+              "pageColor": "#FCB900",
+              "highlightColor": "#F78DA7"
+            },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "speed": 10,
+              "rotate": true,
+              "highlightTypeS": "4",
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 10000
+          },
+          {
+            "action": { "speed": 5, "highlightTypeS": "2", "rotate": false },
+            "duration": 20000
+          }
+        ]
+      },
+      {
+        "name": "Exercise 4",
+        "data": [
+          {
+            "action": {
+              "book": "8",
+              "speed": 2,
+              "rotate": false,
+              "count": 1,
+              "type": "scroll",
+              "highlightTypeS": "1",
+              "fullscreen": false,
+              "fontType": {
+                "title": "Medium",
+                "key": "medium",
+                "fontSize": "1rem",
+                "page": 30,
+                "row": 55
+              },
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 6000
+          },
+          { "action": { "speed": 5, "rotate": true }, "duration": 8000 },
+          {
+            "action": {
+              "speed": 5,
+              "rotate": false,
+              "highlightTypeS": "2",
+              "textColor": "#FCB900",
+              "pageColor": "#000000"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 6,
+              "rotate": true,
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "rotate": false,
+              "highlightTypeS": "1",
+              "textColor": "#FFFFFF",
+              "pageColor": "#EB1D36"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 8,
+              "rotate": true,
+              "highlightTypeS": "2",
+              "textColor": "#0693E3",
+              "pageColor": "#FCB900"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 9,
+              "rotate": false,
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 6,
+              "rotate": true,
+              "highlightTypeS": "4",
+              "textColor": "#EB1D36",
+              "pageColor": "#000000"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 9,
+              "rotate": false,
+              "highlightTypeS": "2",
+              "textColor": "#EB1D36",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 12000
+          },
+          {
+            "action": {
+              "speed": 8,
+              "rotate": true,
+              "highlightTypeS": "2",
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "speed": 7,
+              "rotate": false,
+              "highlightTypeS": "2",
+              "textColor": "#0693E3",
+              "pageColor": "#FCB900",
+              "highlightColor": "#F78DA7"
+            },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "speed": 10,
+              "rotate": true,
+              "highlightTypeS": "4",
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 10000
+          },
+          {
+            "action": { "speed": 5, "highlightTypeS": "2", "rotate": false },
+            "duration": 20000
+          }
+        ]
+      },
+      {
+        "name": "Exercise 5",
+        "data": [
+          {
+            "action": {
+              "book": "9",
+              "speed": 4,
+              "rotate": false,
+              "count": 1,
+              "type": "book",
+              "highlightTypeS": "1",
+              "fullscreen": false,
+              "fontType": {
+                "title": "Medium",
+                "key": "medium",
+                "fontSize": "1rem",
+                "page": 30,
+                "row": 55
+              },
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 6000
+          },
+          {
+            "action": { "speed": 4, "highlightTypeS": "2", "rotate": true },
+            "duration": 6000
+          },
+          {
+            "action": {
+              "speed": 4,
+              "type": "zoom",
+              "highlightTypeS": "2",
+              "rotate": false
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 6,
+              "type": "zoom",
+              "highlightTypeS": "4",
+              "rotate": true,
+              "textColor": "#EB1D36",
+              "pageColor": "#000000"
+            },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "speed": 6,
+              "type": "book",
+              "highlightTypeS": "2",
+              "rotate": false,
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 8000
+          },
+          {
+            "action": { "speed": 7, "type": "zoom", "highlightTypeS": "2" },
+            "duration": 8000
+          },
+          {
+            "action": { "speed": 5, "highlightTypeS": "1" },
+            "duration": 20000
+          },
+          {
+            "action": { "speed": 10, "highlightTypeS": "4" },
+            "duration": 8000
+          },
+          { "action": { "speed": 6, "highlightTypeS": "2" }, "duration": 20000 }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Challenging",
+    "exercises": [
+      {
+        "name": "Exercise 1",
+        "video_tutorial": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+        "audio": "/music/1.Ken Davis - Rollercoaster.mp3",
+        "data": [
+          {
+            "action": {
+              "book": "10",
+              "speed": 1,
+              "rotate": false,
+              "count": 1,
+              "type": "zoom",
+              "fullscreen": false,
+              "fontType": {
+                "title": "Medium",
+                "key": "medium",
+                "fontSize": "1rem",
+                "page": 30,
+                "row": 55
+              },
+              "highlightTypeS": "1",
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 4000
+          },
+          { "action": { "speed": 3 }, "duration": 4000 },
+          { "action": { "speed": 5, "rotate": true }, "duration": 8000 },
+          { "action": { "speed": 7, "rotate": false }, "duration": 4000 },
+          { "action": { "highlightTypeS": "2", "speed": 2 }, "duration": 4000 },
+          { "action": { "speed": 4 }, "duration": 4000 },
+          { "action": { "speed": 6, "rotate": true }, "duration": 8000 },
+          { "action": { "speed": 7, "rotate": false }, "duration": 4000 },
+          { "action": { "highlightTypeS": "4", "speed": 3 }, "duration": 4000 },
+          {
+            "action": {
+              "speed": 5,
+              "textColor": "#EB1D36",
+              "pageColor": "#000000"
+            },
+            "duration": 6000
+          },
+          {
+            "action": { "speed": 6, "textColor": "#FCB900" },
+            "duration": 6000
+          },
+          {
+            "action": {
+              "speed": 7,
+              "textColor": "#0693E3",
+              "pageColor": "#FCB900"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "highlightTypeS": "8",
+              "speed": 3,
+              "textColor": "#000000",
+              "pageColor": "#EB1D36"
+            },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "speed": 5,
+              "textColor": "#0693E3",
+              "pageColor": "#FCB900"
+            },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "highlightTypeS": "16",
+              "speed": 4,
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF",
+              "rotate": true
+            },
+            "duration": 10000
+          },
+          {
+            "action": { "highlightTypeS": "4", "speed": 3, "rotate": false },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "highlightTypeS": "8",
+              "speed": 8,
+              "textColor": "#000000",
+              "pageColor": "#FCB900"
+            },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "highlightTypeS": "4",
+              "speed": 8,
+              "textColor": "#F78DA7",
+              "pageColor": "#000000"
+            },
+            "duration": 6000
+          },
+          {
+            "action": {
+              "highlightTypeS": "8",
+              "speed": 6,
+              "textColor": "#000000",
+              "pageColor": "#F78DA7"
+            },
+            "duration": 12000
+          },
+          {
+            "action": {
+              "highlightTypeS": "2",
+              "speed": 8,
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 10000
+          },
+          {
+            "action": { "highlightTypeS": "1", "speed": 10, "rotate": true },
+            "duration": 10000
+          },
+          {
+            "action": { "highlightTypeS": "2", "speed": 6, "rotate": false },
+            "duration": 10000
+          },
+          { "action": { "highlightTypeS": "4", "speed": 4 }, "duration": 10000 }
+        ]
+      },
+      {
+        "name": "Exercise 2",
+        "audio": "/music/2.Ken Davis - modern world.wav",
+        "data": [
+          {
+            "action": {
+              "book": "11",
+              "speed": 3,
+              "rotate": false,
+              "count": 1,
+              "type": "book",
+              "fullscreen": false,
+              "fontType": {
+                "title": "Medium",
+                "key": "medium",
+                "fontSize": "1rem",
+                "page": 30,
+                "row": 55
+              },
+              "highlightTypeS": "1",
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 5000
+          },
+          {
+            "action": {
+              "highlightTypeS": "16",
+              "type": "zoom",
+              "speed": 6,
+              "rotate": true
+            },
+            "duration": 7000
+          },
+          {
+            "action": {
+              "highlightTypeS": "1",
+              "type": "book",
+              "speed": 4,
+              "rotate": false
+            },
+            "duration": 5000
+          },
+          {
+            "action": {
+              "highlightTypeS": "16",
+              "type": "zoom",
+              "speed": 8,
+              "textColor": "#EB1D36",
+              "pageColor": "#000000"
+            },
+            "duration": 8000
+          },
+          {
+            "action": { "highlightTypeS": "1", "type": "book", "speed": 5 },
+            "duration": 5000
+          },
+          {
+            "action": {
+              "highlightTypeS": "16",
+              "type": "zoom",
+              "speed": 7,
+              "rotate": true,
+              "textColor": "#0693E3",
+              "pageColor": "#FCB900"
+            },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "highlightTypeS": "1",
+              "type": "book",
+              "speed": 6,
+              "rotate": false,
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 8000
+          },
+          { "action": { "speed": 10, "rotate": true }, "duration": 8000 },
+          {
+            "action": {
+              "highlightTypeS": "16",
+              "type": "zoom",
+              "rotate": false,
+              "speed": 9,
+              "textColor": "#000000",
+              "pageColor": "#EB1D36"
+            },
+            "duration": 6000
+          },
+          {
+            "action": {
+              "highlightTypeS": "1",
+              "type": "book",
+              "speed": 7,
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 5000
+          },
+          {
+            "action": { "highlightTypeS": "16", "type": "zoom", "speed": 4 },
+            "duration": 10000
+          },
+          {
+            "action": { "highlightTypeS": "1", "type": "book", "speed": 5 },
+            "duration": 5000
+          },
+          {
+            "action": {
+              "highlightTypeS": "16",
+              "type": "zoom",
+              "rotate": true,
+              "speed": 10
+            },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "rotate": false,
+              "speed": 10,
+              "textColor": "#000000",
+              "pageColor": "#FFA500"
+            },
+            "duration": 8000
+          },
+          {
+            "action": {
+              "speed": 8,
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 5000
+          },
+          { "action": { "speed": 8, "rotate": true }, "duration": 8000 },
+          { "action": { "rotate": false, "speed": 6 }, "duration": 8000 },
+          { "action": { "speed": 5 }, "duration": 5000 },
+          {
+            "action": { "highlightTypeS": "1", "type": "book", "speed": 5 },
+            "duration": 15000
+          }
+        ]
+      },
+      {
+        "name": "Exercise 3",
+        "data": [
+          {
+            "action": {
+              "book": "1",
+              "speed": 2,
+              "rotate": false,
+              "count": 1,
+              "type": "rolling",
+              "fullscreen": false,
+              "fontType": {
+                "title": "Medium",
+                "key": "medium",
+                "fontSize": "1rem",
+                "page": 30,
+                "row": 55
+              },
+              "highlightTypeS": "1",
+              "words": 2,
+              "highlightColor": "#00D084",
+              "textColor": "#000000",
+              "pageColor": "#FFFFFF"
+            },
+            "duration": 4000
+          },
+          { "action": { "speed": 4, "words": 2 }, "duration": 4000 },
+          { "action": { "speed": 6, "words": 2 }, "duration": 4000 },
+          {
+            "action": { "rotate": true, "speed": 8, "words": 2 },
+            "duration": 6000
+          },
+          {
+            "action": { "rotate": false, "speed": 3, "words": 3 },
+            "duration": 4000
+          },
+          { "action": { "speed": 5, "words": 3 }, "duration": 4000 },
+          { "action": { "speed": 7, "words": 3 }, "duration": 4000 },
+          {
+            "action": { "rotate": true, "speed": 9, "words": 3 },
+            "duration": 6000
+          },
+          {
+            "action": { "rotate": false, "speed": 4, "words": 4 },
+            "duration": 4000
+          },
+          { "action": { "speed": 6, "words": 4 }, "duration": 4000 },
+          { "action": { "speed": 8, "words": 4 }, "duration": 4000 },
+          {
+            "action": { "rotate": true, "speed": 10, "words": 4 },
+            "duration": 6000
+          },
+          {
+            "action": { "rotate": false, "speed": 5, "words": 5 },
+            "duration": 4000
+          },
+          { "action": { "speed": 6, "words": 5 }, "duration": 4000 },
+          { "action": { "speed": 7, "words": 5 }, "duration": 4000 },
+          {
+            "action": { "rotate": true, "speed": 8, "words": 5 },
+            "duration": 6000
+          },
+          {
+            "action": {
+              "rotate": false,
+              "words": null,
+              "speed": 2,
+              "highlightTypeS": "1"
+            },
+            "duration": 4000
+          },
+          {
+            "action": {
+              "words": null,
+              "speed": 3,
+              "highlightTypeS": "1",
+              "textColor": "#0693E3"
+            },
+            "duration": 4000
+          },
+          {
+            "action": { "words": null, "speed": 4, "highlightTypeS": "1" },
+            "duration": 4000
+          },
+          {
+            "action": {
+              "words": null,
+              "speed": 5,
+              "highlightTypeS": "1",
+              "textColor": "#EB1D36"
+            },
+            "duration": 4000
+          },
+          {
+            "action": {
+              "words": null,
+              "speed": 6,
+              "highlightTypeS": "1",
+              "textColor": "#00D084"
+            },
+            "duration": 4000
+          },
+          {
+            "action": { "words": null, "speed": 7, "highlightTypeS": "1" },
+            "duration": 4000
+          },
+          {
+            "action": {
+              "words": null,
+              "rotate": true,
+              "speed": 9,
+              "highlightTypeS": "1"
+            },
+            "duration": 6000
+          },
+          {
+            "action": {
+              "words": null,
+              "rotate": false,
+              "speed": 8,
+              "highlightTypeS": "1"
+            },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "words": null,
+              "rotate": false,
+              "speed": 4,
+              "highlightTypeS": "2"
+            },
+            "duration": 4000
+          },
+          {
+            "action": {
+              "words": null,
+              "rotate": true,
+              "speed": 7,
+              "highlightTypeS": "2"
+            },
+            "duration": 6000
+          },
+          {
+            "action": {
+              "words": null,
+              "rotate": false,
+              "speed": 5,
+              "highlightTypeS": "2"
+            },
+            "duration": 4000
+          },
+          {
+            "action": {
+              "words": null,
+              "rotate": false,
+              "speed": 6,
+              "highlightTypeS": "2",
+              "textColor": "#0693E3"
+            },
+            "duration": 4000
+          },
+          {
+            "action": {
+              "words": null,
+              "rotate": false,
+              "speed": 6,
+              "highlightTypeS": "2",
+              "textColor": "#EB1D36"
+            },
+            "duration": 4000
+          },
+          {
+            "action": {
+              "words": null,
+              "rotate": false,
+              "speed": 6,
+              "highlightTypeS": "2",
+              "textColor": "#00D084"
+            },
+            "duration": 4000
+          },
+          {
+            "action": {
+              "words": null,
+              "rotate": false,
+              "speed": 6,
+              "highlightTypeS": "2",
+              "textColor": "#FCB900"
+            },
+            "duration": 4000
+          },
+          {
+            "action": {
+              "words": null,
+              "rotate": false,
+              "speed": 6,
+              "highlightTypeS": "2",
+              "textColor": "#FFA500"
+            },
+            "duration": 4000
+          },
+          {
+            "action": {
+              "words": null,
+              "rotate": false,
+              "speed": 6,
+              "highlightTypeS": "2",
+              "textColor": "#AE1CE1"
+            },
+            "duration": 4000
+          },
+          {
+            "action": {
+              "words": null,
+              "rotate": true,
+              "speed": 10,
+              "highlightTypeS": "2"
+            },
+            "duration": 6000
+          },
+          {
+            "action": {
+              "words": null,
+              "rotate": false,
+              "speed": 7,
+              "highlightTypeS": "2"
+            },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "words": null,
+              "rotate": false,
+              "speed": 6,
+              "highlightTypeS": "2"
+            },
+            "duration": 10000
+          },
+          {
+            "action": {
+              "words": null,
+              "rotate": false,
+              "speed": 5,
+              "highlightTypeS": "2"
+            },
+            "duration": 20000
+          }
+        ]
+      }
+    ]
+  }
+]
