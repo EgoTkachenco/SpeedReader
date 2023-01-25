@@ -10,7 +10,7 @@ import {
 } from './axios'
 class Store {
   // user = { id: 13 }
-  user = null
+  user = undefined
   isFetch = false
   constructor() {
     makeAutoObservable(this)
