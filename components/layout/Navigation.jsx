@@ -304,8 +304,8 @@ const LINKS = () => [
     icon: () => <HomeIcon />,
   },
   {
-    pathname: 'https://readinggenius.com/courses/reading-genius-3-0/',
-    name: 'Courses',
+    pathname: 'https://readinggenius.com/all-lessons/',
+    name: 'My lessons',
     icon: () => <CoursesIcon />,
   },
   {
