@@ -13,9 +13,9 @@ const Navigation = () => {
             className={`navigation__link ${
               router.pathname === link.pathname ? 'active' : ''
             }`}
-            title={link.name}
+            // title={link.name}
           >
-            {link.icon()}
+            {link.name}
           </button>
         </Link>
       ))}
