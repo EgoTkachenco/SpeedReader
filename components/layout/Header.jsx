@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Select, Checkbox } from '../common'
+import Image from 'next/image'
 
 const Header = ({ title }) => {
   const [state, setState] = useState({ lang: 'ENG' })
@@ -37,7 +38,8 @@ const Header = ({ title }) => {
         <div className="header-left__title">{title || 'TITLE'}</div>
       </div>
 
-      <img className="header__logo" src="/logo-dark.svg" alt="logo" />
+      {/* <img className="header__logo" src="/logo-dark.svg" alt="logo" /> */}
+      <Image src="/logo.webp" alt="logo" width={324} height={194} />
     </header>
   )
 }

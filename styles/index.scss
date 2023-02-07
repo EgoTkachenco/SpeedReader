@@ -35,7 +35,8 @@ pre {
   min-height: 100vh;
 
   .page-content {
-    background: url('/theme-1-min.png') center no-repeat;
+    // background: url('/theme-1-min.png') center no-repeat;
+    background: url('/back.webp') center no-repeat;
     background-size: cover;
     padding: 2rem 4rem;
     overflow: auto;
@@ -51,7 +52,7 @@ pre {
   background-image: linear-gradient(180deg, #322473 0%, #712473 100%);
   background-size: 100% 160%;
   background-position: bottom;
-  height: 9.375rem;
+  height: 4.375rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -123,13 +124,28 @@ pre {
     background: none;
     transition: all 0.3s;
     font-family: 'Gilroy', sans-serif;
-    font-size: 1.5rem;
-    line-height: 100%;
+    // font-size: 1rem;
+    font-size: 18px;
+    line-height: 24px;
     color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    svg path {
+      transition: all 0.3s;
+      fill: #ffffff;
+    }
 
     &.active {
+      svg path {
+        fill: #edc58d;
+      }
+      color: #edc58d;
     }
     &:hover {
+      svg path {
+        fill: #edc58d;
+      }
       color: #edc58d;
     }
   }

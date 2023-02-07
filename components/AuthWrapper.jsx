@@ -1,7 +1,11 @@
+import Image from 'next/image'
+
 export default function AuthWrapper({ title, children }) {
   return (
     <div className="auth-wrapper">
-      <img className="auth-logo" src="/logo.svg" alt="logo" />
+      <div className="auth-logo">
+        <Image src="/logo.webp" alt="logo" width={324} height={194} />
+      </div>
       {children}
     </div>
   )
