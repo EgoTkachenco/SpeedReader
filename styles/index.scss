@@ -124,13 +124,17 @@ pre {
     background: none;
     transition: all 0.3s;
     font-family: 'Gilroy', sans-serif;
-    // font-size: 1rem;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 1.125rem;
+    // font-size: 18px;
+    line-height: 1.5rem;
     color: #ffffff;
     display: flex;
     align-items: center;
     gap: 8px;
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
     svg path {
       transition: all 0.3s;
       fill: #ffffff;

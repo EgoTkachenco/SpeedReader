@@ -56,3 +56,12 @@ export const STATISTIC_API = {
 
   getStatisticCount: (params) => axios.get('/statistics/count', { params }),
 }
+
+export const COMMENT_API = {
+  getComments: (exerciseId) =>
+    axios.get(`/comments/`, {
+      params: { exerciseId, _limit: -1 },
+    }),
+
+  createComment: (data) => axios.post(`/comments`, data),
+}
