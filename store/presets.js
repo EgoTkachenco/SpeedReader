@@ -10,31 +10,8 @@ export const PRESETS = [
   {
     name: 'Standard',
     exercises: [
-      // {
-      //   name: 'TEST',
-      //   data: [
-      //     {
-      //       action: {
-      //         book: '5',
-      //         speed: 3,
-      //         rotate: false,
-      //         count: 1,
-      //         type: 'book',
-      //         highlightTypeS: '1',
-      //         fullscreen: false,
-      //         ...DEFAULT_COLORS,
-      //       },
-      //       duration: 4000,
-      //     },
-      //     {
-      //       action: {
-      //         speed: 5,
-      //       },
-      //       duration: 4000,
-      //     },
-      //   ],
-      // },
       {
+        id: 1,
         name: 'Exercise 1',
         data: [
           {
@@ -128,6 +105,7 @@ export const PRESETS = [
         ],
       },
       {
+        id: 2,
         name: 'Exercise 2',
         data: [
           {
@@ -256,6 +234,7 @@ export const PRESETS = [
         ],
       },
       {
+        id: 3,
         name: 'Exercise 3',
         data: [
           {
@@ -384,6 +363,7 @@ export const PRESETS = [
         ],
       },
       {
+        id: 4,
         name: 'Exercise 4',
         data: [
           {
@@ -512,6 +492,7 @@ export const PRESETS = [
         ],
       },
       {
+        id: 5,
         name: 'Exercise 5',
         data: [
           {
@@ -603,6 +584,7 @@ export const PRESETS = [
     name: 'Challenging',
     exercises: [
       {
+        id: 6,
         name: 'Exercise 1',
         video_tutorial:
           'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
@@ -800,6 +782,7 @@ export const PRESETS = [
         ],
       },
       {
+        id: 7,
         name: 'Exercise 2',
         audio: '/music/2.Ken Davis - modern world.wav',
         data: [
@@ -976,6 +959,7 @@ export const PRESETS = [
         ],
       },
       {
+        id: 8,
         name: 'Exercise 3',
         data: [
           {
