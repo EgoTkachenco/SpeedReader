@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-const Navigation = () => {
+const Navigation = observer(() => {
   const router = useRouter()
   return (
     <nav className="navigation">
@@ -20,16 +20,25 @@ const Navigation = () => {
           </button>
         </Link>
       ))}
+      <button
+        onClick={() => {
+          store.logout()
+          router.push('/login')
+        }}
+        className="navigation__link"
+      >
+        <LogoutIcon />
+        Log out
+      </button>
     </nav>
   )
-}
+})
 
 export default Navigation
 
 const LINKS = () => [
   {
     pathname: 'https://readinggenius.com/user-dashboard/',
-    // pathname: '/',
     name: 'Dashboard',
     icon: <HomeIcon />,
   },
@@ -158,6 +167,23 @@ const StatisticIcon = () => (
       fill="#666666"
       d="M960,1200V0h240v1200H960z M640,300h240v900H640V300z M320,600h240v600
 	H320V600L320,600z M0,900h240v300H0V900z"
+    />
+  </svg>
+)
+
+const LogoutIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24px"
+    height="24px"
+    viewBox="0 0 1200 1200"
+  >
+    <path
+      fill="#666666"
+      d="M600,0C268.629,0,0,268.629,0,600s268.629,600,600,600
+	s600-268.629,600-600S931.371,0,600,0z M608.396,212.462c112.097-4.539,194.092,93.25,198.101,195.351H689.894
+	c-4.339-45.75-36.726-79.855-81.497-78.062c-44.771,1.793-80.5,37.062-81.459,81.497v91.983l363.831-0.002v366.644H309.194V503.229
+	l100.457,0.002v-91.983C419.129,297.825,496.301,217.001,608.396,212.462L608.396,212.462z"
     />
   </svg>
 )

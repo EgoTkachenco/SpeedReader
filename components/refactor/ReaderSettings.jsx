@@ -159,7 +159,7 @@ const ReaderSettings = observer(
         />
         <div className="training-settings__delimiter" />
         <Button onClick={onReset}>Reset Setting</Button>
-        <div className="training-settings__delimiter" />
+        {/* <div className="training-settings__delimiter" />
         <Button
           variant="text"
           onClick={() => {
@@ -168,7 +168,7 @@ const ReaderSettings = observer(
           }}
         >
           Log out
-        </Button>
+        </Button> */}
       </div>
     )
   }
