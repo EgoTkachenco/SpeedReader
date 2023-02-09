@@ -49,6 +49,7 @@ class Store {
   }
 
   relog(token, refresh_token) {
+    debugger
     // auto login with token and refresh_token
     if (token) {
       setToken(token)

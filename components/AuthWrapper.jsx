@@ -4,7 +4,7 @@ export default function AuthWrapper({ title, children }) {
   return (
     <div className="auth-wrapper">
       <div className="auth-logo">
-        <Image src="/logo.webp" alt="logo" width={324} height={194} />
+        <Image src="/logo.webp" alt="logo" width={640} height={384} />
       </div>
       {children}
     </div>

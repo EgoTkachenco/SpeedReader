@@ -52,7 +52,8 @@ pre {
   background-image: linear-gradient(180deg, #322473 0%, #712473 100%);
   background-size: 100% 160%;
   background-position: bottom;
-  height: 4.375rem;
+  // height: 4.375rem;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -124,9 +125,10 @@ pre {
     background: none;
     transition: all 0.3s;
     font-family: 'Gilroy', sans-serif;
-    font-size: 1.125rem;
-    // font-size: 18px;
-    line-height: 1.5rem;
+    font-size: 18px;
+    line-height: 24px;
+    // font-size: 1.125rem;
+    // line-height: 1.5rem;
     color: #ffffff;
     display: flex;
     align-items: center;

@@ -23,13 +23,14 @@ const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
   }, [speed])
   const updateAnimation = (animationData) => {
     if (!animationData) return
-
+    debugger
     let currentFrame = null
     if (state.animation) {
       currentFrame = state.animation.currentFrame
       state.animation.destroy()
     }
-    animationData.layers[0].ef[0].ef[0].v.k = parseInt((speed * 270) / 12)
+    if (animationData?.layers[0]?.ef[0]?.ef[0]?.v)
+      animationData.layers[0].ef[0].ef[0].v.k = parseInt((speed * 270) / 12)
 
     const container = document.getElementById(id)
     const options = {
