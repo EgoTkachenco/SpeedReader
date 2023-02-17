@@ -3,7 +3,10 @@ import { useState, useEffect } from 'react'
 
 const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
   useEffect(() => {
-    if (window && window.lottie) setState({ ...state, ready: true })
+    if (window && window.lottie) {
+      console.log('Window Lottie Effect')
+      setState({ ...state, ready: true })
+    }
   }, [window.lottie])
 
   const [state, setState] = useState({
@@ -57,7 +60,10 @@ const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
       <Script
         src="/lottie.js"
         strategy="lazyOnload"
-        onLoad={() => setState({ ...state, ready: true })}
+        onLoad={() => {
+          console.log('onload')
+          setState({ ...state, ready: true })
+        }}
       />
       {state.ready ? <div id={id} /> : <div>Loading</div>}
     </>
