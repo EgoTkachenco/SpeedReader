@@ -27,7 +27,8 @@ const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
   }, [state.ready])
 
   useEffect(() => {
-    if (state.ready) updateAnimation({ ...state.animationData })
+    if (state.ready && state.animationData)
+      updateAnimation({ ...state.animationData })
   }, [speed])
 
   const updateAnimation = (animationData) => {
