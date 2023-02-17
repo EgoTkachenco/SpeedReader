@@ -5,11 +5,13 @@ const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
   useEffect(() => {
     if (window && window.lottie) setState({ ...state, ready: true })
   }, [window.lottie])
+
   const [state, setState] = useState({
     ready: false,
     animationData: null,
     animation: null,
   })
+
   useEffect(() => {
     if (state.ready)
       fetch('/speed-animation.json')
@@ -18,12 +20,15 @@ const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
           updateAnimation(res)
         })
   }, [state.ready])
+
   useEffect(() => {
     if (state.ready) updateAnimation({ ...state.animationData })
   }, [speed])
+
   const updateAnimation = (animationData) => {
     if (!animationData) return
     let currentFrame = null
+    debugger
     if (state.animation) {
       currentFrame = state.animation.currentFrame
       state.animation.destroy()
