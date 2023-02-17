@@ -3,10 +3,7 @@ import { useState, useEffect } from 'react'
 
 const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
   useEffect(() => {
-    if (window && window.lottie) {
-      console.log('Window Lottie Effect')
-      setState({ ...state, ready: true })
-    }
+    if (window && window.lottie) setState({ ...state, ready: true })
   }, [window.lottie])
 
   const [state, setState] = useState({
@@ -16,27 +13,22 @@ const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
   })
 
   useEffect(() => {
-    console.log('ready effect')
     if (state.ready)
       fetch('/speed-animation.json')
         .then((res) => res.json())
-        .then((res) => {
-          console.log('ready effect then')
-          updateAnimation(res)
-        })
+        .then((res) => updateAnimation(res))
   }, [state.ready])
 
   useEffect(() => {
-    if (state.ready && state.animationData)
-      updateAnimation({ ...state.animationData })
+    if (state.ready) {
+      console.log(state.animationData ? 'Animation exist' : 'No Animation')
+      if (state.animationData) updateAnimation({ ...state.animationData })
+    }
   }, [speed])
 
   const updateAnimation = (animationData) => {
-    console.log('updateAnimation')
     if (!animationData) return
-    console.log('updateAnimation animation exist', { ...animationData })
     let currentFrame = null
-    debugger
     if (state.animation) {
       currentFrame = state.animation.currentFrame
       state.animation.destroy()
