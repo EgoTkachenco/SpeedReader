@@ -13,10 +13,12 @@ const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
   })
 
   useEffect(() => {
+    console.log('ready effect')
     if (state.ready)
       fetch('/speed-animation.json')
         .then((res) => res.json())
         .then((res) => {
+          console.log('ready effect then')
           updateAnimation(res)
         })
   }, [state.ready])
@@ -26,6 +28,7 @@ const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
   }, [speed])
 
   const updateAnimation = (animationData) => {
+    console.log('updateAnimation')
     if (!animationData) return
     let currentFrame = null
     debugger
