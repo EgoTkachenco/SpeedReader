@@ -20,9 +20,8 @@ const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
   }, [state.ready])
 
   useEffect(() => {
-    if (state.ready) {
-      console.log(state.animationData ? 'Animation exist' : 'No Animation')
-      if (state.animationData) updateAnimation({ ...state.animationData })
+    if (state.ready && state.animationData) {
+      updateAnimation({ ...state.animationData })
     }
   }, [speed])
 
@@ -54,10 +53,7 @@ const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
       <Script
         src="/lottie.js"
         strategy="lazyOnload"
-        onLoad={() => {
-          console.log('onload')
-          setState({ ...state, ready: true })
-        }}
+        onLoad={() => setState({ ...state, ready: true })}
       />
       {state.ready ? <div id={id} /> : <div>Loading</div>}
     </>
