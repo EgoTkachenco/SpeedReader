@@ -23,7 +23,6 @@ const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
   }, [speed])
   const updateAnimation = (animationData) => {
     if (!animationData) return
-    debugger
     let currentFrame = null
     if (state.animation) {
       currentFrame = state.animation.currentFrame
