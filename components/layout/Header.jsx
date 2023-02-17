@@ -39,7 +39,7 @@ const Header = ({ title }) => {
       </div>
 
       {/* <img className="header__logo" src="/logo-dark.svg" alt="logo" /> */}
-      <Image src="/logo.webp" alt="logo" width={320} height={200} />
+      <Image src="/logo.webp" alt="logo" width={364} height={218} />
     </header>
   )
 }
