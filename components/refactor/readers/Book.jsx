@@ -160,11 +160,19 @@ export default function Book({
       </div>
 
       <div className="book-bottom">
-        <img className="book-bottom__arrow left" src="/arrow-left.svg" alt="arrow left" />
+        <img
+          className="book-bottom__arrow left"
+          src="/arrow-left.svg"
+          alt="arrow left"
+        />
         <div className="book-bottom__pages">
           {page}/{maxPage}
         </div>
-        <img className="book-bottom__arrow right" src="/arrow-right.svg" alt="arrow right />
+        <img
+          className="book-bottom__arrow right"
+          src="/arrow-right.svg"
+          alt="arrow right"
+        />
       </div>
     </BookWrapper>
   )
