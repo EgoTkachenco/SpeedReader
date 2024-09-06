@@ -31,7 +31,10 @@ export class ReaderStore {
     const book = this.settings.settings.book
     if (!book.id) return
 
-    let _start = this.text[this.text.length - 1]?.position || 0
+    // let _start = page * PAGE_SIZE this.text[this.text.length - 1]?.position || 0
+    const PAGE_SIZE = this.settings.settings.fontType.page
+    let _start = (this.page > 0 ? this.page - 1 : 0) * PAGE_SIZE || 0
+
     this.isFetch = true
     const new_text = await BOOKS_API.getBookText(book.id, {
       _start: _start,
@@ -50,6 +53,8 @@ export class ReaderStore {
     if (_start === 0) {
       this.isEnd = false
       this.last_position = book.size
+      this.next(isPlay)
+    } else if (!this.isEnd && isPlay) {
       this.next(isPlay)
     }
   }
@@ -73,6 +78,12 @@ export class ReaderStore {
     this.current_text = []
   }
 
+  clearText() {
+    this.stop()
+    this.current_text = []
+    this.text = []
+  }
+
   async next(isPlay = true) {
     try {
       // Calculate time for next action
@@ -89,7 +100,9 @@ export class ReaderStore {
         this.block_size / 4
 
       const is_last_block =
-        this.text[this.text.length - 1].position === this.last_position
+        this.text.length > 0
+          ? this.text[this.text.length - 1].position === this.last_position
+          : true
 
       if (is_need_block && !is_last_block && !this.isFetch) this.loadText()
 

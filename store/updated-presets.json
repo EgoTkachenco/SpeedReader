@@ -24,7 +24,6 @@
                 "page": 30,
                 "row": 55
               },
-              "fullscreen": false,
               "words": null,
               "book": "5"
             },
@@ -40,7 +39,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -55,7 +53,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -70,7 +67,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -85,7 +81,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -100,7 +95,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -115,7 +109,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "2",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 12000
@@ -130,7 +123,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "2",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -145,7 +137,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "2",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 20000
@@ -160,7 +151,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 12000
@@ -189,7 +179,6 @@
                 "page": 30,
                 "row": 55
               },
-              "fullscreen": false,
               "words": null,
               "book": "6"
             },
@@ -205,7 +194,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -220,7 +208,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -235,7 +222,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -250,7 +236,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -265,7 +250,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -280,7 +264,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -295,7 +278,6 @@
               "highlightTypeS": "4",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -310,7 +292,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 12000
@@ -325,7 +306,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -340,7 +320,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -355,7 +334,6 @@
               "highlightTypeS": "4",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -370,7 +348,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 20000
@@ -399,7 +376,6 @@
                 "page": 30,
                 "row": 55
               },
-              "fullscreen": false,
               "words": null,
               "book": "7"
             },
@@ -415,7 +391,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -430,7 +405,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -445,7 +419,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -460,7 +433,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -475,7 +447,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -490,7 +461,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -505,7 +475,6 @@
               "highlightTypeS": "4",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -520,7 +489,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 12000
@@ -535,7 +503,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -550,7 +517,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -565,7 +531,6 @@
               "highlightTypeS": "4",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -580,7 +545,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 20000
@@ -609,7 +573,6 @@
                 "page": 30,
                 "row": 55
               },
-              "fullscreen": false,
               "words": null,
               "book": "8"
             },
@@ -625,7 +588,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "scroll",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -640,7 +602,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "scroll",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -655,7 +616,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "scroll",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -670,7 +630,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "scroll",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -685,7 +644,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "scroll",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -700,7 +658,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "scroll",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -715,7 +672,6 @@
               "highlightTypeS": "4",
               "highlightTypeV": "1",
               "type": "scroll",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -730,7 +686,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "scroll",
-              "fullscreen": false,
               "words": null
             },
             "duration": 12000
@@ -745,7 +700,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "scroll",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -760,7 +714,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "scroll",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -775,7 +728,6 @@
               "highlightTypeS": "4",
               "highlightTypeV": "1",
               "type": "scroll",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -790,7 +742,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "scroll",
-              "fullscreen": false,
               "words": null
             },
             "duration": 20000
@@ -819,7 +770,6 @@
                 "page": 30,
                 "row": 55
               },
-              "fullscreen": false,
               "words": null,
               "book": "9"
             },
@@ -835,7 +785,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 6000
@@ -850,7 +799,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -865,7 +813,6 @@
               "highlightTypeS": "4",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -880,7 +827,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -895,7 +841,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -910,7 +855,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 20000
@@ -925,7 +869,6 @@
               "highlightTypeS": "4",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -940,7 +883,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 20000
@@ -976,7 +918,6 @@
                 "page": 30,
                 "row": 55
               },
-              "fullscreen": false,
               "words": null,
               "book": "10"
             },
@@ -992,7 +933,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -1007,7 +947,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -1022,7 +961,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -1037,7 +975,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -1052,7 +989,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -1067,7 +1003,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -1082,7 +1017,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -1097,7 +1031,6 @@
               "highlightTypeS": "4",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -1112,7 +1045,6 @@
               "highlightTypeS": "4",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 6000
@@ -1127,7 +1059,6 @@
               "highlightTypeS": "4",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 6000
@@ -1142,7 +1073,6 @@
               "highlightTypeS": "4",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -1157,7 +1087,6 @@
               "highlightTypeS": "8",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -1172,7 +1101,6 @@
               "highlightTypeS": "8",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -1187,7 +1115,6 @@
               "highlightTypeS": "16",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -1202,7 +1129,6 @@
               "highlightTypeS": "4",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -1217,7 +1143,6 @@
               "highlightTypeS": "8",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -1232,7 +1157,6 @@
               "highlightTypeS": "4",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 6000
@@ -1247,7 +1171,6 @@
               "highlightTypeS": "8",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 12000
@@ -1262,7 +1185,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -1277,7 +1199,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -1292,7 +1213,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -1307,7 +1227,6 @@
               "highlightTypeS": "4",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -1337,7 +1256,6 @@
                 "page": 30,
                 "row": 55
               },
-              "fullscreen": false,
               "words": null,
               "book": "11"
             },
@@ -1353,7 +1271,6 @@
               "highlightTypeS": "16",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 7000
@@ -1368,7 +1285,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 5000
@@ -1383,7 +1299,6 @@
               "highlightTypeS": "16",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -1398,7 +1313,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 5000
@@ -1413,7 +1327,6 @@
               "highlightTypeS": "16",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -1428,7 +1341,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -1443,7 +1355,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -1458,7 +1369,6 @@
               "highlightTypeS": "16",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 6000
@@ -1473,7 +1383,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 5000
@@ -1488,7 +1397,6 @@
               "highlightTypeS": "16",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -1503,7 +1411,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 5000
@@ -1518,7 +1425,6 @@
               "highlightTypeS": "16",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -1533,7 +1439,6 @@
               "highlightTypeS": "16",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -1548,7 +1453,6 @@
               "highlightTypeS": "16",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 5000
@@ -1563,7 +1467,6 @@
               "highlightTypeS": "16",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -1578,7 +1481,6 @@
               "highlightTypeS": "16",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 8000
@@ -1593,7 +1495,6 @@
               "highlightTypeS": "16",
               "highlightTypeV": "1",
               "type": "zoom",
-              "fullscreen": false,
               "words": null
             },
             "duration": 5000
@@ -1608,7 +1509,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "book",
-              "fullscreen": false,
               "words": null
             },
             "duration": 15000
@@ -1637,7 +1537,6 @@
                 "page": 30,
                 "row": 55
               },
-              "fullscreen": false,
               "words": 2,
               "book": "1"
             },
@@ -1653,7 +1552,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": 2
             },
             "duration": 4000
@@ -1668,7 +1566,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": 2
             },
             "duration": 4000
@@ -1683,7 +1580,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": 2
             },
             "duration": 6000
@@ -1698,7 +1594,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": 3
             },
             "duration": 4000
@@ -1713,7 +1608,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": 3
             },
             "duration": 4000
@@ -1728,7 +1622,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": 3
             },
             "duration": 4000
@@ -1743,7 +1636,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": 3
             },
             "duration": 6000
@@ -1758,7 +1650,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": 4
             },
             "duration": 4000
@@ -1773,7 +1664,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": 4
             },
             "duration": 4000
@@ -1788,7 +1678,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": 4
             },
             "duration": 4000
@@ -1803,7 +1692,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": 4
             },
             "duration": 6000
@@ -1818,7 +1706,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": 5
             },
             "duration": 4000
@@ -1833,7 +1720,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": 5
             },
             "duration": 4000
@@ -1848,7 +1734,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": 5
             },
             "duration": 4000
@@ -1863,7 +1748,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": 5
             },
             "duration": 6000
@@ -1878,7 +1762,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -1893,7 +1776,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -1908,7 +1790,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -1923,7 +1804,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -1938,7 +1818,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -1953,7 +1832,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -1968,7 +1846,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 6000
@@ -1983,7 +1860,6 @@
               "highlightTypeS": "1",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -1998,7 +1874,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -2013,7 +1888,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 6000
@@ -2028,7 +1902,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -2043,7 +1916,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -2058,7 +1930,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -2073,7 +1944,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -2088,7 +1958,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -2103,7 +1972,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -2118,7 +1986,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 4000
@@ -2133,7 +2000,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 6000
@@ -2148,7 +2014,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -2163,7 +2028,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 10000
@@ -2178,7 +2042,6 @@
               "highlightTypeS": "2",
               "highlightTypeV": "1",
               "type": "rolling",
-              "fullscreen": false,
               "words": null
             },
             "duration": 20000

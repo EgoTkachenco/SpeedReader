@@ -20,6 +20,7 @@ export class SettingsStore {
   async loadFromStorage() {
     let localeConfig = localStorage.getItem(SETTINGS_LOCALE_STORAGE_KEY)
     if (localeConfig) this.settings = JSON.parse(localeConfig)
+    else this.reset()
   }
 
   reset(isUpdateLocalStorage = true) {

@@ -62,9 +62,10 @@ export default function Book({
   const getNewPages = (lastPosition) => {
     const result = [[], []]
     const page_size = settings.fontType.page
+    const start = page_size * (isOddAnimation ? page - 2 : page - 1 || 0)
     for (let i = 0; i < text.length; i++) {
       const line = text[i]
-      if (line.position <= lastPosition) continue
+      if (line.position <= start) continue
 
       if (result[0].length < page_size) {
         result[0].push(line)
@@ -159,11 +160,11 @@ export default function Book({
       </div>
 
       <div className="book-bottom">
-        <img className="book-bottom__arrow left" src="/arrow-left.svg" />
+        <img className="book-bottom__arrow left" src="/arrow-left.svg" alt="arrow left" />
         <div className="book-bottom__pages">
           {page}/{maxPage}
         </div>
-        <img className="book-bottom__arrow right" src="/arrow-right.svg" />
+        <img className="book-bottom__arrow right" src="/arrow-right.svg" alt="arrow right />
       </div>
     </BookWrapper>
   )

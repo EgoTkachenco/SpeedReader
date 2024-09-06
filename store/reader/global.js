@@ -71,7 +71,7 @@ reaction(
   (fontType) => {
     if (fontType) {
       console.log('reaction font')
-      store.reader.clear()
+      store.reader.clearText()
       store.reader.loadText(true)
     }
   }

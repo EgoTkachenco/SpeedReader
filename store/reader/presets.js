@@ -25,9 +25,9 @@ export class PresetsStore {
 
   setPreset(preset) {
     this.preset = _.cloneDeep(preset)
-    this.clear()
-    if (this.exerciseTimeout) this.pause()
     this.exercise = null
+    this.clear()
+    this.finish(false)
   }
 
   setExercise(exercise) {
@@ -61,11 +61,10 @@ export class PresetsStore {
     }, 1000)
   }
 
-  finish() {
-    console.log('finish')
+  finish(isComplete = true) {
     this.isExerciseFinished = true
     this.startTime = null
-    this.global.addMessage('Completed. Congratulations!')
+    if (isComplete) this.global.addMessage('Completed. Congratulations!')
     this.settings.loadFromStorage()
     clearTimeout(this.exerciseTimeout)
     this.exerciseTimeout = null

@@ -8,6 +8,7 @@ const tutorial_video_url =
 const ExerciseHelper = ({ exercise, isExerciseActive, play, pause }) => {
   const audioRef = useRef()
   const [showTutorial, setShowTutorial] = useState(false)
+  const [isExercisePlayed, setIsExercisePlayed] = useState(false)
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.2
@@ -20,11 +21,20 @@ const ExerciseHelper = ({ exercise, isExerciseActive, play, pause }) => {
     }
   }, [isExerciseActive])
 
-  useEffect(() => {
-    console.log(showTutorial, isExerciseActive)
-    if (showTutorial && isExerciseActive) pause()
-    else if (!showTutorial && !isExerciseActive) play()
-  }, [showTutorial])
+  const onOpen = () => {
+    setShowTutorial(true)
+    if (isExerciseActive) {
+      pause()
+      setIsExercisePlayed(true)
+    }
+  }
+  const onClose = () => {
+    if (isExercisePlayed) {
+      play()
+      setIsExercisePlayed(false)
+    }
+    setShowTutorial(false)
+  }
 
   return (
     <div className="exercise-helper">
@@ -37,10 +47,8 @@ const ExerciseHelper = ({ exercise, isExerciseActive, play, pause }) => {
         />
       ) : null}
 
-      {tutorial_video_url && (
-        <Button onClick={() => setShowTutorial(true)}>How it works</Button>
-      )}
-      <Modal show={showTutorial} onClose={() => setShowTutorial(false)}>
+      {tutorial_video_url && <Button onClick={onOpen}>How it works</Button>}
+      <Modal show={showTutorial} onClose={onClose}>
         <div className="exercise-tutorial">
           <div className="exercise-tutorial__title">{exercise.name}</div>
           <video
