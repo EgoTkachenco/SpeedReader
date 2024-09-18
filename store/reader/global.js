@@ -33,14 +33,18 @@ export class Store {
   message = null
   messageTimeout = null
 
-  addMessage(message) {
+  addMessage(message, isAutoClose = true) {
     if (this.messageTimeout) clearTimeout(this.messageTimeout)
     this.message = message
-    if (message)
+    if (message && isAutoClose)
       this.messageTimeout = setTimeout(() => {
-        this.message = null
-        clearTimeout(this.messageTimeout)
+        this.clearMessage()
       }, 3000)
+  }
+
+  clearMessage() {
+    this.message = null
+    clearTimeout(this.messageTimeout)
   }
 
   reset() {

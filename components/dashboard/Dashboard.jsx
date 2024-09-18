@@ -167,7 +167,7 @@ const GoalsTable = () => {
   )
 }
 
-const PerMinuteReadingStatistic = ({ value }) => {
+export const PerMinuteReadingStatistic = ({ value }) => {
   return (
     <div className="statistic-card per-minute">
       <div className="statistic-card-content">
@@ -183,7 +183,7 @@ const PerMinuteReadingStatistic = ({ value }) => {
   )
 }
 
-const CurrentSpeedReadingStatistic = ({ value }) => {
+export const CurrentSpeedReadingStatistic = ({ value }) => {
   return (
     <div className="statistic-card current-speed">
       <div className="statistic-card-content">

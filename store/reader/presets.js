@@ -64,11 +64,19 @@ export class PresetsStore {
   finish(isComplete = true) {
     this.isExerciseFinished = true
     this.startTime = null
-    if (isComplete) this.global.addMessage('Completed. Congratulations!')
+
+    if (isComplete) {
+      const { perMinuteCount, speed } =
+        this.global.statistic.getExerciseStatistic(this.exercise.data)
+      this.global.addMessage(
+        `exercise-statistic:${perMinuteCount}:${speed}`,
+        false
+      )
+    }
+    this.reader.clear()
     this.settings.loadFromStorage()
     clearTimeout(this.exerciseTimeout)
     this.exerciseTimeout = null
-    this.reader.clear()
   }
 
   clear() {

@@ -66,6 +66,7 @@ const TrainingPage = observer(() => {
               play={() => reader.play()}
               pause={() => reader.stop()}
               message={store.message}
+              onMessageClose={() => store.clearMessage()}
               exercise={store.presets.exercise}
               isExerciseActive={store.presets.exerciseTimeout}
               onExercisePlay={() => store.presets.play()}

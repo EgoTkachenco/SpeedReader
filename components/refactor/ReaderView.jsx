@@ -19,6 +19,7 @@ const ReaderView = ({
   play,
   pause,
   message,
+  onMessageClose,
   exercise,
   isExerciseActive,
   onExercisePlay,
@@ -110,7 +111,7 @@ const ReaderView = ({
         />
       )}
 
-      <MessageBox message={message} />
+      <MessageBox message={message} onClose={onMessageClose} />
     </div>
   )
 }
