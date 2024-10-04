@@ -65,3 +65,13 @@ export const COMMENT_API = {
 
   createComment: (data) => axios.post(`/comments`, data),
 }
+
+export const getTestingExercises = () => axios.get('/testing-exercises')
+
+export const getTestingExercise = (id) => axios.get('/testing-exercises/' + id)
+
+export const getTestingResults = (user) =>
+  axios.get(`/testing-results?user_id=${user}`)
+
+export const submitQuiz = (id, data) =>
+  axios.post(`/testing-exercises/${id}/submit`, data)
