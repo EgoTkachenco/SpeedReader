@@ -28,7 +28,11 @@ const MusicSelection = ({ exercise }) => {
       />
 
       {activeSong && !isDisabled && (
-        <audio controls autoPlay style={{ marginTop: '0.5rem' }}>
+        <audio
+          controls
+          autoPlay
+          style={{ marginTop: '0.5rem', width: '100%', position: 'relative' }}
+        >
           <source src={activeSong.src} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
