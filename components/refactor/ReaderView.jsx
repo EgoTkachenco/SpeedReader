@@ -7,6 +7,7 @@ import ScrollReader from './readers/Scroll'
 import FullScreenButton from './FullScreenButton'
 import MessageBox from './MessageBox'
 import ExerciseHelper from './ExerciseHelper'
+import ExerciseProgress from './ExerciseProgress'
 
 const ReaderView = ({
   settings,
@@ -24,6 +25,8 @@ const ReaderView = ({
   isExerciseActive,
   onExercisePlay,
   onExercisePause,
+  startTime,
+  exercise_duration,
 }) => {
   const renderReader = (key) => {
     switch (settings.settings.type) {
@@ -103,11 +106,20 @@ const ReaderView = ({
       ))}
 
       {exercise && (
+        <ExerciseProgress
+          exercise={exercise}
+          isPlay={isExerciseActive}
+          onPlay={(duration) => onExercisePlay(duration)}
+          onPause={() => onExercisePause()}
+          startTime={startTime}
+          duration={exercise_duration}
+        />
+      )}
+
+      {exercise && (
         <ExerciseHelper
           exercise={exercise}
           isExerciseActive={isExerciseActive}
-          pause={onExercisePause}
-          play={onExercisePlay}
         />
       )}
 

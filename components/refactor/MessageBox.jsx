@@ -34,11 +34,12 @@ const ExerciseMessage = ({ perMinuteCount, speed, onClose = () => {} }) => {
   return (
     <div
       className="dashboard-statistic"
-      style={{ width: '100%', alignSelf: 'flex-start' }}
+      style={{ width: '100%', alignSelf: 'flex-start', textAlign: 'center' }}
     >
-      <h4 style={{ width: '100%', textAlign: 'center', margin: '24px 0' }}>
-        Exercise Statistics
+      <h4 style={{ width: '100%', margin: '24px 0' }}>
+        Congratulations on completing the exercise! Keep up the great work!
       </h4>
+      <h6 style={{ width: '100%', margin: '12px 0' }}>Exercise Statistics</h6>
 
       <PerMinuteReadingStatistic value={perMinuteCount} />
       <CurrentSpeedReadingStatistic value={speed} />

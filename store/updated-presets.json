@@ -1,2052 +1,2042 @@
 [
   {
-    "name": "Standard",
-    "exercises": [
+    "id": 1,
+    "name": "Exercise A",
+    "data": [
       {
-        "id": 1,
-        "name": "Exercise 1",
-        "data": [
-          {
-            "action": {
-              "speed": 3,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "count": 1,
-              "type": "book",
-              "fontType": {
-                "title": "Medium",
-                "key": "medium",
-                "fontSize": "1rem",
-                "page": 30,
-                "row": 55
-              },
-              "words": null,
-              "book": "5"
-            },
-            "duration": 8000
+        "action": {
+          "speed": 3,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "count": 1,
+          "type": "book",
+          "fontType": {
+            "title": "Medium",
+            "key": "medium",
+            "fontSize": "1rem",
+            "page": 30,
+            "row": 55
           },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "book",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "book",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "book",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#F78DA7",
-              "textColor": "#0693E3",
-              "pageColor": "#FCB900",
-              "rotate": true,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "book",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "book",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 9,
-              "highlightColor": "#F78DA7",
-              "textColor": "#0693E3",
-              "pageColor": "#FCB900",
-              "rotate": true,
-              "highlightTypeS": "1",
-              "highlightTypeV": "2",
-              "type": "book",
-              "words": null
-            },
-            "duration": 12000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#F78DA7",
-              "textColor": "#0693E3",
-              "pageColor": "#FCB900",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "2",
-              "type": "book",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "2",
-              "type": "book",
-              "words": null
-            },
-            "duration": 20000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "book",
-              "words": null
-            },
-            "duration": 12000
-          }
-        ]
+          "words": null,
+          "book": "5"
+        },
+        "duration": 8000
       },
       {
-        "id": 2,
-        "name": "Exercise 2",
-        "data": [
-          {
-            "action": {
-              "speed": 2,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "count": 1,
-              "type": "zoom",
-              "fontType": {
-                "title": "Medium",
-                "key": "medium",
-                "fontSize": "1rem",
-                "page": 30,
-                "row": 55
-              },
-              "words": null,
-              "book": "6"
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#FCB900",
-              "pageColor": "#000000",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#FFFFFF",
-              "pageColor": "#EB1D36",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#0693E3",
-              "pageColor": "#FCB900",
-              "rotate": true,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 9,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#EB1D36",
-              "pageColor": "#000000",
-              "rotate": true,
-              "highlightTypeS": "4",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 9,
-              "highlightColor": "#00D084",
-              "textColor": "#EB1D36",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 12000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#F78DA7",
-              "textColor": "#0693E3",
-              "pageColor": "#FCB900",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 10,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "4",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 20000
-          }
-        ]
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "book",
+          "words": null
+        },
+        "duration": 8000
       },
       {
-        "id": 3,
-        "name": "Exercise 3",
-        "data": [
-          {
-            "action": {
-              "speed": 2,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "count": 1,
-              "type": "rolling",
-              "fontType": {
-                "title": "Medium",
-                "key": "medium",
-                "fontSize": "1rem",
-                "page": 30,
-                "row": 55
-              },
-              "words": null,
-              "book": "7"
-            },
-            "duration": 6000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#FCB900",
-              "pageColor": "#000000",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#FFFFFF",
-              "pageColor": "#EB1D36",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#0693E3",
-              "pageColor": "#FCB900",
-              "rotate": true,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 9,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#EB1D36",
-              "pageColor": "#000000",
-              "rotate": true,
-              "highlightTypeS": "4",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 9,
-              "highlightColor": "#00D084",
-              "textColor": "#EB1D36",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 12000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#F78DA7",
-              "textColor": "#0693E3",
-              "pageColor": "#FCB900",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 10,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "4",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 20000
-          }
-        ]
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "book",
+          "words": null
+        },
+        "duration": 8000
       },
       {
-        "id": 4,
-        "name": "Exercise 4",
-        "data": [
-          {
-            "action": {
-              "speed": 2,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "count": 1,
-              "type": "scroll",
-              "fontType": {
-                "title": "Medium",
-                "key": "medium",
-                "fontSize": "1rem",
-                "page": 30,
-                "row": 55
-              },
-              "words": null,
-              "book": "8"
-            },
-            "duration": 6000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "scroll",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#FCB900",
-              "pageColor": "#000000",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "scroll",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "scroll",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#FFFFFF",
-              "pageColor": "#EB1D36",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "scroll",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#0693E3",
-              "pageColor": "#FCB900",
-              "rotate": true,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "scroll",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 9,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "scroll",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#EB1D36",
-              "pageColor": "#000000",
-              "rotate": true,
-              "highlightTypeS": "4",
-              "highlightTypeV": "1",
-              "type": "scroll",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 9,
-              "highlightColor": "#00D084",
-              "textColor": "#EB1D36",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "scroll",
-              "words": null
-            },
-            "duration": 12000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "scroll",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#F78DA7",
-              "textColor": "#0693E3",
-              "pageColor": "#FCB900",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "scroll",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 10,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "4",
-              "highlightTypeV": "1",
-              "type": "scroll",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "scroll",
-              "words": null
-            },
-            "duration": 20000
-          }
-        ]
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "book",
+          "words": null
+        },
+        "duration": 8000
       },
       {
-        "id": 5,
-        "name": "Exercise 5",
-        "data": [
-          {
-            "action": {
-              "speed": 4,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "count": 1,
-              "type": "book",
-              "fontType": {
-                "title": "Medium",
-                "key": "medium",
-                "fontSize": "1rem",
-                "page": 30,
-                "row": 55
-              },
-              "words": null,
-              "book": "9"
-            },
-            "duration": 6000
-          },
-          {
-            "action": {
-              "speed": 4,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "book",
-              "words": null
-            },
-            "duration": 6000
-          },
-          {
-            "action": {
-              "speed": 4,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#EB1D36",
-              "pageColor": "#000000",
-              "rotate": true,
-              "highlightTypeS": "4",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "book",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 20000
-          },
-          {
-            "action": {
-              "speed": 10,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "4",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 20000
-          }
-        ]
+        "action": {
+          "speed": 8,
+          "highlightColor": "#F78DA7",
+          "textColor": "#0693E3",
+          "pageColor": "#FCB900",
+          "rotate": true,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "book",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "book",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 9,
+          "highlightColor": "#F78DA7",
+          "textColor": "#0693E3",
+          "pageColor": "#FCB900",
+          "rotate": true,
+          "highlightTypeS": "1",
+          "highlightTypeV": "2",
+          "type": "book",
+          "words": null
+        },
+        "duration": 12000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#F78DA7",
+          "textColor": "#0693E3",
+          "pageColor": "#FCB900",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "2",
+          "type": "book",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "2",
+          "type": "book",
+          "words": null
+        },
+        "duration": 20000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "book",
+          "words": null
+        },
+        "duration": 12000
       }
     ]
   },
   {
-    "name": "Challenging",
-    "exercises": [
+    "id": 2,
+    "name": "Exercise B",
+    "data": [
       {
-        "id": 6,
-        "name": "Exercise 1",
-        "video_tutorial": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-        "audio": "/music/1.Ken Davis - Rollercoaster.mp3",
-        "data": [
-          {
-            "action": {
-              "speed": 1,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "count": 1,
-              "type": "zoom",
-              "fontType": {
-                "title": "Medium",
-                "key": "medium",
-                "fontSize": "1rem",
-                "page": 30,
-                "row": 55
-              },
-              "words": null,
-              "book": "10"
-            },
-            "duration": 4000
+        "action": {
+          "speed": 2,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "count": 1,
+          "type": "zoom",
+          "fontType": {
+            "title": "Medium",
+            "key": "medium",
+            "fontSize": "1rem",
+            "page": 30,
+            "row": 55
           },
-          {
-            "action": {
-              "speed": 3,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 2,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 4,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 3,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "4",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#EB1D36",
-              "pageColor": "#000000",
-              "rotate": false,
-              "highlightTypeS": "4",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 6000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#FCB900",
-              "pageColor": "#000000",
-              "rotate": false,
-              "highlightTypeS": "4",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 6000
-          },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#00D084",
-              "textColor": "#0693E3",
-              "pageColor": "#FCB900",
-              "rotate": false,
-              "highlightTypeS": "4",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 3,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#EB1D36",
-              "rotate": false,
-              "highlightTypeS": "8",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#0693E3",
-              "pageColor": "#FCB900",
-              "rotate": false,
-              "highlightTypeS": "8",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 4,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "16",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 3,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "4",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FCB900",
-              "rotate": false,
-              "highlightTypeS": "8",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#F78DA7",
-              "pageColor": "#000000",
-              "rotate": false,
-              "highlightTypeS": "4",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 6000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#F78DA7",
-              "rotate": false,
-              "highlightTypeS": "8",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 12000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 10,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 4,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "4",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          }
-        ]
+          "words": null,
+          "book": "6"
+        },
+        "duration": 8000
       },
       {
-        "id": 7,
-        "name": "Exercise 2",
-        "audio": "/music/2.Ken Davis - modern world.wav",
-        "data": [
-          {
-            "action": {
-              "speed": 3,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "count": 1,
-              "type": "book",
-              "fontType": {
-                "title": "Medium",
-                "key": "medium",
-                "fontSize": "1rem",
-                "page": 30,
-                "row": 55
-              },
-              "words": null,
-              "book": "11"
-            },
-            "duration": 5000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "16",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 7000
-          },
-          {
-            "action": {
-              "speed": 4,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "book",
-              "words": null
-            },
-            "duration": 5000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#EB1D36",
-              "pageColor": "#000000",
-              "rotate": false,
-              "highlightTypeS": "16",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#EB1D36",
-              "pageColor": "#000000",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "book",
-              "words": null
-            },
-            "duration": 5000
-          },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#00D084",
-              "textColor": "#0693E3",
-              "pageColor": "#FCB900",
-              "rotate": true,
-              "highlightTypeS": "16",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "book",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 10,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "book",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 9,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#EB1D36",
-              "rotate": false,
-              "highlightTypeS": "16",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 6000
-          },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "book",
-              "words": null
-            },
-            "duration": 5000
-          },
-          {
-            "action": {
-              "speed": 4,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "16",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "book",
-              "words": null
-            },
-            "duration": 5000
-          },
-          {
-            "action": {
-              "speed": 10,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "16",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 10,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFA500",
-              "rotate": false,
-              "highlightTypeS": "16",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "16",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 5000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "16",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "16",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 8000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "16",
-              "highlightTypeV": "1",
-              "type": "zoom",
-              "words": null
-            },
-            "duration": 5000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "book",
-              "words": null
-            },
-            "duration": 15000
-          }
-        ]
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
       },
       {
-        "id": 8,
-        "name": "Exercise 3",
-        "data": [
-          {
-            "action": {
-              "speed": 2,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "count": 1,
-              "type": "rolling",
-              "fontType": {
-                "title": "Medium",
-                "key": "medium",
-                "fontSize": "1rem",
-                "page": 30,
-                "row": 55
-              },
-              "words": 2,
-              "book": "1"
-            },
-            "duration": 4000
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#FCB900",
+          "pageColor": "#000000",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#FFFFFF",
+          "pageColor": "#EB1D36",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#0693E3",
+          "pageColor": "#FCB900",
+          "rotate": true,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 9,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#EB1D36",
+          "pageColor": "#000000",
+          "rotate": true,
+          "highlightTypeS": "4",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 9,
+          "highlightColor": "#00D084",
+          "textColor": "#EB1D36",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 12000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#F78DA7",
+          "textColor": "#0693E3",
+          "pageColor": "#FCB900",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 10,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "4",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 20000
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Exercise C",
+    "data": [
+      {
+        "action": {
+          "speed": 2,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "count": 1,
+          "type": "rolling",
+          "fontType": {
+            "title": "Medium",
+            "key": "medium",
+            "fontSize": "1rem",
+            "page": 30,
+            "row": 55
           },
-          {
-            "action": {
-              "speed": 4,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": 2
-            },
-            "duration": 4000
+          "words": null,
+          "book": "7"
+        },
+        "duration": 6000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#FCB900",
+          "pageColor": "#000000",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#FFFFFF",
+          "pageColor": "#EB1D36",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#0693E3",
+          "pageColor": "#FCB900",
+          "rotate": true,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 9,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#EB1D36",
+          "pageColor": "#000000",
+          "rotate": true,
+          "highlightTypeS": "4",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 9,
+          "highlightColor": "#00D084",
+          "textColor": "#EB1D36",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 12000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#F78DA7",
+          "textColor": "#0693E3",
+          "pageColor": "#FCB900",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 10,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "4",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 20000
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Exercise D",
+    "data": [
+      {
+        "action": {
+          "speed": 2,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "count": 1,
+          "type": "scroll",
+          "fontType": {
+            "title": "Medium",
+            "key": "medium",
+            "fontSize": "1rem",
+            "page": 30,
+            "row": 55
           },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": 2
-            },
-            "duration": 4000
+          "words": null,
+          "book": "8"
+        },
+        "duration": 6000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "scroll",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#FCB900",
+          "pageColor": "#000000",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "scroll",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "scroll",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#FFFFFF",
+          "pageColor": "#EB1D36",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "scroll",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#0693E3",
+          "pageColor": "#FCB900",
+          "rotate": true,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "scroll",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 9,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "scroll",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#EB1D36",
+          "pageColor": "#000000",
+          "rotate": true,
+          "highlightTypeS": "4",
+          "highlightTypeV": "1",
+          "type": "scroll",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 9,
+          "highlightColor": "#00D084",
+          "textColor": "#EB1D36",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "scroll",
+          "words": null
+        },
+        "duration": 12000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "scroll",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#F78DA7",
+          "textColor": "#0693E3",
+          "pageColor": "#FCB900",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "scroll",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 10,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "4",
+          "highlightTypeV": "1",
+          "type": "scroll",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "scroll",
+          "words": null
+        },
+        "duration": 20000
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Exercise E",
+    "data": [
+      {
+        "action": {
+          "speed": 4,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "count": 1,
+          "type": "book",
+          "fontType": {
+            "title": "Medium",
+            "key": "medium",
+            "fontSize": "1rem",
+            "page": 30,
+            "row": 55
           },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": 2
-            },
-            "duration": 6000
+          "words": null,
+          "book": "9"
+        },
+        "duration": 6000
+      },
+      {
+        "action": {
+          "speed": 4,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "book",
+          "words": null
+        },
+        "duration": 6000
+      },
+      {
+        "action": {
+          "speed": 4,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#EB1D36",
+          "pageColor": "#000000",
+          "rotate": true,
+          "highlightTypeS": "4",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "book",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 20000
+      },
+      {
+        "action": {
+          "speed": 10,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "4",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 20000
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Exercise F",
+    "video_tutorial": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    "audio": "/music/1.Ken Davis - Rollercoaster.mp3",
+    "data": [
+      {
+        "action": {
+          "speed": 1,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "count": 1,
+          "type": "zoom",
+          "fontType": {
+            "title": "Medium",
+            "key": "medium",
+            "fontSize": "1rem",
+            "page": 30,
+            "row": 55
           },
-          {
-            "action": {
-              "speed": 3,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": 3
-            },
-            "duration": 4000
+          "words": null,
+          "book": "10"
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 3,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 2,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 4,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 3,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "4",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#EB1D36",
+          "pageColor": "#000000",
+          "rotate": false,
+          "highlightTypeS": "4",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 6000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#FCB900",
+          "pageColor": "#000000",
+          "rotate": false,
+          "highlightTypeS": "4",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 6000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#00D084",
+          "textColor": "#0693E3",
+          "pageColor": "#FCB900",
+          "rotate": false,
+          "highlightTypeS": "4",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 3,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#EB1D36",
+          "rotate": false,
+          "highlightTypeS": "8",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#0693E3",
+          "pageColor": "#FCB900",
+          "rotate": false,
+          "highlightTypeS": "8",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 4,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "16",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 3,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "4",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FCB900",
+          "rotate": false,
+          "highlightTypeS": "8",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#F78DA7",
+          "pageColor": "#000000",
+          "rotate": false,
+          "highlightTypeS": "4",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 6000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#F78DA7",
+          "rotate": false,
+          "highlightTypeS": "8",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 12000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 10,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 4,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "4",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Exercise G",
+    "audio": "/music/2.Ken Davis - modern world.wav",
+    "data": [
+      {
+        "action": {
+          "speed": 3,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "count": 1,
+          "type": "book",
+          "fontType": {
+            "title": "Medium",
+            "key": "medium",
+            "fontSize": "1rem",
+            "page": 30,
+            "row": 55
           },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": 3
-            },
-            "duration": 4000
+          "words": null,
+          "book": "11"
+        },
+        "duration": 5000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "16",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 7000
+      },
+      {
+        "action": {
+          "speed": 4,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "book",
+          "words": null
+        },
+        "duration": 5000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#EB1D36",
+          "pageColor": "#000000",
+          "rotate": false,
+          "highlightTypeS": "16",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#EB1D36",
+          "pageColor": "#000000",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "book",
+          "words": null
+        },
+        "duration": 5000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#00D084",
+          "textColor": "#0693E3",
+          "pageColor": "#FCB900",
+          "rotate": true,
+          "highlightTypeS": "16",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "book",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 10,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "book",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 9,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#EB1D36",
+          "rotate": false,
+          "highlightTypeS": "16",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 6000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "book",
+          "words": null
+        },
+        "duration": 5000
+      },
+      {
+        "action": {
+          "speed": 4,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "16",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "book",
+          "words": null
+        },
+        "duration": 5000
+      },
+      {
+        "action": {
+          "speed": 10,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "16",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 10,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFA500",
+          "rotate": false,
+          "highlightTypeS": "16",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "16",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 5000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "16",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "16",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "16",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 5000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "book",
+          "words": null
+        },
+        "duration": 15000
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Exercise H",
+    "data": [
+      {
+        "action": {
+          "speed": 2,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "count": 1,
+          "type": "rolling",
+          "fontType": {
+            "title": "Medium",
+            "key": "medium",
+            "fontSize": "1rem",
+            "page": 30,
+            "row": 55
           },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": 3
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 9,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": 3
-            },
-            "duration": 6000
-          },
-          {
-            "action": {
-              "speed": 4,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": 4
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": 4
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": 4
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 10,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": 4
-            },
-            "duration": 6000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": 5
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": 5
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": 5
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": 5
-            },
-            "duration": 6000
-          },
-          {
-            "action": {
-              "speed": 2,
-              "highlightColor": "#00D084",
-              "textColor": "#000000",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 3,
-              "highlightColor": "#00D084",
-              "textColor": "#0693E3",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 4,
-              "highlightColor": "#00D084",
-              "textColor": "#0693E3",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#EB1D36",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#00D084",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#00D084",
-              "textColor": "#00D084",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 9,
-              "highlightColor": "#00D084",
-              "textColor": "#00D084",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 6000
-          },
-          {
-            "action": {
-              "speed": 8,
-              "highlightColor": "#00D084",
-              "textColor": "#00D084",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "1",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 4,
-              "highlightColor": "#00D084",
-              "textColor": "#00D084",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#00D084",
-              "textColor": "#00D084",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 6000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#00D084",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#0693E3",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#EB1D36",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#00D084",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#FCB900",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#FFA500",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#AE1CE1",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 4000
-          },
-          {
-            "action": {
-              "speed": 10,
-              "highlightColor": "#00D084",
-              "textColor": "#AE1CE1",
-              "pageColor": "#FFFFFF",
-              "rotate": true,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 6000
-          },
-          {
-            "action": {
-              "speed": 7,
-              "highlightColor": "#00D084",
-              "textColor": "#AE1CE1",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 6,
-              "highlightColor": "#00D084",
-              "textColor": "#AE1CE1",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 10000
-          },
-          {
-            "action": {
-              "speed": 5,
-              "highlightColor": "#00D084",
-              "textColor": "#AE1CE1",
-              "pageColor": "#FFFFFF",
-              "rotate": false,
-              "highlightTypeS": "2",
-              "highlightTypeV": "1",
-              "type": "rolling",
-              "words": null
-            },
-            "duration": 20000
-          }
-        ]
+          "words": 2,
+          "book": "1"
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 4,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": 2
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": 2
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": 2
+        },
+        "duration": 6000
+      },
+      {
+        "action": {
+          "speed": 3,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": 3
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": 3
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": 3
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 9,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": 3
+        },
+        "duration": 6000
+      },
+      {
+        "action": {
+          "speed": 4,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": 4
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": 4
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": 4
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 10,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": 4
+        },
+        "duration": 6000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": 5
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": 5
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": 5
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": 5
+        },
+        "duration": 6000
+      },
+      {
+        "action": {
+          "speed": 2,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 3,
+          "highlightColor": "#00D084",
+          "textColor": "#0693E3",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 4,
+          "highlightColor": "#00D084",
+          "textColor": "#0693E3",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#EB1D36",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#00D084",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#00D084",
+          "textColor": "#00D084",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 9,
+          "highlightColor": "#00D084",
+          "textColor": "#00D084",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 6000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#00D084",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 4,
+          "highlightColor": "#00D084",
+          "textColor": "#00D084",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#00D084",
+          "textColor": "#00D084",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 6000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#00D084",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#0693E3",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#EB1D36",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#00D084",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#FCB900",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#FFA500",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#AE1CE1",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 4000
+      },
+      {
+        "action": {
+          "speed": 10,
+          "highlightColor": "#00D084",
+          "textColor": "#AE1CE1",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 6000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#00D084",
+          "textColor": "#AE1CE1",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#AE1CE1",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#AE1CE1",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "rolling",
+          "words": null
+        },
+        "duration": 20000
       }
     ]
   }

@@ -172,7 +172,11 @@ export const PerMinuteReadingStatistic = ({ value }) => {
     <div className="statistic-card per-minute">
       <div className="statistic-card-content">
         <div className="statistic-card__animation">
-          <SpeedAnimation speed={(value / 1000).toFixed(2)} id="per-minute" />
+          <SpeedAnimation
+            speed={(value / 1000).toFixed(2)}
+            id="per-minute"
+            key="per-minute"
+          />
         </div>
         <div className="statistic-card__value">{value}</div>
         <div className="statistic-card__label">
@@ -188,7 +192,11 @@ export const CurrentSpeedReadingStatistic = ({ value }) => {
     <div className="statistic-card current-speed">
       <div className="statistic-card-content">
         <div className="statistic-card__animation">
-          <SpeedAnimation speed={value} id="current-speed" />
+          <SpeedAnimation
+            speed={value}
+            id="current-speed"
+            key="current-speed"
+          />
         </div>
         <div className="statistic-card__value">{value}</div>
         <div className="statistic-card__label">Current Speed Reading</div>

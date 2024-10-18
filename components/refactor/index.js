@@ -27,16 +27,10 @@ const TrainingPage = observer(() => {
           onChange={(key, val) =>
             store.settings.update(key, val, !store.presets.startTime)
           }
-          presets={store.presets.presets}
-          preset={store.presets.preset}
+          exercises={store.presets.exercises}
           exercise={store.presets.exercise}
-          onPresetOpen={(preset) => store.presets.setPreset(preset)}
           onExerciseOpen={(exercise) => store.presets.setExercise(exercise)}
-          startTime={store.presets.startTime}
           isExerciseActive={store.presets.exerciseTimeout}
-          onExercisePlay={(duration) => store.presets.play(duration)}
-          onExercisePause={() => store.presets.pause()}
-          exercise_duration={store.presets.exercise_duration}
           book={settings.book}
           books={store.books}
         />
@@ -69,8 +63,10 @@ const TrainingPage = observer(() => {
               onMessageClose={() => store.clearMessage()}
               exercise={store.presets.exercise}
               isExerciseActive={store.presets.exerciseTimeout}
-              onExercisePlay={() => store.presets.play()}
+              onExercisePlay={(duration) => store.presets.play(duration)}
               onExercisePause={() => store.presets.pause()}
+              startTime={store.presets.startTime}
+              exercise_duration={store.presets.exercise_duration}
             />
           )}
         </div>

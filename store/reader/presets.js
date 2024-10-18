@@ -5,8 +5,7 @@ import PRESETS from '../updated-presets.json'
 export class PresetsStore {
   reader = null
   settings = null
-  presets = PRESETS // list of presets
-  preset = PRESETS[0] // active preset
+  exercises = PRESETS // list of exercises
   exercise = null // active exercise
   exerciseTimeout = null // next action in exercise timeout
   isExerciseFinished = false
@@ -23,12 +22,12 @@ export class PresetsStore {
     this.settings = global.settings
   }
 
-  setPreset(preset) {
-    this.preset = _.cloneDeep(preset)
-    this.exercise = null
-    this.clear()
-    this.finish(false)
-  }
+  // setPreset(preset) {
+  //   this.preset = _.cloneDeep(preset)
+  //   this.exercise = null
+  //   this.clear()
+  //   this.finish(false)
+  // }
 
   setExercise(exercise) {
     this.exercise = _.cloneDeep(exercise)

@@ -313,6 +313,8 @@
 }
 
 .exercise-tutorial {
+  max-width: 56.125rem;
+
   &__title {
     font-weight: bold;
     text-align: center;
@@ -321,11 +323,17 @@
     color: #ffffff;
     margin-bottom: 1.5rem;
   }
+  &__text {
+    font-size: 1rem;
+    line-height: 150%;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+  }
   &__video {
     background: #2a2b43;
     border: 1px solid #b8c5f1;
     border-radius: 1rem;
-    max-width: 56.125rem;
+    width: 100%;
   }
 }
 

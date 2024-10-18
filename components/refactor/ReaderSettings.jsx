@@ -1,36 +1,31 @@
 import { Checkbox, Button, Select, ColorPicker } from '../common'
 import { useState } from 'react'
-import user_store from '../../store/'
 import { observer } from 'mobx-react-lite'
-import { useRouter } from 'next/router'
-import ExerciseProgress from './ExerciseProgress'
 import { SPEED_LEVELS, SIZES } from '../../store/constants'
 import _ from 'lodash'
 import BookListModal from './BookListModal'
+import { useClickOutside } from '@mantine/hooks'
+import HowItWorksInfo from './HowItWorksInfo'
+import MusicSelection from './MusicSelection'
 
 const ReaderSettings = observer(
   ({
     settings,
     onReset,
     onChange,
-    presets,
-    preset,
+    exercises,
     exercise,
-    onPresetOpen,
     onExerciseOpen,
     isExerciseActive,
-    startTime,
-    onExercisePlay,
-    onExercisePause,
-    exercise_duration,
     book,
     books,
   }) => {
     const [showCustom, setShowCustom] = useState(false)
-    const router = useRouter()
 
     return (
       <div className="training-settings">
+        <MusicSelection exercise={exercise} />
+        <div className="training-settings__delimiter" />
         <BookListModal
           value={book}
           onChange={(book) => onChange('book', book, !isExerciseActive)}
@@ -38,8 +33,9 @@ const ReaderSettings = observer(
           settings={settings}
         />
         <div className="training-settings__delimiter" />
-        <div className="training-settings__title">Power learning sets</div>
-        <div className="training-settings-list__vertical">
+        <HowItWorksInfo />
+        <div className="training-settings__title">Power Learning Sets</div>
+        {/* <div className="training-settings-list__vertical">
           {presets.map((el, i) => (
             <Checkbox
               key={i}
@@ -48,22 +44,18 @@ const ReaderSettings = observer(
               onChange={() => onPresetOpen(el)}
             />
           ))}
-        </div>
+        </div> */}
         <div className="training-settings-list">
-          {preset &&
-            preset.exercises.map((el, i) => (
-              <Button
-                variant={
-                  exercise?.name === el.name ? 'success' : 'success-outline'
-                }
-                key={i}
-                onClick={() => onExerciseOpen(el)}
-              >
-                {el.name}
-              </Button>
-            ))}
+          {exercises.map((el, i) => (
+            <ExerciseButton
+              key={i}
+              exercise={el}
+              isActive={exercise?.name === el.name}
+              onExerciseOpen={onExerciseOpen}
+            />
+          ))}
         </div>
-        {exercise && (
+        {/* {exercise && (
           <ExerciseProgress
             exercise={exercise}
             isPlay={!!isExerciseActive}
@@ -72,7 +64,7 @@ const ReaderSettings = observer(
             startTime={startTime}
             duration={exercise_duration}
           />
-        )}
+        )} */}
         <div className="training-settings__delimiter" />
         <div className="training-settings__title">Fonts</div>
         <div className="training-settings-list__vertical">
@@ -141,7 +133,7 @@ const ReaderSettings = observer(
           </>
         )}
 
-        <div className="training-settings__delimiter" />
+        {/* <div className="training-settings__delimiter" />
         <div className="training-settings__title">Highlight type (S)</div>
         <Select
           value={settings.highlightTypeS}
@@ -156,7 +148,8 @@ const ReaderSettings = observer(
           onChange={(value) => onChange('highlightTypeV', value)}
           options={['smooth', 2, 4, 6]}
           top="true"
-        />
+        /> */}
+
         <div className="training-settings__delimiter" />
         <Button onClick={onReset}>Reset Setting</Button>
         {/* <div className="training-settings__delimiter" />
@@ -175,3 +168,37 @@ const ReaderSettings = observer(
 )
 
 export default ReaderSettings
+
+const ExerciseButton = ({ exercise, isActive, onExerciseOpen }) => {
+  const [open, setOpen] = useState(false)
+  const openExercises = (lines) => {
+    const exerciseCopy = _.cloneDeep(exercise)
+    exerciseCopy.data[0].action.highlightTypeV = lines
+    onExerciseOpen(exerciseCopy)
+    setOpen(false)
+  }
+  const ref = useClickOutside(() => setOpen(false))
+  return (
+    <div className="exercise-select-button" ref={ref}>
+      <Button
+        variant={isActive ? 'success' : 'success-outline'}
+        onClick={() => setOpen(!open)}
+      >
+        {exercise.name}
+      </Button>
+      {open && (
+        <div className="exercise-select-button__list">
+          {[1, 2, 4, 6].map((el) => (
+            <div
+              className="exercise-select-button__list-item"
+              key={el}
+              onClick={() => openExercises(el)}
+            >
+              {exercise.name}-{el}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}

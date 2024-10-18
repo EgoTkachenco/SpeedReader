@@ -1,14 +1,8 @@
-import { useRef, useEffect, useState } from 'react'
-import { Button, Modal } from '../common'
+import { useRef, useEffect } from 'react'
 import ExerciseComments from './ExerciseComments'
 
-const tutorial_video_url =
-  'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
-
-const ExerciseHelper = ({ exercise, isExerciseActive, play, pause }) => {
+const ExerciseHelper = ({ exercise, isExerciseActive }) => {
   const audioRef = useRef()
-  const [showTutorial, setShowTutorial] = useState(false)
-  const [isExercisePlayed, setIsExercisePlayed] = useState(false)
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = 0.2
@@ -21,21 +15,6 @@ const ExerciseHelper = ({ exercise, isExerciseActive, play, pause }) => {
     }
   }, [isExerciseActive])
 
-  const onOpen = () => {
-    setShowTutorial(true)
-    if (isExerciseActive) {
-      pause()
-      setIsExercisePlayed(true)
-    }
-  }
-  const onClose = () => {
-    if (isExercisePlayed) {
-      play()
-      setIsExercisePlayed(false)
-    }
-    setShowTutorial(false)
-  }
-
   return (
     <div className="exercise-helper">
       {exercise.audio ? (
@@ -46,18 +25,6 @@ const ExerciseHelper = ({ exercise, isExerciseActive, play, pause }) => {
           loop
         />
       ) : null}
-
-      {tutorial_video_url && <Button onClick={onOpen}>How it works</Button>}
-      <Modal show={showTutorial} onClose={onClose}>
-        <div className="exercise-tutorial">
-          <div className="exercise-tutorial__title">{exercise.name}</div>
-          <video
-            src={tutorial_video_url}
-            controls
-            className="exercise-tutorial__video"
-          />
-        </div>
-      </Modal>
 
       <ExerciseComments exercise={exercise} />
     </div>

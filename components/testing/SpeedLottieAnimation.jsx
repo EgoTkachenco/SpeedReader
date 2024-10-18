@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react'
 
 const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
   useEffect(() => {
-    if (window && window.lottie) setState({ ...state, ready: true })
-  }, [window.lottie])
+    setState({ ...state, ready: true })
+  }, [])
 
   const [state, setState] = useState({
     ready: false,
@@ -36,6 +36,7 @@ const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
       animationData.layers[0].ef[0].ef[0].v.k = parseInt((speed * 270) / 12)
 
     const container = document.getElementById(id)
+    container.innerHTML = ''
     const options = {
       loop: true,
       autoplay: true,
@@ -48,16 +49,7 @@ const SpeedLottieAnimation = ({ speed, id = 'speed-animation-view' }) => {
 
     setState({ ...state, animationData, animation })
   }
-  return (
-    <>
-      <Script
-        src="/lottie.js"
-        strategy="lazyOnload"
-        onLoad={() => setState({ ...state, ready: true })}
-      />
-      {state.ready ? <div id={id} /> : <div>Loading</div>}
-    </>
-  )
+  return state.ready ? <div id={id} /> : <div>Loading</div>
 }
 
 export default SpeedLottieAnimation
