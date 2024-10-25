@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 const ANIMATION_DURATION = 600
 
@@ -6,6 +7,7 @@ export default function Book({
   text,
   currentPosition,
   page,
+  changePage,
   maxPage,
   rowsPerLine,
   animationKey,
@@ -160,18 +162,24 @@ export default function Book({
       </div>
 
       <div className="book-bottom">
-        <img
+        <Image
+          width={69}
+          height={20}
           className="book-bottom__arrow left"
           src="/arrow-left.svg"
           alt="arrow left"
+          onClick={() => changePage(false)}
         />
         <div className="book-bottom__pages">
           {page}/{maxPage}
         </div>
-        <img
+        <Image
           className="book-bottom__arrow right"
           src="/arrow-right.svg"
           alt="arrow right"
+          width={69}
+          height={20}
+          onClick={() => changePage(true)}
         />
       </div>
     </BookWrapper>

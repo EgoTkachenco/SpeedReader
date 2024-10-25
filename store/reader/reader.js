@@ -50,6 +50,10 @@ export class ReaderStore {
     this.text = [...o_b, ...n_b]
     this.isFetch = false
 
+    console.log(
+      `[READER] Load Text: page: ${this.page} _start: ${_start} text total size: ${this.text.length}`
+    )
+
     if (_start === 0) {
       this.isEnd = false
       this.last_position = book.size
@@ -60,17 +64,21 @@ export class ReaderStore {
   }
 
   start() {
+    console.log(`[READER] Start`)
     this.clear()
     this.loadText()
   }
   play() {
+    console.log(`[READER] Play`)
     this.next()
   }
   stop() {
+    console.log(`[READER] Stop`)
     clearTimeout(this.timeout)
     this.timeout = null
   }
   clear() {
+    console.log(`[READER] Clear`)
     this.stop()
     this.current_position = -1
     this.last_position = 0
@@ -178,6 +186,29 @@ export class ReaderStore {
 
     // need to return new position and text
     return { position, text: result }
+  }
+
+  changePage(direction = true) {
+    if (direction) this.nextPage()
+    else this.prevPage()
+  }
+
+  nextPage() {
+    if (this.page >= this.last_page - 1) return // перевірка, щоб не вийти за межі останньої сторінки
+    const PAGE_SIZE = this.settings.settings.fontType.page
+    const next_page = this.page % 2 === 1 ? this.page + 2 : this.page + 1
+    const next_page_position = this.text[(next_page - 1) * PAGE_SIZE].position
+    console.log(this.page, this.current_position, next_page, next_page_position)
+    this.current_position = next_page_position
+  }
+
+  prevPage() {
+    if (this.page <= 2) return // перевірка, щоб не вийти за межі перших двох сторінок
+    const PAGE_SIZE = this.settings.settings.fontType.page
+    const prev_page = this.page % 2 === 1 ? this.page - 2 : this.page - 3
+    const prev_page_position = this.text[(prev_page - 1) * PAGE_SIZE].position
+    console.log(this.page, this.current_position, prev_page, prev_page_position)
+    this.current_position = prev_page_position
   }
 
   get page() {

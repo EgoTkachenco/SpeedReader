@@ -11,7 +11,7 @@ export const SIZES = {
     key: 'small',
     fontSize: '0.8rem',
     page: 35,
-    row: 70,
+    row: 80,
   },
   medium: {
     title: 'Medium',

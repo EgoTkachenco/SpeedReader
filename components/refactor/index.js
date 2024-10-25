@@ -55,6 +55,7 @@ const TrainingPage = observer(() => {
               currentText={reader.current_text}
               currentPosition={reader.current_position}
               page={reader.page}
+              changePage={(direction) => reader.changePage(direction)}
               maxPage={reader.last_page}
               rowsPerLine={reader.active_lines_count}
               play={() => reader.play()}

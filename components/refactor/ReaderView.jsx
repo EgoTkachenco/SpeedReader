@@ -16,6 +16,7 @@ const ReaderView = ({
   currentPosition,
   rowsPerLine,
   page,
+  changePage,
   maxPage,
   play,
   pause,
@@ -71,6 +72,7 @@ const ReaderView = ({
             text={text}
             currentPosition={currentPosition}
             page={page}
+            changePage={changePage}
             maxPage={maxPage}
             speed={settings.speed}
             rowsPerLine={rowsPerLine}

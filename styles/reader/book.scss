@@ -257,6 +257,12 @@
     width: 100%;
     height: 0;
   }
+
+  &.rotate .row-back {
+    bottom: -0.0675rem;
+    top: unset;
+  }
+
   .active .row-back {
     height: calc(100% + 0.125rem);
     border-radius: 100px;

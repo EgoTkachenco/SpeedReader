@@ -173,7 +173,11 @@ const ExerciseButton = ({ exercise, isActive, onExerciseOpen }) => {
   const [open, setOpen] = useState(false)
   const openExercises = (lines) => {
     const exerciseCopy = _.cloneDeep(exercise)
-    exerciseCopy.data[0].action.highlightTypeV = lines
+    exerciseCopy.data = exerciseCopy.data.map((el) => ({
+      ...el,
+      action: { ...el.action, highlightTypeV: lines, highlightTypeS: 1 },
+    }))
+    // exerciseCopy.data[0].action.highlightTypeV = lines
     onExerciseOpen(exerciseCopy)
     setOpen(false)
   }

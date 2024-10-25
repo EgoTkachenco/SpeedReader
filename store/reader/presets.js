@@ -1,11 +1,12 @@
 import { makeAutoObservable, computed } from 'mobx'
 // import { PRESETS } from '../presets'
-import PRESETS from '../updated-presets.json'
+// import PRESETS from '../updated-presets.json'
+import EXERCISES from '../EXERCISES.json'
 
 export class PresetsStore {
   reader = null
   settings = null
-  exercises = PRESETS // list of exercises
+  exercises = EXERCISES // list of exercises
   exercise = null // active exercise
   exerciseTimeout = null // next action in exercise timeout
   isExerciseFinished = false
