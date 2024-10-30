@@ -2270,9 +2270,9 @@
       {
         "action": {
           "speed": 7,
-          "highlightColor": "#00D084",
+          "highlightColor": "#F78DA7",
           "textColor": "#00D084",
-          "pageColor": "#FFFFFF",
+          "pageColor": "#e2e8f0",
           "rotate": false,
           "highlightTypeS": "1",
           "highlightTypeV": "",
@@ -2284,9 +2284,9 @@
       {
         "action": {
           "speed": 7,
-          "highlightColor": "#00D084",
+          "highlightColor": "#F78DA7",
           "textColor": "#00D084",
-          "pageColor": "#FFFFFF",
+          "pageColor": "#e2e8f0",
           "rotate": true,
           "highlightTypeS": "2",
           "highlightTypeV": "",
@@ -2298,9 +2298,9 @@
       {
         "action": {
           "speed": 7,
-          "highlightColor": "#00D084",
+          "highlightColor": "#F78DA7",
           "textColor": "#00D084",
-          "pageColor": "#FFFFFF",
+          "pageColor": "#e2e8f0",
           "rotate": true,
           "highlightTypeS": "4",
           "highlightTypeV": "",
@@ -2312,9 +2312,9 @@
       {
         "action": {
           "speed": 7,
-          "highlightColor": "#00D084",
+          "highlightColor": "#F78DA7",
           "textColor": "#00D084",
-          "pageColor": "#FFFFFF",
+          "pageColor": "#e2e8f0",
           "rotate": false,
           "highlightTypeS": "6",
           "highlightTypeV": "",
@@ -2326,9 +2326,9 @@
       {
         "action": {
           "speed": 9,
-          "highlightColor": "#00D084",
+          "highlightColor": "#F78DA7",
           "textColor": "#00D084",
-          "pageColor": "#FFFFFF",
+          "pageColor": "#e2e8f0",
           "rotate": false,
           "highlightTypeS": "1",
           "highlightTypeV": "",
