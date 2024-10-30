@@ -18,21 +18,21 @@ export const SIZES = {
     key: 'medium',
     fontSize: '1rem',
     page: 30,
-    row: 55,
+    row: 65,
   },
   large: {
     title: 'Large',
     key: 'large',
     fontSize: '1.25rem',
     page: 25,
-    row: 45,
+    row: 55,
   },
   extraLarge: {
     title: 'Extra Large',
     key: 'extraLarge',
     fontSize: '1.45rem',
     page: 20,
-    row: 40,
+    row: 45,
   },
 }
 

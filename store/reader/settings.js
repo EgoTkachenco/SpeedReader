@@ -14,7 +14,7 @@ export class SettingsStore {
       speed: computed,
     })
     this.useLocaleStorage = useLocaleStorage
-    // if (useLocaleStorage) this.loadFromStorage()
+    if (useLocaleStorage && process.browser) this.loadFromStorage()
   }
 
   async loadFromStorage() {

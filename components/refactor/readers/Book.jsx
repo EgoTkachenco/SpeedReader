@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 const ANIMATION_DURATION = 600
 
 export default function Book({
@@ -16,71 +16,64 @@ export default function Book({
   onAnimationEnd,
 }) {
   const [state, setState] = useState([[], [], [], []])
-  const [pageAnimation, setPageAnimation] = useState(false)
-  const [isOddAnimation, setIsOddAnimation] = useState(false)
+  const [prevPage, setPrevPage] = useState(0)
+  const [pageAnimation, setPageAnimation] = useState(0)
   const highlightType = settings.highlightTypeS ? 'S' : 'V'
 
-  const turnPage = () => {
+  const currentPages = useMemo(() => {
+    const pageSize = settings.fontType.page
+    // Split text into pages by page size
+    const allPages = []
+    for (let i = 0; i < text.length; i += pageSize) {
+      allPages.push(text.slice(i, i + pageSize))
+    }
+
+    const currentPageNumber = page || 1
+    const isOdd = currentPageNumber % 2 == 1
+    const currentPagesStart = isOdd
+      ? currentPageNumber - 1
+      : currentPageNumber - 2
+
+    const currentPages = allPages.slice(
+      currentPagesStart,
+      currentPagesStart + 4
+    )
+
+    return currentPages
+  }, [page, text, settings])
+
+  useEffect(() => {
+    const isChanged = prevPage !== page
+    const isOdd = page % 2 == 1
+    const isNextPage = prevPage < page
+
+    setPrevPage(page)
+
+    if (!isChanged) setState(currentPages)
+    else if (isNextPage && isOdd && page !== 1) turnPage(currentPages)
+    else if (!isNextPage && isOdd) turnPage(currentPages, true)
+  }, [currentPages])
+
+  const turnPage = (pages, isReverse = false) => {
     onAnimationStart()
-    setPageAnimation(true)
-    const new_pages = getNewPages(state[1][state[1].length - 1].position)
-    setState((state) => [...state.slice(0, 2), ...new_pages])
+    setPageAnimation(isReverse ? -1 : 1)
+
+    setState((state) => [...state.slice(0, 2), ...pages])
 
     setTimeout(() => {
-      setState((state) => [...state.slice(2, 4), [], []])
-      setPageAnimation(false)
-      setTimeout(() => onAnimationEnd(), 100)
+      setState([...pages])
+      setPageAnimation(0)
+      setTimeout(() => onAnimationEnd(), 10)
     }, ANIMATION_DURATION)
   }
-  useEffect(() => {
-    // first load
-    if (state[0].length === 0) {
-      const new_pages = getNewPages(currentPosition - 1 || 0)
-      setState([...new_pages, [], []])
-      return
-    }
-    const last_position = state[1][state[1].length - 1].position
-    if (last_position < currentPosition && !pageAnimation) turnPage()
-    return
-  }, [currentPosition])
 
+  // Odd animation indicator toggle every iteration
+  const [isOddAnimation, setIsOddAnimation] = useState(false)
   useEffect(() => {
     setIsOddAnimation(!isOddAnimation)
   }, [currentPosition])
 
-  useEffect(() => {
-    if (settings.book) {
-      const new_pages = getNewPages(0)
-      setState([...new_pages, [], []])
-    } else {
-      setState([[], [], [], []])
-    }
-  }, [settings.book])
-
-  useEffect(() => {
-    setState([[], [], [], []])
-  }, [settings.fontType])
-
-  const getNewPages = (lastPosition) => {
-    const result = [[], []]
-    const page_size = settings.fontType.page
-    const start = page_size * (isOddAnimation ? page - 2 : page - 1 || 0)
-    for (let i = 0; i < text.length; i++) {
-      const line = text[i]
-      if (line.position <= start) continue
-
-      if (result[0].length < page_size) {
-        result[0].push(line)
-      } else if (result[1].length < page_size) {
-        result[1].push(line)
-      } else {
-        break
-      }
-    }
-    return result
-  }
-
-  const getPage = (page, key) => {
+  const getPage = (page = [], key) => {
     if (page.length === 0) return
 
     return page.map((line, i) => (
@@ -101,6 +94,7 @@ export default function Book({
   }
   const page1Name = 'page-1_' + animationKey
   const page2Name = 'page-2_' + animationKey
+
   return (
     <BookWrapper
       rotate={settings.rotate}
@@ -132,7 +126,8 @@ export default function Book({
           type="radio"
           name={page1Name}
           id={page1Name}
-          checked={!pageAnimation}
+          checked={pageAnimation !== 0}
+          className={pageAnimation == -1 ? 'reverse' : ''}
           readOnly
         />
 
@@ -140,7 +135,8 @@ export default function Book({
           type="radio"
           name={page2Name}
           id={page2Name}
-          checked={pageAnimation}
+          checked={pageAnimation !== 0}
+          className={pageAnimation == -1 ? 'reverse' : ''}
           readOnly
         />
 

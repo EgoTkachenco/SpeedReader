@@ -31,11 +31,10 @@ export class ReaderStore {
     const book = this.settings.settings.book
     if (!book.id) return
 
-    // let _start = page * PAGE_SIZE this.text[this.text.length - 1]?.position || 0
-    const PAGE_SIZE = this.settings.settings.fontType.page
-    let _start = (this.page > 0 ? this.page - 1 : 0) * PAGE_SIZE || 0
+    let _start = this.text.length || 0
 
     this.isFetch = true
+
     const new_text = await BOOKS_API.getBookText(book.id, {
       _start: _start,
       _limit: this.block_size,
@@ -49,7 +48,6 @@ export class ReaderStore {
 
     this.text = [...o_b, ...n_b]
     this.isFetch = false
-
     console.log(
       `[READER] Load Text: page: ${this.page} _start: ${_start} text total size: ${this.text.length}`
     )
@@ -57,26 +55,31 @@ export class ReaderStore {
     if (_start === 0) {
       this.isEnd = false
       this.last_position = book.size
-      this.next(isPlay)
+      this.triggerNext(isPlay)
     } else if (!this.isEnd && isPlay) {
-      this.next(isPlay)
+      // this.triggerNext(isPlay)
     }
   }
 
   start() {
     console.log(`[READER] Start`)
     this.clear()
-    this.loadText()
+    this.loadText().then(() => {
+      this.current_position = 0
+    })
   }
+
   play() {
     console.log(`[READER] Play`)
     this.next()
   }
+
   stop() {
     console.log(`[READER] Stop`)
     clearTimeout(this.timeout)
     this.timeout = null
   }
+
   clear() {
     console.log(`[READER] Clear`)
     this.stop()
@@ -92,6 +95,12 @@ export class ReaderStore {
     this.text = []
   }
 
+  async triggerNext(isPlay) {
+    clearTimeout(this.timeout)
+    const timeoutTime = this.settings.speed
+    this.timeout = setTimeout(() => this.next(isPlay), timeoutTime)
+  }
+
   async next(isPlay = true) {
     try {
       // Calculate time for next action
@@ -99,6 +108,7 @@ export class ReaderStore {
       const timeoutTime = this.settings.speed
 
       const { position, text } = this.next_position()
+      console.log(`[READER] Next iteration ${position}`)
       this.current_text = text
       this.current_position = position
 

@@ -8,7 +8,8 @@ import ReaderView from './ReaderView'
 
 const TrainingPage = observer(() => {
   useEffect(() => {
-    if (process.browser) store.settings.loadFromStorage()
+    if (process.browser && store.settings.settings.book) store.reader.start()
+
     return () => {
       store.reader.clear()
     }

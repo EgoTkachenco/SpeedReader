@@ -19,7 +19,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 55
+            "row": 65
           },
           "words": null,
           "book": "5"
@@ -174,7 +174,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 55
+            "row": 65
           },
           "words": null,
           "book": "6"
@@ -371,7 +371,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 55
+            "row": 65
           },
           "words": null,
           "book": "7"
@@ -568,7 +568,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 55
+            "row": 65
           },
           "words": null,
           "book": "8"
@@ -765,7 +765,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 55
+            "row": 65
           },
           "words": null,
           "book": "9"
@@ -908,7 +908,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 55
+            "row": 65
           },
           "words": null,
           "book": "10"
@@ -1246,7 +1246,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 55
+            "row": 65
           },
           "words": null,
           "book": "11"
@@ -1528,7 +1528,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 55
+            "row": 65
           },
           "words": 2,
           "book": "1"
@@ -2054,7 +2054,7 @@
           "pageColor": "#FFFFFF",
           "rotate": false,
           "highlightTypeS": "1",
-          "highlightTypeV": "1",
+          "highlightTypeV": "",
           "count": 1,
           "type": "book",
           "fontType": {
@@ -2062,7 +2062,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 55
+            "row": 65
           },
           "words": null,
           "book": "1"
@@ -2076,8 +2076,8 @@
           "textColor": "#000000",
           "pageColor": "#FFFFFF",
           "rotate": false,
-          "highlightTypeS": "1",
-          "highlightTypeV": "2",
+          "highlightTypeS": "2",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2090,8 +2090,8 @@
           "textColor": "#000000",
           "pageColor": "#FFFFFF",
           "rotate": true,
-          "highlightTypeS": "1",
-          "highlightTypeV": "4",
+          "highlightTypeS": "4",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2104,8 +2104,8 @@
           "textColor": "#000000",
           "pageColor": "#FFFFFF",
           "rotate": false,
-          "highlightTypeS": "1",
-          "highlightTypeV": "6",
+          "highlightTypeS": "6",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2119,7 +2119,7 @@
           "pageColor": "#FFFFFF",
           "rotate": false,
           "highlightTypeS": "1",
-          "highlightTypeV": "1",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2133,7 +2133,7 @@
           "pageColor": "#000000",
           "rotate": false,
           "highlightTypeS": "1",
-          "highlightTypeV": "1",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2146,8 +2146,8 @@
           "textColor": "#EB1D36",
           "pageColor": "#000000",
           "rotate": false,
-          "highlightTypeS": "1",
-          "highlightTypeV": "2",
+          "highlightTypeS": "2",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2160,8 +2160,8 @@
           "textColor": "#EB1D36",
           "pageColor": "#000000",
           "rotate": true,
-          "highlightTypeS": "1",
-          "highlightTypeV": "4",
+          "highlightTypeS": "4",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2174,8 +2174,8 @@
           "textColor": "#EB1D36",
           "pageColor": "#000000",
           "rotate": false,
-          "highlightTypeS": "1",
-          "highlightTypeV": "6",
+          "highlightTypeS": "6",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2189,7 +2189,7 @@
           "pageColor": "#000000",
           "rotate": false,
           "highlightTypeS": "1",
-          "highlightTypeV": "1",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2204,7 +2204,7 @@
           "pageColor": "#FCB900",
           "rotate": false,
           "highlightTypeS": "1",
-          "highlightTypeV": "1",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2217,8 +2217,8 @@
           "textColor": "#0693E3",
           "pageColor": "#FCB900",
           "rotate": true,
-          "highlightTypeS": "1",
-          "highlightTypeV": "2",
+          "highlightTypeS": "2",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2231,8 +2231,8 @@
           "textColor": "#0693E3",
           "pageColor": "#FCB900",
           "rotate": false,
-          "highlightTypeS": "1",
-          "highlightTypeV": "4",
+          "highlightTypeS": "4",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2245,8 +2245,8 @@
           "textColor": "#0693E3",
           "pageColor": "#FCB900",
           "rotate": false,
-          "highlightTypeS": "1",
-          "highlightTypeV": "6",
+          "highlightTypeS": "6",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2260,7 +2260,7 @@
           "pageColor": "#FCB900",
           "rotate": false,
           "highlightTypeS": "1",
-          "highlightTypeV": "1",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2275,7 +2275,7 @@
           "pageColor": "#FFFFFF",
           "rotate": false,
           "highlightTypeS": "1",
-          "highlightTypeV": "1",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2288,8 +2288,8 @@
           "textColor": "#00D084",
           "pageColor": "#FFFFFF",
           "rotate": true,
-          "highlightTypeS": "1",
-          "highlightTypeV": "2",
+          "highlightTypeS": "2",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2302,8 +2302,8 @@
           "textColor": "#00D084",
           "pageColor": "#FFFFFF",
           "rotate": true,
-          "highlightTypeS": "1",
-          "highlightTypeV": "4",
+          "highlightTypeS": "4",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2316,8 +2316,8 @@
           "textColor": "#00D084",
           "pageColor": "#FFFFFF",
           "rotate": false,
-          "highlightTypeS": "1",
-          "highlightTypeV": "6",
+          "highlightTypeS": "6",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2331,7 +2331,7 @@
           "pageColor": "#FFFFFF",
           "rotate": false,
           "highlightTypeS": "1",
-          "highlightTypeV": "1",
+          "highlightTypeV": "",
           "type": "book",
           "words": null
         },
@@ -2345,8 +2345,8 @@
           "textColor": "#000000",
           "pageColor": "#FFFFFF",
           "rotate": false,
-          "highlightTypeS": "1",
-          "highlightTypeV": "2",
+          "highlightTypeS": "2",
+          "highlightTypeV": "",
           "type": "scroll",
           "words": null
         },
@@ -2359,8 +2359,8 @@
           "textColor": "#000000",
           "pageColor": "#FFFFFF",
           "rotate": true,
-          "highlightTypeS": "1",
-          "highlightTypeV": "4",
+          "highlightTypeS": "4",
+          "highlightTypeV": "",
           "type": "scroll",
           "words": null
         },
@@ -2373,8 +2373,8 @@
           "textColor": "#000000",
           "pageColor": "#FFFFFF",
           "rotate": false,
-          "highlightTypeS": "1",
-          "highlightTypeV": "6",
+          "highlightTypeS": "6",
+          "highlightTypeV": "",
           "type": "scroll",
           "words": null
         },
@@ -2387,8 +2387,8 @@
           "textColor": "#000000",
           "pageColor": "#FFFFFF",
           "rotate": false,
-          "highlightTypeS": "1",
-          "highlightTypeV": "4",
+          "highlightTypeS": "4",
+          "highlightTypeV": "",
           "type": "scroll",
           "words": null
         },
@@ -2401,8 +2401,8 @@
           "textColor": "#000000",
           "pageColor": "#FFFFFF",
           "rotate": false,
-          "highlightTypeS": "1",
-          "highlightTypeV": "2",
+          "highlightTypeS": "2",
+          "highlightTypeV": "",
           "type": "scroll",
           "words": null
         },
