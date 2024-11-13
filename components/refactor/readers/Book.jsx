@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 const ANIMATION_DURATION = 600
 
 export default function Book({
@@ -49,7 +49,7 @@ export default function Book({
 
     setPrevPage(page)
 
-    if (!isChanged) setState(currentPages)
+    if (!isChanged || prevPage === 0) setState(currentPages)
     else if (isNextPage && isOdd && page !== 1) turnPage(currentPages)
     else if (!isNextPage && isOdd) turnPage(currentPages, true)
   }, [currentPages])
@@ -73,27 +73,33 @@ export default function Book({
     setIsOddAnimation(!isOddAnimation)
   }, [currentPosition])
 
-  const getPage = (page = [], key) => {
-    if (page.length === 0) return
+  const getPage = useCallback(
+    (page = [], key) => {
+      if (page.length === 0) return
 
-    return page.map((line, i) => (
-      <Row
-        key={key + '-' + line.position}
-        isRead={line.position <= currentPosition}
-        background={settings.highlightColor}
-        color={settings.textColor}
-        transition={speed}
-        isOdd={isOddAnimation}
-        // isOdd={Math.floor(i / rowsPerLine) % 2 === 0}
-        fontType={settings.fontType}
-        isTransition={rowsPerLine === 1 || highlightType !== 'V'}
-      >
-        {line.text}
-      </Row>
-    ))
-  }
+      return page.map((line, i) => (
+        <Row
+          key={key + '-' + line.position}
+          isRead={line.position <= currentPosition}
+          background={settings.highlightColor}
+          color={settings.textColor}
+          transition={speed}
+          isOdd={isOddAnimation}
+          // isOdd={Math.floor(i / rowsPerLine) % 2 === 0}
+          fontType={settings.fontType}
+          isTransition={rowsPerLine === 1 || highlightType !== 'V'}
+        >
+          {line.text}
+        </Row>
+      ))
+    },
+    [settings, rowsPerLine, highlightType, currentPosition]
+  )
+
   const page1Name = 'page-1_' + animationKey
   const page2Name = 'page-2_' + animationKey
+
+  console.log(currentPosition, currentPages)
 
   return (
     <BookWrapper

@@ -28,6 +28,7 @@ export class ReaderStore {
   }
 
   async loadText(isPlay = true) {
+    debugger
     const book = this.settings.settings.book
     if (!book.id) return
 

@@ -5,8 +5,14 @@ export default function Zoom({ settings, text, speed }) {
   const [state, setState] = useState(null)
   useEffect(() => {
     setState(false)
-    setTimeout(() => setState(true), 1)
+    const timeout = setTimeout(() => setState(true), 1)
+
+    return () => {
+      setState(false)
+      clearTimeout(timeout)
+    }
   }, [text])
+
   return (
     <div
       className="zoom-reader"
