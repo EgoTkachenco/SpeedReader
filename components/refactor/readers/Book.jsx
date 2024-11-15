@@ -63,6 +63,7 @@ export default function Book({
     setTimeout(() => {
       setState([...pages])
       setPageAnimation(0)
+
       setTimeout(() => onAnimationEnd(), 10)
     }, ANIMATION_DURATION)
   }
@@ -98,8 +99,6 @@ export default function Book({
 
   const page1Name = 'page-1_' + animationKey
   const page2Name = 'page-2_' + animationKey
-
-  console.log(currentPosition, currentPages)
 
   return (
     <BookWrapper

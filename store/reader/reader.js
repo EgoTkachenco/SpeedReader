@@ -28,7 +28,6 @@ export class ReaderStore {
   }
 
   async loadText(isPlay = true) {
-    debugger
     const book = this.settings.settings.book
     if (!book.id) return
 
@@ -71,6 +70,8 @@ export class ReaderStore {
   }
 
   play() {
+    if (this.parent.presets.exercise && !this.parent.presets.exerciseTimeout)
+      return
     console.log(`[READER] Play`)
     this.next()
   }
