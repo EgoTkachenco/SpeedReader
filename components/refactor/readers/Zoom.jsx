@@ -26,12 +26,16 @@ export default function Zoom({ settings, text, speed }) {
       <style>
         {`
 					.zoom-enter-active {
-						animation-duration: ${speed}ms;
+						animation-duration: ${speed > 100 ? speed : 0}ms;
 					}
 				`}
       </style>
       <div className="zoom-reader-content">
-        <CSSTransition in={state} timeout={2000} classNames="zoom">
+        <CSSTransition
+          in={state}
+          timeout={speed > 100 ? speed : 0}
+          classNames="zoom"
+        >
           <div>
             {text.map(({ text, position }) => (
               <pre key={position}>{text}</pre>
