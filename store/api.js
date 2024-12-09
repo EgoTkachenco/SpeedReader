@@ -75,3 +75,6 @@ export const getTestingResults = (user) =>
 
 export const submitQuiz = (id, data) =>
   axios.post(`/testing-exercises/${id}/submit`, data)
+
+export const getStatistics = (user) =>
+  axios.get(`/testing-results/statistics?user_id=${user}`)

@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import Chart from 'chart.js/auto'
 import {
-  getTestingExercise,
   getTestingExercises,
   getTestingResults,
+  getStatistics,
 } from '../../store/api'
 import { Button } from '../common'
 import { format, formatDistance, formatDistanceStrict } from 'date-fns'
@@ -15,9 +16,14 @@ const Dashboard = ({ startTest, user }) => {
       .catch((error) => console.log(error.message))
   }, [])
   const [exerciseResults, setExerciseResults] = useState(null)
+  const [statistics, setStatistics] = useState(null)
   useEffect(() => {
     getTestingResults(user)
       .then(setExerciseResults)
+      .catch((error) => console.log(error.message))
+
+    getStatistics(user)
+      .then(setStatistics)
       .catch((error) => console.log(error.message))
   }, [user])
 
@@ -28,6 +34,7 @@ const Dashboard = ({ startTest, user }) => {
 
       <TestExercisesTable data={exercises} onTestStart={startTest} />
       <TestResultsTable data={exerciseResults} />
+      <TestResultsStatistics data={statistics} />
     </div>
   )
 }
@@ -126,6 +133,91 @@ const TestResultsTable = ({ data = [] }) => {
             ))}
         </tbody>
       </table>
+    </div>
+  )
+}
+
+const TestResultsStatistics = ({ data = [] }) => {
+  const chartRef = useRef(null)
+
+  useEffect(() => {
+    if (!data) return
+    const ctx = chartRef.current.getContext('2d')
+
+    const formattedData = {
+      labels: data.map((item) => item.date),
+      datasets: [
+        // {
+        //   label: 'Time',
+        //   data: data.map((item) => ({
+        //     value: new Date().getTime() - (new Date().getTime() - item.time),
+        //     label: formatDistance(
+        //       new Date(),
+        //       new Date(new Date().getTime() - item.time)
+        //     ),
+        //   })),
+        //   borderColor: 'rgba(75, 192, 192, 1)',
+        //   backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        //   borderWidth: 2,
+        //   fill: true,
+        //   tension: 0.4, // For smooth curves
+        // },
+        {
+          label: 'Score',
+          data: data.map((item) =>
+            isNaN(parseFloat(item.score)) ? 0 : parseFloat(item.score)
+          ),
+          borderColor: 'rgba(255, 99, 132, 1)',
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderWidth: 2,
+          fill: true,
+          tension: 0.4,
+        },
+      ],
+    }
+
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: formattedData,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white', // Legend text color
+            },
+          },
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: 'white', // X-axis label color
+            },
+          },
+          y: {
+            ticks: {
+              color: 'white', // Y-axis label color,
+              stepSize: 0.1,
+            },
+          },
+        },
+      },
+    })
+
+    return () => {
+      chart.destroy() // Clean up chart on unmount
+    }
+  }, [data])
+
+  return (
+    <div
+      className="testing-dashboard-item test-table"
+      style={{ width: '100%' }}
+    >
+      <div className="testing-dashboard-item__title">Statistics</div>
+      <div style={{ backgroundColor: 'black', padding: '20px' }}>
+        <canvas ref={chartRef} />
+      </div>
     </div>
   )
 }
