@@ -4,6 +4,7 @@ const TYPES = {
   'success-outline': 'btn-success-outline',
   text: 'btn-text',
   'light-primary': 'btn-light-primary',
+  dark: 'btn-dark',
 }
 
 const Button = ({ children, type, variant, onClick, disabled }) => {

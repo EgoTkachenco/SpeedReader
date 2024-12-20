@@ -34,23 +34,14 @@ const TrainingPage = observer(() => {
           isExerciseActive={store.presets.exerciseTimeout}
           book={settings.book}
           books={store.books}
+          reader={reader}
         />
         <div className="training-right">
-          {/* <BooksList
-            value={settings.book}
-            onChange={(value) =>
-              store.settings.update(
-                'book',
-                value,
-                !store.presets.exerciseTimeout
-              )
-            }
-            list={store.books}
-          /> */}
           {reader.isEnd ? (
             <BookEnd />
           ) : (
             <ReaderView
+              reader={reader}
               settings={store.settings}
               text={reader.text}
               currentText={reader.current_text}
@@ -69,6 +60,12 @@ const TrainingPage = observer(() => {
               onExercisePause={() => store.presets.pause()}
               startTime={store.presets.startTime}
               exercise_duration={store.presets.exercise_duration}
+              isActive={!!store.reader.timeout}
+              showReaderStats={
+                reader.mode === 'reader' &&
+                reader.timeout === null &&
+                reader.current_position !== -1
+              }
             />
           )}
         </div>

@@ -65,7 +65,7 @@ input[type='color'] {
       font-weight: bold;
       border-radius: 50%;
       transition: all 0.3s;
-      color: #000;
+      color: #fff;
       &.active {
         color: #fff;
         background: #0d6efd;
@@ -164,3 +164,44 @@ table.books-modal__table {
 @import './rolling.scss';
 @import './scroll.scss';
 @import './scrambled.scss';
+
+.reader-mode {
+  &-wrapper {
+    max-width: 66rem;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  &-finish {
+    padding: 4rem !important;
+    align-items: flex-start !important;
+    gap: 4rem;
+    p {
+      font-size: 2rem !important;
+    }
+    &__comprehension {
+      display: flex;
+      gap: 0.5rem;
+      .btn {
+        width: 3rem;
+        min-width: unset;
+        padding: 0;
+      }
+    }
+  }
+}
+
+.reader-controll {
+  width: 100%;
+  padding: 1rem;
+  background: rgb(42, 43, 67);
+  border-radius: 1rem;
+  border: 1px solid light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+
+  .btn {
+    max-width: 300px;
+  }
+}

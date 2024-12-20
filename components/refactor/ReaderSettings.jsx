@@ -1,5 +1,5 @@
-import { Checkbox, Button, Select, ColorPicker } from '../common'
-import { useState } from 'react'
+import { Checkbox, Button, Select, ColorPicker, Slider } from '../common'
+import { useMemo, useState } from 'react'
 import { observer } from 'mobx-react-lite'
 import { SPEED_LEVELS, SIZES } from '../../store/constants'
 import _ from 'lodash'
@@ -7,6 +7,8 @@ import BookListModal from './BookListModal'
 import { useClickOutside } from '@mantine/hooks'
 import HowItWorksInfo from './HowItWorksInfo'
 import MusicSelection from './MusicSelection'
+import Image from 'next/image'
+import ReaderMode from './ReaderMode'
 
 const ReaderSettings = observer(
   ({
@@ -19,8 +21,152 @@ const ReaderSettings = observer(
     isExerciseActive,
     book,
     books,
+    reader,
   }) => {
     const [showCustom, setShowCustom] = useState(false)
+
+    const isReader = reader.mode === 'reader'
+    const isBookChosen = !!settings.book
+    const isBackAndForth = settings.type !== 'zoom' && !!settings.highlightTypeS
+    const isUpAndDown = settings.type !== 'zoom' && !!settings.highlightTypeV
+    const isZoom = settings.type === 'zoom'
+
+    const numberOfLines = useMemo(() => {
+      if (isBackAndForth || isZoom) return settings.highlightTypeS
+      if (isUpAndDown)
+        return settings.highlightTypeV === 'smooth'
+          ? 1
+          : settings.highlightTypeV
+    }, [isBackAndForth, isUpAndDown, isZoom, settings])
+
+    const onNumberOfLinesChange = (value) => {
+      if (isBackAndForth || isZoom) onChange('highlightTypeS', value)
+      if (isUpAndDown) onChange('highlightTypeV', value == 1 ? 'smooth' : value)
+    }
+
+    if (isReader) {
+      return (
+        <div className="training-settings">
+          <div className="training-settings__delimiter" />
+          <ReaderMode reader={reader} settings={settings} />
+          {!isBookChosen && (
+            <BookListModal
+              books={books}
+              settings={settings}
+              onChange={(book) => onChange('book', book)}
+            />
+          )}
+          <div className="training-settings__delimiter" />
+          <div className="training-settings-btns-group">
+            <Button
+              variant={isBackAndForth ? 'primary' : 'dark'}
+              onClick={() => {
+                onChange('type', 'book')
+                onChange('highlightTypeS', numberOfLines)
+              }}
+            >
+              <Image
+                width={24}
+                height={24}
+                src="/back-and-forth.svg"
+                alt="Back and Forth"
+              />
+              Back and Forth
+            </Button>
+            <Button
+              variant={isUpAndDown ? 'primary' : 'dark'}
+              onClick={() => {
+                onChange('type', 'book')
+                onChange(
+                  'highlightTypeV',
+                  numberOfLines == 1 ? 'smooth' : numberOfLines || 'smooth'
+                )
+              }}
+            >
+              <Image
+                width={24}
+                height={24}
+                src="/up-and-down.svg"
+                alt="Up and Down"
+              />
+              Up and Down
+            </Button>
+            <Button
+              variant={isZoom ? 'primary' : 'dark'}
+              onClick={() => {
+                onChange('type', 'zoom')
+                onChange('highlightTypeS', numberOfLines)
+              }}
+            >
+              <Image width={24} height={24} src="/zoom-arrows.svg" alt="Zoom" />
+              Zoom
+            </Button>
+          </div>
+          <div className="training-settings__delimiter" />
+          <div className="training-settings__title">Number of lines</div>
+          <Select
+            value={numberOfLines}
+            onChange={onNumberOfLinesChange}
+            options={[1, 2, 4, 6]}
+            top="true"
+          />
+          <div className="training-settings__delimiter" />
+          <div className="training-settings__title">Speed</div>
+          <Slider
+            onChange={(value) => onChange('speed', value)}
+            value={settings.speed}
+          />
+
+          <div className="training-settings__delimiter" />
+          {showCustom && (
+            <>
+              <div className="training-settings-list">
+                <div>
+                  <div className="training-settings__title">
+                    Highlight color
+                  </div>
+                  <ColorPicker
+                    onChange={(color) => onChange('highlightColor', color)}
+                    value={settings.highlightColor}
+                  />
+                </div>
+                <div>
+                  <div className="training-settings__title">Text color</div>
+                  <ColorPicker
+                    onChange={(color) => onChange('textColor', color)}
+                    value={settings.textColor}
+                  />
+                </div>
+              </div>
+              <div className="training-settings-list">
+                <div>
+                  <div className="training-settings__title">Page color</div>
+                  <ColorPicker
+                    onChange={(color) => onChange('pageColor', color)}
+                    value={settings.pageColor}
+                  />
+                </div>
+                <div>
+                  <div className="training-settings__title">
+                    Rotate (180deg)
+                  </div>
+                  <Select
+                    renderValue={(value) => (value ? '180deg' : '0deg')}
+                    renderOption={(value) => (value ? '180deg' : '0deg')}
+                    options={[false, true]}
+                    onChange={(value) => onChange('rotate', value)}
+                    value={settings.rotate}
+                  />
+                </div>
+              </div>
+            </>
+          )}
+
+          <div className="training-settings__delimiter" />
+          <Button onClick={onReset}>Reset Setting</Button>
+        </div>
+      )
+    }
 
     return (
       <div className="training-settings">
@@ -35,16 +181,6 @@ const ReaderSettings = observer(
         <div className="training-settings__delimiter" />
         <HowItWorksInfo />
         <div className="training-settings__title">Power Learning Sets</div>
-        {/* <div className="training-settings-list__vertical">
-          {presets.map((el, i) => (
-            <Checkbox
-              key={i}
-              label={el.name}
-              value={el.name === preset?.name}
-              onChange={() => onPresetOpen(el)}
-            />
-          ))}
-        </div> */}
         <div className="training-settings-list">
           {exercises.map((el, i) => (
             <ExerciseButton
@@ -54,17 +190,13 @@ const ReaderSettings = observer(
               onExerciseOpen={onExerciseOpen}
             />
           ))}
+          <Button
+            variant="success-outline"
+            onClick={() => reader.onReaderStart()}
+          >
+            Reader
+          </Button>
         </div>
-        {/* {exercise && (
-          <ExerciseProgress
-            exercise={exercise}
-            isPlay={!!isExerciseActive}
-            onPlay={(duration) => onExercisePlay(duration)}
-            onPause={() => onExercisePause()}
-            startTime={startTime}
-            duration={exercise_duration}
-          />
-        )} */}
         <div className="training-settings__delimiter" />
         <div className="training-settings__title">Fonts</div>
         <div className="training-settings-list__vertical">
@@ -152,16 +284,6 @@ const ReaderSettings = observer(
 
         <div className="training-settings__delimiter" />
         <Button onClick={onReset}>Reset Setting</Button>
-        {/* <div className="training-settings__delimiter" />
-        <Button
-          variant="text"
-          onClick={() => {
-            user_store.logout()
-            router.push('/login')
-          }}
-        >
-          Log out
-        </Button> */}
       </div>
     )
   }

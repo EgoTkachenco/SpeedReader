@@ -15,6 +15,9 @@ export class ReaderStore {
   timeout = null
   isFetch = false
   isEnd = false
+  mode = null
+  reader_session_start_time = null
+  reader_session_end_time = null
 
   constructor(parent) {
     makeAutoObservable(this, {
@@ -22,6 +25,7 @@ export class ReaderStore {
       last_page: computed,
       block_size: computed,
       active_lines_count: computed,
+      reader_session_time: computed,
     })
     this.settings = parent.settings
     this.parent = parent
@@ -223,6 +227,35 @@ export class ReaderStore {
     this.current_position = prev_page_position
   }
 
+  onReaderStart() {
+    this.mode = 'reader'
+    this.clear()
+    this.parent.presets.clear()
+    this.settings.update('book', null)
+    this.settings.reset()
+  }
+
+  handleReaderSessionStart() {
+    this.reader_session_start_time = Date.now()
+  }
+
+  handleReaderSessionEnd(comprehension = 0) {
+    this.reader_session_end_time = Date.now()
+
+    console.log(
+      comprehension,
+      this.reader_session_start_time,
+      this.reader_session_end_time
+    )
+
+    this.clear()
+    this.mode = null
+    this.settings.reset()
+
+    this.reader_session_start_time = null
+    this.reader_session_end_time = null
+  }
+
   get page() {
     const PAGE_SIZE = this.settings.settings.fontType.page
     return Math.ceil(this.current_position / PAGE_SIZE)
@@ -240,4 +273,31 @@ export class ReaderStore {
     let count = Number(settings.highlightTypeS || settings.highlightTypeV)
     return !isNaN(count) ? count : 1
   }
+  get reader_session_time() {
+    if (!this.reader_session_start_time) return '00:00'
+
+    return timeDifferenceInMinutesAndSeconds(this.reader_session_start_time)
+  }
+}
+
+function timeDifferenceInMinutesAndSeconds(date) {
+  const now = new Date() // Current time
+  const givenDate = new Date(date) // Convert input date to Date object
+
+  // Calculate the difference in milliseconds
+  const diffMs = now - givenDate
+
+  if (diffMs < 0) {
+    return '00:00' // Return 00:00 if the given date is in the future
+  }
+
+  // Convert milliseconds to minutes and seconds
+  const diffMinutes = Math.floor(diffMs / 1000 / 60) // Total minutes
+  const diffSeconds = Math.floor((diffMs / 1000) % 60) // Remaining seconds
+
+  // Pad minutes and seconds with leading zeros if needed
+  const minutes = String(diffMinutes).padStart(2, '0')
+  const seconds = String(diffSeconds).padStart(2, '0')
+
+  return `${minutes}:${seconds}`
 }

@@ -115,6 +115,29 @@
       box-shadow: 0px 1px 10px #14dc94;
     }
   }
+
+  &.btn-dark {
+    height: 3rem;
+    background: rgb(42, 43, 67);
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #fefbf7;
+
+    &:hover {
+      background: #1479af;
+    }
+    &:active {
+      background: #1479af;
+      opacity: 0.5;
+    }
+
+    &:disabled {
+      background: #383838;
+      opacity: 0.5;
+    }
+  }
 }
 
 // Input

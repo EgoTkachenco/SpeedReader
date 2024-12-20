@@ -8,8 +8,10 @@ import FullScreenButton from './FullScreenButton'
 import MessageBox from './MessageBox'
 import ExerciseHelper from './ExerciseHelper'
 import ExerciseProgress from './ExerciseProgress'
+import ReaderModeFinish from './ReaderModeFinish'
 
 const ReaderView = ({
+  reader,
   settings,
   text,
   currentText,
@@ -28,6 +30,7 @@ const ReaderView = ({
   onExercisePause,
   startTime,
   exercise_duration,
+  showReaderStats,
 }) => {
   const renderReader = useCallback(
     (key) => {
@@ -109,6 +112,9 @@ const ReaderView = ({
     settings.settings.fullscreen ? 'fullscreen' : ''
   } ${size === 4 ? 'items-4' : ''}`
 
+  // const isBookChosen = !!settings.settings.book
+  // if (!isBookChosen) return null
+
   return (
     <div className={wrapperClasses}>
       <FullScreenButton
@@ -122,6 +128,10 @@ const ReaderView = ({
           {renderReader(i)}
         </div>
       ))}
+
+      {showReaderStats && (
+        <ReaderModeFinish reader={reader} settings={settings.settings} />
+      )}
 
       {exercise && (
         <ExerciseProgress

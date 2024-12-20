@@ -61,7 +61,7 @@ reaction(
   () => store.settings.settings.book?.id || '',
   (book) => {
     console.log('reaction book')
-    if (book) {
+    if (book && store.reader.mode !== 'reader') {
       store.reader.start()
     } else {
       store.reader.stop()

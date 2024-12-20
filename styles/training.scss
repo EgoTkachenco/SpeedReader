@@ -58,6 +58,12 @@
       background: #ffffff;
       width: 100%;
     }
+
+    &-btns-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
   }
 
   &__timer {
