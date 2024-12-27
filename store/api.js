@@ -78,3 +78,9 @@ export const submitQuiz = (id, data) =>
 
 export const getStatistics = (user) =>
   axios.get(`/testing-results/statistics?user_id=${user}`)
+
+export const sendReaderModeStatistic = (statistic) =>
+  axios.post('/reader-statistics', statistic)
+
+export const getReaderModeStatistic = (user) =>
+  axios.get('/reader-statistics', { query: { user_id: user } })

@@ -5,6 +5,7 @@ import { observer } from 'mobx-react-lite'
 import ReaderSettings from './ReaderSettings'
 import Layout from '../layout/Layout'
 import ReaderView from './ReaderView'
+import ReaderModeStatistics from './ReaderModeStatistics'
 
 const TrainingPage = observer(() => {
   useEffect(() => {
@@ -19,6 +20,16 @@ const TrainingPage = observer(() => {
 
   const settings = store.settings.settings
   const reader = store.reader
+
+  const showReaderStatistics = reader.mode === 'reader-statistics'
+
+  if (showReaderStatistics) {
+    return (
+      <Layout title="Reader Statistics">
+        <ReaderModeStatistics reader={reader} />
+      </Layout>
+    )
+  }
   return (
     <Layout title="Training center">
       <div className="training">
@@ -63,7 +74,7 @@ const TrainingPage = observer(() => {
               isActive={!!store.reader.timeout}
               showReaderStats={
                 reader.mode === 'reader' &&
-                reader.timeout === null &&
+                reader.reader_session_statistic_timeout === null &&
                 reader.current_position !== -1
               }
             />

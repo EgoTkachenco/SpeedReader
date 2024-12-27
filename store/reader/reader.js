@@ -16,8 +16,8 @@ export class ReaderStore {
   isFetch = false
   isEnd = false
   mode = null
-  reader_session_start_time = null
-  reader_session_end_time = null
+  reader_session_statistic_timeout = null
+  reader_session_statistic = null
 
   constructor(parent) {
     makeAutoObservable(this, {
@@ -227,6 +227,15 @@ export class ReaderStore {
     this.current_position = prev_page_position
   }
 
+  openReaderStatistic() {
+    this.mode = 'reader-statistics'
+  }
+  closeReaderStatistic() {
+    this.mode = 'reader'
+  }
+
+  // MODE: Reader
+  // Start "Reader" mode
   onReaderStart() {
     this.mode = 'reader'
     this.clear()
@@ -235,25 +244,60 @@ export class ReaderStore {
     this.settings.reset()
   }
 
+  // Start Reader Session when book is started
   handleReaderSessionStart() {
-    this.reader_session_start_time = Date.now()
+    this.reader_session_statistic = {
+      start_date: Date.now(),
+      time_seconds: 0,
+      end_date: null,
+    }
+
+    this.startReaderStatistic()
+
+    this.start()
   }
 
-  handleReaderSessionEnd(comprehension = 0) {
-    this.reader_session_end_time = Date.now()
+  handleReaderSessionPlay() {
+    this.play()
+    this.startReaderStatistic()
+  }
 
-    console.log(
-      comprehension,
-      this.reader_session_start_time,
-      this.reader_session_end_time
-    )
+  handleReaderSessionPause() {
+    this.stop()
+    this.pauseReaderStatistic()
+  }
 
+  handleReaderSessionEnd() {
     this.clear()
     this.mode = null
     this.settings.reset()
 
-    this.reader_session_start_time = null
-    this.reader_session_end_time = null
+    this.pauseReaderStatistic()
+    this.reader_session_statistic = null
+  }
+
+  handleReaderSessionFinish(comprehension = 0, wordsReaded = 0) {
+    this.reader_session_statistic.end_date = Date.now()
+    const statistic = {
+      ...this.reader_session_statistic,
+      comprehension,
+      wordsReaded,
+      result: (wordsReaded * comprehension) / 10,
+    }
+    console.log(statistic)
+
+    this.handleReaderSessionEnd()
+  }
+
+  startReaderStatistic() {
+    this.reader_session_statistic_timeout = setInterval(() => {
+      this.reader_session_statistic.time_seconds += 1
+    }, 1000)
+  }
+
+  pauseReaderStatistic() {
+    clearInterval(this.reader_session_statistic_timeout)
+    this.reader_session_statistic_timeout = null
   }
 
   get page() {
@@ -274,26 +318,22 @@ export class ReaderStore {
     return !isNaN(count) ? count : 1
   }
   get reader_session_time() {
-    if (!this.reader_session_start_time) return '00:00'
+    if (!this.reader_session_statistic?.time_seconds) return '00:00'
 
-    return timeDifferenceInMinutesAndSeconds(this.reader_session_start_time)
+    return timeDifferenceInMinutesAndSeconds(
+      this.reader_session_statistic.time_seconds
+    )
   }
 }
 
-function timeDifferenceInMinutesAndSeconds(date) {
-  const now = new Date() // Current time
-  const givenDate = new Date(date) // Convert input date to Date object
-
-  // Calculate the difference in milliseconds
-  const diffMs = now - givenDate
-
-  if (diffMs < 0) {
+function timeDifferenceInMinutesAndSeconds(time) {
+  if (time < 0) {
     return '00:00' // Return 00:00 if the given date is in the future
   }
 
   // Convert milliseconds to minutes and seconds
-  const diffMinutes = Math.floor(diffMs / 1000 / 60) // Total minutes
-  const diffSeconds = Math.floor((diffMs / 1000) % 60) // Remaining seconds
+  const diffMinutes = Math.floor(time / 60) // Total minutes
+  const diffSeconds = Math.floor(time % 60) // Remaining seconds
 
   // Pad minutes and seconds with leading zeros if needed
   const minutes = String(diffMinutes).padStart(2, '0')
