@@ -80,7 +80,9 @@ export const getStatistics = (user) =>
   axios.get(`/testing-results/statistics?user_id=${user}`)
 
 export const sendReaderModeStatistic = (statistic) =>
-  axios.post('/reader-statistics', statistic)
+  axios.post('/reading-statistics', statistic)
 
 export const getReaderModeStatistic = (user) =>
-  axios.get('/reader-statistics', { query: { user_id: user } })
+  axios.get('/reading-statistics', {
+    params: { user_id: user, _sort: 'date:DESC' },
+  })

@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { Button } from '../common'
 
-const ReaderModeFinish = ({ reader }) => {
+const ReaderModeFinish = ({ reader, user }) => {
   const wordsReaded = useMemo(
     () =>
       reader.text
@@ -18,7 +18,7 @@ const ReaderModeFinish = ({ reader }) => {
   const wpm = (wordsReaded / Number(minutes)).toFixed(2)
 
   const onSubmit = (comprehension) => {
-    reader.handleReaderSessionFinish(comprehension, wordsReaded)
+    reader.handleReaderSessionFinish(comprehension, wordsReaded, wpm, user)
   }
 
   return (

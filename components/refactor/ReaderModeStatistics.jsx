@@ -1,20 +1,48 @@
+import { useEffect, useMemo, useState } from 'react'
 import Button from '../common/Button'
+import { getReaderModeStatistic } from '../../store/api'
+import { format } from 'date-fns'
+import { timeDifferenceInMinutesAndSeconds } from '../../utils'
 
-const ReaderModeStatistics = ({ reader }) => {
-  const stat = {
-    start_date: 1735318472453,
-    time_seconds: 23,
-    end_date: 1735318520310,
-    comprehension: 5,
-    wordsReaded: 1413,
-    result: 706.5,
-  }
+const ReaderModeStatistics = ({ reader, user }) => {
+  const [statistics, setStatistics] = useState(null)
 
-  const wpm = ((stat.wordsReaded * 60) / stat.time_seconds).toFixed(0)
-  const comprehensionLevel = stat.comprehension * 10
-  const comprehensionResult = stat.result.toFixed(0)
+  useEffect(() => {
+    getReaderModeStatistic(user)
+      .then(setStatistics)
+      .catch((error) => console.log(error.message))
+  }, [])
+
+  const { wpm, comprehensionLevel, comprehensionResult } = useMemo(() => {
+    if (!statistics)
+      return {
+        wpm: 0,
+        comprehensionLevel: 0,
+        comprehensionResult: 0,
+      }
+
+    return {
+      wpm: statistics[0].wpm,
+      comprehensionLevel: statistics[0].comprehension * 10,
+      comprehensionResult:
+        statistics[0].words * (statistics[0].comprehension / 10),
+    }
+  }, [statistics])
+
   return (
     <div className="reader-statistics">
+      <div
+        style={{
+          width: '100%',
+          color: '#fff',
+          fontSize: '2rem',
+          textTransform: 'uppercase',
+          fontWeight: 500,
+          marginLeft: '2.5rem',
+        }}
+      >
+        Last reading session
+      </div>
       <StatCard
         title={`WPM: ${wpm}`}
         subtitle={`You've read ${wpm} words per minute`}
@@ -24,6 +52,7 @@ const ReaderModeStatistics = ({ reader }) => {
         subtitle={`You understand ${comprehensionResult} words`}
         position="left"
       />
+      <TestResultsTable data={statistics} />
       <Button onClick={() => reader.closeReaderStatistic()}>Back</Button>
     </div>
   )
@@ -51,3 +80,34 @@ const StatCard = ({ title, subtitle, position = 'right' }) => (
     </div>
   </div>
 )
+
+const TestResultsTable = ({ data = [] }) => {
+  return (
+    <div className="testing-dashboard-item test-table">
+      <div className="testing-dashboard-item__title">History</div>
+      <table className="test-table">
+        <tbody>
+          <tr>
+            <th>Date</th>
+            <th>Book</th>
+            <th>Reading time</th>
+            <th>Words Readed</th>
+            <th>WPM</th>
+            <th>Comprehension</th>
+          </tr>
+          {data &&
+            data.map((el) => (
+              <tr key={el.id}>
+                <td>{format(new Date(el.date), 'yyyy/MM/dd')}</td>
+                <td>{el.book.name}</td>
+                <td>{timeDifferenceInMinutesAndSeconds(el.time)}</td>
+                <td>{el.words}</td>
+                <td>{el.wpm}</td>
+                <td>{el.comprehension * 10}%</td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}

@@ -31,6 +31,7 @@ const ReaderView = ({
   startTime,
   exercise_duration,
   showReaderStats,
+  user,
 }) => {
   const renderReader = useCallback(
     (key) => {
@@ -130,7 +131,11 @@ const ReaderView = ({
       ))}
 
       {showReaderStats && (
-        <ReaderModeFinish reader={reader} settings={settings.settings} />
+        <ReaderModeFinish
+          reader={reader}
+          settings={settings.settings}
+          user={user}
+        />
       )}
 
       {exercise && (

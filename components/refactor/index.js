@@ -6,6 +6,7 @@ import ReaderSettings from './ReaderSettings'
 import Layout from '../layout/Layout'
 import ReaderView from './ReaderView'
 import ReaderModeStatistics from './ReaderModeStatistics'
+import AuthStore from '../../store'
 
 const TrainingPage = observer(() => {
   useEffect(() => {
@@ -26,7 +27,7 @@ const TrainingPage = observer(() => {
   if (showReaderStatistics) {
     return (
       <Layout title="Reader Statistics">
-        <ReaderModeStatistics reader={reader} />
+        <ReaderModeStatistics reader={reader} user={AuthStore.user?.id} />
       </Layout>
     )
   }
@@ -77,6 +78,7 @@ const TrainingPage = observer(() => {
                 reader.reader_session_statistic_timeout === null &&
                 reader.current_position !== -1
               }
+              user={AuthStore.user?.id}
             />
           )}
         </div>
