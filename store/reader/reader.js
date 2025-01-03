@@ -312,6 +312,11 @@ export class ReaderStore {
     this.reader_session_statistic_timeout = null
   }
 
+  resetReaderSettings() {
+    this.handleReaderSessionEnd()
+    this.mode = 'reader'
+  }
+
   get page() {
     const PAGE_SIZE = this.settings.settings.fontType.page
     return Math.ceil(this.current_position / PAGE_SIZE)

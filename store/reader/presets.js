@@ -93,6 +93,7 @@ export class PresetsStore {
     if (!result) return this.finish()
 
     const { el: nextAction, i: nextActionIndex } = result
+    this.exercise.data[nextActionIndex].passed = true
 
     for (const key in nextAction.action) {
       if (key === 'book') {

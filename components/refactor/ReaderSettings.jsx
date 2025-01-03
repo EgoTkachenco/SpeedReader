@@ -22,6 +22,7 @@ const ReaderSettings = observer(
     book,
     books,
     reader,
+    onReaderReset,
   }) => {
     const [showCustom, setShowCustom] = useState(false)
 
@@ -163,7 +164,7 @@ const ReaderSettings = observer(
           )}
 
           <div className="training-settings__delimiter" />
-          <Button onClick={onReset}>Reset Setting</Button>
+          <Button onClick={onReaderReset}>Reset Setting</Button>
         </div>
       )
     }

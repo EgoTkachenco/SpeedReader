@@ -49,7 +49,8 @@ export default function Book({
 
     setPrevPage(page)
 
-    if (!isChanged || prevPage === 0) setState(currentPages)
+    if (isChanged && page === 0) setState([], [], [], [])
+    else if (!isChanged || prevPage === 0) setState(currentPages)
     else if (isNextPage && isOdd && page !== 1) turnPage(currentPages)
     else if (!isNextPage && isOdd) turnPage(currentPages, true)
   }, [currentPages])

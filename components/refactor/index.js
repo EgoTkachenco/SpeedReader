@@ -47,6 +47,7 @@ const TrainingPage = observer(() => {
           book={settings.book}
           books={store.books}
           reader={reader}
+          onReaderReset={() => reader.resetReaderSettings()}
         />
         <div className="training-right">
           {reader.isEnd ? (
