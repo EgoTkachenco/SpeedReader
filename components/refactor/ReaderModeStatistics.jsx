@@ -91,7 +91,7 @@ const TestResultsTable = ({ data = [] }) => {
             <th>Date</th>
             <th>Book</th>
             <th>Reading time</th>
-            <th>Words Readed</th>
+            <th>Read Words</th>
             <th>WPM</th>
             <th>Comprehension</th>
           </tr>

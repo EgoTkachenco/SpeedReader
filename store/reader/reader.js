@@ -115,7 +115,7 @@ export class ReaderStore {
       const timeoutTime = this.settings.speed
 
       const { position, text } = this.next_position()
-      console.log(`[READER] Next iteration ${position}`)
+      // console.log(`[READER] Next iteration ${position}`)
       this.current_text = text
       this.current_position = position
 
@@ -239,6 +239,7 @@ export class ReaderStore {
   // Start "Reader" mode
   onReaderStart() {
     this.mode = 'reader'
+    this.parent.clearMessage()
     this.clear()
     this.parent.presets.clear()
     this.settings.update('book', null)

@@ -59,8 +59,12 @@ const store = new Store()
 
 reaction(
   () => store.settings.settings.book?.id || '',
-  (book) => {
-    console.log('reaction book')
+  (book, prev_page) => {
+    console.log('Reaction book')
+    const isChanged = book !== prev_page
+    if (!isChanged) return
+
+    console.log('Handle reaction book')
     if (book && store.reader.mode !== 'reader') {
       store.reader.start()
     } else {
@@ -72,7 +76,10 @@ reaction(
 
 reaction(
   () => store.settings.settings.fontType || '',
-  (fontType) => {
+  (fontType, prev_fontType) => {
+    const isChanged = fontType?.key !== prev_fontType?.key
+    if (!isChanged) return
+
     if (fontType) {
       console.log('reaction font')
       store.reader.clearText()

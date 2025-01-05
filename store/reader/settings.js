@@ -40,7 +40,7 @@ export class SettingsStore {
     let settings = { ...this.settings }
     switch (key) {
       case 'rotate':
-        formatedValue = !!value
+        formatedValue = value
         break
       case 'highlightTypeS':
         settings.highlightTypeV = ''

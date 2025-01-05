@@ -75,8 +75,7 @@ export class PresetsStore {
     }
     this.reader.clear()
     this.settings.loadFromStorage()
-    clearTimeout(this.exerciseTimeout)
-    this.exerciseTimeout = null
+    this.exercise = null
   }
 
   clear() {
