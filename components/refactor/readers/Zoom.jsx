@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { CSSTransition } from 'react-transition-group'
 
 export default function Zoom({ settings, text, speed }) {
@@ -13,6 +13,12 @@ export default function Zoom({ settings, text, speed }) {
     }
   }, [text])
 
+  const rotateAngle = useMemo(() => {
+    if (typeof settings.rotate === 'boolean') return settings.rotate ? 180 : 0
+
+    return Number(settings.rotate)
+  }, [settings.rotate])
+
   return (
     <div
       className="zoom-reader"
@@ -20,7 +26,7 @@ export default function Zoom({ settings, text, speed }) {
         backgroundColor: settings.pageColor,
         color: settings.textColor,
         fontSize: `calc(${settings.fontType.fontSize}  * 1.2)`,
-        transform: `${settings.rotate ? 'rotate(180deg)' : ''}`,
+        // transform: `rotate(${rotateAngle}deg)`,
       }}
     >
       <style>
@@ -30,7 +36,10 @@ export default function Zoom({ settings, text, speed }) {
 					}
 				`}
       </style>
-      <div className="zoom-reader-content">
+      <div
+        className="zoom-reader-content"
+        style={{ transform: `rotate(${rotateAngle}deg)` }}
+      >
         <CSSTransition
           in={state}
           timeout={speed > 100 ? speed : 0}

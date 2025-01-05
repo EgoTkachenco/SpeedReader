@@ -2409,5 +2409,132 @@
         "duration": 15000
       }
     ]
+  },
+  {
+    "id": 10,
+    "name": "Exercise J",
+    "data": [
+      {
+        "action": {
+          "speed": 2,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "count": 1,
+          "type": "zoom",
+          "fontType": {
+            "title": "Medium",
+            "key": "medium",
+            "fontSize": "1rem",
+            "page": 30,
+            "row": 65
+          },
+          "words": null,
+          "book": "6"
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FCB900",
+          "rotate": 30,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#EB1D36",
+          "pageColor": "#000000",
+          "rotate": 60,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#00D084",
+          "rotate": 90,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#00D084",
+          "pageColor": "#FCB900",
+          "rotate": 120,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#FCB900",
+          "pageColor": "#000000",
+          "rotate": 150,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 9,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": 180,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": false,
+          "highlightTypeS": "4",
+          "highlightTypeV": "",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 8000
+      }
+    ]
   }
 ]
