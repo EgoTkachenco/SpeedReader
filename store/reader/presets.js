@@ -2,7 +2,7 @@ import { makeAutoObservable, computed } from 'mobx'
 // import { PRESETS } from '../presets'
 // import PRESETS from '../updated-presets.json'
 import EXERCISES from '../EXERCISES.json'
-
+import { SPEED_LEVELS } from '../constants'
 export class PresetsStore {
   reader = null
   settings = null
@@ -139,6 +139,26 @@ export class PresetsStore {
     this.startTime = now - exercise_time
     this.pauseTime = null
 
+    let position_time = exercise_time
+    let currentPosition = 0
+    for (let i = 0; i < levels.length; i++) {
+      const level = levels[i]
+
+      const speed = level.action.speed || 0
+      const iteration_time = SPEED_LEVELS[speed] || 0
+      const iterations =
+        position_time < level.duration
+          ? position_time / iteration_time
+          : level.duration / iteration_time
+      const iteration_rows_count = level.action.highlightTypeV
+
+      currentPosition += iterations * iteration_rows_count
+      position_time -= level.duration
+
+      if (position_time <= 0) break
+    }
+
+    this.reader.current_position = Number(currentPosition.toFixed(0))
     this.reader.next()
     if (this.isExerciseFinished) return this.start()
     this.next(customDuration)
