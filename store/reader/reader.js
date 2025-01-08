@@ -1,6 +1,7 @@
 import { makeAutoObservable, computed } from 'mobx'
 import { BOOKS_API, sendReaderModeStatistic } from '../api'
 import { timeDifferenceInMinutesAndSeconds } from '../../utils'
+import { COLORS } from '../constants'
 
 export class ReaderStore {
   // connected stores
@@ -242,8 +243,9 @@ export class ReaderStore {
     this.parent.clearMessage()
     this.clear()
     this.parent.presets.clear()
-    this.settings.update('book', null)
-    this.settings.reset()
+    this.settings.reset(false)
+    this.settings.update('textColor', COLORS.black)
+    this.settings.update('pageColor', COLORS.white)
   }
 
   // Start Reader Session when book is started

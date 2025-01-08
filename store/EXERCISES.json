@@ -2527,13 +2527,182 @@
           "highlightColor": "#00D084",
           "textColor": "#000000",
           "pageColor": "#FFFFFF",
-          "rotate": false,
+          "rotate": true,
           "highlightTypeS": "4",
           "highlightTypeV": "",
           "type": "zoom",
           "words": null
         },
         "duration": 8000
+      },
+
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#ae1ce1",
+          "pageColor": "#FCB900",
+          "rotate": 150,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#FCB900",
+          "pageColor": "#ae1ce1",
+          "rotate": 120,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": 90,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#FFFFFF",
+          "pageColor": "#000000",
+          "rotate": 60,
+          "highlightTypeS": "1",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#ffa500",
+          "pageColor": "#00d084",
+          "rotate": 30,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 9,
+          "highlightColor": "#00D084",
+          "textColor": "#00d084",
+          "pageColor": "#ffa500",
+          "rotate": false,
+          "highlightTypeS": "2",
+          "highlightTypeV": "1",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 13000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#00D084",
+          "textColor": "#FFFFFF",
+          "pageColor": "#000000",
+          "rotate": true,
+          "highlightTypeS": "4",
+          "highlightTypeV": "",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 15000
+      },
+      {
+        "action": {
+          "speed": 8,
+          "highlightColor": "#00D084",
+          "textColor": "#00d084",
+          "pageColor": "#000000",
+          "rotate": true,
+          "highlightTypeS": "4",
+          "highlightTypeV": "",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 7,
+          "highlightColor": "#00D084",
+          "textColor": "#0693e3",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "4",
+          "highlightTypeV": "",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#eb1d36",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "4",
+          "highlightTypeV": "",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 6,
+          "highlightColor": "#00D084",
+          "textColor": "#ae1ce1",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "4",
+          "highlightTypeV": "",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 10000
+      },
+      {
+        "action": {
+          "speed": 5,
+          "highlightColor": "#00D084",
+          "textColor": "#000000",
+          "pageColor": "#FFFFFF",
+          "rotate": true,
+          "highlightTypeS": "4",
+          "highlightTypeV": "",
+          "type": "zoom",
+          "words": null
+        },
+        "duration": 30000
       }
     ]
   }

@@ -19,6 +19,7 @@ export default function Book({
   const [prevPage, setPrevPage] = useState(0)
   const [pageAnimation, setPageAnimation] = useState(0)
   const highlightType = settings.highlightTypeS ? 'S' : 'V'
+  const [pageTurnTimeout, setPageTurnTimeout] = useState(null)
 
   const currentPages = useMemo(() => {
     const pageSize = settings.fontType.page
@@ -47,6 +48,8 @@ export default function Book({
     const isOdd = page % 2 == 1
     const isNextPage = prevPage < page
 
+    if (pageTurnTimeout) clearTimeout(pageTurnTimeout)
+
     setPrevPage(page)
 
     if (isChanged && page === 0) setState([], [], [], [])
@@ -61,12 +64,19 @@ export default function Book({
 
     setState((state) => [...state.slice(0, 2), ...pages])
 
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       setState([...pages])
       setPageAnimation(0)
+      const timeout = setTimeout(() => {
+        clearTimeout(pageTurnTimeout)
+        setPageTurnTimeout(null)
+        onAnimationEnd()
+      }, 100)
 
-      setTimeout(() => onAnimationEnd(), 10)
+      setPageTurnTimeout(timeout)
     }, ANIMATION_DURATION)
+
+    setPageTurnTimeout(timeout)
   }
 
   // Odd animation indicator toggle every iteration
