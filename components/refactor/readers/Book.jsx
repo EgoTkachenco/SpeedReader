@@ -21,6 +21,19 @@ export default function Book({
   const highlightType = settings.highlightTypeS ? 'S' : 'V'
   const [pageTurnTimeout, setPageTurnTimeout] = useState(null)
 
+  // Call onAnimationEnd when component unmounts before timeout ends
+  useEffect(() => {
+    return () => {
+      console.log('unmount')
+      if (pageTurnTimeout) {
+        console.log('Clearing timeout')
+        clearTimeout(pageTurnTimeout)
+        setPageTurnTimeout(null)
+        onAnimationEnd()
+      }
+    }
+  }, [settings])
+
   const currentPages = useMemo(() => {
     const pageSize = settings.fontType.page
     // Split text into pages by page size
@@ -48,7 +61,7 @@ export default function Book({
     const isOdd = page % 2 == 1
     const isNextPage = prevPage < page
 
-    if (pageTurnTimeout) clearTimeout(pageTurnTimeout)
+    // if (pageTurnTimeout) clearTimeout(pageTurnTimeout)
 
     setPrevPage(page)
 
@@ -64,17 +77,16 @@ export default function Book({
 
     setState((state) => [...state.slice(0, 2), ...pages])
 
-    const timeout = setTimeout(() => {
+    setTimeout(() => {
       setState([...pages])
       setPageAnimation(0)
-      const timeout = setTimeout(() => {
-        clearTimeout(pageTurnTimeout)
-        setPageTurnTimeout(null)
-        onAnimationEnd()
-      }, 100)
-
-      setPageTurnTimeout(timeout)
     }, ANIMATION_DURATION)
+
+    const timeout = setTimeout(() => {
+      clearTimeout(pageTurnTimeout)
+      setPageTurnTimeout(null)
+      onAnimationEnd()
+    }, ANIMATION_DURATION + 100)
 
     setPageTurnTimeout(timeout)
   }

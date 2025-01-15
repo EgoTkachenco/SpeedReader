@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Exercise A",
+    "audio": "/music/exercise-tracks/Exercise A - Aiman MP3 True.mp3",
     "data": [
       {
         "action": {
@@ -157,6 +158,7 @@
   {
     "id": 2,
     "name": "Exercise B",
+    "audio": "/music/exercise-tracks/Exercise B - Jake Kim.mp3",
     "data": [
       {
         "action": {
@@ -354,6 +356,7 @@
   {
     "id": 3,
     "name": "Exercise C",
+    "audio": "/music/exercise-tracks/Exercise C - Jake MP3 True.mp3",
     "data": [
       {
         "action": {
@@ -551,6 +554,7 @@
   {
     "id": 4,
     "name": "Exercise D",
+    "audio": "/music/exercise-tracks/Exercise D - Aiman MP3 True.mp3",
     "data": [
       {
         "action": {
@@ -748,6 +752,7 @@
   {
     "id": 5,
     "name": "Exercise E",
+    "audio": "/music/exercise-tracks/Exercise E - Aiman MP3 True.mp3",
     "data": [
       {
         "action": {
@@ -890,7 +895,7 @@
     "id": 6,
     "name": "Exercise F",
     "video_tutorial": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-    "audio": "/music/1.Ken Davis - Rollercoaster.mp3",
+    "audio": "/music/exercise-tracks/Exercise F - Aiman MP3 True.mp3",
     "data": [
       {
         "action": {
@@ -1228,7 +1233,7 @@
   {
     "id": 7,
     "name": "Exercise G",
-    "audio": "/music/2.Ken Davis - modern world.wav",
+    "audio": "/music/exercise-tracks/Exercise G - Petro MP3.mp3",
     "data": [
       {
         "action": {
@@ -1510,7 +1515,7 @@
   {
     "id": 8,
     "name": "Exercise H",
-    "audio": "/music/2.Ken Davis - modern world.wav",
+    "audio": "/music/exercise-tracks/Exercise H - Petro MP3.mp3",
     "data": [
       {
         "action": {
@@ -2044,7 +2049,7 @@
   {
     "id": 9,
     "name": "Exercise I",
-    "audio": "/music/2.Ken Davis - modern world.wav",
+    "audio": "/music/exercise-tracks/Exercise I - Aiman MP3.mp3",
     "data": [
       {
         "action": {
@@ -2626,7 +2631,7 @@
           "highlightColor": "#00D084",
           "textColor": "#FFFFFF",
           "pageColor": "#000000",
-          "rotate": true,
+          "rotate": false,
           "highlightTypeS": "4",
           "highlightTypeV": "",
           "type": "zoom",
@@ -2639,8 +2644,8 @@
           "speed": 8,
           "highlightColor": "#00D084",
           "textColor": "#00d084",
-          "pageColor": "#000000",
-          "rotate": true,
+          "pageColor": "#FFFFFF",
+          "rotate": false,
           "highlightTypeS": "4",
           "highlightTypeV": "",
           "type": "zoom",
@@ -2654,7 +2659,7 @@
           "highlightColor": "#00D084",
           "textColor": "#0693e3",
           "pageColor": "#FFFFFF",
-          "rotate": true,
+          "rotate": false,
           "highlightTypeS": "4",
           "highlightTypeV": "",
           "type": "zoom",
@@ -2668,7 +2673,7 @@
           "highlightColor": "#00D084",
           "textColor": "#eb1d36",
           "pageColor": "#FFFFFF",
-          "rotate": true,
+          "rotate": false,
           "highlightTypeS": "4",
           "highlightTypeV": "",
           "type": "zoom",
@@ -2682,7 +2687,7 @@
           "highlightColor": "#00D084",
           "textColor": "#ae1ce1",
           "pageColor": "#FFFFFF",
-          "rotate": true,
+          "rotate": false,
           "highlightTypeS": "4",
           "highlightTypeV": "",
           "type": "zoom",
@@ -2696,13 +2701,13 @@
           "highlightColor": "#00D084",
           "textColor": "#000000",
           "pageColor": "#FFFFFF",
-          "rotate": true,
+          "rotate": false,
           "highlightTypeS": "4",
           "highlightTypeV": "",
           "type": "zoom",
           "words": null
         },
-        "duration": 30000
+        "duration": 15000
       }
     ]
   }

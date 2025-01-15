@@ -318,6 +318,9 @@ export class ReaderStore {
   resetReaderSettings() {
     this.handleReaderSessionEnd()
     this.mode = 'reader'
+    this.settings.reset(false)
+    this.settings.update('textColor', COLORS.black)
+    this.settings.update('pageColor', COLORS.white)
   }
 
   get page() {
