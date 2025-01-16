@@ -19,9 +19,9 @@ class Store {
   async signIn(email, password) {
     this.isFetch = true
     try {
-      const res = await AUTH_API.login(email, password)
-      setToken(res.access_token)
-      setRefreshToken(res.refresh_token)
+      const { jwt, user } = await AUTH_API.login(email, password)
+      setToken(jwt)
+      // setRefreshToken(res.refresh_token)
       await this.loadUser()
       this.isFetch = false
     } catch (error) {
@@ -32,10 +32,15 @@ class Store {
 
   async loadUser() {
     try {
-      const user = await AUTH_API.getUser()
-      this.user = { id: user.id, name: user.name, slug: user.slug }
+      const user = await AUTH_API.getMe()
+      this.user = {
+        id: user.id,
+        name: user.name || user.username,
+        slug: user.username,
+      }
     } catch (error) {
-      if (error.response.status === 401) return await this.refresh()
+      console.log(error.message)
+      // if (error.response.status === 401) return await this.refresh()
 
       this.logout()
     }
@@ -52,7 +57,7 @@ class Store {
     // auto login with token and refresh_token
     if (token) {
       setToken(token)
-      setRefreshToken(refresh_token)
+      // setRefreshToken(refresh_token)
       window.location = '/'
     } else {
       token = getToken()

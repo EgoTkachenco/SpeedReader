@@ -1,13 +1,17 @@
 const { axios, securedFetchOptions } = require('./axios')
 
 export const AUTH_API = {
-  // login: (identifier, password) =>
-  // 	axios.post('/auth/local', { identifier, password }),
   login: (identifier, password) =>
-    axios.post('https://readinggenius.com/wp-json/api-bearer-auth/v1/login', {
-      username: identifier,
-      password,
+    axios.post('/auth/local', { identifier, password }).catch((err) => {
+      throw new Error(err.response.data.data[0].messages[0].message)
     }),
+  // login: (identifier, password) =>
+  //   axios.post('https://readinggenius.com/wp-json/api-bearer-auth/v1/login', {
+  //     username: identifier,
+  //     password,
+  //   }),
+
+  getMe: () => axios.get('/users/me', securedFetchOptions()),
 
   refresh: (token) =>
     axios.post(
