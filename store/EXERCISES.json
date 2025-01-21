@@ -20,7 +20,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 65
+            "row": 50
           },
           "words": null,
           "book": "5"
@@ -176,7 +176,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 65
+            "row": 50
           },
           "words": null,
           "book": "6"
@@ -374,7 +374,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 65
+            "row": 50
           },
           "words": null,
           "book": "7"
@@ -572,7 +572,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 65
+            "row": 50
           },
           "words": null,
           "book": "8"
@@ -770,7 +770,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 65
+            "row": 50
           },
           "words": null,
           "book": "9"
@@ -913,7 +913,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 65
+            "row": 50
           },
           "words": null,
           "book": "10"
@@ -1251,7 +1251,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 65
+            "row": 50
           },
           "words": null,
           "book": "11"
@@ -1533,7 +1533,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 65
+            "row": 50
           },
           "words": 2,
           "book": "1"
@@ -2067,7 +2067,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 65
+            "row": 50
           },
           "words": null,
           "book": "1"
@@ -2435,7 +2435,7 @@
             "key": "medium",
             "fontSize": "1rem",
             "page": 30,
-            "row": 65
+            "row": 50
           },
           "words": null,
           "book": "6"

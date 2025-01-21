@@ -152,7 +152,9 @@ const ReaderView = ({
       {exercise && (
         <ExerciseHelper
           exercise={exercise}
-          isExerciseActive={isExerciseActive}
+          isExerciseActive={!!isExerciseActive}
+          startTime={startTime}
+          duration={exercise_duration}
         />
       )}
 

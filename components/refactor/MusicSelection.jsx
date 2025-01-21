@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Select } from '../common'
 
 const SONGS = [
@@ -9,8 +9,13 @@ const SONGS = [
 
 const MusicSelection = ({ exercise }) => {
   const [activeSong, setActiveSong] = useState(null)
+  const isDisabled = useMemo(() => exercise && exercise.audio, [exercise])
 
-  const isDisabled = exercise && exercise.audio
+  const audioRef = useRef(null)
+  // Clear active song when exercise changes
+  useEffect(() => {
+    if (exercise) setActiveSong(null)
+  }, [exercise])
 
   return (
     <div>
@@ -29,6 +34,7 @@ const MusicSelection = ({ exercise }) => {
 
       {activeSong && !isDisabled && (
         <audio
+          ref={audioRef}
           controls
           autoPlay
           style={{ marginTop: '0.5rem', width: '100%', position: 'relative' }}
