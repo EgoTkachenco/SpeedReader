@@ -136,7 +136,7 @@ export class ReaderStore {
       if (this.current_position <= this.last_position - 1) {
         if (isPlay) this.timeout = setTimeout(() => this.next(), timeoutTime)
       } else {
-        if (this.parent.presets.exerciseTimeout) {
+        if (this.parent.presets.startTime) {
           this.clear()
           this.start()
         } else {

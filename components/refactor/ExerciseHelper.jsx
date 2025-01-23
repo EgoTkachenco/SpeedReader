@@ -7,46 +7,46 @@ const ExerciseHelper = ({
   startTime,
   duration,
 }) => {
-  const audioRef = useRef()
-  const [audioLoaded, setAudioLoaded] = useState(false)
+  // const audioRef = useRef()
+  // const [audioLoaded, setAudioLoaded] = useState(false)
 
-  // reset audio when component unmounts
-  useEffect(() => {
-    return () => {
-      if (audioRef.current) {
-        setAudioLoaded(false)
-        audioRef.current.pause()
-      }
-    }
-  }, [])
+  // // reset audio when component unmounts
+  // useEffect(() => {
+  //   return () => {
+  //     if (audioRef.current) {
+  //       setAudioLoaded(false)
+  //       audioRef.current.pause()
+  //     }
+  //   }
+  // }, [])
 
-  useEffect(() => {
-    if (!audioLoaded) return
+  // useEffect(() => {
+  //   if (!audioLoaded) return
+  //   if (!audioRef?.current) return
+  //   audioRef.current.volume = 0.2
+  //   if (isExerciseActive && startTime) {
+  //     const currentTime = new Date().getTime() - startTime
+  //     const currentTimePercent =
+  //       currentTime < duration
+  //         ? ((currentTime * 100) / duration).toFixed(0)
+  //         : 100
 
-    audioRef.current.volume = 0.2
-    if (isExerciseActive && startTime) {
-      const currentTime = new Date().getTime() - startTime
-      const currentTimePercent =
-        currentTime < duration
-          ? ((currentTime * 100) / duration).toFixed(0)
-          : 100
+  //     const audioDuration = audioRef.current.duration
+  //     const audioCurrentTime = audioDuration * (currentTimePercent / 100)
+  //     audioRef.current.currentTime = audioCurrentTime
+  //     audioRef.current.play()
+  //   } else {
+  //     audioRef.current.pause()
+  //   }
 
-      const audioDuration = audioRef.current.duration
-      const audioCurrentTime = audioDuration * (currentTimePercent / 100)
-      audioRef.current.currentTime = audioCurrentTime
-      audioRef.current.play()
-    } else {
-      audioRef.current.pause()
-    }
-
-    // return () => {
-    //   if (audioRef.current && !audioRef.current.paused) audioRef.current.pause()
-    // }
-  }, [isExerciseActive, audioLoaded, startTime])
+  //   // return () => {
+  //   //   if (audioRef.current && !audioRef.current.paused) audioRef.current.pause()
+  //   // }
+  // }, [isExerciseActive, audioLoaded, startTime])
 
   return (
     <div className="exercise-helper">
-      {exercise.audio ? (
+      {/* {exercise.audio ? (
         <audio
           ref={audioRef}
           src={exercise.audio}
@@ -54,7 +54,7 @@ const ExerciseHelper = ({
           loop
           onCanPlayThrough={() => setAudioLoaded(true)}
         />
-      ) : null}
+      ) : null} */}
 
       <ExerciseComments exercise={exercise} />
     </div>

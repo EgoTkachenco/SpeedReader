@@ -86,6 +86,7 @@ export class StatisticStore {
     date += ':00'
     const book = this.parent.settings.settings.book.id
     const { count, speed } = this.getSessionStatistic()
+    if (!book) return
     try {
       await STATISTIC_API.send(user_id, count, date, book, speed)
       console.log('Send Statistic. Readed ', count)

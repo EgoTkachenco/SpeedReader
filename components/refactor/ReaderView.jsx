@@ -106,7 +106,7 @@ const ReaderView = ({
   )
 
   const size = !isNaN(Number(settings.settings.count))
-    ? Number(settings.settings.count)
+    ? Number(settings.settings.count) || 1
     : 1
   const isSmall = size > 1
   const wrapperClasses = `books-wrapper ${
