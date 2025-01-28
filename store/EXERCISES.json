@@ -2,7 +2,12 @@
   {
     "id": 1,
     "name": "Exercise A",
-    "audio": "/music/exercise-tracks/Exercise A - Aiman MP3 True.mp3",
+    "audio": [
+      "/music/exercise-tracks/Exercise A - Aiman MP3 True.mp3",
+      "/music/exercise-tracks/Exercise B - Jake Kim.mp3",
+      "/music/exercise-tracks/Exercise C - Jake MP3 True.mp3",
+      "/music/exercise-tracks/Exercise D - Aiman MP3 True.mp3"
+    ],
     "data": [
       {
         "action": {

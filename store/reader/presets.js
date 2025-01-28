@@ -66,6 +66,8 @@ export class PresetsStore {
     this.startTime = null
 
     if (isComplete) {
+      this.updateLocalStatistic()
+
       const { perMinuteCount, speed } =
         this.global.statistic.getExerciseStatistic(this.exercise.data)
       this.global.addMessage(
@@ -168,6 +170,16 @@ export class PresetsStore {
     this.clear()
     this.reader.stop()
     this.pauseTime = new Date().getTime()
+  }
+
+  updateLocalStatistic() {
+    let passed_exercises = localStorage.getItem('passed_exercises')
+    passed_exercises = passed_exercises ? JSON.parse(passed_exercises) : {}
+
+    passed_exercises[this.exercise.id] =
+      (passed_exercises[this.exercise.id] || 0) + 1
+
+    localStorage.setItem('passed_exercises', JSON.stringify(passed_exercises))
   }
 
   // All exercise time

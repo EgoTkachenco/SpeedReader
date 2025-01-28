@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import _ from 'lodash'
 
 const ExerciseProgress = ({
@@ -60,6 +60,22 @@ const ExerciseProgress = ({
   }, [exercise, startTime, isPlay])
 
   const ref = useRef()
+
+  const exerciseAudio = useMemo(() => {
+    if (!exercise || !exercise.audio) return null
+
+    if (typeof exercise.audio === 'string') return exercise.audio
+
+    if (Array.isArray(exercise.audio) && exercise.audio.length > 0) {
+      const passed_exercises =
+        JSON.parse(localStorage.getItem('passed_exercises')) || {}
+      debugger
+      const exercise_count = passed_exercises[exercise.id] || 0
+      const audio_index = exercise_count % exercise.audio.length
+      return exercise.audio[audio_index]
+    }
+  }, [exercise])
+
   if (!exercise) return ''
 
   const max_step = exercise.data.length
@@ -118,10 +134,10 @@ const ExerciseProgress = ({
         <LineControll duration={duration} onPause={onPause} onPlay={onPlay} />
       </div>
 
-      {exercise.audio ? (
+      {exerciseAudio ? (
         <audio
           ref={audioRef}
-          src={exercise.audio}
+          src={exerciseAudio}
           style={{ opacity: 0, height: 0, width: 0 }}
           loop
           volume={0.2}
