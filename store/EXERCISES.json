@@ -3,10 +3,9 @@
     "id": 1,
     "name": "Exercise A",
     "audio": [
-      "/music/exercise-tracks/Exercise A - Aiman MP3 True.mp3",
-      "/music/exercise-tracks/Exercise B - Jake Kim.mp3",
-      "/music/exercise-tracks/Exercise C - Jake MP3 True.mp3",
-      "/music/exercise-tracks/Exercise D - Aiman MP3 True.mp3"
+      "/music/Exercise A/Exercise A - Aiman MP3 True.mp3",
+      "/music/Exercise A/Exercise A - Gio MP3 True.mp3",
+      "/music/Exercise A/Exercise A - Jake MP3.mp3"
     ],
     "data": [
       {
@@ -163,7 +162,10 @@
   {
     "id": 2,
     "name": "Exercise B",
-    "audio": "/music/exercise-tracks/Exercise B - Jake Kim.mp3",
+    "audio": [
+      "/music/Exercise B/Exercise B - Aiman MP 3 True.mp3",
+      "/music/Exercise B/Exercise B - Jake Kim.mp3"
+    ],
     "data": [
       {
         "action": {
@@ -361,7 +363,10 @@
   {
     "id": 3,
     "name": "Exercise C",
-    "audio": "/music/exercise-tracks/Exercise C - Jake MP3 True.mp3",
+    "audio": [
+      "/music/Exercise C/Exercise C - Aiman MP3 True.mp3",
+      "/music/Exercise C/Exercise C - Jake MP3 True.mp3"
+    ],
     "data": [
       {
         "action": {
@@ -559,7 +564,7 @@
   {
     "id": 4,
     "name": "Exercise D",
-    "audio": "/music/exercise-tracks/Exercise D - Aiman MP3 True.mp3",
+    "audio": ["/music/Exercise D/Exercise D - Aiman MP3 True.mp3"],
     "data": [
       {
         "action": {
@@ -757,7 +762,11 @@
   {
     "id": 5,
     "name": "Exercise E",
-    "audio": "/music/exercise-tracks/Exercise E - Aiman MP3 True.mp3",
+    "audio": [
+      "/music/Exercise E/Exercise E - Aiman MP3 True.mp3",
+      "/music/Exercise E/Exercise E - Jason MP3.mp3",
+      "/music/Exercise E/Exercise E - Petro MP3.mp3"
+    ],
     "data": [
       {
         "action": {
@@ -899,8 +908,13 @@
   {
     "id": 6,
     "name": "Exercise F",
+    "audio": [
+      "/music/Exercise F/Exercise F - Aiman MP3 True.mp3",
+      "/music/Exercise F/Exercise F - Jake MP3.mp3",
+      "/music/Exercise F/Exercise F - Jason.mp3",
+      "/music/Exercise F/Exercise F - Petro.mp3"
+    ],
     "video_tutorial": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-    "audio": "/music/exercise-tracks/Exercise F - Aiman MP3 True.mp3",
     "data": [
       {
         "action": {
@@ -1238,7 +1252,12 @@
   {
     "id": 7,
     "name": "Exercise G",
-    "audio": "/music/exercise-tracks/Exercise G - Petro MP3.mp3",
+    "audio": [
+      "/music/Exercise G/Exercise G - Aiman MP3.mp3",
+      "/music/Exercise G/Exercise G - Jason MP3.mp3",
+      "/music/Exercise G/Exercise G - Petro MP3.mp3",
+      "/music/Exercise G/Exercise G by MAX . mp3 128 kbps.mp3"
+    ],
     "data": [
       {
         "action": {
@@ -1520,7 +1539,12 @@
   {
     "id": 8,
     "name": "Exercise H",
-    "audio": "/music/exercise-tracks/Exercise H - Petro MP3.mp3",
+    "audio": [
+      "/music/Exercise H/Exercise H - Aiman MP3 True.mp3",
+      "/music/Exercise H/Exercise H - Jake MP3.mp3",
+      "/music/Exercise H/Exercise H - Jason MP3.mp3",
+      "/music/Exercise H/Exercise H - Petro MP3 (Rev 2).mp3"
+    ],
     "data": [
       {
         "action": {
@@ -2054,7 +2078,11 @@
   {
     "id": 9,
     "name": "Exercise I",
-    "audio": "/music/exercise-tracks/Exercise I - Aiman MP3.mp3",
+    "audio": [
+      "/music/Exercise I/Exercise I - Aiman MP3.mp3",
+      "/music/Exercise I/Exercise I - Jason MP3.mp3",
+      "/music/Exercise I/Exercise I - Petro MP3.mp3"
+    ],
     "data": [
       {
         "action": {

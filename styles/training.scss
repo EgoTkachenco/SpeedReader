@@ -281,9 +281,9 @@
       width: 120px;
       position: absolute;
       cursor: pointer;
-      top: 0;
-      left: 0;
-      transform: rotate(-90deg) translate(70%, -56px);
+      top: 50%;
+      right: 100%;
+      transform: translate(-1rem, -50%);
       &::-webkit-slider-runnable-track {
         height: 8px;
         background-color: #0f0f0f;

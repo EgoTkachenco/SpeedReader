@@ -214,11 +214,19 @@ const formatTime = (miliseconds) => {
 
 const VolumeControl = ({ value, onChange }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [state, setState] = useState(value)
   useEffect(() => {
     return () => {
       setIsOpen(false)
     }
   }, [])
+
+  const debouncedChange = useMemo(() => _.debounce(onChange, 300), [onChange])
+
+  const handleChange = (value) => {
+    setState(value)
+    debouncedChange(value)
+  }
 
   return (
     <div className="exercise-progress__volume">
@@ -233,8 +241,8 @@ const VolumeControl = ({ value, onChange }) => {
           min="0"
           max="1"
           step="0.01"
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
+          value={state}
+          onChange={(e) => handleChange(e.target.value)}
         />
       )}
     </div>
