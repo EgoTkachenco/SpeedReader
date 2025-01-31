@@ -16,7 +16,7 @@ export class Store {
   constructor(useLocaleStorage = true) {
     makeAutoObservable(this)
     this.loadBooksList()
-    this.settings = new SettingsStore(useLocaleStorage)
+    this.settings = new SettingsStore(this, useLocaleStorage)
     this.reader = new ReaderStore(this)
     this.presets = new PresetsStore(this)
     this.statistic = new StatisticStore(this)

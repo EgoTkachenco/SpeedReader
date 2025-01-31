@@ -9,10 +9,11 @@ export class SettingsStore {
   settings = { ...DEFAULT_SETTINGS }
   useLocaleStorage = false
 
-  constructor(useLocaleStorage = true) {
+  constructor(parent, useLocaleStorage = true) {
     makeAutoObservable(this, {
       speed: computed,
     })
+    this.parent = parent
     this.useLocaleStorage = useLocaleStorage
     if (useLocaleStorage && process.browser) this.loadFromStorage()
   }

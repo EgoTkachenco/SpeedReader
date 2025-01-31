@@ -54,7 +54,10 @@ const ReaderSettings = observer(
             <BookListModal
               books={books}
               settings={settings}
-              onChange={(book) => onChange('book', book)}
+              onChange={(book) => {
+                onExerciseOpen(null)
+                onChange('book', book)
+              }}
             />
           )}
           <div className="training-settings__delimiter" />
@@ -175,7 +178,10 @@ const ReaderSettings = observer(
         <div className="training-settings__delimiter" />
         <BookListModal
           value={book}
-          onChange={(book) => onChange('book', book, !isExerciseActive)}
+          onChange={(book) => {
+            onExerciseOpen(null)
+            onChange('book', book, !isExerciseActive)
+          }}
           books={books}
           settings={settings}
         />
@@ -217,13 +223,23 @@ const ReaderSettings = observer(
         {showCustom && (
           <>
             <div className="training-settings__title">№ of book</div>
-            <Select
+            {/* <Select
               value={settings.count}
               onChange={(value) => onChange('count', value)}
               options={[1, 2, 4]}
+						/> */}
+            <Slider
+              options={[1, 2, 4]}
+              onChange={(value) => onChange('count', value)}
+              value={settings.count}
             />
             <div className="training-settings__title">Speed</div>
-            <Select
+            {/* <Select
+              onChange={(value) => onChange('speed', value)}
+              value={settings.speed}
+              options={Object.keys(SPEED_LEVELS)}
+            /> */}
+            <Slider
               onChange={(value) => onChange('speed', value)}
               value={settings.speed}
               options={Object.keys(SPEED_LEVELS)}

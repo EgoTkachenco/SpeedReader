@@ -31,6 +31,10 @@ export class PresetsStore {
   // }
 
   setExercise(exercise) {
+    if (!exercise) {
+      this.clear()
+      return this.finish(false)
+    }
     this.exercise = _.cloneDeep(exercise)
     this.start()
   }
