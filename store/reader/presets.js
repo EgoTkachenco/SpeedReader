@@ -32,11 +32,13 @@ export class PresetsStore {
 
   setExercise(exercise) {
     if (!exercise) {
+      this.exercise = null
       this.clear()
-      return this.finish(false)
+      return this.finish(false, false)
+    } else {
+      this.exercise = _.cloneDeep(exercise)
+      this.start()
     }
-    this.exercise = _.cloneDeep(exercise)
-    this.start()
   }
 
   start() {
@@ -65,7 +67,7 @@ export class PresetsStore {
     }, 1000)
   }
 
-  finish(isComplete = true) {
+  finish(isComplete = true, updateSettings = true) {
     this.isExerciseFinished = true
     this.startTime = null
 
@@ -80,7 +82,7 @@ export class PresetsStore {
       )
     }
     this.reader.clear()
-    this.settings.loadFromStorage()
+    if (updateSettings) this.settings.loadFromStorage()
     this.exercise = null
   }
 

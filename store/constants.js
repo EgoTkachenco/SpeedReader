@@ -69,7 +69,7 @@ export const SPEED_LEVELS = {
 
 export const DEFAULT_SETTINGS = {
   speed: 1,
-  highlightColor: COLORS.violet,
+  highlightColor: COLORS.yellow,
   textColor: COLORS.dark,
   pageColor: COLORS.white,
   rotate: false,

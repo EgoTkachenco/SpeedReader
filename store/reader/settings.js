@@ -50,6 +50,12 @@ export class SettingsStore {
         settings.highlightTypeS = ''
         break
     }
+    if (key === 'book' && isUpdateLocalStorage) {
+      this.parent.presets.setExercise(null)
+      let localeConfig = localStorage.getItem(SETTINGS_LOCALE_STORAGE_KEY)
+      if (localeConfig) settings = JSON.parse(localeConfig)
+    }
+
     this.settings = { ...settings, [key]: formatedValue }
 
     if (this.useLocaleStorage && isUpdateLocalStorage)

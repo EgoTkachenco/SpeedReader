@@ -28,6 +28,7 @@ const ExerciseProgress = ({
     if (!audioLoaded) return
     if (!audioRef?.current) return
     // audioRef.current.volume = 0.2
+
     if (isPlay && startTime) {
       const currentTime = new Date().getTime() - startTime
       const currentTimePercent =
@@ -69,11 +70,18 @@ const ExerciseProgress = ({
     if (Array.isArray(exercise.audio) && exercise.audio.length > 0) {
       const passed_exercises =
         JSON.parse(localStorage.getItem('passed_exercises')) || {}
-      debugger
+
       const exercise_count = passed_exercises[exercise.id] || 0
       const audio_index = exercise_count % exercise.audio.length
       return exercise.audio[audio_index]
     }
+  }, [exercise])
+
+  const maxTime = useMemo(() => {
+    const duration = exercise
+      ? exercise.data.reduce((acc, el) => acc + el.duration, 0)
+      : 0
+    return formatTime(duration)
   }, [exercise])
 
   if (!exercise) return ''
@@ -104,11 +112,13 @@ const ExerciseProgress = ({
         {/* <div className="exercise-progress__step">
           {current_step} / {max_step}
         </div> */}
-        <div className="exercise-progress__step">{time}</div>
+        <div className="exercise-progress__step">
+          {time} / {maxTime}
+        </div>
 
         {/* audio volume */}
         <VolumeControl
-          value={audioRef.current?.volume || 0}
+          value={audioRef.current?.volume || 0.2}
           onChange={(value) => (audioRef.current.volume = value)}
         />
 

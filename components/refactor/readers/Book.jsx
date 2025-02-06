@@ -4,7 +4,7 @@ const ANIMATION_DURATION = 600
 
 export default function Book({
   settings,
-  text,
+  text = [],
   currentPosition,
   page,
   changePage,

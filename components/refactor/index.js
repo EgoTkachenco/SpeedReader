@@ -37,8 +37,12 @@ const TrainingPage = observer(() => {
         <ReaderSettings
           settings={settings}
           onReset={() => store.reset()}
-          onChange={(key, val) =>
-            store.settings.update(key, val, !store.presets.startTime)
+          onChange={(key, val, bool = undefined) =>
+            store.settings.update(
+              key,
+              val,
+              bool !== undefined ? bool : !store.presets.startTime
+            )
           }
           exercises={store.presets.exercises}
           exercise={store.presets.exercise}
@@ -54,6 +58,7 @@ const TrainingPage = observer(() => {
             <BookEnd />
           ) : (
             <ReaderView
+              books={store.books}
               reader={reader}
               settings={store.settings}
               text={reader.text}

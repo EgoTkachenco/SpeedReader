@@ -240,7 +240,7 @@ export class ReaderStore {
   // Start "Reader" mode
   onReaderStart() {
     this.mode = 'reader'
-    this.parent.presets.finish()
+    this.parent.presets.finish(false, false)
     this.parent.clearMessage()
     this.clear()
     this.parent.presets.clear()

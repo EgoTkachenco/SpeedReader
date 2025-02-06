@@ -55,7 +55,6 @@ const ReaderSettings = observer(
               books={books}
               settings={settings}
               onChange={(book) => {
-                onExerciseOpen(null)
                 onChange('book', book)
               }}
             />
@@ -108,11 +107,16 @@ const ReaderSettings = observer(
           </div>
           <div className="training-settings__delimiter" />
           <div className="training-settings__title">Number of lines</div>
-          <Select
+          {/* <Select
             value={numberOfLines}
             onChange={onNumberOfLinesChange}
             options={[1, 2, 4, 6]}
             top="true"
+					/> */}
+          <Slider
+            onChange={onNumberOfLinesChange}
+            value={[1, 2, 4, 6].indexOf(numberOfLines) + 1}
+            options={[1, 2, 4, 6]}
           />
           <div className="training-settings__delimiter" />
           <div className="training-settings__title">Speed</div>
@@ -179,43 +183,11 @@ const ReaderSettings = observer(
         <BookListModal
           value={book}
           onChange={(book) => {
-            onExerciseOpen(null)
-            onChange('book', book, !isExerciseActive)
+            onChange('book', book, true)
           }}
           books={books}
           settings={settings}
         />
-        <div className="training-settings__delimiter" />
-        <HowItWorksInfo />
-        <div className="training-settings__title">Power Learning Sets</div>
-        <div className="training-settings-list">
-          {exercises.map((el, i) => (
-            <ExerciseButton
-              key={i}
-              exercise={el}
-              isActive={exercise?.name === el.name}
-              onExerciseOpen={onExerciseOpen}
-            />
-          ))}
-          <Button
-            variant="success-outline"
-            onClick={() => reader.onReaderStart()}
-          >
-            Reader
-          </Button>
-        </div>
-        <div className="training-settings__delimiter" />
-        <div className="training-settings__title">Fonts</div>
-        <div className="training-settings-list__vertical">
-          {Object.values(SIZES).map((type) => (
-            <Checkbox
-              label={type.title}
-              key={type.key}
-              value={type.key === settings.fontType?.key}
-              onChange={() => onChange('fontType', type)}
-            />
-          ))}
-        </div>
         <div className="training-settings__delimiter" />
         <Button onClick={() => setShowCustom(!showCustom)}>
           Custom <img src="/arrow.svg" />
@@ -281,6 +253,37 @@ const ReaderSettings = observer(
             </div>
           </>
         )}
+        <div className="training-settings__delimiter" />
+        <HowItWorksInfo />
+        <div className="training-settings__title">Power Learning Sets</div>
+        <div className="training-settings-list">
+          {exercises.map((el, i) => (
+            <ExerciseButton
+              key={i}
+              exercise={el}
+              isActive={exercise?.name === el.name}
+              onExerciseOpen={onExerciseOpen}
+            />
+          ))}
+          <Button
+            variant="success-outline"
+            onClick={() => reader.onReaderStart()}
+          >
+            Reader
+          </Button>
+        </div>
+        <div className="training-settings__delimiter" />
+        <div className="training-settings__title">Fonts</div>
+        <div className="training-settings-list__vertical">
+          {Object.values(SIZES).map((type) => (
+            <Checkbox
+              label={type.title}
+              key={type.key}
+              value={type.key === settings.fontType?.key}
+              onChange={() => onChange('fontType', type)}
+            />
+          ))}
+        </div>
 
         {/* <div className="training-settings__delimiter" />
         <div className="training-settings__title">Highlight type (S)</div>
