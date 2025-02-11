@@ -764,7 +764,6 @@
     "name": "Exercise E",
     "audio": [
       "/music/Exercise E/Exercise E - Aiman MP3 True.mp3",
-      "/music/Exercise E/Exercise E - Jason MP3.mp3",
       "/music/Exercise E/Exercise E - Petro MP3.mp3"
     ],
     "data": [
@@ -1542,7 +1541,6 @@
     "audio": [
       "/music/Exercise H/Exercise H - Aiman MP3 True.mp3",
       "/music/Exercise H/Exercise H - Jake MP3.mp3",
-      "/music/Exercise H/Exercise H - Jason MP3.mp3",
       "/music/Exercise H/Exercise H - Petro MP3 (Rev 2).mp3"
     ],
     "data": [
@@ -2079,7 +2077,6 @@
     "id": 9,
     "name": "Exercise I",
     "audio": [
-      "/music/Exercise I/Exercise I - Aiman MP3.mp3",
       "/music/Exercise I/Exercise I - Jason MP3.mp3",
       "/music/Exercise I/Exercise I - Petro MP3.mp3"
     ],

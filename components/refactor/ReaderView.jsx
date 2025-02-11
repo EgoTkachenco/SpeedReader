@@ -231,7 +231,10 @@ const ReaderView = ({
         isFullScreen={settings.settings.fullscreen}
       />
       {/* MAIN READER */}
-      <div className={booksCount > 2 ? 'col-6 small' : 'col-12'}>
+      <div
+        className="col-12"
+        // className={booksCount > 2 ? 'col-6 small' : 'col-12'}
+      >
         <RenderReader
           key={0}
           order={0}

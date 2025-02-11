@@ -414,6 +414,21 @@
   font-size: 4rem;
 }
 
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-box-animation {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
 .quiz {
   display: flex;
   flex-direction: column;

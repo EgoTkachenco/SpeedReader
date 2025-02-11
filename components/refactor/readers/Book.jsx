@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { useState, useEffect, useMemo, useCallback } from 'react'
+import { SPEED_LEVELS } from '../../../store/constants'
 const ANIMATION_DURATION = 600
 
 export default function Book({
@@ -107,7 +108,7 @@ export default function Book({
           isRead={line.position <= currentPosition}
           background={settings.highlightColor}
           color={settings.textColor}
-          transition={speed}
+          transition={SPEED_LEVELS[speed]}
           isOdd={isOddAnimation}
           // isOdd={Math.floor(i / rowsPerLine) % 2 === 0}
           fontType={settings.fontType}
@@ -232,7 +233,7 @@ const Row = ({
         style={{
           background:
             isRead && children.trim().length ? background : 'transparent',
-          transition: `all ${isTransition ? transition : 0}ms`,
+          transition: `width ${isTransition ? transition : 0}ms`,
         }}
       />
       <pre>{children}</pre>
