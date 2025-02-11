@@ -232,8 +232,8 @@ const ReaderView = ({
       />
       {/* MAIN READER */}
       <div
-        className="col-12"
-        // className={booksCount > 2 ? 'col-6 small' : 'col-12'}
+        // className="col-12"
+        className={booksCount > 2 ? 'col-6 small' : 'col-12'}
       >
         <RenderReader
           key={0}
@@ -250,30 +250,30 @@ const ReaderView = ({
           rowsPerLine={rowsPerLine}
         />
       </div>
-      {/* ADDITIONAL READERS */}
 
-      {/* {booksCount > 1 && <div key={1} className={booksCount > 2 ? 'col-6 small' : 'col-12'}>
-          <RenderReader
-            key={1}
-            order={1}
-            text={text}
-            currentText={AdditianalReaderStore1.reader.currentText}
-            currentPosition={AdditianalReaderStore1.reader.currentPosition}
-            page={AdditianalReaderStore1.reader.page}
-            changePage={() => AdditianalReaderStore1.reader.changePage()}
-            maxPage={AdditianalReaderStore1.reader.last_page}
-            pause={() => AdditianalReaderStore1.reader.pause()}
-            play={() => AdditianalReaderStore1.reader.play()}
-            settings={settings.settings}
-            rowsPerLine={rowsPerLine}
-            books={books}
-            onBookChange={(book) => {
-              AdditianalReaderStore1.settings.update('book', book, false)
-              AdditianalReaderStore1.reader.start()
-            }}
-            isBookChosen={AdditianalReaderStore1.settings.settings.book}
-          />
-        </div>} */}
+      {/* ADDITIONAL READERS */}
+      {booksCount > 1 &&
+        new Array(booksCount - 1).fill(0).map((_, i) => (
+          <div
+            key={i + 1}
+            className={booksCount > 2 ? 'col-6 small' : 'col-12'}
+          >
+            <RenderReader
+              key={i + 1}
+              order={i + 1}
+              text={text}
+              currentText={currentText}
+              currentPosition={currentPosition}
+              page={page}
+              changePage={changePage}
+              maxPage={maxPage}
+              pause={pause}
+              play={play}
+              settings={settings.settings}
+              rowsPerLine={rowsPerLine}
+            />
+          </div>
+        ))}
 
       {/* {additionalReaders.map((reader, i) => {
         const Component = observer(({ reader, i }) => {
