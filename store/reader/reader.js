@@ -116,6 +116,8 @@ export class ReaderStore {
       const timeoutTime = this.settings.speed
 
       const { position, text } = this.next_position()
+      if (position === null) return
+
       // console.log(`[READER] Next iteration ${position}`)
       this.current_text = text
       this.current_position = position
