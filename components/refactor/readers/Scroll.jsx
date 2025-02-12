@@ -11,7 +11,7 @@ const Scroll = ({ settings, text, currentPosition, speed }) => {
       (line) => line.position < currentPosition
     ).length
     if (isTransition) {
-      ref.current.style.transitionDuration = speed + 'ms'
+      ref.current.style.transitionDuration = SPEED_LEVELS[speed] + 'ms'
     } else {
       ref.current.style.transitionDuration = 0 + 'ms'
     }

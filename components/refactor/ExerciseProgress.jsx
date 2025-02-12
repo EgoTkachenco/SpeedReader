@@ -149,7 +149,7 @@ const ExerciseProgress = ({
           ref={audioRef}
           src={exerciseAudio}
           style={{ opacity: 0, height: 0, width: 0 }}
-          loop
+          loop={false}
           volume={0.2}
           onCanPlayThrough={() => setAudioLoaded(true)}
         />

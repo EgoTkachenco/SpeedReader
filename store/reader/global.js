@@ -83,8 +83,9 @@ reaction(
     if (fontType) {
       console.log('reaction font')
       store.reader.clearText()
-
-      if (store.reader.current_position !== -1) store.reader.loadText(false)
+      if (store.reader.current_position !== -1) {
+        store.reader.loadText(true)
+      }
     }
   }
 )

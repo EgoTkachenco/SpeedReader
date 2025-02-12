@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { CSSTransition } from 'react-transition-group'
+import { SPEED_LEVELS } from '../../../store/constants'
 
 export default function Zoom({ settings, text, speed }) {
   const [state, setState] = useState(null)
@@ -32,7 +33,7 @@ export default function Zoom({ settings, text, speed }) {
       <style>
         {`
 					.zoom-enter-active {
-						animation-duration: ${speed > 100 ? speed : 0}ms;
+						animation-duration: ${SPEED_LEVELS[speed]}ms;
 					}
 				`}
       </style>

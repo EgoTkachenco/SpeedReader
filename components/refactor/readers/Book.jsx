@@ -55,7 +55,7 @@ export default function Book({
     )
 
     return currentPages
-  }, [page, text, settings])
+  }, [page, text, settings.fontType])
 
   useEffect(() => {
     const isChanged = prevPage !== page

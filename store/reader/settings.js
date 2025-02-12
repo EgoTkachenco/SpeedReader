@@ -16,6 +16,8 @@ export class SettingsStore {
     this.parent = parent
     this.useLocaleStorage = useLocaleStorage
     if (useLocaleStorage && process.browser) this.loadFromStorage()
+
+    if (this.settings.book) setTimeout(() => this.parent.reader.start(), 1000)
   }
 
   async loadFromStorage() {

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { CSSTransition } from 'react-transition-group'
+import { SPEED_LEVELS } from '../../../store/constants'
 
 export default function Rolling({ settings, text, speed }) {
   const [state, setState] = useState(null)
@@ -21,12 +22,16 @@ export default function Rolling({ settings, text, speed }) {
       <style>
         {`
 					.rolling-enter-active, .rolling-exit-active {
-						transition: transform ${speed * 0.25}ms;
+						transition: transform ${SPEED_LEVELS[speed]}ms;
 					}
 				`}
       </style>
       <div className="rolling-reader-content">
-        <CSSTransition in={state} timeout={speed} classNames="rolling">
+        <CSSTransition
+          in={state}
+          timeout={SPEED_LEVELS[speed]}
+          classNames="rolling"
+        >
           <div>
             {text.map(({ text, position }) => (
               <pre key={position}>{text}</pre>

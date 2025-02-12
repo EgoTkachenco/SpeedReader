@@ -9,13 +9,13 @@ import ReaderModeStatistics from './ReaderModeStatistics'
 import AuthStore from '../../store'
 
 const TrainingPage = observer(() => {
-  useEffect(() => {
-    if (process.browser && store.settings.settings.book) store.reader.start()
+  // useEffect(() => {
+  //   if (process.browser && store.settings.settings.book) store.reader.start()
 
-    return () => {
-      store.reader.clear()
-    }
-  }, [])
+  //   return () => {
+  //     store.reader.clear()
+  //   }
+  // }, [])
 
   if (!process.browser || store.books.length === 0) return ''
 

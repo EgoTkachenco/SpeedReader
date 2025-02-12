@@ -13,7 +13,6 @@ import { Store as GlobalStore } from '../../store/reader/global'
 import BookListModal from './BookListModal'
 import { observer } from 'mobx-react-lite'
 import { ReaderStore } from '../../store/reader/reader'
-import { SettingsStore } from '../../store/reader/settings'
 
 const ReaderView = ({
   reader,
@@ -233,7 +232,7 @@ const ReaderView = ({
       {/* MAIN READER */}
       <div
         // className="col-12"
-        className={booksCount > 2 ? 'col-6 small' : 'col-12'}
+        className={booksCount > 1 ? 'col-6 small' : 'col-12'}
       >
         <RenderReader
           key={0}
@@ -256,7 +255,7 @@ const ReaderView = ({
         new Array(booksCount - 1).fill(0).map((_, i) => (
           <div
             key={i + 1}
-            className={booksCount > 2 ? 'col-6 small' : 'col-12'}
+            className={booksCount > 1 ? 'col-6 small' : 'col-12'}
           >
             <RenderReader
               key={i + 1}
