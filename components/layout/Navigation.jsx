@@ -37,31 +37,31 @@ const Navigation = observer(() => {
 export default Navigation
 
 const LINKS = () => [
-  {
-    pathname: 'https://readinggenius.com/user-dashboard/',
-    name: 'Dashboard',
-    icon: <HomeIcon />,
-  },
-  {
-    pathname: 'https://readinggenius.com/all-lessons/',
-    name: 'My lessons',
-    icon: <CoursesIcon />,
-  },
+  // {
+  //   pathname: 'https://readinggenius.com/user-dashboard/',
+  //   name: 'Dashboard',
+  //   icon: <HomeIcon />,
+  // },
+  // {
+  //   pathname: 'https://readinggenius.com/all-lessons/',
+  //   name: 'My lessons',
+  //   icon: <CoursesIcon />,
+  // },
   {
     pathname: '/',
     name: 'Training Center',
     icon: <TrainingIcon />,
   },
-  {
-    pathname: `https://readinggenius.com/members/${store.user.slug}`,
-    name: 'Profile',
-    icon: <ProfileIcon />,
-  },
-  {
-    pathname: '/testing-center',
-    name: 'Testing Center',
-    icon: <TestingIcon />,
-  },
+  // {
+  //   pathname: `https://readinggenius.com/members/${store.user.slug}`,
+  //   name: 'Profile',
+  //   icon: <ProfileIcon />,
+  // },
+  // {
+  //   pathname: '/testing-center',
+  //   name: 'Testing Center',
+  //   icon: <TestingIcon />,
+  // },
   {
     pathname: '/dashboard',
     name: 'Statistics',

@@ -2448,6 +2448,11 @@
   {
     "id": 10,
     "name": "Exercise J",
+    "audio": [
+      "/music/Exercise J/Exercise J - Aiman.mp3",
+      "/music/Exercise J/Exercise J - Mimic Jason.mp3",
+      "/music/Exercise J/Exercise J - Mimic Petro .mp3"
+    ],
     "data": [
       {
         "action": {
