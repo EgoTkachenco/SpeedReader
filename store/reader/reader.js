@@ -332,7 +332,7 @@ export class ReaderStore {
   }
   get block_size() {
     const PAGE_SIZE = this.settings.settings.fontType.page
-    return PAGE_SIZE * 64
+    return PAGE_SIZE * 128
   }
   get last_page() {
     const PAGE_SIZE = this.settings.settings.fontType.page
