@@ -31,22 +31,24 @@ const MessageBox = ({ message, onClose }) => {
 export default MessageBox
 
 const ExerciseMessage = ({ perMinuteCount, speed, onClose = () => {} }) => {
+  // return (
+
+  // )
   return (
-    <div className="message-box-animation">
-      <div
-        className="dashboard-statistic"
-        style={{ width: '100%', alignSelf: 'flex-start', textAlign: 'center' }}
-      >
-        <h4 style={{ width: '100%', margin: '24px 0' }}>
-          Congratulations on completing the exercise! Keep up the great work!
-        </h4>
-        <h6 style={{ width: '100%', margin: '12px 0' }}>Exercise Statistics</h6>
+    <div
+      className="dashboard-statistic message-box-animation"
+      style={{ width: '100%', alignSelf: 'flex-start', textAlign: 'center' }}
+    >
+      <video
+        src="/Deep Male Voice opt1 v2.webm"
+        autoPlay
+        style={{ width: '100%', height: '100%' }}
+      />
+      {/* <h6 style={{ width: '100%', margin: '12px 0' }}>Exercise Statistics</h6> */}
 
-        <PerMinuteReadingStatistic value={perMinuteCount} />
-        <CurrentSpeedReadingStatistic value={speed} />
-
-        <Button onClick={onClose}>Close</Button>
-      </div>
+      <PerMinuteReadingStatistic value={perMinuteCount} />
+      <CurrentSpeedReadingStatistic value={speed} />
+      <Button onClick={onClose}>Close</Button>
     </div>
   )
 }
