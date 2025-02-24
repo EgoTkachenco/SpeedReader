@@ -43,7 +43,8 @@ export class ReaderStore {
 
     const new_text = await BOOKS_API.getBookText(book.id, {
       _start: _start,
-      _limit: this.block_size,
+      // _limit: this.block_size,
+      _limit: -1,
       size: this.settings.settings.fontType.row,
     })
     const o_b = this.text

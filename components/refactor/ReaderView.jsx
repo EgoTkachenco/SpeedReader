@@ -13,6 +13,7 @@ import { Store as GlobalStore } from '../../store/reader/global'
 import BookListModal from './BookListModal'
 import { observer } from 'mobx-react-lite'
 import { ReaderStore } from '../../store/reader/reader'
+import { reaction } from 'mobx'
 
 const ReaderView = ({
   reader,
@@ -145,74 +146,73 @@ const ReaderView = ({
   useEffect(() => {
     if (booksCount > 1) {
       setAdditionalReaders(
-        new Array(booksCount - 1).fill(
-          // new ReaderStore({
-          //   settings: new SettingsStore(null, false),
-          //   clearMessage: () => {},
-          //   presets: {
-          //     finish: () => {},
-          //     clear: () => {},
-          //     exercise: false,
-          //     exerciseTimeout: null,
-          //     startTime: null,
-          //   },
-          // })
-          new ReaderStore(new GlobalStore(false))
-        )
+        new Array(booksCount - 1).fill(null).map((_, i) => {
+          const reader = new ReaderStore(new GlobalStore(false))
+          reaction(
+            () => reader.parent.settings.settings.fontType || '',
+            (fontType, prev_fontType) => {
+              const isChanged = fontType?.key !== prev_fontType?.key
+              if (!isChanged) return
+
+              if (fontType) {
+                console.log('reaction font')
+                reader.clearText()
+                if (reader.current_position !== -1) {
+                  reader.loadText(true)
+                }
+              }
+            }
+          )
+          const Component = observer(({ reader }) => {
+            return (
+              <div
+                key={i + 1}
+                className={booksCount > 1 ? 'col-6 small' : 'col-12'}
+              >
+                <RenderReader
+                  key={i + 1}
+                  order={i + 1}
+                  text={reader.text}
+                  currentText={reader.current_text}
+                  currentPosition={reader.current_position}
+                  page={reader.page}
+                  changePage={() => reader.changePage()}
+                  maxPage={reader.last_page}
+                  pause={() => reader.stop()}
+                  play={() => reader.play()}
+                  settings={settings.settings}
+                  rowsPerLine={rowsPerLine}
+                  books={books}
+                  onBookChange={(book) => {
+                    reader.parent.settings.update('book', book, false)
+                    reader.start()
+                  }}
+                  isBookChosen={reader?.parent?.settings.settings.book}
+                />
+              </div>
+            )
+          })
+          return { component: <Component reader={reader} />, reader }
+        })
       )
     } else {
       setAdditionalReaders([])
     }
   }, [booksCount])
 
-  // const renderAdditionalReaders = useCallback(() => {
-  //   debugger
-  //   return additianalReaders.map((reader, i) => (
-  //     <div key={i + 1} className={booksCount > 2 ? 'col-6 small' : 'col-12'}>
-  //       <RenderReader
-  //         key={i + 1}
-  //         order={i + 1}
-  //         text={text}
-  //         currentText={reader.currentText}
-  //         currentPosition={reader.currentPosition}
-  //         page={reader.page}
-  //         changePage={() => reader.changePage()}
-  //         maxPage={reader.last_page}
-  //         pause={() => reader.pause()}
-  //         play={() => reader.play()}
-  //         settings={settings.settings}
-  //         rowsPerLine={rowsPerLine}
-  //         books={books}
-  //         onBookChange={(book) => {
-  //           reader.parent.settings.update('book', book, false)
-  //           reader.start()
-  //         }}
-  //         isBookChosen={reader.parent.settings.settings.book}
-  //       />
-  //     </div>
-  //   ))
-  // }, [
-  //   additionalReaders,
-  //   currentText,
-  //   currentPosition,
-  //   page,
-  //   changePage,
-  //   maxPage,
-  //   pause,
-  //   play,
-  //   settings.settings,
-  //   rowsPerLine,
-  // ])
-
   useEffect(() => {
+    updateAdditionalReadersSettings()
+  }, [settings.settings, additionalReaders])
+
+  const updateAdditionalReadersSettings = useCallback(() => {
     const exceptions_keys = ['book', 'fullscreen']
     for (const key in settings.settings) {
       if (exceptions_keys.includes(key)) continue
       for (const store of additionalReaders) {
-        store.settings.update(key, settings.settings[key], false)
+        store.reader.parent.settings.update(key, settings.settings[key], false)
       }
     }
-  }, [settings.settings])
+  }, [additionalReaders])
 
   // const isBookChosen = !!settings.settings.book
   // if (!isBookChosen) return null
@@ -250,65 +250,7 @@ const ReaderView = ({
         />
       </div>
 
-      {/* ADDITIONAL READERS */}
-      {booksCount > 1 &&
-        new Array(booksCount - 1).fill(0).map((_, i) => (
-          <div
-            key={i + 1}
-            className={booksCount > 1 ? 'col-6 small' : 'col-12'}
-          >
-            <RenderReader
-              key={i + 1}
-              order={i + 1}
-              text={text}
-              currentText={currentText}
-              currentPosition={currentPosition}
-              page={page}
-              changePage={changePage}
-              maxPage={maxPage}
-              pause={pause}
-              play={play}
-              settings={settings.settings}
-              rowsPerLine={rowsPerLine}
-            />
-          </div>
-        ))}
-
-      {/* {additionalReaders.map((reader, i) => {
-        const Component = observer(({ reader, i }) => {
-          return (
-            <div
-              key={i + 1}
-              className={booksCount > 2 ? 'col-6 small' : 'col-12'}
-            >
-              <RenderReader
-                key={i + 1}
-                order={i + 1}
-                text={text}
-                currentText={reader.currentText}
-                currentPosition={reader.currentPosition}
-                page={reader.page}
-                changePage={() => reader.changePage()}
-                maxPage={reader.last_page}
-                pause={() => reader.pause()}
-                play={() => reader.play()}
-                settings={settings.settings}
-                rowsPerLine={rowsPerLine}
-                books={books}
-                onBookChange={(book) => {
-                  reader.parent.settings.update('book', book, false)
-                  reader.start()
-                }}
-                isBookChosen={reader?.parent?.settings.settings.book}
-              />
-            </div>
-          )
-        })
-
-        return <Component reader={reader} i={i} key={i + 1} />
-      })} */}
-
-      {/* {renderAdditionalReaders()} */}
+      {additionalReaders.map(({ component }) => component)}
 
       {showReaderStats && (
         <ReaderModeFinish
