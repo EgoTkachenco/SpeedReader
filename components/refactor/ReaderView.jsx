@@ -39,102 +39,6 @@ const ReaderView = ({
   user,
   books,
 }) => {
-  // const renderReader = (key, store) => {
-  //   const currentTextValue = store ? store.reader.currentText : currentText
-  //   const textValue = store ? store.reader.text : text
-  //   const currentPositionValue = store
-  //     ? store.reader.currentPosition
-  //     : currentPosition
-  //   const pageValue = store ? store.reader.page : page
-  //   const changePageValue = store ? store.reader.changePage : changePage
-  //   const maxPageValue = store ? store.reader.last_page : maxPage
-  //   const pauseValue = store
-  //     ? () => {
-  //         debugger
-  //         store.reader.pause()
-  //       }
-  //     : pause
-  //   const playValue = store
-  //     ? () => {
-  //         debugger
-  //         store.reader.play()
-  //       }
-  //     : play
-
-  //   const isBookChosen = store ? store.settings.settings.book : true
-
-  //   if (!isBookChosen) {
-  //     return (
-  //       <div>
-  //         <BookListModal
-  //           books={books}
-  //           settings={settings.settings}
-  //           onChange={(book) => {
-  //             store.settings.update('book', book, false)
-  //             debugger
-  //             store.reader.start()
-  //           }}
-  //         />
-  //       </div>
-  //     )
-  //   }
-
-  //   switch (settings.settings.type) {
-  //     // switch ('scroll') {
-  //     case 'zoom':
-  //       return (
-  //         <ZoomReader
-  //           settings={settings.settings}
-  //           text={currentTextValue}
-  //           speed={settings.speed}
-  //         />
-  //       )
-  //     // case 'scrambled':
-  //     //   return (
-  //     //     <ScrambledReader
-  //     //       settings={settings}
-  //     //       isFullScreen={isFullScreen}
-  //     //       onFullScreenChange={onFullScreenChange}
-  //     //     />
-  //     // 	)
-  //     case 'rolling':
-  //       return (
-  //         <RollingReader
-  //           settings={settings.settings}
-  //           text={currentTextValue}
-  //           speed={settings.speed}
-  //         />
-  //       )
-  //     case 'scroll':
-  //       return (
-  //         <ScrollReader
-  //           settings={settings.settings}
-  //           currentPosition={currentPositionValue}
-  //           text={textValue}
-  //           speed={settings.speed}
-  //         />
-  //       )
-  //     case 'book':
-  //       return (
-  //         <BookReader
-  //           settings={settings.settings}
-  //           text={textValue}
-  //           currentPosition={currentPositionValue}
-  //           page={pageValue}
-  //           changePage={changePageValue}
-  //           maxPage={maxPageValue}
-  //           speed={settings.speed}
-  //           rowsPerLine={rowsPerLine}
-  //           animationKey={key}
-  //           onAnimationStart={pauseValue}
-  //           onAnimationEnd={playValue}
-  //         />
-  //       )
-  //     default:
-  //       return '---'
-  //   }
-  // }
-
   const booksCount = useMemo(
     () =>
       !isNaN(Number(settings.settings.count))
@@ -155,7 +59,6 @@ const ReaderView = ({
               if (!isChanged) return
 
               if (fontType) {
-                console.log('reaction font')
                 reader.clearText()
                 if (reader.current_position !== -1) {
                   reader.loadText(true)
@@ -163,6 +66,7 @@ const ReaderView = ({
               }
             }
           )
+
           const Component = observer(({ reader }) => {
             return (
               <div
@@ -184,14 +88,17 @@ const ReaderView = ({
                   rowsPerLine={rowsPerLine}
                   books={books}
                   onBookChange={(book) => {
+                    debugger
                     reader.parent.settings.update('book', book, false)
                     reader.start()
                   }}
                   isBookChosen={reader?.parent?.settings.settings.book}
+                  initialBook={reader?.parent?.settings.settings.book?.id}
                 />
               </div>
             )
           })
+
           return { component: <Component reader={reader} />, reader }
         })
       )
@@ -205,17 +112,27 @@ const ReaderView = ({
   }, [settings.settings, additionalReaders])
 
   const updateAdditionalReadersSettings = useCallback(() => {
-    const exceptions_keys = ['book', 'fullscreen']
+    const exceptions_keys = ['fullscreen']
+    let i = 0
     for (const key in settings.settings) {
       if (exceptions_keys.includes(key)) continue
       for (const store of additionalReaders) {
-        store.reader.parent.settings.update(key, settings.settings[key], false)
+        i++
+        if (key === 'book') {
+          store.reader.parent.settings.update(
+            key,
+            { id: (+settings.settings[key]?.id || 0) + i }, //next book
+            false
+          )
+        } else
+          store.reader.parent.settings.update(
+            key,
+            settings.settings[key],
+            false
+          )
       }
     }
   }, [additionalReaders])
-
-  // const isBookChosen = !!settings.settings.book
-  // if (!isBookChosen) return null
 
   return (
     <div
@@ -303,20 +220,14 @@ const RenderReader = observer(
     rowsPerLine,
     isBookChosen = true,
     onBookChange = () => {},
+    initialBook,
   }) => {
-    // const currentTextValue = store ? store.reader.currentText : currentText
-    // const textValue = store ? store.reader.text : text
-    // const currentPositionValue = store
-    //   ? store.reader.currentPosition
-    //   : currentPosition
-    // const pageValue = store ? store.reader.page : page
-    // const changePageValue = store ? store.reader.changePage : changePage
-    // const maxPageValue = store ? store.reader.last_page : maxPage
-    // const pauseValue = store ? store.reader.pause : pause
-    // const playValue = store ? store.reader.play : play
-
-    // const isBookChosen = store ? store.settings.settings.book : true
     const key = order
+    useEffect(() => {
+      if (initialBook) {
+        onBookChange(books.find((book) => book.id === initialBook))
+      }
+    }, [initialBook])
 
     if (!isBookChosen) {
       return (
@@ -329,6 +240,8 @@ const RenderReader = observer(
         </div>
       )
     }
+
+    if (!settings.book) return null
 
     switch (settings.type) {
       // switch ('scroll') {

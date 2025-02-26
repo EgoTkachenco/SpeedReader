@@ -15,15 +15,21 @@ export class SettingsStore {
     })
     this.parent = parent
     this.useLocaleStorage = useLocaleStorage
-    if (useLocaleStorage && process.browser) this.loadFromStorage()
+    if (useLocaleStorage && process.browser) this.loadFromStorage(true)
 
-    if (this.settings.book) setTimeout(() => this.parent.reader.start(), 1000)
+    // if (this.settings.book) setTimeout(() => this.parent.reader.start(), 1000)
   }
 
-  async loadFromStorage() {
+  async loadFromStorage(initial = false) {
     let localeConfig = localStorage.getItem(SETTINGS_LOCALE_STORAGE_KEY)
-    if (localeConfig) this.settings = JSON.parse(localeConfig)
-    else this.reset()
+    if (localeConfig) {
+      const settings = JSON.parse(localeConfig)
+      if (initial) {
+        settings.book = null
+        settings.count = 1
+      }
+      this.settings = settings
+    } else this.reset()
   }
 
   reset(isUpdateLocalStorage = true) {

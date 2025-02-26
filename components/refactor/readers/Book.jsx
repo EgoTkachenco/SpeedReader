@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { SPEED_LEVELS } from '../../../store/constants'
+import Loader from '../../layout/Loader'
 const ANIMATION_DURATION = 600
 
 export default function Book({
@@ -123,6 +124,31 @@ export default function Book({
 
   const page1Name = 'page-1_' + animationKey
   const page2Name = 'page-2_' + animationKey
+
+  const isLoading = state.length === 0 || state[0].length === 0
+  if (isLoading)
+    return (
+      <BookWrapper
+        rotate={settings.rotate}
+        type={highlightType}
+        fontType={settings.fontType}
+      >
+        <div
+          className="book-inner"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: settings.pageColor,
+            minHeight: `calc(${settings.fontType.page} * (${settings.fontType.fontSize} + 0.25rem) + 9rem)`,
+          }}
+        >
+          <div>
+            <div className="loader-spin" />
+          </div>
+        </div>
+      </BookWrapper>
+    )
 
   return (
     <BookWrapper

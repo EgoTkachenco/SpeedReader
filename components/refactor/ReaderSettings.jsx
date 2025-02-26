@@ -194,17 +194,16 @@ const ReaderSettings = observer(
         </Button>
         {showCustom && (
           <>
-            <div className="training-settings__title">№ of book</div>
-            {/* <Select
-              value={settings.count}
-              onChange={(value) => onChange('count', value)}
-              options={[1, 2, 4]}
-						/> */}
-            <Slider
-              options={[1, 2, 4]}
-              onChange={(value) => onChange('count', value)}
-              value={settings.count}
-            />
+            {!exercise && (
+              <>
+                <div className="training-settings__title">№ of book</div>
+                <Slider
+                  options={[1, 2, 4]}
+                  onChange={(value) => onChange('count', value)}
+                  value={settings.count}
+                />
+              </>
+            )}
             <div className="training-settings__title">Speed</div>
             {/* <Select
               onChange={(value) => onChange('speed', value)}

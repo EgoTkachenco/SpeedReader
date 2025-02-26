@@ -251,8 +251,60 @@ pre {
   }
 }
 
+.loader-spin {
+  width: 60px;
+  aspect-ratio: 1;
+  border: 15px solid #ddd;
+  border-radius: 50%;
+  position: relative;
+  transform: rotate(45deg);
+}
+.loader-spin::before {
+  content: '';
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  border: 15px solid #0693e3;
+  animation: l18 2s infinite linear;
+}
+@keyframes l18 {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}
+
+// .color-pallete {
+//   color: #ffffff;
+//   color: #000000;
+//   color: #ae1ce1;
+//   color: #2a2b43;
+//   color: #fcb900;
+//   color: #afff83;
+//   color: #00d084;
+//   color: #8ed1fc;
+//   color: #0693e3;
+//   color: #abb8c3;
+//   color: #ffffff;
+//   color: #f78da7;
+//   color: #eb1d36;
+//   color: #ffa500;
+// }
+
 @import './reader/index.scss';
 @import './auth.scss';
 @import './testing.scss';
 @import './training.scss';
 @import './dashboard.scss';
+@import './exercise.scss';
