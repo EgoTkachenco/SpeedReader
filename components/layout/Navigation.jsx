@@ -48,8 +48,8 @@ const LINKS = () => [
   //   icon: <CoursesIcon />,
   // },
   {
-    pathname: '/',
-    name: 'Training Center',
+    pathname: 'https://www.readinggenius.com/library',
+    name: 'Back to Reading Genius Dashboard',
     icon: <TrainingIcon />,
   },
   // {
@@ -62,11 +62,11 @@ const LINKS = () => [
   //   name: 'Testing Center',
   //   icon: <TestingIcon />,
   // },
-  {
-    pathname: '/dashboard',
-    name: 'Statistics',
-    icon: <StatisticIcon />,
-  },
+  // {
+  //   pathname: '/dashboard',
+  //   name: 'Statistics',
+  //   icon: <StatisticIcon />,
+  // },
 ]
 
 const HomeIcon = () => (
