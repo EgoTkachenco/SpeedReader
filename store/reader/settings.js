@@ -62,6 +62,7 @@ export class SettingsStore {
       this.parent.presets.setExercise(null)
       let localeConfig = localStorage.getItem(SETTINGS_LOCALE_STORAGE_KEY)
       if (localeConfig) settings = JSON.parse(localeConfig)
+      settings.count = 1
     }
 
     this.settings = { ...settings, [key]: formatedValue }

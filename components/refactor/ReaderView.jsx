@@ -47,6 +47,7 @@ const ReaderView = ({
     [settings.settings.count]
   )
   const [additionalReaders, setAdditionalReaders] = useState([])
+
   useEffect(() => {
     if (booksCount > 1) {
       setAdditionalReaders(
@@ -88,17 +89,19 @@ const ReaderView = ({
                   rowsPerLine={rowsPerLine}
                   books={books}
                   onBookChange={(book) => {
-                    debugger
                     reader.parent.settings.update('book', book, false)
                     reader.start()
                   }}
                   isBookChosen={reader?.parent?.settings.settings.book}
-                  initialBook={reader?.parent?.settings.settings.book?.id}
+                  initialBook={
+                    settings?.settings?.book?.id
+                      ? settings?.settings?.book?.id + i + 1
+                      : null
+                  }
                 />
               </div>
             )
           })
-
           return { component: <Component reader={reader} />, reader }
         })
       )
@@ -112,7 +115,7 @@ const ReaderView = ({
   }, [settings.settings, additionalReaders])
 
   const updateAdditionalReadersSettings = useCallback(() => {
-    const exceptions_keys = ['fullscreen']
+    const exceptions_keys = ['fullscreen', 'count']
     let i = 0
     for (const key in settings.settings) {
       if (exceptions_keys.includes(key)) continue
@@ -121,7 +124,7 @@ const ReaderView = ({
         if (key === 'book') {
           store.reader.parent.settings.update(
             key,
-            { id: (+settings.settings[key]?.id || 0) + i }, //next book
+            books.find((book) => book.id === settings.settings.book.id + 1), //next book
             false
           )
         } else
@@ -133,6 +136,10 @@ const ReaderView = ({
       }
     }
   }, [additionalReaders])
+
+  useEffect(() => {
+    console.log('Book changed', settings.book)
+  }, [settings.book])
 
   return (
     <div

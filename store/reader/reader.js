@@ -133,7 +133,8 @@ export class ReaderStore {
           ? this.text[this.text.length - 1].position === this.last_position
           : true
 
-      if (is_need_block && !is_last_block && !this.isFetch) this.loadText()
+      // Deprecated as we have to load all text at once for now
+      // if (is_need_block && !is_last_block && !this.isFetch) this.loadText()
 
       // if book not end, continue
       if (this.current_position <= this.last_position - 1) {
@@ -336,6 +337,7 @@ export class ReaderStore {
     return PAGE_SIZE * 128
   }
   get last_page() {
+    debugger
     const PAGE_SIZE = this.settings.settings.fontType.page
     return Math.ceil(this.last_position / PAGE_SIZE)
   }
